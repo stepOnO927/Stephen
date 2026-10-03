@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#090e11">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 44%27%3E%3Cpath fill=%27%23132329%27 stroke=%27%2392b7b0%27 d=%27M20 2 37 12V32L20 42 3 32V12Z%27/%3E%3Cpath fill=%27%2392b7b0%27 d=%27M20 11 29 17V27L20 33 11 27V17Z%27/%3E%3C/svg%3E">
   <meta name="description" content="深渊孵化室，一款离线运行的二维怪物养成游戏。">
   <title>ABYSS LAB · 深渊孵化室</title>
   <style data-source="style.css">
@@ -4686,6 +4687,7 @@ Abyss.EnglishCatalog={
   "未完全验证的旧世界生物配方。使用前查看收益与代价。": "An incompletely verified old-world biological formula. Check benefits and costs before use.",
   "一次不可撤回的虚构试验；可能收益与惩罚随稀有度提高。": "An irreversible fictional trial; rewards and penalties rise with rarity.",
   "日末活动、合身装扮与留下的生活": "Evening Activities, Tailored Outfits and Lives That Remain",
+  "公开试玩已上线：stepono927.github.io/Stephen。公开版使用本地对白，本机保留服务器端 AI。": "Public game is live at stepono927.github.io/Stephen. The public version uses local dialogue; server-side AI remains on the private local server.",
   "装扮随八种变异体型调整；剧情期间普通行动锁定，日末收尾后可以活动，主线选择免费。": "Accessories adjust to eight mutated bodies. Ordinary actions wait for the evening activity window; story decisions are free.",
   "居所场景 80 条、梦境 75 条；五个主要梦有三段独立场景。营地 20 条、基础食物 15 种。": "80 home observations and 75 dreams; five major dreams have three distinct stages. There are 20 camp scenes and 15 basic foods.",
   "20 位人物拥有 100 条独立关系回应；加入 20 条跨代观察、15 条遗物场景与 10 条回声观察。": "Twenty characters have 100 distinct relationship responses, with 20 legacy observations, 15 keepsake scenes and 10 echo observations.",
@@ -4722,7 +4724,7 @@ Abyss.EnglishCatalog={
   "加入 15 个梦、世界线回声、连续性选择、12 个成就和 6 张背景。": "Added 15 dreams, worldline echoes, continuity choices, 12 achievements and 6 backgrounds.",
   "修复第二代继承旧身体创伤、人物网络丢失、姓名静默重置及房间记忆英文不完整的问题。": "Fixed inherited bodily trauma, lost NPC networks, silent name resets and incomplete English room memories.",
   "这不是完整内容版：大量房间、旅行、人物、遗产和梦境场景仍待扩展。": "This is not the full content release: many room, travel, social, legacy and dream scenes remain to be expanded.",
-  "公开网站上传受环境审批限制，尚未上线；公开预备版暂用本地对白。": "Public website upload is blocked by environment approval restrictions and is not live; the prepared public build uses local dialogue.",
+  "当时公开网站上传受环境限制，未上线；网站现已通过 GitHub 发布，详见最新日志。": "At that release, website upload was blocked by environment restrictions. The site is now published through GitHub; see the latest entry.",
   "此前更新回顾": "Earlier updates",
   "Mia 的剧情显示名改为 Jasmine，保留旧存档线索兼容。": "Changed the story display name Mia to Jasmine while retaining compatibility with old save clues.",
   "Jack 的 20 章剧情、日记、粗口强度设置和扩展结局已接入；主线选择不消耗 AP。": "Integrated Jack’s 20-chapter story, journal, profanity settings and expanded endings; main story choices cost no AP.",
@@ -12319,7 +12321,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
- {date:'2026-10-04',title:t('日末活动、合身装扮与留下的生活','Evening Activities, Tailored Outfits and Lives That Remain'),items:[t('装扮随八种变异体型调整；剧情期间普通行动锁定，日末收尾后可以活动，主线选择免费。','Accessories adjust to eight mutated bodies. Ordinary actions wait for the evening activity window; story decisions are free.'),t('居所场景 80 条、梦境 75 条；五个主要梦有三段独立场景。营地 20 条、基础食物 15 种。','80 home observations and 75 dreams; five major dreams have three distinct stages. There are 20 camp scenes and 15 basic foods.'),t('20 位人物拥有 100 条独立关系回应；加入 20 条跨代观察、15 条遗物场景与 10 条回声观察。','Twenty characters have 100 distinct relationship responses, with 20 legacy observations, 15 keepsake scenes and 10 echo observations.'),t('区域旅行接入现有探索事件；修复读档、人物见面次数、英文残留与尾部裁剪。','Regional travel uses the existing expedition encounters; fixed reload behavior, repeated meeting counts, English text and tail clipping.')],pending:[t('阵营长篇支线、完整梦境关卡、复杂战争与云端 AI 后端仍未完成。','Long faction stories, full dream levels, complex warfare and a cloud AI backend remain unfinished.')]},
+ {date:'2026-10-04',title:t('日末活动、合身装扮与留下的生活','Evening Activities, Tailored Outfits and Lives That Remain'),items:[t('公开试玩已上线：stepono927.github.io/Stephen。公开版使用本地对白，本机保留服务器端 AI。','Public game is live at stepono927.github.io/Stephen. The public version uses local dialogue; server-side AI remains on the private local server.'),t('装扮随八种变异体型调整；剧情期间普通行动锁定，日末收尾后可以活动，主线选择免费。','Accessories adjust to eight mutated bodies. Ordinary actions wait for the evening activity window; story decisions are free.'),t('居所场景 80 条、梦境 75 条；五个主要梦有三段独立场景。营地 20 条、基础食物 15 种。','80 home observations and 75 dreams; five major dreams have three distinct stages. There are 20 camp scenes and 15 basic foods.'),t('20 位人物拥有 100 条独立关系回应；加入 20 条跨代观察、15 条遗物场景与 10 条回声观察。','Twenty characters have 100 distinct relationship responses, with 20 legacy observations, 15 keepsake scenes and 10 echo observations.'),t('区域旅行接入现有探索事件；修复读档、人物见面次数、英文残留与尾部裁剪。','Regional travel uses the existing expedition encounters; fixed reload behavior, repeated meeting counts, English text and tail clipping.')],pending:[t('阵营长篇支线、完整梦境关卡、复杂战争与云端 AI 后端仍未完成。','Long faction stories, full dream levels, complex warfare and a cloud AI backend remain unfinished.')]},
  {date:'2026-10-04',title:t('潮汐拾遗与夜班档案','Tidal Relics and the Night Archive'),items:[t('新增 20 件独立建模装扮，覆盖十个部位，装扮总数达到 170；从探索和废料抽取获得，部分生活纪念可自然解锁。','Added 20 individually modeled accessories across ten slots, bringing the total to 170; find them in expeditions and scrap draws, with some everyday keepsakes unlocking naturally.'),t('新增两组隐藏服装共鸣。已经兑换过全收藏的存档自动补齐新装扮。','Added two hidden outfit resonances. Saves with the full-collection code automatically receive the new accessories.')],pending:[]},
  {date:'2026-10-04',title:t('收藏美术整改：道具雕塑与高级服饰','Collection Art: Object Sculpture and Couture'),items:[t('探索道具去除三种通用模板：鱼、营养袋、齿轮、线圈、腕带、耳机、手轮等现在使用对应造型。','Exploration loot no longer shares three generic models: fish, pouches, gears, coils, wristbands, headphones and handwheels now have corresponding silhouettes.'),t('重绘废土衣服、背架、项链、尾饰、面饰、武器装扮与特效；采用分层布料、玻璃和金属材质。','Rebuilt wasteland clothing, back rigs, necklaces, tail pieces, facewear, cosmetic weapons and effects with layered cloth, glass and metal.'),t('13 件史诗、传说与异常装扮独立重绘；15 瓶高级与赌剂新增专属容器外壳，40 件武器新增对应实物图。','Individually redrew 13 Epic, Legendary and Anomalous accessories; 15 advanced and wager serums gain bespoke housings, and 40 weapons gain physical illustrations.')],pending:[]},
  {date:'2026-10-04',title:t('兑换码与独立删档','Redeem Codes and Save Deletion'),items:[t('新增兑换码终端：奖励仅绑定当前存档，包含全部道具、装扮、颜色、皮肤与壁纸，以及大量货币。','Added a code terminal: all items, accessories, colors, skins, wallpapers and large currency grants belong only to the current save.'),t('允许删除当前记录，同时清除手动、自动与备份记录及兑换奖励，不影响其他独立存档。','The active save can now be deleted together with its manual, automatic and backup records and code rewards, without affecting other saves.')],pending:[]},
@@ -12344,7 +12346,7 @@ Abyss.UpdateLog=(()=>{
  t('加入 15 个梦、世界线回声、连续性选择、12 个成就和 6 张背景。','Added 15 dreams, worldline echoes, continuity choices, 12 achievements and 6 backgrounds.'),
  t('修复第二代继承旧身体创伤、人物网络丢失、姓名静默重置及房间记忆英文不完整的问题。','Fixed inherited bodily trauma, lost NPC networks, silent name resets and incomplete English room memories.')],pending:[
  t('这不是完整内容版：大量房间、旅行、人物、遗产和梦境场景仍待扩展。','This is not the full content release: many room, travel, social, legacy and dream scenes remain to be expanded.'),
- t('公开网站上传受环境审批限制，尚未上线；公开预备版暂用本地对白。','Public website upload is blocked by environment approval restrictions and is not live; the prepared public build uses local dialogue.')]},
+ t('当时公开网站上传受环境限制，未上线；网站现已通过 GitHub 发布，详见最新日志。','At that release, website upload was blocked by environment restrictions. The site is now published through GitHub; see the latest entry.')]},
  {date:null,title:t('此前更新回顾','Earlier updates'),items:[
  t('Mia 的剧情显示名改为 Jasmine，保留旧存档线索兼容。','Changed the story display name Mia to Jasmine while retaining compatibility with old save clues.'),
  t('Jack 的 20 章剧情、日记、粗口强度设置和扩展结局已接入；主线选择不消耗 AP。','Integrated Jack’s 20-chapter story, journal, profanity settings and expanded endings; main story choices cost no AP.'),
