@@ -741,6 +741,42 @@ html[lang="en"] .top-stat>small span{display:none}
 .hunt-arena{position:relative;isolation:isolate;overflow:hidden}.weapon-fire-effect{position:absolute;top:32px;left:0;width:100%;height:330px;pointer-events:none;z-index:4;filter:drop-shadow(0 2px 3px #0009)}.weapon-projectile{animation:weapon-shot .65s cubic-bezier(.16,.7,.3,1) both}.weapon-slash{animation:weapon-cut .7s ease-out both;transform-origin:600px 185px}.weapon-impact{animation:weapon-burst .75s ease-out both;transform-origin:690px 185px}@keyframes weapon-shot{0%{opacity:0;transform:translateX(-200px)}20%{opacity:1}100%{opacity:0;transform:translateX(60px)}}@keyframes weapon-cut{0%{opacity:0;scale:.5;rotate:-20deg}30%{opacity:.85}100%{opacity:0;scale:1.15;rotate:10deg}}@keyframes weapon-burst{0%{opacity:0;scale:.3}25%{opacity:1}100%{opacity:0;scale:1.5}}.reduced-motion .weapon-fire-effect{display:none}@media(prefers-reduced-motion:reduce){.weapon-fire-effect{display:none}}
 
 </style>
+<style data-source="draw.css">
+.recovery-modal{width:min(1220px,94vw)}
+.recovery-terminal{color:#d5e1d9;min-width:0;background:radial-gradient(ellipse at 22% 35%,#24434a40,transparent 55%);padding:4px 0 18px}
+.recovery-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #53757940;padding:5px 0 22px}
+.recovery-heading small,.recovery-console>small{font:9px monospace;letter-spacing:2px;color:#8caeae}
+.recovery-heading h2{font-size:27px;font-weight:500;margin:9px 0}.recovery-heading p{font-size:12px;color:#9ab2ae;margin:0}
+.recovery-status{border:1px solid #799c8855;background:#87b39509;padding:9px 14px;font:10px monospace;letter-spacing:1px;color:#b4cbbb;white-space:nowrap}
+.recovery-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,1fr);gap:28px;padding:22px 0}
+.recovery-stage{position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#22384199,#091820aa);border:1px solid #648b8f38;box-shadow:inset 0 0 65px #09121a66;overflow:hidden}
+.recovery-stage:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 35px,#94beb404 36px 37px);pointer-events:none}
+.recovery-machine{width:100%;max-width:510px;aspect-ratio:6/5;max-height:390px;filter:drop-shadow(0 14px 12px #0005)}
+.recovery-stage-label{font:10px monospace;letter-spacing:2px;color:#accabe;padding:4px 0}.recovery-stage p{font-size:11px;color:#839d9d;text-align:center;padding:8px 24px 17px;line-height:1.7;margin:0}
+.recovery-console{padding:22px;background:linear-gradient(140deg,#21363f,#13242d);border:1px solid #6a85884d;min-width:0}
+.recovery-console h3{font-size:18px;font-weight:500;margin:9px 0 20px}.recovery-wallets{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.recovery-wallets button{padding:13px;text-align:left;background:#12262f;border:1px solid #4c646e;border-radius:3px;min-width:0}
+.recovery-wallets button[aria-pressed=true]{border-color:#a6c4b3;background:#2c4747;box-shadow:inset 3px 0 #a6c4b3}.recovery-wallets span{font-size:11px;color:#a4b8b0}.recovery-wallets b{display:block;font:19px monospace;color:#dfdfce;margin-top:9px;overflow-wrap:anywhere}
+.recovery-payment-note{font-size:11px;line-height:1.8;color:#8eaba7;margin:12px 0 22px}.recovery-pity{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:14px 0 24px}.recovery-pity>div{display:grid;grid-template-columns:1fr auto;gap:7px;font-size:10px}.recovery-pity b{font:10px monospace;color:#bbc8c2}.recovery-pity i{grid-column:1/-1;height:4px;background:linear-gradient(90deg,#94afac var(--progress),#0d202a var(--progress));border-radius:2px}.recovery-pity>div+div i{background:linear-gradient(90deg,#aaa0b9 var(--progress),#0d202a var(--progress))}
+.recovery-draw-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.recovery-draw-actions button{padding:16px 10px;min-width:0;border:1px solid #91aca375;background:linear-gradient(145deg,#36534f,#1b3238);box-shadow:inset 0 1px #d7e6ca18;text-align:center}.recovery-draw-actions span{display:block;font-size:15px}.recovery-draw-actions b{display:block;font:10px monospace;color:#d4d8bd;margin-top:8px}.recovery-draw-actions small{display:block;font-size:9px;color:#9cb6ad;margin-top:7px}
+.recovery-modal button{transition:border-color .18s,background .18s,transform .18s}.recovery-modal button:hover:not(:disabled){border-color:#c2d6bf;background:#385853}.recovery-modal button:focus-visible{outline:2px solid #b1d3ca;outline-offset:3px}.recovery-modal button:disabled{opacity:.45;cursor:not-allowed}.recovery-modal button:active:not(:disabled){transform:translateY(1px)}
+.recovery-feedback{font-size:11px;color:#9bb9ad;line-height:1.8;min-height:38px;margin:15px 0 8px}.recovery-feedback.warning{color:#d3ab8f}.recovery-rules{font-size:10px;color:#8ca6a9;border-top:1px solid #67898c33;padding-top:10px}.recovery-rules summary{cursor:pointer}.recovery-rules p{line-height:1.8}.recovery-rules>span{display:inline-block;padding:5px 8px;margin:3px;border:1px solid #68878233}
+.recovery-results{border-top:1px solid #53757940;padding-top:20px}.recovery-results>header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.recovery-results h3{font-size:16px;font-weight:500;margin:0}.recovery-results header>span{font:10px monospace;color:#8eaeaa}.recovery-result-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.recovery-card{--rarity-ink:#667d82;min-width:0;background:linear-gradient(145deg,#253943,#12232b);border:1px solid var(--rarity-ink);padding:11px;text-align:center;animation:recovery-reveal .4s both;animation-delay:var(--reveal-delay)}
+.recovery-card>small{font:9px monospace;color:#89a3a6}.recovery-card>div{height:100px;display:flex;align-items:center;justify-content:center}.recovery-card svg{width:100%;height:100px;max-width:150px;aspect-ratio:auto}.recovery-card h3{font-size:12px;line-height:1.6;margin:5px 0;overflow-wrap:anywhere}.recovery-card>span{font-size:9px;color:#b6c4b9}.recovery-card.rarity-uncommon{--rarity-ink:#718c7b}.recovery-card.rarity-rare{--rarity-ink:#739baa}.recovery-card.rarity-epic{--rarity-ink:#a18cad;background:linear-gradient(140deg,#373047,#1d2d39)}.recovery-card.rarity-legendary{--rarity-ink:#b9a778;background:radial-gradient(ellipse at top,#75633538,transparent),#1b2e35;box-shadow:inset 0 0 25px #c4a76d0b}.recovery-card.rarity-anomalous{--rarity-ink:#a17d94;border-style:dashed;background:repeating-linear-gradient(171deg,#352c3d 0 30px,#27283b 31px 33px)}
+.recovery-empty{padding:32px;text-align:center;font-size:12px;color:#819ea1;background:#13242c}.recovery-loading{display:flex;align-items:center;justify-content:center;gap:9px;height:105px;background:#152730}.recovery-loading i{width:5px;height:18px;background:#a4c5b6;animation:recovery-load .7s ease-in-out infinite}.recovery-loading i:nth-child(2){animation-delay:.12s}.recovery-loading i:nth-child(3){animation-delay:.24s}.recovery-loading span{margin-left:12px;font-size:11px;color:#b1c6c0}.recovery-scanner{animation:recovery-scan 6s ease-in-out infinite}.recovery-core{animation:recovery-float 5s ease-in-out infinite}.is-processing .recovery-core{animation:recovery-float .5s ease-in-out infinite}.is-processing .recovery-scanner{animation-duration:.65s}.is-processing .recovery-orbit{stroke:#b6dcd1;opacity:.8}
+@keyframes recovery-scan{50%{transform:translateY(186px);opacity:.3}}@keyframes recovery-float{50%{transform:translateY(-7px)}}@keyframes recovery-load{50%{transform:scaleY(.3);opacity:.35}}@keyframes recovery-reveal{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.reduced-motion .recovery-terminal *{animation:none!important;transition:none!important}
+@media(max-width:1000px){.recovery-layout{gap:15px;grid-template-columns:minmax(0,1fr) minmax(270px,1fr)}.recovery-console{padding:16px}.recovery-result-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.recovery-heading{gap:10px}.recovery-heading h2{font-size:21px}.recovery-status{padding:7px;font-size:8px}.recovery-layout{grid-template-columns:1fr}.recovery-machine{max-height:230px}.recovery-result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recovery-card>div,.recovery-card svg{height:95px}.recovery-heading p{line-height:1.7}.recovery-wallets b{font-size:17px}}
+#section-workspace:has(#recovery-terminal) #section-title{display:none}
+#section-workspace:has(#recovery-terminal) .section-header{padding:7px 18px}
+#section-workspace:has(#recovery-terminal) #section-tabs{padding:5px 18px 7px}
+#section-workspace:has(#recovery-terminal) #section-surface{padding:12px 18px}
+.nav-docked-dialog.recovery-modal .modal-head{display:none}
+.nav-docked-dialog.recovery-modal #modal-content{padding:0!important}
+@media(min-width:651px) and (max-height:850px){.recovery-heading{padding:3px 0 12px}.recovery-heading h2{font-size:23px;margin:6px 0}.recovery-layout{padding:12px 0;gap:18px}.recovery-console{padding:15px}.recovery-console h3{margin:6px 0 12px}.recovery-wallets button{padding:10px}.recovery-wallets b{margin-top:5px}.recovery-payment-note{margin:8px 0 12px}.recovery-pity{margin:10px 0 14px}.recovery-draw-actions button{padding:12px 8px}.recovery-feedback{margin:10px 0 5px;min-height:30px}.recovery-machine{max-height:280px}.recovery-rules{padding-top:5px}}
+
+</style>
 <style data-source="road.css">
 
 #road-shell{position:fixed;inset:12px;z-index:95;display:flex;flex-direction:column;background:#142329;color:#c9d0bf;border:1px solid #607d74;border-radius:10px;box-shadow:0 20px 70px #000b;overflow:hidden;font-size:13px}#road-shell h2,#road-shell h3{font-weight:500;letter-spacing:.05em}#road-shell button,#road-shell select{background:#293c3e;color:#d2d1ba;border:1px solid #597069;border-radius:4px;padding:9px 12px;cursor:pointer;font:inherit}#road-shell button:hover{background:#36504c;border-color:#a1b0a0}#road-shell button:focus-visible{outline:2px solid #bfbc97;outline-offset:2px}#road-shell button:disabled{opacity:.4;cursor:not-allowed}.road-header{display:flex;align-items:center;gap:28px;padding:12px 22px;background:#213334;border-bottom:1px solid #435d56}.road-header>button{margin-left:auto}.road-header h2{margin:0;font-size:23px}.road-header small{color:#8ba99c;letter-spacing:.2em}#road-shell nav{display:flex;gap:8px;padding:9px 20px;border-bottom:1px solid #38514d}.road-content{flex:1;overflow:auto;min-height:0;padding:16px}.road-map-layout,.road-scene-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;height:100%}.road-map{background:linear-gradient(#273a34,#1c2d2e);border:1px solid #48675c;overflow:auto;border-radius:7px}.road-map svg{width:100%;max-height:calc(100% - 50px);min-height:300px}.road-map p{padding:0 15px;color:#a6b39d}.road-map-point{cursor:pointer}.road-map-point:hover circle,.road-map-point:focus circle,.road-map-point.selected circle{stroke:#d6c99b;stroke-width:3}.road-map-point.selected text{fill:#efe1b6}.road-scene-layout aside,.road-map-layout aside{overflow:auto;padding:12px;background:#203236;border:1px solid #415d59;border-radius:6px}.road-scene-layout aside button,.road-map-layout aside button{margin:4px 3px}.road-scene-layout label,.road-map-layout label{display:block;margin:12px 0}.road-scene-layout select,.road-map-layout select{display:block;max-width:100%;width:100%;margin-top:5px}.road-viewport{position:relative;background:#17292c;overflow:hidden;border:1px solid #648477;border-radius:7px;min-height:380px}.road-viewport canvas{width:100%;height:100%;display:block;touch-action:none;image-rendering:pixelated}.road-glass-ui{position:absolute;inset:14px 14px auto;pointer-events:none;color:#d0d1ba;text-shadow:0 2px 4px #000}.road-glass-ui>small{letter-spacing:.16em;background:#142a2dcc;padding:6px 10px}.road-glass-ui #road-live{background:#142a2daa;padding:6px 10px;display:table}.road-event-card{position:absolute;left:50%;top:30%;transform:translateX(-50%);width:min(500px,90%);padding:24px;background:#192f33f2;border:1px solid #a2987c;box-shadow:0 20px 50px #0007;pointer-events:auto;border-radius:7px}.road-event-card small{color:#bcb092}.road-event-card p{line-height:1.7}.road-event-card button{margin:5px}.road-glass-ui .road-event-card{position:relative;left:50%;top:50px}.road-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;padding:15px 0}.road-cards article{padding:14px;background:#26373a;border:1px solid #60766b;border-radius:6px;overflow:hidden}.road-cards svg{height:125px;width:100%;display:block}.road-cards h3{font-size:16px;margin:10px 0}.road-cards p{line-height:1.6;color:#b5bfaf}.road-cards button{margin:4px 3px}#road-message{padding:11px 22px;background:#1d3031;border-top:1px solid #425e55;min-height:42px;color:#bac0a6}.road-touch{position:absolute;bottom:16px;left:16px;display:flex;gap:7px}.road-touch button{min-width:42px;touch-action:none;user-select:none;background:#263b3ac9!important}.road-intro{max-width:850px;line-height:1.7}.road-anomaly-pulse{animation:road-pulse 3s ease-in-out infinite}@keyframes road-pulse{50%{opacity:.25}}
@@ -783,7 +819,7 @@ body.road-active>.app{visibility:hidden}body.road-active>.app *{animation-play-s
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.9.1-preview</small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.9.2-preview</small></span>
     </a>
     <div class="top-stats"><div class="top-stat"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -5150,6 +5186,11 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "回收抽奖与货币修复": "Salvage Draw & Currency Fix",
+  "收藏新增独立回收抽奖画面，显示两种货币、费用、保底、扫描动画和物品结果。": "Collection now offers a dedicated salvage terminal with both balances, prices, pity, scan animation and modeled results.",
+  "可选研究资金单抽80、十连800；废料币维持单抽8、十连80。每次仅扣选定货币，不消耗行动点。": "Choose credits at 80 per draw or 800 for ten, or scrap at 8 per draw or 80 for ten. Only the selected currency is charged; no action points are spent.",
+  "明确提示剧情模式、事件、旅途等限制；结果先保存再播放动画，刷新不会重复发奖。": "Story, event and travel restrictions are shown explicitly. Results save before animation; reloading does not duplicate rewards.",
+  "回收舱与奖励仍使用可替换程序矢量模型。": "The recovery chamber and rewards use replaceable procedural vector models.",
   "合身裁剪、眼睛修复与六十件新装扮": "Tailoring, Eye Repairs and Sixty New Accessories",
   "衣服跟随九种身体轮廓裁剪，年龄与进化缩放仅作用一次，修复衣服过小和穿出身体的问题。": "Garments follow nine body silhouettes with growth scaling applied once, fixing undersized clothing and overflow.",
   "统一普通与变异眼睛，每只眼睛独立眨眼；镜片独立适配大小，修复遮眼、额外眼睛重复和复制材质冲突。": "Unified ordinary and evolved eyes, with independent blinking and fitted lenses; fixed opaque goggles, duplicate extra eyes and copied material conflicts.",
@@ -5253,6 +5294,42 @@ Abyss.EnglishCatalog={
   "加入六个废土聚落、人物记忆、传闻和长期后果，以及最初的 20 张伪 3D 壁纸。": "Added six wasteland settlements, NPC memories, rumors and long-term consequences, plus the original 20 pseudo-3D wallpapers.",
   "保留饰品换装、100 种全身颜色、中英文切换和服务器端 AI 对话。": "Retained accessories, 100 full-body colors, Chinese/English switching and server-side AI dialogue.",
   "会记住 Jack 的行动，而不只听他的解释。": "Remembers Jack’s actions, not only his explanations.",
+  "剧情模式不开放抽奖。请在「系统 → 记录与模式」进入养成记录。": "Draws are unavailable in Story Mode. Open System → Saves & Modes and choose a Raising save.",
+  "当前生命已封存，请先迎接下一个个体。": "This life is archived. Welcome the next individual first.",
+  "请先从公路返回实验室。": "Return from the road to the laboratory first.",
+  "请先处理当前事件或读完告别。": "Resolve the current event or finish the farewell first.",
+  "请先从梦中醒来。": "Wake from the dream first.",
+  "请先完成旅程或撤回实验室。": "Finish the expedition or return to the laboratory first.",
+  "药剂": "Serum",
+  "武器蓝图": "Weapon blueprint",
+  "装扮": "Accessory",
+  "食谱与食物": "Recipe & food",
+  "废料币": "SCRAP",
+  "废土回收站": "Wasteland Recovery",
+  "从废弃物中，找回另一段生活。": "Recover another fragment of life from what was left behind.",
+  "扫描中": "SCANNING",
+  "终端就绪": "READY",
+  "正在解析封存物": "Decoding sealed objects",
+  "封存物分离舱": "SEALED OBJECT SEPARATOR",
+  "奖励已在抽取时保存，动画和刷新不会重投。": "Rewards save when drawn. Animation and reload cannot reroll them.",
+  "选择支付货币": "Choose payment currency",
+  "顶部显示研究资金；废料币是另一种货币。每次只扣除你选中的一种。": "The top bar shows credits. Scrap is a separate currency. Only your selected currency is charged.",
+  "稀有保底": "Rare guarantee",
+  "史诗保底": "Epic guarantee",
+  "单次回收": "Single draw",
+  "十连回收": "Ten recoveries",
+  "至少一件少见以上": "At least one Uncommon+",
+  "正在扫描，本次奖励已保存。": "Scanning. This batch has already been saved.",
+  "不消耗行动点。重复收藏转为废料或材料。": "No action points used. Duplicate collectibles become scrap or materials.",
+  "查看回收规则与概率": "Rules and rates",
+  "研究资金单抽 80、十连 800；废料币单抽 8、十连 80。十连至少少见，20 抽内稀有、60 抽内史诗保底。两种支付共用保底。": "Credits cost 80 / 800; scrap costs 8 / 80. Ten draws guarantee Uncommon+, Rare+ within 20, Epic+ within 60. Both currencies share pity.",
+  "封存物扫描": "Scanning sealed objects",
+  "本次回收结果": "This batch",
+  "最近回收记录": "Recent recoveries",
+  "解析材质与档案": "Reading materials and records",
+  "尚未回收。选择货币后，可以开始第一次扫描。": "No recoveries yet. Select a currency to start your first scan.",
+  "回收抽奖": "Salvage Draw",
+  "本次自动保存失败，请立即导出备份。": "Autosave failed. Export a backup immediately.",
   "此刻没有未醒的梦。": "There is no active dream.",
   "未知的梦中选择。": "Unknown dream choice.",
   "门开了，房间是空的。身后的声音说：“错的门。”": "The door opens onto an empty room. A voice behind says “Wrong door.”",
@@ -5449,8 +5526,11 @@ Abyss.EnglishCatalog={
   "研究副产物": "Research byproduct",
   "旧研究废墟": "Old research ruins",
   "狩猎成就已记录。": "Hunt achievement recorded.",
-  "废料币不足；单抽 8，十连 80。": "Insufficient scrap: 8 per draw, 80 for ten.",
-  "废料抽取": "Scrap Draw",
+  "请选择单抽或十连。": "Choose one or ten draws.",
+  "未知支付货币。": "Unknown payment currency.",
+  "研究资金不足：单抽 80，十连 800。": "Insufficient credits: 80 per draw, 800 for ten.",
+  "废料币不足：单抽 8，十连 80。可切换研究资金支付。": "Insufficient scrap: 8 per draw, 80 for ten. You may select credits instead.",
+  "废料抽取": "Scrap draw",
   "抽取完成。重复收藏转为废料或材料；药剂可叠加。": "Draw complete. Duplicate collectibles become scrap or materials; serums stack.",
   "没有这瓶药剂。": "You do not own this serum.",
   "药剂观察需要 1 AP。": "Serum observation costs 1 AP.",
@@ -5493,7 +5573,6 @@ Abyss.EnglishCatalog={
   "发现一种外观色素": "Discover an appearance pigment",
   "改变食物偏好": "Change food preference",
   "留下影响隐藏成长方向的倾向": "Leave a tendency influencing hidden growth",
-  "废料币": "SCRAP",
   "材料": "Materials",
   "核心零件": "Core parts",
   "攻击": "Attack",
@@ -5557,7 +5636,6 @@ Abyss.EnglishCatalog={
   "废土里留下的可能": "Possibilities left in the wasteland",
   "仅使用游玩所得废料币。十连至少一件少见；20 抽内稀有、60 抽内史诗保底。": "Uses scrap earned through play only. Ten draws guarantee Uncommon+, Rare+ within 20 draws, Epic+ within 60.",
   "基础概率如上；连续未得稀有第 13 抽开始软保底，史诗第 41 抽开始。高档奖励重置对应计数。": "Base rates above. Rare soft pity begins on draw 13; Epic soft pity on draw 41. Higher rewards reset the relevant counter.",
-  "单次回收": "Single draw",
   "十次回收": "Ten draws",
   "两次练习后掌握对应招式；倾向与长期养成共同决定战斗。": "Two practices teach the associated technique; tendencies and long-term raising shape combat together.",
   "一起练习": "Practice together",
@@ -13022,8 +13100,9 @@ Abyss.HuntRewards=(()=>{
  if(kind==='recipe'){id=U.pick(s,D.foods).id;if(h.recipes.includes(id)){h.materials++;}else h.recipes.push(id);s.inventory[id]=(s.inventory[id]||0)+1;}
  return {kind,id,rarity};
  }
- function draw(s,count){const h=s.hunt;if(![1,10].includes(count)||h.combatCurrency<count*8)return bad(t('废料币不足；单抽 8，十连 80。','Insufficient scrap: 8 per draw, 80 for ten.'));h.combatCurrency-=count*8;const results=[];let goodInBatch=false;
- for(let i=0;i<count;i++){const p=h.gachaPity;let r;if(p.epic>=59)r='epic';else if(p.rare>=19)r='rare';else{const rates=[...D.rates],soft=Math.min(.08,Math.max(0,p.rare-11)*.01),epicSoft=Math.min(.03,Math.max(0,p.epic-39)*.002);rates[0]-=soft+epicSoft;rates[2]+=soft;rates[3]+=epicSoft;let n=U.random(s),index=0;while(index<5&&n>=rates[index])n-=rates[index++];r=D.rarities[index];}if(count===10&&i===9&&!goodInBatch&&rank(r)===0)r='uncommon';goodInBatch=goodInBatch||rank(r)>=1;p.total++;p.rare=rank(r)>=2?0:p.rare+1;p.epic=rank(r)>=3?0:p.epic+1;const item=reward(s,r,t('废料抽取','Scrap draw'));results.push(item);h.gachaHistory.push({day:s.day,id:item.id,rarity:r,result:item.kind});}h.gachaHistory=h.gachaHistory.slice(-100);Abyss.State.log(s,t('抽取完成。重复收藏转为废料或材料；药剂可叠加。','Draw complete. Duplicate collectibles become scrap or materials; serums stack.'),'rare');return {...good(''),results};
+ function quote(s,count,currency='scrap'){if(![1,10].includes(count))return {ok:false,message:t('请选择单抽或十连。','Choose one or ten draws.')};if(!['scrap','credits'].includes(currency))return {ok:false,message:t('未知支付货币。','Unknown payment currency.')};const cost=count*(currency==='credits'?80:8),balance=currency==='credits'?s.money:s.hunt.combatCurrency;return {ok:balance>=cost,currency,cost,balance,message:balance>=cost?'':currency==='credits'?t('研究资金不足：单抽 80，十连 800。','Insufficient credits: 80 per draw, 800 for ten.'):t('废料币不足：单抽 8，十连 80。可切换研究资金支付。','Insufficient scrap: 8 per draw, 80 for ten. You may select credits instead.')};}
+ function draw(s,count,currency='scrap'){const h=s.hunt,payment=quote(s,count,currency);if(!payment.ok)return bad(payment.message);if(currency==='credits')s.money-=payment.cost;else h.combatCurrency-=payment.cost;const results=[];let goodInBatch=false;
+ for(let i=0;i<count;i++){const p=h.gachaPity;let r;if(p.epic>=59)r='epic';else if(p.rare>=19)r='rare';else{const rates=[...D.rates],soft=Math.min(.08,Math.max(0,p.rare-11)*.01),epicSoft=Math.min(.03,Math.max(0,p.epic-39)*.002);rates[0]-=soft+epicSoft;rates[2]+=soft;rates[3]+=epicSoft;let n=U.random(s),index=0;while(index<5&&n>=rates[index])n-=rates[index++];r=D.rarities[index];}if(count===10&&i===9&&!goodInBatch&&rank(r)===0)r='uncommon';goodInBatch=goodInBatch||rank(r)>=1;p.total++;p.rare=rank(r)>=2?0:p.rare+1;p.epic=rank(r)>=3?0:p.epic+1;const item=reward(s,r,t('废料抽取','Scrap draw'));results.push(item);h.gachaHistory.push({day:s.day,id:item.id,rarity:r,result:item.kind});}h.gachaHistory=h.gachaHistory.slice(-100);Abyss.State.log(s,t('抽取完成。重复收藏转为废料或材料；药剂可叠加。','Draw complete. Duplicate collectibles become scrap or materials; serums stack.'),'rare');return {...good(''),results,payment};
  }
  function consume(s,id){const h=s.hunt,d=Abyss.SerumData.serums.find(d=>d.id===id);if(!d||!h.serums[id])return bad(t('没有这瓶药剂。','You do not own this serum.'));if(s.ap<1)return bad(t('药剂观察需要 1 AP。','Serum observation costs 1 AP.'));s.ap--;h.serums[id]--;h.serumsConsumed[id]=(h.serumsConsumed[id]||0)+1;
  if(d.gambler){const success=U.random(s)<d.chance;h.gamblerSerumHistory.push({day:s.day,id,rarity:d.rarity,result:success?'success':'failure'});h.gamblerSerumHistory=h.gamblerSerumHistory.slice(-100);if(success){reward(s,d.rarity,t('赌剂试验','Wager trial'));h.perks.crit=Math.min(15,(h.perks.crit||0)+1);}else{Abyss.State.effects(s,{health:-d.penalty,stability:-d.penalty,mood:-8});h.injuryDays=Math.max(h.injuryDays,Math.ceil(d.penalty/4));h.confidence=Math.max(0,h.confidence-8);if(rank(d.rarity)>=4){h.perks.attack=Math.max(0,(h.perks.attack||0)-2);s.bias.void+=2;s.resentment=U.clamp(s.resentment+3);}}const text=success?t('试验成功，得到一件同档奖励。','Trial succeeds: one reward of the same tier.'):t('试验失败，留下虚弱与恢复期。高阶试验也可能留下长期取舍。','Trial fails, leaving weakness and recovery time. Higher trials may leave lasting tradeoffs.');Abyss.State.log(s,d.name+' · '+text,success?'rare':'warning');return good(text);}
@@ -13038,7 +13117,7 @@ Abyss.HuntRewards=(()=>{
  else h.perks[kind]=Math.min(15,(h.perks[kind]||0)+d.amount);
  Abyss.State.effects(s,d.downside);Abyss.State.log(s,d.name+' · '+t('观察已记录。变化不会替代长期照料。','Observation recorded. Changes do not replace long-term care.'),'rare');return good('');
  }
- function command(s,type,p={}){const h=s.hunt;if(type==='draw')return draw(s,Number(p.count));if(type==='serum')return consume(s,p.id);if(type==='reveal'){h.reveals=h.reveals.filter(id=>id!==p.id);return good('');}
+ function command(s,type,p={}){const h=s.hunt;if(type==='draw')return draw(s,Number(p.count),p.currency===undefined?'scrap':p.currency);if(type==='serum')return consume(s,p.id);if(type==='reveal'){h.reveals=h.reveals.filter(id=>id!==p.id);return good('');}
  if(type==='buy'){const offers={supplies:8,material:6,serum:12};if(!Object.hasOwn(offers,p.id)||h.combatCurrency<offers[p.id])return bad(t('废料不足或货物未知。','Insufficient scrap or unknown stock.'));h.combatCurrency-=offers[p.id];if(p.id==='material')h.materials++;if(p.id==='supplies')h.perks.recovery=Math.min(15,(h.perks.recovery||0)+1);if(p.id==='serum')serum(s,U.pick(s,Abyss.SerumData.serums.filter(x=>x.rarity==='common')).id,t('黑市回收箱','Black market salvage'));return good('');}
  if(type==='craft-serum'){const d=Abyss.SerumData.serums.find(d=>d.id===p.id);if(!d||d.gambler||!h.serumsDiscovered.includes(d.id)||rank(d.rarity)>2||h.materials<3||h.combatCurrency<12)return bad(t('需要已研究的常见至稀有配方、3 材料和 12 废料币。','Requires a studied Common–Rare formula, 3 materials and 12 scrap.'));h.materials-=3;h.combatCurrency-=12;serum(s,d.id,t('实验室复现','Lab replication'));return good('');}
  const w=Abyss.WeaponData.weapons.find(w=>w.id===p.id),owned=w?h.weapons[w.id]:null;if(!w)return bad(t('未知装备。','Unknown equipment.'));
@@ -13048,7 +13127,7 @@ Abyss.HuntRewards=(()=>{
  if(type==='repair'){if(!owned||owned.durability===100||h.combatCurrency<6)return bad(t('仅修理受损装备，费用 6 废料币。','Repair damaged gear only; costs 6 scrap.'));h.combatCurrency-=6;owned.durability=100;return good('');}
  return bad(t('未知工坊操作。','Unknown workshop operation.'));
  }
- return {serum,reward,draw,consume,command,rank};
+ return {serum,reward,quote,draw,consume,command,rank};
 })();
 
 </script>
@@ -14061,7 +14140,7 @@ Abyss.UI = (() => {
  let commands,modalLocked=false,lastFocus=null,toastTimer,audioContext;
  function toast(text){if(!text)return;clearTimeout(toastTimer);$('toast').textContent=text;$('toast').classList.add('visible');toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),2800);}
  function modal(title,content,locked=false){
-   $('modal').classList.remove('wardrobe-modal','accessory-reveal-modal','research-modal','evolution-reveal-modal','hunt-modal');
+   $('modal').classList.remove('wardrobe-modal','accessory-reveal-modal','research-modal','evolution-reveal-modal','hunt-modal','recovery-modal');
    $('modal-title').textContent=title;$('modal-content').innerHTML=content;modalLocked=locked;$('close-modal').hidden=locked;
    if(Abyss.Navigation?.present(title,locked))return;
    if(!$('modal').open){lastFocus=document.activeElement;$('modal').showModal();}
@@ -14437,6 +14516,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+ {date:'2026-10-05',version:'0.9.2-preview',title:t('回收抽奖与货币修复','Salvage Draw & Currency Fix'),items:[t('收藏新增独立回收抽奖画面，显示两种货币、费用、保底、扫描动画和物品结果。','Collection now offers a dedicated salvage terminal with both balances, prices, pity, scan animation and modeled results.'),t('可选研究资金单抽80、十连800；废料币维持单抽8、十连80。每次仅扣选定货币，不消耗行动点。','Choose credits at 80 per draw or 800 for ten, or scrap at 8 per draw or 80 for ten. Only the selected currency is charged; no action points are spent.'),t('明确提示剧情模式、事件、旅途等限制；结果先保存再播放动画，刷新不会重复发奖。','Story, event and travel restrictions are shown explicitly. Results save before animation; reloading does not duplicate rewards.')],pending:[t('回收舱与奖励仍使用可替换程序矢量模型。','The recovery chamber and rewards use replaceable procedural vector models.')]},
  {date:'2026-10-05',version:'0.9.1-preview',title:t('合身裁剪、眼睛修复与六十件新装扮','Tailoring, Eye Repairs and Sixty New Accessories'),items:[t('衣服跟随九种身体轮廓裁剪，年龄与进化缩放仅作用一次，修复衣服过小和穿出身体的问题。','Garments follow nine body silhouettes with growth scaling applied once, fixing undersized clothing and overflow.'),t('统一普通与变异眼睛，每只眼睛独立眨眼；镜片独立适配大小，修复遮眼、额外眼睛重复和复制材质冲突。','Unified ordinary and evolved eyes, with independent blinking and fitted lenses; fixed opaque goggles, duplicate extra eyes and copied material conflicts.'),t('十个装扮分类各新增六件，共六十件独立造型与背景说明，包含服装、工具、武器外观与轻量动态特效。','Added six accessories to each of ten slots: sixty authored models and lore entries, including clothing, tools, cosmetic weapons and subtle animated effects.'),t('新装扮沿用商店、探索和照护里程碑；保留旧存档，已兑换全收藏的记录自动补齐。','New accessories use existing shops, exploration and care milestones; saves are retained and full-collection codes include the additions.')],pending:[t('装扮仍是可替换的分层 SVG 模型，不包含布料物理模拟。','Accessories remain replaceable layered SVG models without cloth physics.')]},
 
  {date:'2026-10-05',version:'0.9.0-preview',title:t('界面分区与导航重构','Interface Organization & Navigation'),items:[t('整理为主页、生活、探索、战斗、实验室、收藏、世界、系统八个分区，52个二级入口调用原有控制器。','Organized existing controllers into Home, Life, Explore, Combat, Lab, Collection, World and System with 52 secondary routes.'),t('首页保留实验体、六项关键状态、位置、目标、紧急提示与快捷操作；生长详情和观察日志默认折叠。','Home retains the specimen, six key indicators, location, objective, urgent alerts and quick actions. Advanced growth details and research logs are collapsed.'),t('衣橱、研究、地图、库存和交流使用主内容区；确认、取名和奖励保留短弹窗。','Wardrobe, research, maps, inventory and chat use the main workspace. Confirmations, naming and rewards keep short dialogs.'),t('加入面包屑、返回、实验体情境菜单和Ctrl+K搜索。手机使用导航抽屉，标签横向滚动。','Added breadcrumbs, Back, specimen context actions and Ctrl+K search. Mobile uses a navigation drawer and horizontally scrolling subtabs.'),t('独立保存界面分区、二级标签、侧栏折叠和详情开合，不改变游戏存档结构或剧情限制。','Section, subtab, sidebar and disclosure preferences persist separately, without changing game save schemas or story restrictions.')],pending:[t('主内容仍复用各系统原有布局，个别系统保留自己的局部工具标签；未实现的玩法没有新增虚假入口。','The workspace reuses existing module layouts, including some local tool tabs. Unimplemented gameplay has no placeholder routes.')]},
@@ -14715,7 +14795,7 @@ Abyss.ContainmentUI=(()=>{
 'use strict';
 Abyss.HuntUI=(()=>{
  const t=Abyss.HomeData.t,esc=Abyss.Util.escape,D=Abyss.HuntData;let screen='expedition',filter='owned',tier='all',selected='serum_muscle';
- const names={expedition:t('荒野狩猎','Wasteland Hunt'),serums:t('药剂档案','Serum Archive'),forge:t('武器工坊','Weapon Workshop'),draw:t('废料抽取','Scrap Draw'),training:t('战斗训练','Combat Training'),bounties:t('悬赏板','Bounty Board'),bestiary:t('遭遇档案','Encounter Archive')};
+ const names={expedition:t('荒野狩猎','Wasteland Hunt'),serums:t('药剂档案','Serum Archive'),forge:t('武器工坊','Weapon Workshop'),draw:t('回收抽奖','Salvage Draw'),training:t('战斗训练','Combat Training'),bounties:t('悬赏板','Bounty Board'),bestiary:t('遭遇档案','Encounter Archive')};
  const btn=(type,id,text,disabled=false)=>`<button data-hunt="${type}" data-id="${id||''}" ${disabled?'disabled':''}>${text}</button>`;
  const rarity=r=>Abyss.Data.rarities.find(v=>v.id===r);
  function logMarkup(text){const enemy=D.enemies.find(e=>text.startsWith(e.name+' · '));const parts=enemy?[enemy.name,...text.slice(enemy.name.length+3).split(' · ')]:text.split(' · ');return parts.map(part=>'<span>'+esc(part)+'</span>').join(' · ');}
@@ -14738,7 +14818,7 @@ Abyss.HuntUI=(()=>{
  function training(s){return `${stats(s)}<div class="hunt-zone-grid">${D.training.map(d=>`<article class="hunt-zone"><h3>${d.name}</h3><p>${s.hunt.combatTraining[d.id]} / 20</p><p>${t('两次练习后掌握对应招式；倾向与长期养成共同决定战斗。','Two practices teach the associated technique; tendencies and long-term raising shape combat together.')}</p>${btn('train',d.id,t('一起练习','Practice together')+' · 1 AP',s.ap<1||s.hunt.combatTraining[d.id]>=20)}</article>`).join('')}</div>`;}
  function bounties(s){return `<div class="hunt-zone-grid">${D.bounties.map(b=>`<article class="hunt-zone"><small>${D.zones.find(z=>z.id===b.zone).name}</small><h3>${b.name}</h3><p>${b.story}</p>${btn('accept',b.id,s.hunt.bountyProgress[b.id]?s.hunt.bountyProgress[b.id].toUpperCase():t('接下委托','Accept commission'),!!s.hunt.bountyProgress[b.id])}</article>`).join('')}</div>`;}
  function bestiary(s){return `<p><span>${s.hunt.enemyBestiary.length} / ${D.enemies.length}</span> · <span>${t('这里只显示已经遭遇的对象。','Only encountered subjects are shown.')}</span></p><div class="hunt-zone-grid">${D.enemies.filter(e=>s.hunt.enemyBestiary.includes(e.id)).map(e=>`<article class="hunt-zone">${Abyss.HuntArt.enemy(e)}<h3>${e.name}</h3><small>${e.category.toUpperCase()} / ${e.behavior.toUpperCase()}</small></article>`).join('')}</div>`;}
- function open(id=screen){screen=Object.hasOwn(names,id)?id:'expedition';const s=Abyss.Engine.snapshot();if(s.hunt.active)screen='expedition';show(tabs(s)+({expedition,serums,forge,draw:draws,training,bounties,bestiary})[screen](s));if(s.hunt.active?.phase==='fight'){const target=document.getElementById('hunt-creature-preview');target.append(Abyss.Renderer.clone(s));}}
+ function open(id=screen){if(id==='draw')return Abyss.DrawUI.open();screen=Object.hasOwn(names,id)?id:'expedition';const s=Abyss.Engine.snapshot();if(s.hunt.active)screen='expedition';show(tabs(s)+({expedition,serums,forge,draw:draws,training,bounties,bestiary})[screen](s));if(s.hunt.active?.phase==='fight'){const target=document.getElementById('hunt-creature-preview');target.append(Abyss.Renderer.clone(s));}}
  function reveal(id){const d=Abyss.SerumData.serums.find(d=>d.id===id);if(!d)return;show(`<div class="serum-reveal rarity-${d.rarity}"><small>NEW BIOLOGICAL SPECIMEN</small>${Abyss.SerumArt.model(d)}<h2>${d.name}</h2><span>${rarity(d.rarity).name}</span><blockquote>${d.lore}</blockquote>${btn('reveal',id,t('收入药剂档案','Add to serum archive'))}</div>`,t('发现神秘药剂','Mystery serum discovered'));document.dispatchEvent(new CustomEvent('abyss:audio-hook',{detail:{kind:'serum-reveal',rarity:d.rarity}}));}
  function bind(){document.addEventListener('click',e=>{const b=e.target.closest('[data-hunt]');if(!b||b.disabled)return;let type=b.dataset.hunt,id=b.dataset.id;if(type==='screen')return open(id);if(type==='select-serum'){selected=id;return open('serums');}if(type==='serum-confirm'){const s=Abyss.Engine.snapshot(),d=Abyss.SerumData.serums.find(d=>d.id===id);show(`<div class="serum-confirm">${Abyss.SerumArt.model(d)}<h2>${d.name}</h2><p>${t('确认使用？此选择会自动保存，结果不能通过刷新重投。','Confirm use? This auto-saves; reloading cannot reroll the outcome.')}</p><blockquote>${d.lore}</blockquote>${d.gambler?`<p>${t('成功率','Success rate')} ${Math.round(d.chance*100)}% · ${t('失败健康与稳定损失','Failure health and stability loss')} ${d.penalty}</p>`:''}<div class="modal-buttons">${btn('serum',id,t('确认','Confirm'),!s.hunt.serums[id])}${btn('screen','serums',t('取消','Cancel'))}</div></div>`);return;}
  const count=type==='draw-ten'?10:1;if(type.startsWith('draw-'))type='draw';const r=Abyss.Engine.dispatch({type:'hunt:'+type,payload:{id,count}});if(!r.ok){Abyss.UI.toast(r.message);return;}if(type==='serum'&&r.message)Abyss.UI.toast(r.message);const s=Abyss.Engine.snapshot();if(s.hunt.reveals.length&&!s.hunt.active)reveal(s.hunt.reveals[0]);else open();});
@@ -14746,6 +14826,47 @@ Abyss.HuntUI=(()=>{
  Abyss.Engine.subscribe(s=>{const b=document.getElementById('hunt-action');if(b)b.hidden=s.mode!=='raising';});
  }
  return {open,bind,reveal};
+})();
+
+</script>
+<script data-source="js/drawUI.js">
+'use strict';
+// Presentation only: the existing engine commits payment and rewards before reveal.
+Abyss.DrawUI=(()=>{
+ const t=(zh,en)=>Abyss.HomeData.t(zh,en),esc=Abyss.Util.escape;
+ let currency='scrap',processing=false,batch=null,error='',generation=0,bound=false;
+ function reason(s){
+  if(s.mode!=='raising')return t('剧情模式不开放抽奖。请在「系统 → 记录与模式」进入养成记录。','Draws are unavailable in Story Mode. Open System → Saves & Modes and choose a Raising save.');
+  if(!s.legacy.active||s.campaign?.creatureAlive===false)return t('当前生命已封存，请先迎接下一个个体。','This life is archived. Welcome the next individual first.');
+  if(s.road.mode!=='home')return t('请先从公路返回实验室。','Return from the road to the laboratory first.');
+  if(s.pendingEvent||s.endingNotice||s.narrative?.jack?.pendingEnding)return t('请先处理当前事件或读完告别。','Resolve the current event or finish the farewell first.');
+  if(s.dreams.active)return t('请先从梦中醒来。','Wake from the dream first.');
+  if(s.hunt.active||s.journey.active||s.wasteland.active||s.exploration.active)return t('请先完成旅程或撤回实验室。','Finish the expedition or return to the laboratory first.');
+  return '';
+ }
+ function item(r){
+  const kind=r.kind||r.result;
+  if(kind==='serum'){const d=Abyss.SerumData.serums.find(x=>x.id===r.id);return {name:d?.name||r.id,art:d?Abyss.SerumArt.model(d):'',label:t('药剂','Serum')};}
+  if(kind==='blueprint'){const d=Abyss.WeaponData.weapons.find(x=>x.id===r.id);return {name:d?.name||r.id,art:d?Abyss.WeaponArt.svg(d):'',label:t('武器蓝图','Weapon blueprint')};}
+  if(kind==='cosmetic'){const d=Abyss.Accessories.find(r.id);return {name:d?.zh||r.id,art:d?Abyss.AccessoryArt.icon(d):'',label:t('装扮','Accessory')};}
+  const d=Abyss.HuntData.foods.find(x=>x.id===r.id);return {name:d?.name||r.id,art:'<svg viewBox="0 0 140 140" aria-hidden="true"><path d="M28 61h84l-12 44H40z" fill="#708c83" stroke="#bfd1b3"/><ellipse cx="70" cy="62" rx="42" ry="13" fill="#c6b784"/><path d="M50 43q-10-9 0-18m21 15q-10-9 0-18m21 19q-10-9 0-18" stroke="#b6c9b7" fill="none"/></svg>',label:t('食谱与食物','Recipe & food')};
+ }
+ function cards(rows){return rows.map((r,i)=>{const d=item(r),rarity=Abyss.Data.rarities.find(x=>x.id===r.rarity);return `<article class="recovery-card rarity-${r.rarity}" style="--reveal-delay:${i*55}ms"><small>${esc(d.label)}</small><div>${d.art}</div><h3>${esc(d.name)}</h3><span>${esc(rarity?.zh||r.rarity)}</span></article>`;}).join('');}
+ function chamber(){return `<svg class="recovery-machine" viewBox="0 0 600 500" aria-hidden="true"><defs><linearGradient id="recovery-steel"><stop stop-color="#101c24"/><stop offset=".4" stop-color="#3a5158"/><stop offset="1" stop-color="#14262e"/></linearGradient><linearGradient id="recovery-glass" x2="1" y2="1"><stop stop-color="#83bfb62b"/><stop offset="1" stop-color="#27364910"/></linearGradient></defs><path d="M98 389l74 45h256l74-45-67-32H165z" fill="#07151b" stroke="#48636a"/><ellipse cx="300" cy="371" rx="168" ry="48" fill="url(#recovery-steel)" stroke="#698b8d"/><ellipse cx="300" cy="365" rx="132" ry="31" fill="#132b32" stroke="#8ead9e"/><path d="M156 126v220q144 48 288 0V126z" fill="url(#recovery-glass)" stroke="#6b99915c"/><ellipse cx="300" cy="126" rx="144" ry="40" fill="url(#recovery-steel)" stroke="#5d8786"/><ellipse cx="300" cy="126" rx="117" ry="27" fill="#112b31" stroke="#82a9a0"/><path d="M123 135v185m354-185v185" stroke="#162b32" stroke-width="21"/><path d="M124 158v115m352-115v115" stroke="#88c1b1" stroke-width="4" opacity=".6"/><path d="M176 152v167m13-150v112" stroke="#b4ddd2" stroke-width="3" opacity=".16"/><g class="recovery-core"><path d="m300 191 46 30v68l-46 30-46-30v-68z" fill="#152c37" stroke="#9ac6bd" stroke-width="2"/><path d="m300 204 32 21v55l-32 23-32-23v-55z" fill="#356c70"/><path d="m300 204 32 21-32 24-32-24z" fill="#9ac2b3"/><path d="M300 249v54l32-23v-55z" fill="#244958"/><path d="M277 230v32m11 18v9" stroke="#c5e3ca" opacity=".7"/></g><g class="recovery-orbit" fill="none" stroke="#8db8ab" opacity=".45"><ellipse cx="300" cy="254" rx="92" ry="24" transform="rotate(-22 300 254)"/><ellipse cx="300" cy="254" rx="92" ry="24" transform="rotate(22 300 254)"/></g><path class="recovery-scanner" d="M160 152h280" stroke="#aadfcd" stroke-width="2" opacity=".6"/><path d="M225 418h150l-15 37H240z" fill="#1c343c" stroke="#5b797f"/><rect x="254" y="427" width="93" height="15" rx="2" fill="#0d1d27"/><path d="M263 434h18m7 0h12m7 0h28" stroke="#99c8b4" stroke-width="2"/><g fill="#84b9aa"><circle cx="164" cy="385" r="3"/><circle cx="180" cy="391" r="3"/><circle cx="196" cy="396" r="3"/></g></svg>`;}
+ function render(){
+  const s=Abyss.Engine.snapshot(),blocked=reason(s),single=Abyss.HuntRewards.quote(s,1,currency),ten=Abyss.HuntRewards.quote(s,10,currency),unit=currency==='credits'?t('研究资金','Credits'):t('废料币','Scrap'),history=s.hunt.gachaHistory.slice(-10).reverse();
+  const body=`<section id="recovery-terminal" data-session="${generation}" class="recovery-terminal ${processing?'is-processing':''}"><header class="recovery-heading"><div><small>SALVAGE DIVISION / TERMINAL 07</small><h2>${t('废土回收站','Wasteland Recovery')}</h2><p>${t('从废弃物中，找回另一段生活。','Recover another fragment of life from what was left behind.')}</p></div><span class="recovery-status">${processing?t('扫描中','SCANNING'):t('终端就绪','READY')}</span></header><div class="recovery-layout"><div class="recovery-stage">${chamber()}<span class="recovery-stage-label">${processing?t('正在解析封存物','Decoding sealed objects'):t('封存物分离舱','SEALED OBJECT SEPARATOR')}</span><p>${t('奖励已在抽取时保存，动画和刷新不会重投。','Rewards save when drawn. Animation and reload cannot reroll them.')}</p></div><aside class="recovery-console"><small>PAYMENT / BALANCE</small><h3>${t('选择支付货币','Choose payment currency')}</h3><div class="recovery-wallets"><button data-recovery="currency" data-currency="scrap" aria-pressed="${currency==='scrap'}" ${processing?'disabled':''}><span>${t('废料币','Scrap')}</span><b>${s.hunt.combatCurrency.toLocaleString()}</b></button><button data-recovery="currency" data-currency="credits" aria-pressed="${currency==='credits'}" ${processing?'disabled':''}><span>${t('研究资金','Credits')}</span><b>₵ ${s.money.toLocaleString()}</b></button></div><p class="recovery-payment-note">${t('顶部显示研究资金；废料币是另一种货币。每次只扣除你选中的一种。','The top bar shows credits. Scrap is a separate currency. Only your selected currency is charged.')}</p><div class="recovery-pity"><div><span>${t('稀有保底','Rare guarantee')}</span><b>${s.hunt.gachaPity.rare} / 20</b><i style="--progress:${Math.min(100,s.hunt.gachaPity.rare/20*100)}%"></i></div><div><span>${t('史诗保底','Epic guarantee')}</span><b>${s.hunt.gachaPity.epic} / 60</b><i style="--progress:${Math.min(100,s.hunt.gachaPity.epic/60*100)}%"></i></div></div><div class="recovery-draw-actions"><button data-recovery="draw" data-count="1" ${processing||blocked||!single.ok?'disabled':''}><span>${t('单次回收','Single recovery')}</span><b>${single.cost} ${unit}</b></button><button data-recovery="draw" data-count="10" ${processing||blocked||!ten.ok?'disabled':''}><span>${t('十连回收','Ten recoveries')}</span><b>${ten.cost} ${unit}</b><small>${t('至少一件少见以上','At least one Uncommon+')}</small></button></div><p id="recovery-feedback" role="status" class="recovery-feedback ${blocked||error||!single.ok?'warning':''}">${esc(error||blocked||(processing?t('正在扫描，本次奖励已保存。','Scanning. This batch has already been saved.'):single.ok?t('不消耗行动点。重复收藏转为废料或材料。','No action points used. Duplicate collectibles become scrap or materials.'):single.message))}</p><details class="recovery-rules"><summary>${t('查看回收规则与概率','Rules and rates')}</summary><p>${t('研究资金单抽 80、十连 800；废料币单抽 8、十连 80。十连至少少见，20 抽内稀有、60 抽内史诗保底。两种支付共用保底。','Credits cost 80 / 800; scrap costs 8 / 80. Ten draws guarantee Uncommon+, Rare+ within 20, Epic+ within 60. Both currencies share pity.')}</p>${Abyss.HuntData.rarities.map((r,i)=>`<span>${Abyss.Data.rarities.find(x=>x.id===r).zh} ${(Abyss.HuntData.rates[i]*100).toFixed(1)}%</span>`).join('')}</details></aside></div><section class="recovery-results" aria-live="polite"><header><h3>${processing?t('封存物扫描','Scanning sealed objects'):batch?t('本次回收结果','This batch'):t('最近回收记录','Recent recoveries')}</h3><span>${batch?batch.length:history.length} / ${batch?batch.length:10}</span></header>${processing?'<div class="recovery-loading"><i></i><i></i><i></i><span>'+t('解析材质与档案','Reading materials and records')+'</span></div>':(batch||history).length?'<div class="recovery-result-grid">'+cards(batch||history)+'</div>':'<p class="recovery-empty">'+t('尚未回收。选择货币后，可以开始第一次扫描。','No recoveries yet. Select a currency to start your first scan.')+'</p>'}</section></section>`;
+  Abyss.I18n.register(Abyss.HomeData.english);Abyss.UI.modal(t('回收抽奖','Salvage Draw'),body);document.getElementById('modal').classList.add('recovery-modal');
+ }
+ function open(){generation++;processing=false;batch=null;error='';const s=Abyss.Engine.snapshot();currency=s.hunt.combatCurrency>=8?'scrap':s.money>=80?'credits':'scrap';render();}
+ function bind(){if(bound)return;bound=true;document.addEventListener('click',e=>{const b=e.target.closest('[data-recovery]');if(!b||b.disabled||processing)return;
+  if(b.dataset.recovery==='currency'){currency=b.dataset.currency;error='';render();return;}
+  if(b.dataset.recovery!=='draw')return;const s=Abyss.Engine.snapshot(),why=reason(s);if(why){error=why;render();return;}
+  const result=Abyss.Engine.dispatch({type:'hunt:draw',payload:{count:Number(b.dataset.count),currency}});if(!result.ok){error=result.message;render();return;}
+  batch=result.results;processing=true;error=result.saved===false?t('本次自动保存失败，请立即导出备份。','Autosave failed. Export a backup immediately.') : '';const token=generation;render();document.dispatchEvent(new CustomEvent('abyss:audio-hook',{detail:{kind:'salvage-draw',count:batch.length}}));
+  setTimeout(()=>{if(token!==generation)return;processing=false;const root=document.getElementById('recovery-terminal');if(root?.dataset.session===String(token)&&document.getElementById('modal').open){render();document.dispatchEvent(new CustomEvent('abyss:audio-hook',{detail:{kind:'salvage-reveal',rarity:batch.reduce((best,r)=>Abyss.HuntRewards.rank(r.rarity)>Abyss.HuntRewards.rank(best)?r.rarity:best,'common')}}));}},s.settings.motion?950:0);
+ });}
+ return {open,bind,reason};
 })();
 
 </script>
@@ -15099,7 +15220,7 @@ Abyss.NavigationData = [
  ['lab','◇','实验室','LAB',[
   ['research','研究协议','Research','protocols'],['tech','科技网络','Technology','research'],['experiments','实验','Experiments','experiment'],['mutations','突变','Mutations','mutations'],['evolution','进化','Evolution','evolution'],['containment','设施','Facilities','home'],['anomalies','异常物件','Anomalies','objects'],['serums','药剂','Serums','serums']]],
  ['collection','▧','收藏','COLLECTION',[
-  ['wardrobe','衣橱','Wardrobe','wardrobe'],['colors','体色','Colors','colors'],['cosmetics','外观','Cosmetics','collection'],['wallpapers','壁纸','Wallpapers','wallpapers'],['valuables','变卖物','Valuables','valuables'],['furniture','家具','Furniture','bedroom'],['relics','世界遗物','World Relics','relics'],['goods','随身旧物','Goods','goods'],['achievements','成就','Achievements','achievements'],['archive','档案','Archive','archive'],['continuity','连续性','Continuity','continuity']]],
+  ['wardrobe','衣橱','Wardrobe','wardrobe'],['draw','回收抽奖','Salvage Draw','draw'],['colors','体色','Colors','colors'],['cosmetics','外观','Cosmetics','collection'],['wallpapers','壁纸','Wallpapers','wallpapers'],['valuables','变卖物','Valuables','valuables'],['furniture','家具','Furniture','bedroom'],['relics','世界遗物','World Relics','relics'],['goods','随身旧物','Goods','goods'],['achievements','成就','Achievements','achievements'],['archive','档案','Archive','archive'],['continuity','连续性','Continuity','continuity']]],
  ['world','◎','世界','WORLD',[
   ['people','街道上的人','People','street'],['settlements','聚落与声望','Settlements & Reputation','wasteland'],['factions','阵营与商路','Factions & Trade','caravans'],['personnel','人物档案','Personnel','personnel'],['journal','Jack 的日记','Jack’s Journal','journal'],['story','调查与主线','Story & Investigation','storyFiles']]],
  ['system','⚙','系统','SYSTEM',[
@@ -15136,7 +15257,7 @@ Abyss.Navigation=(()=>{
  function group(){return D.find(d=>d.id===layout.section)||D[0];}
  function current(){return group().tabs.find(d=>d.id===layout.tabs[group().id]);}
  function frame(){if(!bound)return;const d=group();$('nav-sidebar').innerHTML=C.NavSidebar(D,d.id,layout.collapsed);$('section-title').innerHTML=C.SectionHeader(d,current());$('section-tabs').innerHTML=C.TabBar(d.tabs,layout.tabs[d.id]);$('section-tabs').hidden=!d.tabs.length;$('section-crumb').textContent=t('主页','Home')+' / '+C.label(d)+(current()?' / '+C.label(current()):'');document.body.dataset.section=d.id;document.body.classList.toggle('nav-collapsed',layout.collapsed);$('section-back').disabled=d.id==='home'&&!history.length;}
- function cleanup(){Abyss.RoadUI?.close();for(const el of document.querySelectorAll('dialog[open]')){if(el.id==='modal'&&el.querySelector('[data-command="event"]'))continue;el.close();}document.body.classList.remove('nav-docked');}
+ function cleanup(){Abyss.RoadUI?.close();document.getElementById('modal')?.classList.remove('recovery-modal');for(const el of document.querySelectorAll('dialog[open]')){if(el.id==='modal'&&el.querySelector('[data-command="event"]'))continue;el.close();}document.body.classList.remove('nav-docked');}
  function select(section,tab=null,run=true){if(!bound)return;const d=D.find(x=>x.id===section);if(!d)return;const s=Abyss.Engine.snapshot();if(!Abyss.Save.active()&&section!=='system'){Abyss.UI.toast(t('请先选择独立记录。','Choose a save first.'));Abyss.ModeUI.open();return;}if(s.pendingEvent||s.hunt.active||s.endingNotice){Abyss.UI.showPending();return;}if(run&&layout.section!==section)history.push({section:layout.section,tab:layout.tabs[layout.section]});cleanup();document.body.classList.remove('nav-drawer-open');layout.section=section;if(tab)layout.tabs[section]=tab;else if(!d.tabs.some(v=>v.id===layout.tabs[section]))layout.tabs[section]=d.tabs[0]?.id;save();frame();if(section==='home')return;$('section-landing').innerHTML=C.ItemGrid(d.tabs);if(run&&current())launch(current().action);}
  function adopt(action){if(!bound||busy)return;const found=D.flatMap(g=>g.tabs.map(tab=>({g,tab}))).find(x=>x.tab.action===action);if(!found)return;layout.section=found.g.id;layout.tabs[found.g.id]=found.tab.id;save();frame();}
  function remember(action){layout.recent=[action,...layout.recent.filter(x=>x!==action)].slice(0,5);save();}
@@ -15145,8 +15266,8 @@ Abyss.Navigation=(()=>{
  function card(title,text){Abyss.UI.modal(title,text);}
  function care(){const s=Abyss.Engine.snapshot();card(t('日常照料','Daily Care'),`<p class="modal-intro">${esc(s.name)} · ${t('这里的选择仍使用原有行动与剧情规则。','Care follows existing action and story rules.')}</p>${C.ItemGrid([['food','喂食','Feed'],['companion','陪伴','Spend Time'],['heal','检查与治疗','Examine & Treat'],['reward','奖励','Reward'],['rest','休息','Rest']].map(([action,zh,en])=>({action,zh,en})))}<details data-layout-detail="care-history"><summary>${t('最近观察','Recent Observations')}</summary>${s.logs.slice(0,8).map(l=>`<p>D${l.day} · ${esc(l.text)}</p>`).join('')}</details>`);}
  function launch(action){if(!bound)return;adopt(action);remember(action);busy=true;try{
- const s=Abyss.Engine.snapshot();if(s.mode==='story'&&!['savesMenu','settings','redeem','updates','credits','guide','collection','achievements','archive','storyFiles','journal','personnel','combatRecords'].includes(action)){card(t('叙事模式','Story Mode'),C.EmptyState(t('此功能属于养成模式。当前请继续调查、记录与眼前的故事。','This feature belongs to Raising Mode. Continue the current story and investigations.')));return;}const guarded=['care','pets','bedroom','home','experiment','train','food','companion','heal','reward','research','protocols','roads','hunt'];if(guarded.includes(action)&&!Abyss.StoryDay.canOpen(s,action==='care'?'food':action==='pets'||action==='bedroom'?'home':action==='roads'?'road':action)){Abyss.UI.toast(Abyss.StoryDay.message());return;}
- const calls={care,pets:()=>Abyss.ContainmentUI.pets(),bedroom:()=>Abyss.ContainmentUI.bedroom(),inventory:()=>Abyss.ExpeditionUI.open('inventory',{category:'ALL'}),caravans:()=>Abyss.EconomyUI.open('caravans'),goods:()=>Abyss.EconomyUI.open('goods'),street:()=>Abyss.EconomyUI.open('people'),roads:()=>Abyss.RoadUI.open(['drive','inside','site'].includes(s.road.mode)?'scene':'map'),relics:()=>Abyss.RoadUI.open('relics'),weapons:()=>Abyss.HuntUI.open('forge'),combatTraining:()=>Abyss.HuntUI.open('training'),bounties:()=>Abyss.HuntUI.open('bounties'),bestiary:()=>Abyss.HuntUI.open('bestiary'),serums:()=>Abyss.HuntUI.open('serums'),protocols:()=>Abyss.ProgressionUI.open('protocols'),evolution:()=>Abyss.ProgressionUI.open('evolution'),objects:()=>Abyss.ProgressionUI.open('objects'),mutations:()=>Abyss.UI.open('codex'),colors:()=>Abyss.Wardrobe.open('colors'),savesMenu:()=>Abyss.ModeUI.open(),redeem:()=>Abyss.Redeem.open(),updates:()=>Abyss.ModeUI.updates(),credits:()=>card('St3phEn','<p>ABYSS LAB · St3phEn</p><p>'+t('深渊实验室制作组','ABYSS LAB development studio')+'</p>'),storyFiles:()=>s.mode==='story'?Abyss.StoryUI.open('files'):Abyss.ProgressionUI.open('story'),valuables:()=>Abyss.ExpeditionUI.open('inventory',{category:'SALVAGE'}),combatRecords:()=>card(t('战斗记录','Combat Records'),`<details open data-layout-detail="combat-records"><summary>${t('近期战斗','Recent Encounters')}</summary>${s.logs.filter(l=>/战斗|狩猎|击败|攻击|撤退|Battle|Hunt/i.test(l.text)).slice(0,20).map(l=>`<p>D${l.day} · ${esc(l.text)}</p>`).join('')||C.EmptyState(t('尚无近期战斗记录。','No recent combat records.'))}</details>`) };
+ const s=Abyss.Engine.snapshot();if(s.mode==='story'&&!['savesMenu','settings','redeem','updates','credits','guide','collection','achievements','archive','storyFiles','journal','personnel','combatRecords','draw'].includes(action)){card(t('叙事模式','Story Mode'),C.EmptyState(t('此功能属于养成模式。当前请继续调查、记录与眼前的故事。','This feature belongs to Raising Mode. Continue the current story and investigations.')));return;}const guarded=['care','pets','bedroom','home','experiment','train','food','companion','heal','reward','research','protocols','roads','hunt'];if(guarded.includes(action)&&!Abyss.StoryDay.canOpen(s,action==='care'?'food':action==='pets'||action==='bedroom'?'home':action==='roads'?'road':action)){Abyss.UI.toast(Abyss.StoryDay.message());return;}
+ const calls={care,draw:()=>Abyss.DrawUI.open(),pets:()=>Abyss.ContainmentUI.pets(),bedroom:()=>Abyss.ContainmentUI.bedroom(),inventory:()=>Abyss.ExpeditionUI.open('inventory',{category:'ALL'}),caravans:()=>Abyss.EconomyUI.open('caravans'),goods:()=>Abyss.EconomyUI.open('goods'),street:()=>Abyss.EconomyUI.open('people'),roads:()=>Abyss.RoadUI.open(['drive','inside','site'].includes(s.road.mode)?'scene':'map'),relics:()=>Abyss.RoadUI.open('relics'),weapons:()=>Abyss.HuntUI.open('forge'),combatTraining:()=>Abyss.HuntUI.open('training'),bounties:()=>Abyss.HuntUI.open('bounties'),bestiary:()=>Abyss.HuntUI.open('bestiary'),serums:()=>Abyss.HuntUI.open('serums'),protocols:()=>Abyss.ProgressionUI.open('protocols'),evolution:()=>Abyss.ProgressionUI.open('evolution'),objects:()=>Abyss.ProgressionUI.open('objects'),mutations:()=>Abyss.UI.open('codex'),colors:()=>Abyss.Wardrobe.open('colors'),savesMenu:()=>Abyss.ModeUI.open(),redeem:()=>Abyss.Redeem.open(),updates:()=>Abyss.ModeUI.updates(),credits:()=>card('St3phEn','<p>ABYSS LAB · St3phEn</p><p>'+t('深渊实验室制作组','ABYSS LAB development studio')+'</p>'),storyFiles:()=>s.mode==='story'?Abyss.StoryUI.open('files'):Abyss.ProgressionUI.open('story'),valuables:()=>Abyss.ExpeditionUI.open('inventory',{category:'SALVAGE'}),combatRecords:()=>card(t('战斗记录','Combat Records'),`<details open data-layout-detail="combat-records"><summary>${t('近期战斗','Recent Encounters')}</summary>${s.logs.filter(l=>/战斗|狩猎|击败|攻击|撤退|Battle|Hunt/i.test(l.text)).slice(0,20).map(l=>`<p>D${l.day} · ${esc(l.text)}</p>`).join('')||C.EmptyState(t('尚无近期战斗记录。','No recent combat records.'))}</details>`) };
  if(calls[action])calls[action]();else Abyss.UI.open(action);
  }finally{busy=false;restoreDetails();}}
  function restoreDetails(){document.querySelectorAll('[data-layout-detail]').forEach(el=>{if(Object.hasOwn(layout.details,el.dataset.layoutDetail))el.open=!!layout.details[el.dataset.layoutDetail];});}
@@ -15180,7 +15301,7 @@ Abyss.Navigation=(()=>{
  const loaded=Abyss.Save.load();
  Abyss.UI.bind(Abyss.Engine);Abyss.I18n.bind();
  Abyss.NarrativeUI.bind();Abyss.JackUI.bind();Abyss.WastelandUI.bind();Abyss.ExpansionUI.bind();Abyss.WallpaperUI.bind();Abyss.Wallpapers.bind();
- Abyss.ContainmentUI.bind();Abyss.SceneCompositionUI.bind();Abyss.HuntUI.bind();Abyss.ModeUI.bind();Abyss.ColorUI.bind();
+ Abyss.ContainmentUI.bind();Abyss.SceneCompositionUI.bind();Abyss.HuntUI.bind();Abyss.DrawUI.bind();Abyss.ModeUI.bind();Abyss.ColorUI.bind();
  Abyss.Wardrobe.bind(Abyss.Engine);
  Abyss.ProgressionUI.bind();
  Abyss.Engine.subscribe(Abyss.UI.render);
