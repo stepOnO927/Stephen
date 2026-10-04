@@ -1,3 +1,9 @@
+## Controls repair — 0.8.2-preview
+
+Completed: explicit cockpit departure controls; canvas keyboard focus restoration; immediate failure text; seat/resume without trip reset; clear standing controls and compact-car limits; upper-right minimap.
+
+Verified in a browser: keyboard acceleration after destination selection, pointer-held throttle, parking/seating/resuming, standing and walking in a truck, map placement at desktop/mobile sizes, no overflow or page errors. These changes do not complete the earlier backlog below.
+
 ## Navigation update — 0.8.1-preview
 
 Completed: 67 connected roads / 39 reachable destinations; protection-aware shortest routes; live position/heading minimap; hard shoulder limits; map ceiling boundary; roadside retarget and immediate arrival-save fixes; legacy route reconstruction without trip reset. Detours keep the map cursor in place.

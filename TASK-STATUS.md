@@ -1,3 +1,7 @@
+## 0.8.2-preview — driving controls repaired
+
+Explicit departure / seating / standing controls, keyboard-focus restoration and upper-right minimap verified. Compact cars have seated looking, not standing aisles. Historical pending work remains below.
+
 ## 0.8.1-preview — navigation completed
 
 Added connected roads, bounded driving lanes and live minimap position/heading; fixed roadside retarget teleportation and arrival-save delay. Prior incomplete work is still listed below.

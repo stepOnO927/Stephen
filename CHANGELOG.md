@@ -1,3 +1,12 @@
+## 0.8.2-preview — 2026-10-04
+
+- Cockpit now has explicit destination selection / Start Trip controls, rather than opening an inert parked driving view.
+- Restore canvas focus after navigation, departure and selector changes so WASD reaches the controls. Failure messages refresh immediately.
+- Add Sit in Driver Seat; roadside seating preserves the target and distance, and supports Resume Trip. Explain compact vehicles' lack of standing aisles.
+- Park and Stand Up for walkable vehicles; cabin walking also accepts arrow keys.
+- Move minimap to the upper right on desktop and mobile.
+- Verified keyboard and on-screen throttle, focus, seat/resume, truck walking and HUD placement at 1366×768, 1920×1080 and 390px; zero page errors.
+
 ## 0.8.1-preview — 2026-10-04
 
 - 67 connected road segments link all 39 destinations, with shortest accessible routes and active-route highlights.
