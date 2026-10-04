@@ -130,7 +130,9 @@ a { color:inherit; text-decoration:none; }
 .speech::after { content:""; position:absolute; width:5px; height:5px; background:#1c3036; border-right:1px solid #42636b66; border-bottom:1px solid #42636b66; bottom:-4px; left:50%; transform:rotate(45deg); }
 #monster { position:absolute; z-index:2; width:66%; height:100%; left:17%; bottom:6%; overflow:visible; transform-origin:center 86%; filter:saturate(.7) drop-shadow(0 16px 12px #0005); pointer-events:none; }
 #creature { transform-origin:240px 350px; animation:breathe 5s ease-in-out infinite; }
-[data-layer="eyes"] { transform-box:fill-box; transform-origin:center; animation:blink 9s infinite; }
+[data-layer="eyes"] { animation:none; }
+.creature-eye { transform-box:view-box; transform-origin:var(--eye-x) var(--eye-y); animation:blink 9s infinite; }
+.reduced-motion .creature-eye{animation:none}
 .platform { position:absolute; width:69%; height:18%; bottom:6%; left:15.5%; border-radius:50%; background:linear-gradient(180deg,#283e46,#0b1a23); border:1px solid #496673; box-shadow:0 9px 0 #081019,0 11px 0 #304651,0 19px 30px #0009; z-index:1; }
 .platform::before { content:""; position:absolute; inset:9% 5%; border-radius:50%; background:radial-gradient(ellipse,#729f9e18,#172c34 70%); border:1px solid #6faab780; box-shadow:0 0 12px #72b1b61a,inset 0 0 18px #72b1b622; }
 .platform span { position:absolute; inset:23% 17%; border:1px solid #648e995c; border-radius:50%; }
@@ -701,6 +703,10 @@ html[lang="en"] .top-stat>small span{display:none}
 @keyframes story-shock{0%{opacity:0}18%{opacity:.85}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.story-impact,.story-collapse,.story-pressure .chamber,.story-shock{animation:none!important}.story-shock{display:none}}
 
+.atelier-ambient{animation:atelier-drift 6s ease-in-out infinite;opacity:.6}
+@keyframes atelier-drift{50%{transform:translateY(-5px);opacity:.85}}
+.reduced-motion .atelier-ambient{animation:none}
+
 </style>
 <style data-source="hunt.css">
 /* Wasteland Hunt follows the existing laboratory materials and typography. */
@@ -777,7 +783,7 @@ body.road-active>.app{visibility:hidden}body.road-active>.app *{animation-play-s
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.9.0-preview</small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.9.1-preview</small></span>
     </a>
     <div class="top-stats"><div class="top-stat"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -1587,7 +1593,7 @@ Abyss.EnglishCatalog={
   "实验室迎新物资": "Laboratory welcome supplies",
   "纸皇冠": "paper crown",
   "用报废观察表折成，背面仍有研究员的笔迹。": "It was folded from a scrapped observation sheet, and the researcher's handwriting was still on the back.",
-  "衣橱 · 补给商店": "Wardrobe · Supply Store",
+  "衣橱 · 补给商店": "Wardrobe · Supply shop",
   "圆框眼镜": "round frame glasses",
   "没有度数；它只是想看上去和你一样。": "There's no degree; it's just trying to look like you.",
   "素色项圈": "plain collar",
@@ -4776,6 +4782,69 @@ Abyss.EnglishCatalog={
   "走廊安静下来。下一段生命不会被过去的回声要求重复。": "The corridor grows quiet. The next life is not asked by old echoes to repeat itself.",
   "他们把这个决定记录下来，仍为明天留了一扇没有答案的门。": "They record the decision, leaving an unanswered door for tomorrow.",
   "公开版本暂用本地对白；在线 AI 尚未配置。": "The public version uses local dialogue until online AI is configured.",
+  "斜戴的帽檐和铜制别针，来自为船只重画名字的画师。": "A tilted brim and copper pin, kept by a painter who renamed ships.",
+  "救援队留下的羊绒护耳，把寒风挡在玻璃外。": "A rescue team left these wool ear flaps to keep the cold outside the glass.",
+  "Glassfield 的裁缝把嫩叶轮廓缝成不遮角的帽顶。": "A Glassfield tailor stitched fern leaves into a hood that leaves room for horns.",
+  "一条能挡沙的长布，曾随商队走过三座废城。": "A long strip of cloth that crossed three ruined cities with a caravan.",
+  "宽檐内绣着旧时代的星图，缺了一颗星。": "An old star chart is stitched inside the brim. One star is missing.",
+  "把折断的银枝重新焊好的人，坚持说它不是王冠。": "The maker welded broken silver branches together and insists it is not a crown.",
+  "透明镜片来自坠落飞行器的观察窗，仍能看清彼此。": "Clear lenses salvaged from an aircraft window still let you see each other.",
+  "旧书店老板把夸张的尖角磨圆，避免碰伤眼眶。": "A bookseller rounded the dramatic corners so they would not hurt the eyes.",
+  "细链末端留着图书馆的编号，镜片没有度数。": "A library number remains on the chain. The lens has no prescription.",
+  "褪色邀请函藏在衬里，眼孔始终留得很宽。": "A faded invitation hides in the lining. The eye holes are deliberately wide.",
+  "蓝灰色镜片不遮住瞳孔，皮带经过柔软包边。": "Blue-grey lenses leave the pupils visible, with a soft-edged strap.",
+  "极薄的晶片像一场尚未落下的雨，随视线轻响。": "Crystal slivers hang like rain that has not yet fallen, whispering with each glance.",
+  "海员拆开自己的旧围巾，给它留了一段暖和的长度。": "A sailor unstitched an old scarf and kept a warm length for this new wearer.",
+  "没有仪式需要它出席，这条领结只为今天。": "No ceremony demands this bow tie. It is simply for today.",
+  "玻璃里封着一粒仍能发芽的种子。": "A seed that could still sprout is sealed inside the glass.",
+  "没有锁孔，只有可以自行解开的搭扣。": "There is no keyhole, only a clasp the wearer can undo.",
+  "细链分散重量，戴上时不会勒住呼吸。": "Fine chains distribute their weight without tightening around a breath.",
+  "两端并不相接，设计者认为任何环都该留一道出口。": "The ends never meet. Its maker believed every ring should leave an exit.",
+  "宽大的领口，缝着回港航线的浅蓝织纹。": "A broad collar woven with the pale blue lines of a homeward route.",
+  "两片布交叠，长大后仍能调整衣襟。": "Two overlapping panels leave room to adjust as the wearer grows.",
+  "下摆剪成叶片般的层次，方便尾巴伸出。": "Leaf-shaped hems leave space for a tail to move.",
+  "口袋里没有工具，只有 Jack 留下的布尺。": "There are no tools in the pocket, only the measuring tape Jack left there.",
+  "拼缝记着不同聚落的布料，袖口留了生长余量。": "Patchwork seams remember different settlements, with room to grow at the cuffs.",
+  "不是战斗装甲。每片晶体都用柔软的丝带固定。": "Not combat armor. Each crystal is attached with a soft ribbon.",
+  "一床认真卷好的毯子，为没有墙的夜晚准备。": "A carefully rolled blanket for nights with no walls.",
+  "遮光罩把光投向前方，不刺它的眼睛。": "A shade directs the light forward instead of into the eyes.",
+  "两对薄帆取代沉重的金属翼，风过时会颤动。": "Four thin sails replace heavy metal wings and tremble in the wind.",
+  "用废船的帆布补成，印着一条仍有人走的航线。": "Patched from an old sail, bearing a route that people still travel.",
+  "篮里有一小株蕨，浇水的时间由它自己记着。": "A small fern lives in this basket. The wearer remembers when to water it.",
+  "转动的不是命运，只是观测夜空的一组铜环。": "These brass rings track the sky, not destiny.",
+  "细线比尾端更轻，在转身时留下柔和的弧。": "Fine threads lighter than the tail tip trace a soft arc when it turns.",
+  "停在六点的表盘，主人说那是大家回家的时候。": "The watch stopped at six, the hour its owner said everyone came home.",
+  "扣子顺着尾巴的弯曲打开，不会夹住鳞片。": "The clasp opens along the curve of the tail without pinching scales.",
+  "一面很小的旗，只有同伴能认出它的方向。": "A tiny flag whose direction only a companion would recognize.",
+  "薄片绕开鱼鳍，给游动留出了空间。": "Thin plates leave the fins free to swim.",
+  "星形坠饰没有尖角，像落在尾梢的一段夜空。": "Rounded star charms resemble a fragment of night resting on the tail.",
+  "信封里没有收件地址，只有一句“等你回来”。": "There is no address inside, only a line asking someone to come back.",
+  "修复的裂缝用了金漆，没有假装它从未碎过。": "Gold paint repairs the cracks without pretending it was never broken.",
+  "漏下的不是沙，而是经过烘干的微小种壳。": "Tiny dried seed husks trickle through instead of sand.",
+  "锚尖被磨钝，背面写着一个已经消失的港名。": "The anchor tips are blunt. A vanished harbor is named on the reverse.",
+  "发条只够转完一小段摇篮曲。": "The spring lasts for just one short lullaby.",
+  "小窗能旋开，里面是一片手绘的夜空。": "A small window opens onto a hand-painted night sky.",
+  "密封皮筒里留下了手绘路线，也留出下一条路的位置。": "A sealed leather tube holds hand-drawn routes and space for the next one.",
+  "小壶的把手裹了布，不烫手，壶盖仍有旧家里的花纹。": "A cloth-wrapped handle stays cool, and the lid keeps a pattern from an old home.",
+  "折叠皮腔修过三次，照片里的废土却从来没有重复。": "The folding bellows were repaired three times. No two wasteland photos are alike.",
+  "灯罩把刺眼的光揉散，照亮脚下而不是逼问眼睛。": "Frosted glass softens the light to illuminate the ground instead of interrogating eyes.",
+  "不再寻找旧海岸，而是测量天边尚未抵达的地方。": "It no longer seeks the old coast, but measures places still beyond the horizon.",
+  "黄铜线圈接收陌生声音，侧面留着可以写回信的纸。": "Brass coils catch unfamiliar voices. A paper panel leaves space for a reply.",
+  "弓弦已经卸下，木身记着河边的一段安静生活。": "The string is removed. The wood remembers quiet days beside a river.",
+  "刀刃是圆滑的木头，刀鞘刻着送礼者的家乡。": "A rounded wooden blade and a scabbard carved with the giver's hometown.",
+  "封住刃口的护套不能拆掉，留下的只是纪念。": "The sealed blade cover cannot be removed. Only the keepsake remains.",
+  "无法发射的陈列品，仍保留呼唤同伴的形状。": "An inert display piece shaped to call companions back.",
+  "三道圆钝的叉尖来自废船栏杆，只作仪式装饰。": "Three rounded prongs from an old ship railing serve as ceremonial decoration.",
+  "水晶枝条包在软鞘里，透光时像一条没有伤口的星线。": "A crystal branch in a soft sheath catches light like a star without a wound.",
+  "折好的纸页随呼吸微动，写着未曾寄出的问候。": "Folded paper moves with each breath, bearing greetings never sent.",
+  "细小水光沿脚边流动，像清晨温室里的露水。": "Tiny reflections drift near the feet like greenhouse dew at dawn.",
+  "叶片缓慢转落，没有一片挡住它看向外面的视线。": "Leaves descend slowly, leaving the view toward the outside unobstructed.",
+  "一圈浅淡的方位刻度，不为它指定唯一方向。": "A faint ring of bearings refuses to prescribe one direction.",
+  "淡紫的细线在身后舒展，不束缚任何一个动作。": "Pale violet threads stretch behind without binding a movement.",
+  "星点连接又分开，每次停驻都会留下不同的天空。": "Stars connect and drift apart, leaving a different sky at every pause.",
+  "累计探索相关地点 6 次": "Explore the associated location six times",
+  "第 16 天后，累计照护 15 次": "After day 16, provide care 15 times",
+  "第 32 天后，累计照护 40 次": "After day 32, provide care 40 times",
   "探索发现或废料抽取": "Expedition discovery or scrap draws",
   "共同生活的纪念": "A memento of life together",
   "潮汐同行": "Tidal Companions",
@@ -5080,6 +5149,12 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "合身裁剪、眼睛修复与六十件新装扮": "Tailoring, Eye Repairs and Sixty New Accessories",
+  "衣服跟随九种身体轮廓裁剪，年龄与进化缩放仅作用一次，修复衣服过小和穿出身体的问题。": "Garments follow nine body silhouettes with growth scaling applied once, fixing undersized clothing and overflow.",
+  "统一普通与变异眼睛，每只眼睛独立眨眼；镜片独立适配大小，修复遮眼、额外眼睛重复和复制材质冲突。": "Unified ordinary and evolved eyes, with independent blinking and fitted lenses; fixed opaque goggles, duplicate extra eyes and copied material conflicts.",
+  "十个装扮分类各新增六件，共六十件独立造型与背景说明，包含服装、工具、武器外观与轻量动态特效。": "Added six accessories to each of ten slots: sixty authored models and lore entries, including clothing, tools, cosmetic weapons and subtle animated effects.",
+  "新装扮沿用商店、探索和照护里程碑；保留旧存档，已兑换全收藏的记录自动补齐。": "New accessories use existing shops, exploration and care milestones; saves are retained and full-collection codes include the additions.",
+  "装扮仍是可替换的分层 SVG 模型，不包含布料物理模拟。": "Accessories remain replaceable layered SVG models without cloth physics.",
   "界面分区与导航重构": "Interface Organization & Navigation",
   "整理为主页、生活、探索、战斗、实验室、收藏、世界、系统八个分区，52个二级入口调用原有控制器。": "Organized existing controllers into Home, Life, Explore, Combat, Lab, Collection, World and System with 52 secondary routes.",
   "首页保留实验体、六项关键状态、位置、目标、紧急提示与快捷操作；生长详情和观察日志默认折叠。": "Home retains the specimen, six key indicators, location, objective, urgent alerts and quick actions. Advanced growth details and research logs are collapsed.",
@@ -6163,6 +6238,104 @@ Abyss.Data.outfitSets = [
  {id:'rain',name:'雨天同行',items:['rain_hood','raincoat','canvas_pack'],effect:'rain',text:'它晃了晃背包，像在等你说出发。玻璃上亮起细小的雨光。'},
  {id:'home',name:'温暖的归途',items:['cotton_sweater','red_ribbon','friendship_knot'],effect:'home',text:'它在柔软的毛衣里缩了缩，丝带随着安心的呼吸轻轻摆动。'}
 ];
+
+</script>
+<script data-source="js/data/atelierAccessories.js">
+
+'use strict';
+// 60 authored silhouettes. Unlocks use the existing shop / exploration / milestone rules.
+Abyss.AtelierData={
+ palettes:[
+ ['#566c84','#a6bfd3','#233747','#ecd9ab','#bf9763'],['#8b4e5d','#dcaaa7','#452d3c','#ecdcc2','#bd976b'],['#547863','#a2c59c','#213f36','#e6dec0','#bca45e'],['#b89853','#ecdca1','#645031','#efe7d1','#c8b5a2'],['#686084','#bdb0db','#302d47','#e8dce6','#acaec4'],['#365661','#88b8bf','#182d38','#d7dfd2','#bdb69c']],
+ rows:{
+ head:[['dock_beret','Dockside Beret','码头画家贝雷帽','斜戴的帽檐和铜制别针，来自为船只重画名字的画师。'],['winter_ushanka','Winter Ushanka','雪谷绒耳帽','救援队留下的羊绒护耳，把寒风挡在玻璃外。'],['fern_bonnet','Fern Bonnet','蕨叶兜帽','Glassfield 的裁缝把嫩叶轮廓缝成不遮角的帽顶。'],['sand_turban','Sandrunner Turban','沙行者头巾','一条能挡沙的长布，曾随商队走过三座废城。'],['astronomer_hat','Astronomer Hat','观星者软帽','宽檐内绣着旧时代的星图，缺了一颗星。'],['branch_diadem','Branch Diadem','银枝冠冕','把折断的银枝重新焊好的人，坚持说它不是王冠。']],
+ face:[['pilot_frames','Pilot Frames','飞行员镜框','透明镜片来自坠落飞行器的观察窗，仍能看清彼此。'],['cat_frames','Cat-eye Frames','猫眼玳瑁镜','旧书店老板把夸张的尖角磨圆，避免碰伤眼眶。'],['archive_monocle','Archive Monocle','档案员单片镜','细链末端留着图书馆的编号，镜片没有度数。'],['lace_halfmask','Lace Halfmask','夜宴半面罩','褪色邀请函藏在衬里，眼孔始终留得很宽。'],['snow_goggles','Snow Goggles','雪线护目镜','蓝灰色镜片不遮住瞳孔，皮带经过柔软包边。'],['prism_veil','Prism Veil','棱镜纱幕','极薄的晶片像一场尚未落下的雨，随视线轻响。']],
+ neck:[['harbor_scarf','Harbor Scarf','海港条纹围巾','海员拆开自己的旧围巾，给它留了一段暖和的长度。'],['velvet_cravat','Velvet Cravat','酒红丝绒领结','没有仪式需要它出席，这条领结只为今天。'],['seed_pendant','Seed Pendant','种子玻璃坠','玻璃里封着一粒仍能发芽的种子。'],['ranger_collar','Ranger Collar','巡林软革领圈','没有锁孔，只有可以自行解开的搭扣。'],['chain_mantle','Chain Mantle','月色链肩饰','细链分散重量，戴上时不会勒住呼吸。'],['aurora_torque','Aurora Torque','极光开口颈环','两端并不相接，设计者认为任何环都该留一道出口。']],
+ body:[['sailor_blouse','Sailor Blouse','海风水手衫','宽大的领口，缝着回港航线的浅蓝织纹。'],['indigo_kimono','Indigo Wrap','靛蓝交领衣','两片布交叠，长大后仍能调整衣襟。'],['ranger_poncho','Ranger Poncho','巡林披衫','下摆剪成叶片般的层次，方便尾巴伸出。'],['mechanic_overalls','Mechanic Overalls','维修工背带裤','口袋里没有工具，只有 Jack 留下的布尺。'],['quilted_coat','Quilted Coat','绗缝远行大衣','拼缝记着不同聚落的布料，袖口留了生长余量。'],['prism_cuirass','Prism Cuirass','晶片礼装','不是战斗装甲。每片晶体都用柔软的丝带固定。']],
+ back:[['trail_bedroll','Trail Bedroll','旅人卷毯','一床认真卷好的毯子，为没有墙的夜晚准备。'],['lantern_carrier','Lantern Carrier','萤灯背架','遮光罩把光投向前方，不刺它的眼睛。'],['dragonfly_sails','Dragonfly Sails','蜻蜓薄翼','两对薄帆取代沉重的金属翼，风过时会颤动。'],['harbor_sail','Harbor Sail','归港小帆','用废船的帆布补成，印着一条仍有人走的航线。'],['fern_planter','Fern Planter','苔庭背篮','篮里有一小株蕨，浇水的时间由它自己记着。'],['orbital_astrolabe','Orbital Astrolabe','星环背仪','转动的不是命运，只是观测夜空的一组铜环。']],
+ tail:[['silk_tassel','Silk Tassel','朱砂丝穗','细线比尾端更轻，在转身时留下柔和的弧。'],['watch_tailring','Watch Tail Ring','旧表尾环','停在六点的表盘，主人说那是大家回家的时候。'],['fern_tailpin','Fern Tail Pin','蕨叶尾扣','扣子顺着尾巴的弯曲打开，不会夹住鳞片。'],['signal_tailflag','Signal Tail Flag','航标尾旗','一面很小的旗，只有同伴能认出它的方向。'],['tidal_finbrace','Tidal Fin Brace','潮汐尾鳍饰','薄片绕开鱼鳍，给游动留出了空间。'],['comet_tailchain','Comet Tail Chain','彗尾银链','星形坠饰没有尖角，像落在尾梢的一段夜空。']],
+ charm:[['mail_envelope','Letter Charm','未寄出的信','信封里没有收件地址，只有一句“等你回来”。'],['porcelain_fox','Porcelain Fox','瓷狐挂坠','修复的裂缝用了金漆，没有假装它从未碎过。'],['seed_hourglass','Seed Hourglass','种砂漏','漏下的不是沙，而是经过烘干的微小种壳。'],['harbor_anchor','Harbor Anchor','归港锚章','锚尖被磨钝，背面写着一个已经消失的港名。'],['music_capsule','Music Capsule','八音胶囊','发条只够转完一小段摇篮曲。'],['tiny_observatory','Tiny Observatory','微型星台','小窗能旋开，里面是一片手绘的夜空。']],
+utility:[["map_case", "Survey Map Case", "勘测地图筒", "密封皮筒里留下了手绘路线，也留出下一条路的位置。"], ["tea_flask", "Travel Tea Flask", "旅途茶壶", "小壶的把手裹了布，不烫手，壶盖仍有旧家里的花纹。"], ["field_camera", "Field Camera", "野外折叠相机", "折叠皮腔修过三次，照片里的废土却从来没有重复。"], ["glass_lantern", "Glass Lantern", "磨砂提灯", "灯罩把刺眼的光揉散，照亮脚下而不是逼问眼睛。"], ["survey_sextant", "Survey Sextant", "航路六分仪", "不再寻找旧海岸，而是测量天边尚未抵达的地方。"], ["letter_radio", "Letter Radio", "信笺收音机", "黄铜线圈接收陌生声音，侧面留着可以写回信的纸。"]],
+weapon:[["reed_bow", "Reed Bow", "芦苇长弓", "弓弦已经卸下，木身记着河边的一段安静生活。"], ["carved_saber", "Carved Saber", "木雕佩刀", "刀刃是圆滑的木头，刀鞘刻着送礼者的家乡。"], ["harbor_dagger", "Harbor Dagger", "港口礼仪匕首", "封住刃口的护套不能拆掉，留下的只是纪念。"], ["brass_flare", "Brass Flare Pistol", "黄铜信号枪", "无法发射的陈列品，仍保留呼唤同伴的形状。"], ["tide_trident", "Tide Trident", "潮纹仪式叉", "三道圆钝的叉尖来自废船栏杆，只作仪式装饰。"], ["star_rapier", "Star Rapier", "星枝细剑", "水晶枝条包在软鞘里，透光时像一条没有伤口的星线。"]],
+effect:[["paper_swirl", "Paper Swirl", "信纸轻旋", "折好的纸页随呼吸微动，写着未曾寄出的问候。"], ["dew_motes", "Dew Motes", "露珠微光", "细小水光沿脚边流动，像清晨温室里的露水。"], ["fern_drift", "Fern Drift", "蕨叶飘落", "叶片缓慢转落，没有一片挡住它看向外面的视线。"], ["compass_orbit", "Compass Orbit", "方位环轨", "一圈浅淡的方位刻度，不为它指定唯一方向。"], ["moon_ribbons", "Moon Ribbons", "月光丝带", "淡紫的细线在身后舒展，不束缚任何一个动作。"], ["constellation_halo", "Constellation Halo", "星座回声", "星点连接又分开，每次停驻都会留下不同的天空。"]]
+ }};
+for(const [slot,rows]of Object.entries(Abyss.AtelierData.rows))rows.forEach(([id,name,zh,description],design)=>{
+ const rarity=['common','common','uncommon','rare','epic','legendary'][design],place={head:'city',face:'factory',neck:'forest',body:'city',back:'ruins',tail:'sewer',charm:'ruins',utility:'factory',weapon:'ruins',effect:'forest'}[slot];
+ const unlock=design<3?{type:'shop',price:28+design*18,hint:'衣橱 · 补给商店'}:design===3?{type:'explore',place,visits:6,hint:'累计探索相关地点 6 次'}:{type:'milestone',rules:{day:{min:design===4?16:32},'history.care':{min:design===4?15:40}},hint:design===4?'第 16 天后，累计照护 15 次':'第 32 天后，累计照护 40 次'};
+ Abyss.Data.accessories.push({id:'atelier_'+id,name,zh,description,rarity,slot,unlock,alternatives:[],lore:description,type:design===5?'mysterious':'soft',secret:false,collectionExpansion:true,visual:{layer:'accessory-'+slot,renderer:'atelier',design,palette:design,asset:null,optical:slot==='face'&&[0,1,2,3,4].includes(design)}});
+});
+
+// Names and lore are translated through the same local catalog as existing items.
+Abyss.AtelierEnglish={};
+for(const rows of Object.values(Abyss.AtelierData.rows))for(const row of rows)Abyss.AtelierEnglish[row[2]]=row[1];
+Abyss.I18n.register(Abyss.AtelierEnglish);
+
+{ const t=(zh,en)=>(Abyss.AtelierEnglish[zh]=en,zh);
+t("斜戴的帽檐和铜制别针，来自为船只重画名字的画师。","A tilted brim and copper pin, kept by a painter who renamed ships.");
+t("救援队留下的羊绒护耳，把寒风挡在玻璃外。","A rescue team left these wool ear flaps to keep the cold outside the glass.");
+t("Glassfield 的裁缝把嫩叶轮廓缝成不遮角的帽顶。","A Glassfield tailor stitched fern leaves into a hood that leaves room for horns.");
+t("一条能挡沙的长布，曾随商队走过三座废城。","A long strip of cloth that crossed three ruined cities with a caravan.");
+t("宽檐内绣着旧时代的星图，缺了一颗星。","An old star chart is stitched inside the brim. One star is missing.");
+t("把折断的银枝重新焊好的人，坚持说它不是王冠。","The maker welded broken silver branches together and insists it is not a crown.");
+t("透明镜片来自坠落飞行器的观察窗，仍能看清彼此。","Clear lenses salvaged from an aircraft window still let you see each other.");
+t("旧书店老板把夸张的尖角磨圆，避免碰伤眼眶。","A bookseller rounded the dramatic corners so they would not hurt the eyes.");
+t("细链末端留着图书馆的编号，镜片没有度数。","A library number remains on the chain. The lens has no prescription.");
+t("褪色邀请函藏在衬里，眼孔始终留得很宽。","A faded invitation hides in the lining. The eye holes are deliberately wide.");
+t("蓝灰色镜片不遮住瞳孔，皮带经过柔软包边。","Blue-grey lenses leave the pupils visible, with a soft-edged strap.");
+t("极薄的晶片像一场尚未落下的雨，随视线轻响。","Crystal slivers hang like rain that has not yet fallen, whispering with each glance.");
+t("海员拆开自己的旧围巾，给它留了一段暖和的长度。","A sailor unstitched an old scarf and kept a warm length for this new wearer.");
+t("没有仪式需要它出席，这条领结只为今天。","No ceremony demands this bow tie. It is simply for today.");
+t("玻璃里封着一粒仍能发芽的种子。","A seed that could still sprout is sealed inside the glass.");
+t("没有锁孔，只有可以自行解开的搭扣。","There is no keyhole, only a clasp the wearer can undo.");
+t("细链分散重量，戴上时不会勒住呼吸。","Fine chains distribute their weight without tightening around a breath.");
+t("两端并不相接，设计者认为任何环都该留一道出口。","The ends never meet. Its maker believed every ring should leave an exit.");
+t("宽大的领口，缝着回港航线的浅蓝织纹。","A broad collar woven with the pale blue lines of a homeward route.");
+t("两片布交叠，长大后仍能调整衣襟。","Two overlapping panels leave room to adjust as the wearer grows.");
+t("下摆剪成叶片般的层次，方便尾巴伸出。","Leaf-shaped hems leave space for a tail to move.");
+t("口袋里没有工具，只有 Jack 留下的布尺。","There are no tools in the pocket, only the measuring tape Jack left there.");
+t("拼缝记着不同聚落的布料，袖口留了生长余量。","Patchwork seams remember different settlements, with room to grow at the cuffs.");
+t("不是战斗装甲。每片晶体都用柔软的丝带固定。","Not combat armor. Each crystal is attached with a soft ribbon.");
+t("一床认真卷好的毯子，为没有墙的夜晚准备。","A carefully rolled blanket for nights with no walls.");
+t("遮光罩把光投向前方，不刺它的眼睛。","A shade directs the light forward instead of into the eyes.");
+t("两对薄帆取代沉重的金属翼，风过时会颤动。","Four thin sails replace heavy metal wings and tremble in the wind.");
+t("用废船的帆布补成，印着一条仍有人走的航线。","Patched from an old sail, bearing a route that people still travel.");
+t("篮里有一小株蕨，浇水的时间由它自己记着。","A small fern lives in this basket. The wearer remembers when to water it.");
+t("转动的不是命运，只是观测夜空的一组铜环。","These brass rings track the sky, not destiny.");
+t("细线比尾端更轻，在转身时留下柔和的弧。","Fine threads lighter than the tail tip trace a soft arc when it turns.");
+t("停在六点的表盘，主人说那是大家回家的时候。","The watch stopped at six, the hour its owner said everyone came home.");
+t("扣子顺着尾巴的弯曲打开，不会夹住鳞片。","The clasp opens along the curve of the tail without pinching scales.");
+t("一面很小的旗，只有同伴能认出它的方向。","A tiny flag whose direction only a companion would recognize.");
+t("薄片绕开鱼鳍，给游动留出了空间。","Thin plates leave the fins free to swim.");
+t("星形坠饰没有尖角，像落在尾梢的一段夜空。","Rounded star charms resemble a fragment of night resting on the tail.");
+t("信封里没有收件地址，只有一句“等你回来”。","There is no address inside, only a line asking someone to come back.");
+t("修复的裂缝用了金漆，没有假装它从未碎过。","Gold paint repairs the cracks without pretending it was never broken.");
+t("漏下的不是沙，而是经过烘干的微小种壳。","Tiny dried seed husks trickle through instead of sand.");
+t("锚尖被磨钝，背面写着一个已经消失的港名。","The anchor tips are blunt. A vanished harbor is named on the reverse.");
+t("发条只够转完一小段摇篮曲。","The spring lasts for just one short lullaby.");
+t("小窗能旋开，里面是一片手绘的夜空。","A small window opens onto a hand-painted night sky.");
+t("密封皮筒里留下了手绘路线，也留出下一条路的位置。","A sealed leather tube holds hand-drawn routes and space for the next one.");
+t("小壶的把手裹了布，不烫手，壶盖仍有旧家里的花纹。","A cloth-wrapped handle stays cool, and the lid keeps a pattern from an old home.");
+t("折叠皮腔修过三次，照片里的废土却从来没有重复。","The folding bellows were repaired three times. No two wasteland photos are alike.");
+t("灯罩把刺眼的光揉散，照亮脚下而不是逼问眼睛。","Frosted glass softens the light to illuminate the ground instead of interrogating eyes.");
+t("不再寻找旧海岸，而是测量天边尚未抵达的地方。","It no longer seeks the old coast, but measures places still beyond the horizon.");
+t("黄铜线圈接收陌生声音，侧面留着可以写回信的纸。","Brass coils catch unfamiliar voices. A paper panel leaves space for a reply.");
+t("弓弦已经卸下，木身记着河边的一段安静生活。","The string is removed. The wood remembers quiet days beside a river.");
+t("刀刃是圆滑的木头，刀鞘刻着送礼者的家乡。","A rounded wooden blade and a scabbard carved with the giver's hometown.");
+t("封住刃口的护套不能拆掉，留下的只是纪念。","The sealed blade cover cannot be removed. Only the keepsake remains.");
+t("无法发射的陈列品，仍保留呼唤同伴的形状。","An inert display piece shaped to call companions back.");
+t("三道圆钝的叉尖来自废船栏杆，只作仪式装饰。","Three rounded prongs from an old ship railing serve as ceremonial decoration.");
+t("水晶枝条包在软鞘里，透光时像一条没有伤口的星线。","A crystal branch in a soft sheath catches light like a star without a wound.");
+t("折好的纸页随呼吸微动，写着未曾寄出的问候。","Folded paper moves with each breath, bearing greetings never sent.");
+t("细小水光沿脚边流动，像清晨温室里的露水。","Tiny reflections drift near the feet like greenhouse dew at dawn.");
+t("叶片缓慢转落，没有一片挡住它看向外面的视线。","Leaves descend slowly, leaving the view toward the outside unobstructed.");
+t("一圈浅淡的方位刻度，不为它指定唯一方向。","A faint ring of bearings refuses to prescribe one direction.");
+t("淡紫的细线在身后舒展，不束缚任何一个动作。","Pale violet threads stretch behind without binding a movement.");
+t("星点连接又分开，每次停驻都会留下不同的天空。","Stars connect and drift apart, leaving a different sky at every pause.");
+t("衣橱 · 补给商店","Wardrobe \u00b7 Supply shop");
+t("累计探索相关地点 6 次","Explore the associated location six times");
+t("第 16 天后，累计照护 15 次","After day 16, provide care 15 times");
+t("第 32 天后，累计照护 40 次","After day 32, provide care 40 times");
+Abyss.I18n.register(Abyss.AtelierEnglish); }
 
 </script>
 <script data-source="js/data/explorationData.js">
@@ -13034,7 +13207,7 @@ Abyss.Data.accessoryStyles={
  void:{label:'无名回声',base:'#4d3b67',light:'#9985b9',shade:'#211d36',trim:'#d1c1da',metal:'#9798b9'}
 };
 Abyss.AccessoryStyle={
- get(a){const r=a.visual.renderer;
+ get(a){if(a.visual.renderer==='atelier'){const [base,light,shade,trim,metal]=Abyss.AtelierData.palettes[a.visual.palette];return {base,light,shade,trim,metal,family:'atelier'};}const r=a.visual.renderer;
  const family=a.rarity==='anomalous'?'void':/halo|moonmask|prism|compass|apparatus|voidcrown/.test(r)||['oracle_lens','guardian_mantle','ceremonial_cloth'].includes(a.id)?'lunar':/rain/.test(a.id)||a.id==='paper_crown'?'rain':/mushroom|woven|friendship|ribbon_crown/.test(a.id)?'forest':/ribbon|scarf|bell|monocle|tophat|sweater|key/.test(r)?'vintage':/helmet|restraint|harness|armor|tank|container|goggles|ring/.test(r)?'industrial':'lab';
  return {...Abyss.Data.accessoryStyles[family],family};
  }
@@ -13061,7 +13234,7 @@ Abyss.AccessoryModels=(()=>{
  halo:()=>`<ellipse cx="239" cy="58" rx="98" ry="24" fill="none" stroke="var(--art-shade)" stroke-width="10" stroke-dasharray="210 39 120 30"/><ellipse cx="239" cy="55" rx="98" ry="24" fill="none" stroke="${accent}" stroke-width="5" stroke-dasharray="210 39 120 30"/><path d="m312 42 15 7-17 10m-96-22-8-12m-33 69-6 14" stroke="${trim}" fill="none" stroke-width="2"/>${gem(174,88)}${gem(286,81)}`,
  voidcrown:()=>`<path d="m163 134 10-58 29 27 36-62 31 59 48-35-13 72z" fill-opacity=".7"/><path d="m173 138 15-64 15 43 36-65 31 61 42-41-17 64" fill="none" stroke="${trim}" stroke-width="1.4" stroke-dasharray="17 8"/><ellipse cx="240" cy="115" rx="19" ry="8" fill="var(--art-shade)"/>${gem(240,115)}<path d="M155 92h22m130 60h18" stroke="${accent}"/>`,
  glasses:()=>`<g fill="#a5dbe4" fill-opacity=".09" stroke="${accent}" stroke-width="4"><circle cx="199" cy="208" r="29"/><circle cx="280" cy="208" r="29"/></g><path d="M228 204q12-12 23 0M170 201l-17-7m156 7 17-7" fill="none" stroke="${accent}" stroke-width="4"/><path d="m181 198 11-10m69 10 11-10" stroke="#fff4db" stroke-width="3" opacity=".75"/>`,
- goggles:()=>`<path d="M151 198h18m140 0h20" stroke="var(--art-shade)" stroke-width="13"/><rect x="164" y="178" width="69" height="57" rx="20"/><rect x="247" y="178" width="69" height="57" rx="20"/><g fill="#80c5c7" fill-opacity=".2" stroke="${trim}"><rect x="171" y="185" width="55" height="43" rx="14"/><rect x="254" y="185" width="55" height="43" rx="14"/></g><path d="M233 199h14m-59-13-8 19 12 12-6 13" stroke="${accent}" fill="none"/><path d="m263 196 21-7" stroke="${trim}" stroke-width="3"/>`,
+ goggles:()=>`<path d="M151 198h18m140 0h20" stroke="var(--art-shade)" stroke-width="13"/><path fill-rule="evenodd" d="M184 178h29q20 0 20 20v17q0 20-20 20h-29q-20 0-20-20v-17q0-20 20-20zM185 185h27q14 0 14 14v15q0 14-14 14h-27q-14 0-14-14v-15q0-14 14-14z"/><path fill-rule="evenodd" d="M267 178h29q20 0 20 20v17q0 20-20 20h-29q-20 0-20-20v-17q0-20 20-20zM268 185h27q14 0 14 14v15q0 14-14 14h-27q-14 0-14-14v-15q0-14 14-14z"/><g fill="#80c5c7" fill-opacity=".2" stroke="${trim}"><rect x="171" y="185" width="55" height="43" rx="14"/><rect x="254" y="185" width="55" height="43" rx="14"/></g><path d="M233 199h14m-59-13-8 19 12 12-6 13" stroke="${accent}" fill="none"/><path d="m263 196 21-7" stroke="${trim}" stroke-width="3"/>`,
  monocle:()=>`<circle cx="280" cy="208" r="30" fill="#b8d5d8" fill-opacity=".1" stroke="${accent}" stroke-width="5"/><circle cx="280" cy="208" r="25" fill="none" stroke="${trim}" stroke-width="1"/><path d="M303 228q38 70 12 87m-49-118 9-10" stroke="${accent}" fill="none" stroke-width="2"/><circle cx="316" cy="317" r="4" fill="${accent}"/>`,
  mask:()=>`<path d="M178 230q61 20 122 0l-16 47q-45 15-86-1z"/><circle cx="197" cy="253" r="19" fill="var(--art-shade)"/><circle cx="281" cy="253" r="19" fill="var(--art-shade)"/><g stroke="${accent}" fill="none"><circle cx="197" cy="253" r="13"/><circle cx="281" cy="253" r="13"/><path d="M187 249h20m-20 7h20m64-7h20m-20 7h20"/></g>${line('M221 247h35m-34 8h33m-28 8h24')}`,
  moonmask:()=>`<path d="M178 176q27-15 62 5 33-20 61-5l-10 55-51 31-51-31z"/><path d="m180 180 21 11 20 18-33-2m111-27-22 12-18 17 34-2" fill="var(--art-shade)" stroke="${trim}"/><path d="M246 178q-22 13-3 35-7-18 3-35" fill="${trim}" stroke="none"/>${gem(239,238)}${line('M200 222l13 9m64-9-14 9')}`,
@@ -13256,6 +13429,19 @@ Abyss.Couture=(()=>{
 })();
 
 </script>
+<script data-source="js/eyeArt.js">
+
+'use strict';
+// One renderer for normal and evolved eyes; each eye owns its blink origin.
+Abyss.EyeArt=(()=>{
+ const sizes={large:[29,33],small:[13,17],wide:[28,17],asymmetrical:[22,27]};
+ function size(variant,right=false){return variant==='asymmetrical'&&right?[14,27]:sizes[variant]||[22,27];}
+ function eye(x,y,rx,ry,v,s,extra=false){const color=v==='amber'?'#e6b273':v==='glowing'?'#c9f8e2':s.stats.loyalty<30?'#f9b184':'#ceffd1';return `<g class="creature-eye" data-eye="${extra?'extra':x<240?'left':'right'}" style="--eye-x:${x}px;--eye-y:${y}px"><ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#102834" stroke="#80bca2" stroke-width="2.5"/>${v==='compound'?Array.from({length:6},(_,k)=>`<circle cx="${x-rx*.5+k%3*rx*.5}" cy="${y-ry*.35+Math.floor(k/3)*ry*.7}" r="${Math.min(rx,ry)*.2}" fill="${color}"/>`).join(''):`<ellipse cx="${x}" cy="${y}" rx="${v==='vertical'?rx*.2:rx*.51}" ry="${ry*.64}" fill="${color}"/><ellipse cx="${x}" cy="${y+1}" rx="${rx*.19}" ry="${ry*.36}" fill="#173743"/><circle cx="${x-rx*.25}" cy="${y-ry*.35}" r="${rx*.19}" fill="#fff"/>`}${v==='rings'?`<ellipse cx="${x}" cy="${y}" rx="${rx*.77}" ry="${ry*.8}" fill="none" stroke="#a9cad3"/>`:v==='star'?`<path d="m${x} ${y-ry*.6} 4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#eee3ba"/>`:''}</g>`;}
+ function pair(s,c=null){const v=c?.variant||'normal';if(v==='blind')return '<g data-eye-blind><path d="M177 207q22 10 44 0m37 0q22 10 44 0" stroke="#435b64" stroke-width="4" fill="none"/></g>';let out=[199,280].map((x,i)=>eye(x,207,...size(v,!!i),v,s)).join('');if(v==='multiple'||s.mutations.includes('eye'))out+=eye(240,159,16,12,'glowing',s,true);return out;}
+ return {pair,size};
+})();
+
+</script>
 <script data-source="js/attachmentRig.js">
 'use strict';
 // Body-local tailoring. Global growth/evolution scaling belongs to VisualEvolution.
@@ -13264,13 +13450,14 @@ Abyss.AttachmentRig=(()=>{
  function profile(s){return s?.progress?Abyss.Evolution.profile(s):{};}
  function tail(s){const p=profile(s);if(p.tail)return [400+2*p.tail.index,288-5*p.tail.index];return s?.mutations?.some(id=>Abyss.Data.mutations.find(m=>m.id===id)?.layer==='tail')?[412,293]:[327,329];}
  function transform(slot,s){const p=profile(s),[w,h,dx]=bodies[p.body?.variant]||bodies.normal;let x=239,y=266,sx=1,sy=1,tx=0,ty=0;
- if(slot==='body'){sx=w;sy=h;tx=dx;}
- if(slot==='neck'){sx=1+(w-1)*.65;tx=dx*.45;}
+ if(slot==='body'){x=239;y=350;sx=w*1.4;sy=h*1.12;tx=dx;ty=0;}
+ if(slot==='neck'){sx=1.1+(w-1)*.7;tx=dx*.45;ty=-2;}if(slot==='back'){sx=1+(w-1)*.75;sy=1+(h-1)*.5;tx=dx*.5;}
  if(['charm','utility','weapon'].includes(slot)){x=239;y=266;tx=dx;sx=w;sy=h;}
  // Lenses stay aligned with eyes rather than inheriting torso width.
- if(slot==='face'){x=239;y=207;sy=p.eyes?.variant==='large'?1.18:p.eyes?.variant==='wide'?.82:1;}
+ if(slot==='face'){x=239;y=207;}
  return 'translate('+(x+tx)+' '+(y+ty)+') scale('+sx+' '+sy+') translate('+(-x)+' '+(-y)+')';}
- return {bodies,tail,transform};
+ function fitFace(group,item,s,id){const p=profile(s),v=p.eyes?.variant||'normal';if(!['glasses','goggles','visor'].includes(item.visual.renderer)&&!(item.visual.renderer==='atelier'&&item.visual.optical))return;let original=group.innerHTML;const staging=document.createElementNS('http://www.w3.org/2000/svg','g');staging.innerHTML=original;group.innerHTML='';const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');group.append(defs);for(const old of staging.querySelectorAll('defs')){while(old.firstChild)defs.append(old.firstChild);old.remove();}original=staging.innerHTML;for(const [index,x]of [199,280].entries()){const [rx,ry]=Abyss.EyeArt.size(v,!!index),sx=Math.max(.72,(rx+8)/30),sy=Math.max(.72,(ry+8)/35),clipId='lens-fit-'+id+'-'+index;defs.insertAdjacentHTML('beforeend','<clipPath id="'+clipId+'"><rect x="'+(index?240:120)+'" y="140" width="120" height="150"/></clipPath>');group.insertAdjacentHTML('beforeend','<g data-lens-fit="'+index+'" transform="translate('+x+' 207) scale('+sx+' '+sy+') translate('+(-x)+' -207)"><g clip-path="url(#'+clipId+')">'+original+'</g></g>');}}
+ return {bodies,tail,transform,fitFace};
 })();
 
 </script>
@@ -13506,11 +13693,107 @@ Abyss.RoadArt=(()=>{
 })();
 
 </script>
+<script data-source="js/tailoredModels.js">
+
+'use strict';
+// Unique, replaceable SVG geometry for each of ten slots × six designs.
+Abyss.TailoredModels=(()=>{
+ const path=(d,fill='var(--art-light)',extra='')=>`<path d="${d}" fill="${fill}" ${extra}/>`,line=(d,w=2,c='var(--art-trim)')=>path(d,'none',`stroke="${c}" stroke-width="${w}"`),circle=(x,y,r,c='var(--art-metal)')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`,rect=(x,y,w,h,c='var(--art-shade)',r=3)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${c}"/>`;
+ const seam=d=>line(d,1,'var(--art-trim)').replace('/>',' stroke-dasharray="2 3"/>');
+ function geometry(a){const i=a.visual.design;let g='';
+ if(a.slot==='head')g=[
+ path('M154 119q-14-38 36-57 43-20 91 6 35 12 27 50l-13 19H170z')+path('M161 122q80-10 143-7l-8 23-125-1z','var(--art-shade)')+line('M170 99q40-35 92-24')+circle(279,107,7)+line('M279 94v25',2),
+ path('M166 126V74q70-34 145 0v52l-27 6-46-18-48 18z')+path('M158 91q-28 43-8 77l34-22V98m117 0v48l34 22q20-34-8-77','var(--art-shade)')+line('M170 80q70-22 130 0',9)+line('M158 115v36m164-36v36',7),
+ path('M157 156q-17-77 36-92 78-31 126 40l8 53-35-22-52-9-48 9z')+Array.from({length:7},(_,j)=>path(`m${178+j*19} ${88+Math.abs(3-j)*8} -6-16 11-16 7 18z`,'var(--art-trim)')).join('')+seam('M171 148q66-41 136 0'),
+ path('M156 139q-17-70 50-82 87-13 116 58l-18 30z')+line('M163 104q72-37 140 12M167 126q63-23 151-5',12)+path('M310 114l20 87-17 32-10-112','var(--art-shade)')+seam('M312 127l9 66'),
+ path('M182 123l15-66 31-28 36 52 35 45z')+`<ellipse cx="239" cy="130" rx="104" ry="15" fill="var(--art-shade)"/>`+line('M187 111q46 19 101 3',7)+[208,230,256,273].map((x,j)=>circle(x,74+j%2*23,3,'var(--art-trim)')).join('')+line('M218 56l15 28 23-3'),
+ line('M162 135q76-20 156 0',8,'var(--art-metal)')+[174,302].map((x,j)=>line(`M${x} 126q${j?30:-30}-33 ${j?8:-8}-75m${j?9:-9} 32 ${j?21:-21}-19m${j?-20:20} 10 ${j?-8:8}-23`,5,'var(--art-metal)')).join('')+path('M239 98l14 22-14 15-14-15z','var(--art-trim)')
+ ][i];
+ if(a.slot==='face'){const pair=(shape)=>[199,280].map(x=>`<g transform="translate(${x} 207)">${shape}</g>`).join('');g=[
+ pair(path('M-30-15q28-17 58 0l-6 35q-21 19-46 0z','none','stroke="var(--art-metal)" stroke-width="4"')+path('M-25-11q23-13 47 0l-5 28q-18 16-37 0z','#b4dfe5','opacity=".10"')+line('M-19-10l10-5',2))+line('M229 199h21M169 195l-15-8m154 8 18-8',4,'var(--art-metal)'),
+ pair(path('M-31-22q33-2 61 11l-8 29q-22 14-44-3z','none','stroke="var(--art-metal)" stroke-width="4"')+line('M-20-10l11 5'))+line('M230 199h20',3),
+ `<circle cx="199" cy="207" r="31" fill="none" stroke="var(--art-metal)" stroke-width="4"/>`+line('M175 229q-31 32-1 57t29-22',2,'var(--art-metal)')+circle(199,242,3)+line('M181 186l8-6',2),
+ path('M155 185l24-14 60 19 60-19 26 14-14 48-38 4-33-18-35 18-38-4zM174 192q22-17 48 6l-9 21q-24 8-42-6zM254 198q27-23 48-6l3 21q-18 14-42 6z','var(--art-shade)','fill-rule="evenodd"')+path('M174 192q22-17 48 6l-9 21q-24 8-42-6zM254 198q27-23 48-6l3 21q-18 14-42 6z','#bdd7de','opacity=".08"')+seam('M164 186l15-7 60 19 58-19 20 8'),
+ pair(path('M-31-25h62v47q-30 18-62 0z','none','stroke="var(--art-shade)" stroke-width="9"')+path('M-28-22h56v42q-28 17-56 0z','none','stroke="var(--art-metal)" stroke-width="2"')+line('M-19-15h15',2))+line('M229 199h22',5),
+ line('M154 181q88-37 172 0',3,'var(--art-metal)')+Array.from({length:12},(_,j)=>path(`M${165+j*14} 186l7 18-7 43-7-43z`,j%2?'var(--art-trim)':'var(--art-light)','opacity=".32"')).join('')
+ ][i];}
+ if(a.slot==='neck')g=[
+ path('M160 262q80 38 160 0l-7 23q-72 25-147 0z')+line('M168 271q75 25 145-1',6)+path('m186 279-13 60 25 13 11-62z','var(--art-shade)')+line('M183 329l17 5',5),
+ path('M164 265q76 24 152 0v11q-78 25-150 0z','var(--art-shade)')+path('m238 278-34-17-17 26 49 8 6-8 45 8-6-34z')+path('m239 286-14 48 14-9 12 9 3-48z','var(--art-trim)')+circle(241,281,6),
+ line('M170 262q68 65 139 0',3,'var(--art-metal)')+`<ellipse cx="239" cy="309" rx="15" ry="23" fill="var(--art-trim)"/>`+`<ellipse cx="239" cy="309" rx="10" ry="17" fill="#728f68" opacity=".65"/>`+line('M239 320v-19m0 6 5-5',2),
+ path('M164 264q72 21 152 0l-2 17q-76 21-148 0z','var(--art-shade)')+rect(221,272,37,17,'var(--art-metal)')+rect(228,276,23,9)+[182,193,282,294].map(x=>circle(x,277,2,'var(--art-trim)')).join(''),
+ [0,1,2].map(j=>line(`M${166+j*10} 269q${73-j*10} ${34+j*9} ${147-j*20} 0`,2,'var(--art-metal)')).join('')+[194,239,284].map(x=>path(`m${x} 291 5 8-5 11-5-11z`,'var(--art-trim)')).join(''),
+ line('M171 260q-3 47 57 36m81-36q3 47-57 36',8,'var(--art-metal)')+path('m225 287 10 5-7 14-13-9zm31 0-10 5 7 14 13-9z','var(--art-trim)')+line('M173 268q8 25 35 25m97-25q-8 25-35 25',2)
+ ][i];
+ if(a.slot==='body'){g=[
+ path('M170 263l39 10q31 23 63 0l39-10 19 63-23 4-9 22q-61 10-120 0l-9-23-19-5z')+path('m183 266 56 27 55-27-18 40-37-8-34 8z','var(--art-shade)')+line('M190 274l49 24 45-24',3)+line('M239 301v37',3)+seam('M181 346h115'),
+ path('M170 263l69 20 66-20 25 83q-84 22-180 0z')+path('m179 267 66 40 48-40-28 76-37 10z','var(--art-shade)')+line('M179 269l65 40 51-40',3)+rect(171,312,140,15,'var(--art-trim)')+line('M239 328l-8 23 14-7',3),
+ path('M159 265q80 22 162 0l28 64-26 3-22 26-25-13-36 19-34-19-29 10-18-25-29-2z')+line('M172 286l67 16 68-16',5)+[184,212,240,268,296].map((x,j)=>line(`M${x} 308l${j<2?-12:12} 24`,2)).join('')+seam('M158 327l33 19 47-12 53 12 34-20'),
+ path('M181 265h22v44h74v-44h22v84q-56 10-119 0z','var(--art-shade)')+rect(196,283,88,42)+rect(207,292,66,22,'var(--art-shade)')+line('M207 302h63',2)+[193,288].map(x=>rect(x,265,14,9,'var(--art-metal)')).join('')+seam('M186 341h106'),
+ path('M166 263l45 10 29 25 29-25 44-10 23 64-23 7-10 20q-67 12-130-1l-8-20-22-7z')+path('m210 273 30 25 29-25-11 39h-39z','var(--art-shade)')+Array.from({length:6},(_,j)=>line(`M${180+j*23} 296l-7 15 7 15-7 15`,1)).join('')+line('M239 301v48',3)+[315,331,345].map(y=>circle(245,y,2,'var(--art-metal)')).join(''),
+ path('M175 264l63 22 67-22 28 66-32 22-61-10-61 10-31-24z','var(--art-shade)')+[0,1,2].map(j=>path(`M${174+j*6} ${274+j*22}l65 18 66-18-8 17-58 18-56-18z`,j%2?'var(--art-trim)':'var(--art-light)')).join('')+path('M239 289l18 24-18 27-18-27z','var(--art-metal)')+line('M239 296v36',2)
+ ][i];}
+ if(a.slot==='back')g=[
+ line('M142 235l28 24m-37 49 34 13',7,'var(--art-shade)')+rect(93,213,61,121,'var(--art-shade)',18)+rect(91,221,61,105,'var(--art-light)',15)+[235,310].map(y=>line(`M91 ${y}h61`,9,'var(--art-metal)')).join('')+`<ellipse cx="121" cy="222" rx="27" ry="10" fill="var(--art-trim)"/>`+`<ellipse cx="121" cy="222" rx="16" ry="5" fill="var(--art-shade)"/>`,
+ line('M144 200v139m-14-127 42-25',7,'var(--art-metal)')+rect(100,245,71,68,'var(--art-shade)')+path('m104 246 10-16h43l10 16z')+rect(111,255,48,43,'#eccd82')+line('M124 257v36m21-36v36M112 280h45',3,'var(--art-metal)')+line('M122 229q-7-29 19-25t9 25',3),
+ [0,1].map(j=>{const sign=j?1:-1,x=j?308:171;return path(`M${x} 248q${sign*119}-119 ${sign*126}-62q${sign*4} 53 ${-sign*105} 68q${sign*94} 41 ${sign*75} 78q${-sign*49} 8 ${-sign*92}-53z`,'#a1c1b4','fill-opacity=".34"')+line(`M${x} 249l${sign*111}-69m${-sign*101} 76 ${sign*77} 51`,2);}).join(''),
+ line('M129 160v196',7,'var(--art-metal)')+path('M134 166l-72 132 74-14zm8 0 80 107-78 11z')+seam('M133 184l-58 100 58-12')+path('M137 297l35 37-40 2z','var(--art-shade)')+line('M136 187l79 147',2),
+ rect(85,267,87,55,'var(--art-shade)',10)+[99,118,137,157].map(x=>line(`M${x} 273v42`,4)).join('')+Array.from({length:7},(_,j)=>path(`M${105+j*7} 276q${j<3?-38:35}-48 ${j<3?-19:20}-71q12 31-4 50z`,'var(--art-light)')).join('')+line('M109 281q20-61 26-86',3,'var(--art-metal)'),
+ `<ellipse cx="239" cy="238" rx="148" ry="119" fill="none" stroke="var(--art-metal)" stroke-width="5"/><ellipse cx="239" cy="238" rx="126" ry="143" fill="none" stroke="var(--art-trim)" stroke-width="2" transform="rotate(32 239 238)"/>`+Array.from({length:12},(_,j)=>{const x=239+Math.cos(j*Math.PI/6)*148,y=238+Math.sin(j*Math.PI/6)*119;return circle(x,y,j%3?3:8);}).join('')+line('M91 238h24m248 0h24M239 119v17',2)
+ ][i];
+ if(a.slot==='tail')g=[
+ line('M-19-7q19-15 38 0',5,'var(--art-metal)')+path('M-12 0h24l12 42-24-9-24 9z')+Array.from({length:7},(_,j)=>line(`M${-15+j*5} 18v27`,1)).join('')+circle(0,2,6),
+ `<ellipse rx="23" ry="14" fill="none" stroke="var(--art-metal)" stroke-width="6"/>`+circle(0,14,18,'var(--art-trim)')+circle(0,14,13,'var(--art-shade)')+line('M0 5v9l8 4',2),
+ path('M-23 11q-8-41 36-38 2 28-36 38z')+line('M-23 11L7-22m-20 24 14-2m-4-9 10-1',2)+`<ellipse rx="17" ry="9" fill="none" stroke="var(--art-metal)" stroke-width="3"/>`,
+ line('M0 4v-41',4,'var(--art-metal)')+path('M2-40l32 11-13 13 12 12L2-7z')+line('M8-30l15 4',3)+`<ellipse cy="4" rx="18" ry="8" fill="none" stroke="var(--art-metal)" stroke-width="5"/>`,
+ `<ellipse rx="20" ry="12" fill="none" stroke="var(--art-metal)" stroke-width="5"/>`+path('M-17 3l-29 32 24-4 22-13 22 13 24 4L17 3z','#95c6c3','opacity=".7"')+line('M-12 5l-20 25m44-25 20 25',2),
+ line('M-16 0q18 39 49 11',3,'var(--art-metal)')+path('m31 5 5-14 5 14 15 1-12 9 3 15-11-8-12 8 3-15-12-9z','var(--art-trim)')+[0,1,2].map(j=>line(`M${24-j*5} ${17+j*7}l${-35-j*11} ${9+j*5}`,1)).join('')
+ ][i];
+ if(a.slot==='charm')g=[
+ rect(-22,-14,44,34,'var(--art-trim)')+path('M-22-14 0 5 22-14','var(--art-light)')+line('M-22 20 0 4 22 20',1,'var(--art-shade)')+circle(0,4,5,'var(--art-metal)'),
+ path('M-21-17l18 12 21-12-3 28-16 17-17-17z','var(--art-trim)')+path('M-18-9-6-2-15 4m28-13-12 7 12 6z','var(--art-light)')+circle(-8,5,2,'var(--art-shade)')+circle(7,5,2,'var(--art-shade)')+line('M-2 9v9',1,'var(--art-shade)'),
+ path('M-15-25h30q0 17-15 25 15 8 15 27h-30q0-19 15-27-15-8-15-25z','#b7d7d3','opacity=".55"')+line('M-18-25h36m-36 52h36',5,'var(--art-metal)')+path('M-10 23L0 8l10 15z','var(--art-trim)')+circle(0,-7,3),
+ line('M0-19v40m-20-10q20 25 40 0',5,'var(--art-metal)')+`<circle cy="-22" r="6" fill="none" stroke="var(--art-metal)" stroke-width="3"/>`+line('M-10-7h20m-31 16 4 9m38-9-4 9',3),
+ rect(-18,-24,36,52,'var(--art-metal)',14)+rect(-12,-15,24,34,'var(--art-shade)',8)+[0,1,2].map(j=>line(`M${-7+j*7} -8v18`,1)).join('')+circle(0,1,6,'var(--art-light)')+line('M17 2h9m0-6v12',3),
+ path('M-24 7l24-32L24 7z','var(--art-metal)')+rect(-21,7,42,27)+path('M-15 9L0-9 15 9z','var(--art-shade)')+circle(0,15,8,'var(--art-trim)')+line('M0 9v12m-6-6h12',1,'var(--art-shade)')+line('M-16 30h32',3)
+ ][i];
+
+ if(a.slot==='utility')g=[
+ rect(121,270,34,65,'var(--art-light)',9)+line('M127 276v49',2)+rect(118,267,40,9,'var(--art-metal)')+line('M140 267q-26-10-14-31',3),
+ path('M122 292q-7 44 20 44t19-44z')+path('M122 300q-26-6-9 22m49-21q29-9 15 19', 'none','stroke="var(--art-metal)" stroke-width="4"')+rect(125,286,35,8,'var(--art-metal)')+circle(142,281,5),
+ rect(112,286,62,43)+path('M117 291l10-10 39 7-3 38-39 7z','var(--art-shade)')+circle(147,308,17)+circle(147,308,10,'var(--art-shade)')+line('M123 298v22m4-25v29',1),
+ path('M122 287h37l7 41h-50z','#a0c7c3','opacity=".5"')+line('M119 286h44m-48 43h50',5,'var(--art-metal)')+line('M130 286q-12-27 12-27t11 27',3)+path('M141 319q-10-17 1-23 9 12 1 23z','var(--art-trim)'),
+ path('M116 291l18 44 42-27-13-21z','none','stroke="var(--art-metal)" stroke-width="5"')+line('M118 292l51 15m-34 27 29-45',3)+circle(135,304,8)+line('M144 318l19-7',1),
+ rect(109,280,66,57,'var(--art-metal)',8)+rect(115,287,37,32,'var(--art-shade)',4)+[0,1,2,3].map(j=>line(`M119 ${293+j*6}h29`,1)).join('')+circle(163,303,6,'var(--art-trim)')+line('M124 281v-38m3 3h25',2)+rect(118,322,47,9,'var(--art-trim)')
+ ][i];
+ if(a.slot==='weapon')g=[
+ path('M353 207q74 76 0 152','none','stroke="var(--art-light)" stroke-width="7"')+line('M353 207v152',1)+rect(370,279,9,23,'var(--art-metal)'),
+ path('M363 235q37 55-5 115l-8-6q27-72 13-109z')+line('M350 342l29 6',5,'var(--art-metal)')+line('M363 346l-4 29',8,'var(--art-shade)')+seam('M362 250q22 60-6 89'),
+ path('M369 278l9 65-12 8-7-70z','var(--art-metal)')+line('M353 278h35',6)+rect(363,251,13,26,'var(--art-shade)')+circle(369,249,7),
+ rect(335,267,54,14,'var(--art-metal)')+rect(338,267,12,12)+path('M353 280l-9 38 17 3 8-41z','var(--art-shade)')+line('M363 285q21 16 12 24h-14',2,'var(--art-metal)')+circle(390,274,6,'var(--art-shade)'),
+ line('M369 245v119',6,'var(--art-metal)')+path('M347 228v24q22 25 44 0v-24m-22-6v48','none','stroke="var(--art-light)" stroke-width="6"')+line('M349 233l-3-11m44 11 3-11',4),
+ path('M369 216l7 118-7 17-6-17z','var(--art-trim)')+line('M347 342q22-22 45 0',5,'var(--art-metal)')+line('M369 343v29',8,'var(--art-shade)')+path('m369 211-5 6 5 6 5-6z','var(--art-metal)')
+ ][i];
+ if(a.slot==='effect'){
+ const effects=[
+ [0,1,2,3,4].map(j=>`<g transform="translate(${124+j*53} ${350+(j%2)*14}) rotate(${j*23})">${rect(-6,-9,12,18,'var(--art-trim)',1)}${line('M-4-4h8m-8 4h6',1,'var(--art-shade)')}</g>`).join(''),
+ [0,1,2,3,4,5,6].map(j=>circle(124+j*35,355+Math.sin(j)*14,3+j%3,'#a9d6d2')).join(''),
+ [0,1,2,3,4].map(j=>path(`m${117+j*59} ${336+j%2*29}q-12-23 7-27 18 15-7 27z`,'var(--art-light)')).join(''),
+ `<ellipse cx="240" cy="354" rx="158" ry="29" fill="none" stroke="var(--art-metal)" stroke-width="1.5"/>`+[0,1,2,3,4,5,6,7].map(j=>line(`M${97+j*40} 355v${j%2?9:-9}`,1)).join(''),
+ line('M100 350q45-70 120-17t170-27m-275 48q85 42 155-15t123-15',3,'var(--art-light)'),
+ [0,1,2,3,4,5,6].map(j=>circle(108+j*43,328+Math.sin(j*1.7)*39,3+j%2,'var(--art-trim)')).join('')+line('M108 328l43 39 43-50 43-25 43 55 43 13 43-49',1,'var(--art-light)')
+ ];g=`<g class="atelier-ambient atelier-ambient-${i}">${effects[i]}</g>`;
+ }
+ return `<g data-atelier-design="${a.slot}-${i}">${g}</g>`;}
+ return {geometry};
+})();
+
+</script>
 <script data-source="js/accessoryArt.js">
 'use strict';
 // Art assembly only. Palettes and model geometry live in separate modules.
 Abyss.AccessoryArt=(()=>{
- const draw=Abyss.AccessoryModels.draw;let sequence=0;
+ const draw=Abyss.AccessoryModels.draw;draw.atelier=Abyss.TailoredModels.geometry;let sequence=0;
  function markup(a,s){
   if(a.visual.renderer==='road')return Abyss.RoadArt.markup(a,s);if(a.visual.renderer==='hunt')return Abyss.HuntArt.accessory(a,s);const v=a.visual;if(v.asset)return `<image href="${Abyss.Util.escape(v.asset)}" x="0" y="0" width="480" height="430"/>`;
   const p=Abyss.AccessoryStyle.get(a),id='accessory-material-'+(++sequence);let transform='',model=(draw[v.renderer]||draw.star)(a);
@@ -13521,12 +13804,12 @@ Abyss.AccessoryArt=(()=>{
   }else if(a.slot==='charm')transform='translate(303 303)';
   else if(a.slot==='head'&&s?.progress&&(s.mutations.includes('horns')||Abyss.Evolution.profile(s).horns))transform='translate(0 -10)';
   else if(a.slot==='back'&&s?.progress&&(s.mutations.includes('wings')||Abyss.Evolution.profile(s).back?.variant==='wings'))transform='translate(-8 4)';
-  const premium=Abyss.Couture.premium(a);if(premium)return `<g transform="${transform}">${premium}</g>`;
+  const premium=a.visual.renderer==='atelier'?null:Abyss.Couture.premium(a);if(premium)return `<g transform="${transform}">${premium}</g>`;
   return `<g transform="${transform}" style="--art-light:${p.light};--art-shade:${p.shade};--art-ink:${p.shade};--art-trim:${p.trim};--art-metal:url(#${id}-metal)" fill="url(#${id})" stroke="${p.shade}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="${id}" x1="0" y1="0" x2=".75" y2="1"><stop stop-color="${p.light}"/><stop offset=".38" stop-color="${p.base}"/><stop offset="1" stop-color="${p.shade}"/></linearGradient><linearGradient id="${id}-metal" x2=".85" y2=".65"><stop stop-color="${p.shade}"/><stop offset=".25" stop-color="${p.metal}"/><stop offset=".4" stop-color="${p.trim}"/><stop offset=".58" stop-color="${p.metal}"/><stop offset="1" stop-color="${p.shade}"/></linearGradient></defs><g class="model-depth" transform="translate(3 4)" opacity=".5" style="filter:brightness(.2)">${model}</g>${model}</g>`;
  }
  const closeups={pack:'99 190 94 166',tank:'97 150 112 197',container:'91 193 95 144',button:'277 277 52 52',key:'277 272 52 72',knot:'263 270 80 75',pouch:'272 279 62 67',tag:'279 280 48 64',star:'266 266 74 74',prism:'262 262 84 87',compass:'266 256 99 93'};
- const boxes={head:'115 18 250 177',face:'143 160 193 170',neck:'158 237 164 114',body:'127 245 223 125',back:'26 58 428 323',tail:'285 236 177 177',charm:'264 260 80 97'};
- function icon(a,locked=false){if(a.visual.renderer==='road')return Abyss.RoadArt.icon(a,locked);if(a.visual.renderer==='hunt')return Abyss.HuntArt.icon(a,locked);return `<svg class="accessory-art ${locked?'silhouette':''}" viewBox="${a.slot==='tail'?'282 256 102 145':closeups[a.visual.renderer]||boxes[a.slot]}" aria-hidden="true">${markup(a,{mutations:[]})}</svg>`;}
+ const boxes={head:'115 18 250 177',face:'143 160 193 170',neck:'158 237 164 114',body:'127 245 223 125',back:'26 58 428 323',tail:'285 236 177 177',charm:'264 260 80 97',utility:'93 236 94 108',weapon:'325 198 87 190',effect:'77 273 333 113'};
+ function icon(a,locked=false){if(a.visual.renderer==='road')return Abyss.RoadArt.icon(a,locked);if(a.visual.renderer==='hunt')return Abyss.HuntArt.icon(a,locked);return `<svg class="accessory-art ${locked?'silhouette':''}" viewBox="${a.slot==='tail'?(a.visual.renderer==='atelier'?'252 250 155 168':'282 256 102 145'):closeups[a.visual.renderer]||boxes[a.slot]}" aria-hidden="true">${markup(a,{mutations:[]})}</svg>`;}
  draw.road=(a,s)=>Abyss.RoadArt.markup(a,s);
  return {markup,icon,draw};
 })();
@@ -13660,11 +13943,7 @@ Abyss.VisualEvolution=(()=>{
   if(v==='darkened'||v==='pale'||v==='translucent')return `<path d="M152 235q-16-97 87-116 106 16 92 116 31 118-92 123-126-5-87-123z" fill="${v==='darkened'?'#102735':v==='pale'?'#f3dfdc':'#9bcae0'}" opacity="${v==='translucent'?'.2':'.38'}"/>`;
   return Array.from({length:18},(_,k)=>{const x=171+(k%6)*25,y=264+Math.floor(k/6)*28;return v==='scaled'?path(`m${x} ${y} 12-5 12 5-12 14z`,col,'#456a6a'):v==='plated'||v==='metallic'?path(`m${x} ${y} 21 0-3 19-18 0z`,v==='metallic'?'#8295a0':'#4e776d','#bac4b3'):v==='fungal'?`<circle cx="${x+9}" cy="${y+8}" r="${k%3+3}" fill="#cfdf9c" opacity=".65"/>`:v==='scarred'?`<path d="m${x} ${y} 17 10m-10-6-2 7" stroke="#d4b5a3" fill="none"/>`:`<circle cx="${x+9}" cy="${y+8}" r="3" fill="#bcf7dd"/>`;}).join('');
  }
- if(c.category==='eyes'){
-  if(v==='blind')return '<path d="M177 207q22 10 44 0m37 0q22 10 44 0" stroke="#435b64" stroke-width="4" fill="none"/>';
-  const rx=v==='large'?29:v==='small'?13:v==='wide'?28:22,ry=v==='large'?33:v==='small'?17:v==='wide'?17:27;
-  return [199,280].map((x,n)=>`<ellipse cx="${x}" cy="207" rx="${v==='asymmetrical'&&n?14:rx}" ry="${ry}" fill="#102834" stroke="${col}" stroke-width="3"/>${v==='compound'?Array.from({length:6},(_,k)=>`<circle cx="${x-11+k%3*11}" cy="${198+Math.floor(k/3)*17}" r="5" fill="#c7e4d0"/>`).join(''):`<ellipse cx="${x}" cy="207" rx="${v==='vertical'?4:11}" ry="${v==='wide'?5:17}" fill="${v==='amber'?'#e6b273':v==='glowing'?'#c9f8e2':'#ddeddc'}"/><ellipse cx="${x}" cy="209" rx="4" ry="10" fill="#1c3945"/><circle cx="${x-5}" cy="197" r="4" fill="#fff"/>`}${v==='rings'?`<ellipse cx="${x}" cy="207" rx="17" ry="22" fill="none" stroke="#a9cad3"/>`:v==='star'?`<path d="m${x} 193 4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#eee3ba"/>`:''}`).join('')+(v==='multiple'?'<ellipse cx="240" cy="165" rx="17" ry="12" fill="#d0c2ef"/><circle cx="240" cy="165" r="5" fill="#244454"/>':'');
- }
+ if(c.category==='eyes')return Abyss.EyeArt.pair(s,c);
  if(c.category==='head'){return ({gills:'<path d="m165 217-8 18m17-14-5 17m141-21 8 18m-17-14 5 17" stroke="#243d4c" stroke-width="3"/>',fangs:path('m223 254 6 16 7-12m11 0 6 12 6-16','#e4d5bb'),beak:path('m220 245 20-11 20 11-20 20z','#b9a47f'),whiskers:'<path d="M184 240h-40m40 7-35 11m147-18h40m-40 7 35 11" stroke="#d2d1b4" fill="none"/>',soft:'<ellipse cx="177" cy="241" rx="16" ry="9" fill="#d5a89e" opacity=".55"/><ellipse cx="303" cy="241" rx="16" ry="9" fill="#d5a89e" opacity=".55"/>'})[v]||path(`M${183-i} 141q56-${25+i*3} ${113+i*2} 0l-16 12-40-${i*2}-39 ${i*2}z`,col);
  }
  if(c.category==='horns'){return [0,1].map(n=>{const x=n?306:174,sign=n?1:-1;const d=v==='broken'&&n?`M${x} 141l${sign*12}-26 ${sign*8} 4-4 25z`:v==='antennae'||v==='sensor'?`M${x} 143q${sign*35}-${35+i} ${sign*21}-${65+i}l5 1q-10 30 1 63z`:v==='buds'?`M${x} 142q${sign*18}-47 ${sign*28}-36q-14 33-20 44z`:`M${x} 146q${sign*(25+i*2)}-${35+i*3} ${sign*(22+i)}-${67+i*3}q${-sign*9} 49 ${-sign*14} 61z`;return path(d,col,'#c5d4bd')+(v==='antlers'||v==='forked'?`<path d="m${x+sign*20} 105 ${sign*20}-16m${-sign*17} 5 ${-sign*13}-18" stroke="${col}" stroke-width="6" fill="none"/>`:v==='floating'?`<path d="m${x} 84 ${sign*18}-16 8 16-18 16z" fill="#c0b1da"/>`:'');}).join('');}
@@ -13689,7 +13968,7 @@ Abyss.VisualEvolution=(()=>{
   let group=creature.querySelector('[data-evolution-layer="'+category+'"]');if(!group){group=document.createElementNS('http://www.w3.org/2000/svg','g');group.dataset.evolutionLayer=category;const anchor=['body','back'].includes(category)?'body':category==='skin'?'accessory-body':category==='eyes'?'accessory-head':category==='tail'?'accessory-tail':category==='limbs'?'accessory-neck':category==='effects'?null:'eyes';const before=anchor&&creature.querySelector('[data-layer="'+anchor+'"]');creature.insertBefore(group,before||null);}const target=category==='back'?'body':category==='skin'?'accessory-body':category==='eyes'?'accessory-head':category==='tail'?'accessory-tail':category==='limbs'?'accessory-neck':category==='effects'?null:'eyes';creature.insertBefore(group,target?creature.querySelector('[data-layer="'+target+'"]'):null);group.innerHTML=profile[category]&&(category!=='body'||profile.body.asset)?component(profile[category],s):'';}
   root.querySelector('[data-layer="body"]').style.visibility=profile.body?.asset?'hidden':'visible';
   for(const [category,layer]of [['tail','tail'],['horns','horns']]){const old=root.querySelector('[data-layer="'+layer+'"]');if(old)old.style.visibility=profile[category]?'hidden':'visible';}
-  const eye=root.querySelector('[data-layer="eyes"]');if(eye)eye.style.visibility=profile.eyes?'hidden':'visible';
+  const eye=root.querySelector('[data-layer="eyes"]');if(eye){eye.style.visibility=profile.eyes?'hidden':'visible';if(profile.eyes)eye.innerHTML='';}
   const body=root.querySelector('[data-layer="body"]>path');if(body){body.dataset.baseShape??=body.getAttribute('d');body.setAttribute('d',bodyPaths[profile.body?.variant]||body.dataset.baseShape);}
   const [sx,sy]=bodyScales[profile.body?.variant]||[1,1];creature.setAttribute('transform',`translate(${240*(1-sx)} ${350*(1-sy)}) scale(${sx} ${sy})`);root.dataset.evolution=String(s.progress.evolution.stage);root.dataset.route=s.progress.evolution.route||'unknown';
   if(root.id==='monster'){const chamber=document.querySelector('.chamber');chamber.dataset.research=s.progress.research.level<5?'early':s.progress.research.level<12?'mid':'late';chamber.dataset.anomaly=s.progress.research.technologies.some(id=>Abyss.Phase3Data.technologies.find(t=>t.id===id)?.branch==='anomaly');chamber.dataset.route=root.dataset.route;}
@@ -13716,14 +13995,11 @@ Abyss.Renderer = (() => {
   shell:()=>'<g fill="#316067" stroke="#6aaba6" stroke-width="2"><path d="M182 282 L211 262 L240 279 L235 313 L202 319 Z"/><path d="M240 279 L270 262 L299 282 L278 319 L245 314 Z"/><path d="M203 322 L238 317 L277 323 L260 346 L221 348 Z"/></g>',
   horns:()=>'<path d="M171 153 Q136 116 157 77 Q161 113 191 136 M290 136 Q321 113 322 77 Q349 116 310 156" fill="url(#horn-fill)" stroke="#b4cdb4" stroke-width="2"/>',
   organs:()=>'<g fill="#a7edb0" opacity=".75"><path d="M193 271 L203 266 L209 279 L200 285 Z"/><path d="M275 283 L287 278 L293 290 L281 298 Z"/><circle cx="238" cy="327" r="5"/></g>',
-  eyes:s=>{
-    const pupil=s.stats.loyalty<30?'#f9b184':'#ceffd1';
-    let art=`<g fill="#09272d" stroke="#80bca2" stroke-width="3"><ellipse cx="199" cy="207" rx="22" ry="27"/><ellipse cx="280" cy="207" rx="22" ry="27"/></g><g fill="${pupil}"><ellipse cx="201" cy="207" rx="12" ry="17"/><ellipse cx="278" cy="207" rx="12" ry="17"/></g><g fill="#0b3435"><ellipse cx="202" cy="209" rx="5" ry="10"/><ellipse cx="277" cy="209" rx="5" ry="10"/></g><g fill="#fff"><circle cx="195" cy="198" r="5"/><circle cx="272" cy="198" r="5"/></g>`;
-    if(s.mutations.includes('eye'))art+='<ellipse cx="240" cy="159" rx="16" ry="12" fill="#173747" stroke="#a6d8c0"/><ellipse cx="240" cy="159" rx="5" ry="9" fill="#debbfc"/>';
-    return art;
-  }
+  eyes:s=>Abyss.EyeArt.pair(s)
+
  };
 
+ let rigSequence=0;
  const order=['glow','wings','accessory-back','body','shell','accessory-body','tail','accessory-tail','limbs','accessory-neck','horns','eyes','accessory-head','accessory-face','accessory-charm','accessory-utility','accessory-weapon','tentacles','organs','accessory-effect'];
  function prepare(root){
   const creature=root.querySelector('[data-creature]')||root.querySelector('#creature');
@@ -13749,11 +14025,13 @@ Abyss.Renderer = (() => {
    root.style.scale=String(s.age<6?.84:s.age<13?.93:1);
    const form=Abyss.Data.forms.find(f=>f.id===s.form);
    root.querySelector('[data-body-fill] stop').setAttribute('stop-color',Abyss.Phase6Data?.skins.find(k=>k.id===s.skin)?.color||form?.color||'#99edc2');
+   Abyss.VisualEvolution.render(s,root);
+   const rigId=root.dataset.rigId||=String(++rigSequence);let clip=root.querySelector('[data-garment-clip]');if(!clip){clip=document.createElementNS('http://www.w3.org/2000/svg','clipPath');clip.dataset.garmentClip='';clip.setAttribute('clipPathUnits','userSpaceOnUse');root.querySelector('defs').append(clip);}clip.id='garment-fit-'+rigId;clip.innerHTML='<path d="'+root.querySelector('[data-layer="body"]>path').getAttribute('d')+'"/>';
    for(const slot of Object.keys(Abyss.Data.slots)){
     const id=s.collection.equipped[slot],item=Abyss.Accessories.find(id),group=root.querySelector('[data-accessory-slot="'+slot+'"]');
-    group.innerHTML=item?Abyss.AccessoryArt.markup(item,s):'';group.dataset.item=id||'';group.setAttribute('transform',Abyss.AttachmentRig.transform(slot,s));
+    const art=item?Abyss.AccessoryArt.markup(item,s):'';group.innerHTML=slot==='body'?'<g transform="'+Abyss.AttachmentRig.transform(slot,s)+'">'+art+'</g>':art;group.dataset.item=id||'';group.setAttribute('transform',slot==='body'?'':Abyss.AttachmentRig.transform(slot,s));if(slot==='body')group.setAttribute('clip-path','url(#'+clip.id+')');if(slot==='face'&&item)Abyss.AttachmentRig.fitFace(group,item,s,rigId);
    }
-   Abyss.VisualEvolution.render(s,root);Abyss.SkinArt?.render(s,root);Abyss.Colors?.render(s,root);
+   Abyss.SkinArt?.render(s,root);Abyss.Colors?.render(s,root);
    let anomaly=root.querySelector('[data-anomaly-layer]');if(!anomaly){anomaly=document.createElementNS('http://www.w3.org/2000/svg','g');anomaly.setAttribute('data-anomaly-layer','');root.querySelector('[data-creature]').appendChild(anomaly);}const token=s.campaign?.anomaly;anomaly.innerHTML=!token?'':token==='red_thread'?'<path d="M184 270 Q220 298 304 279" fill="none" stroke="#b16e79" stroke-width="3"/><path d="M264 286q12 25 22 7" fill="none" stroke="#b16e79" stroke-width="2"/>':token==='salt_shell'?'<path d="M264 285q-11-17 1-20q17-1 18 13l-13 13z" fill="#c9bda5" stroke="#f0dfbc"/><path d="M266 268l4 19m6-17l-6 17" stroke="#948c84"/>':'<path d="M260 273l12-12 13 14-13 16z" fill="#9088a9" stroke="#bbc7ce"/><circle cx="272" cy="275" r="3" fill="#ccd7d2"/>';
    root.dataset.idle=Abyss.Personality.idle(s);
    root.dataset.outfit=Abyss.Accessories.activeSets(s).map(set=>set.effect).join(' ');
@@ -13761,7 +14039,7 @@ Abyss.Renderer = (() => {
  }
  function clone(s){
    const source=document.getElementById('monster');prepare(source);
-   const root=source.cloneNode(true);root.id='wardrobe-creature';
+   const root=source.cloneNode(true);root.id='wardrobe-creature';delete root.dataset.rigId;
    // A preview owns its SVG definitions; duplicate IDs never refer to the main scene.
    const ids=new Map();root.querySelectorAll('[id]').forEach(el=>{const id=el.id;ids.set(id,'wardrobe-svg-'+id);el.id='wardrobe-svg-'+id;});
    root.querySelectorAll('*').forEach(el=>{for(const attr of [...el.attributes]){let value=attr.value;for(const [old,id] of ids)value=value.split('url(#'+old+')').join('url(#'+id+')');if(value!==attr.value)el.setAttribute(attr.name,value);}});
@@ -14157,6 +14435,8 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+ {date:'2026-10-05',version:'0.9.1-preview',title:t('合身裁剪、眼睛修复与六十件新装扮','Tailoring, Eye Repairs and Sixty New Accessories'),items:[t('衣服跟随九种身体轮廓裁剪，年龄与进化缩放仅作用一次，修复衣服过小和穿出身体的问题。','Garments follow nine body silhouettes with growth scaling applied once, fixing undersized clothing and overflow.'),t('统一普通与变异眼睛，每只眼睛独立眨眼；镜片独立适配大小，修复遮眼、额外眼睛重复和复制材质冲突。','Unified ordinary and evolved eyes, with independent blinking and fitted lenses; fixed opaque goggles, duplicate extra eyes and copied material conflicts.'),t('十个装扮分类各新增六件，共六十件独立造型与背景说明，包含服装、工具、武器外观与轻量动态特效。','Added six accessories to each of ten slots: sixty authored models and lore entries, including clothing, tools, cosmetic weapons and subtle animated effects.'),t('新装扮沿用商店、探索和照护里程碑；保留旧存档，已兑换全收藏的记录自动补齐。','New accessories use existing shops, exploration and care milestones; saves are retained and full-collection codes include the additions.')],pending:[t('装扮仍是可替换的分层 SVG 模型，不包含布料物理模拟。','Accessories remain replaceable layered SVG models without cloth physics.')]},
+
  {date:'2026-10-05',version:'0.9.0-preview',title:t('界面分区与导航重构','Interface Organization & Navigation'),items:[t('整理为主页、生活、探索、战斗、实验室、收藏、世界、系统八个分区，52个二级入口调用原有控制器。','Organized existing controllers into Home, Life, Explore, Combat, Lab, Collection, World and System with 52 secondary routes.'),t('首页保留实验体、六项关键状态、位置、目标、紧急提示与快捷操作；生长详情和观察日志默认折叠。','Home retains the specimen, six key indicators, location, objective, urgent alerts and quick actions. Advanced growth details and research logs are collapsed.'),t('衣橱、研究、地图、库存和交流使用主内容区；确认、取名和奖励保留短弹窗。','Wardrobe, research, maps, inventory and chat use the main workspace. Confirmations, naming and rewards keep short dialogs.'),t('加入面包屑、返回、实验体情境菜单和Ctrl+K搜索。手机使用导航抽屉，标签横向滚动。','Added breadcrumbs, Back, specimen context actions and Ctrl+K search. Mobile uses a navigation drawer and horizontally scrolling subtabs.'),t('独立保存界面分区、二级标签、侧栏折叠和详情开合，不改变游戏存档结构或剧情限制。','Section, subtab, sidebar and disclosure preferences persist separately, without changing game save schemas or story restrictions.')],pending:[t('主内容仍复用各系统原有布局，个别系统保留自己的局部工具标签；未实现的玩法没有新增虚假入口。','The workspace reuses existing module layouts, including some local tool tabs. Unimplemented gameplay has no placeholder routes.')]},
  {date:'2026-10-04',version:'0.8.3-preview',title:t('连续行驶、载具归属与地点内饰','Continuous Travel, Vehicle Ownership and Interiors'),items:[t('取消每12米重置同一批风景，路边物件按行程坐标连续出现；驾驶与步行画面逐帧补间。','Removed the short repeating scenery loop. Roadside landmarks follow stable trip coordinates; driving and walking use visual frame interpolation.'),t('公路打开时暂停背景实验室绘制；缓存3D场景网格，低帧率时降低内部渲染分辨率。','Pause background lab painting while Roads are open. Cache 3D geometry and lower internal rendering resolution when frame times are high.'),t('新档不再自动赠送轿车。车库展示拥有状态，购买后才能驾驶；旧档赠车明确标注来源。','New saves no longer receive a free sedan. The garage displays ownership and requires acquisition before driving; legacy starter gifts show their source.'),t('所有39处地点均有直接下车入口，包括安全聚落。安全房间无敌人，也不提供可反复领取的战利品箱。','All 39 destinations have direct entry controls, including safe settlements. Friendly rooms have no enemies or endlessly farmable loot containers.'),t('重画12类像素房间用途；门诊、病房、手术室、太平间及控制室、机房、冷却设备分别设计，修复小屏裁切和HUD重叠。','Redrew 12 pixel room purposes, with distinct clinic, ward, operating theatre, morgue, control room, server and cooling fixtures. Fixed small-screen clipping and overlapping HUDs.')],pending:[t('公路仍按选定路线前进，尚未提供自由越野或完整的聚落室内交易与人物日程。','Road travel remains route-based. Free off-road driving and complete indoor settlement commerce and NPC routines are not implemented.')]},
  {date:'2026-10-04',version:'0.8.2-preview',title:t('驾驶启动与车内操作修复','Driving Start and Cabin Controls'),items:[t('驾驶画面加入目的地选择和启动车辆按钮；停车后可坐回驾驶座继续原行程。','The cockpit now provides destination selection and a Start Trip button. After parking, sit at the wheel and resume the same route.'),t('修复下拉菜单占用键盘焦点的问题，进入驾驶后自动接收WASD。车内步行支持方向键，失败原因即时显示。','Fixed keyboard focus remaining on selectors. Entering the cockpit restores WASD control. Cabin walking supports arrow keys; failures display immediately.'),t('小地图移至右上角。大车明确显示起身与步行操作；紧凑车型说明只能坐着转头。','Moved the minimap to the upper right. Large vehicles show explicit standing and walking controls; compact vehicles explain seated looking.')],pending:[]},
