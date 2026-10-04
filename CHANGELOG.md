@@ -1,3 +1,12 @@
+## 0.8.1-preview — 2026-10-04
+
+- 67 connected road segments link all 39 destinations, with shortest accessible routes and active-route highlights.
+- Live cockpit minimap: moving vehicle arrow, heading, route and bounded world perimeter.
+- Hard shoulder limits with speed reduction; rendered road moves laterally when steering. Platform ceiling blocks movement.
+- Prevent roadside destination changes from teleporting to the origin. Arrival persists immediately and mileage cannot overshoot.
+- Existing route saves reconstruct geometry without resetting distance, fuel, money or inventory. Detours preserve cursor position.
+- Driving remains route based: free off-road movement and manual junction selection are not included.
+
 # v0.8.0-preview — 2026-10-04
 
 加入真正3D后舱、公路地图和横版回收、18车型定义、运输尺寸、64探索装扮、35遗物独立背景、30主要人物个人短事件。修复动力、救援、陈列、门锁、读档与金额上限等问题。仍为开发预览：赛车和秘密车辆完整剧情、正式模型及部分历史需求未完成，详见 ROAD-PROGRESS.md。

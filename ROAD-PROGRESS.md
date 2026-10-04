@@ -1,3 +1,11 @@
+## Navigation update — 0.8.1-preview
+
+Completed: 67 connected roads / 39 reachable destinations; protection-aware shortest routes; live position/heading minimap; hard shoulder limits; map ceiling boundary; roadside retarget and immediate arrival-save fixes; legacy route reconstruction without trip reset. Detours keep the map cursor in place.
+
+Verified: graph connectivity at every location's tier, route bounds, moving pose, save/reload, legacy route migration, both shoulders, no arrival overshoot, immediate arrival persistence; browser driving and moving SVG arrow, cabin controls, pixel exploration, reload, 1366×768 / 1920×1080 / mobile widths, zero page errors. Original historical backlog below remains pending.
+
+Limitation: route-based driving; no free off-road movement or manual junction turns.
+
 # v0.8.0-preview · 2026-10-04 实际进度
 
 这是可运行的开发预览，不代表所有历史需求已经完成。最后指令优先：后排恢复真正的 WebGL 3D，不再使用投影 SVG 后舱。

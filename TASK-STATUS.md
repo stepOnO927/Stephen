@@ -1,3 +1,7 @@
+## 0.8.1-preview — navigation completed
+
+Added connected roads, bounded driving lanes and live minimap position/heading; fixed roadside retarget teleportation and arrival-save delay. Prior incomplete work is still listed below.
+
 # 2026-10-04 公路扩展开发预览
 
 最新实际进度见 ROAD-PROGRESS.md。后舱已恢复真正3D，18车型数据、探索和人物整改已接入；完整赛车/秘密车剧情和历史待办尚未全部完成。以下为此前交付记录，不代表新扩展已全部完成。
