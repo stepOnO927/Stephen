@@ -1,3 +1,7 @@
+## 2026-10-05 — UI分区重构完成（0.9.0-preview）
+
+八分区、52入口、首页精简、系统主内容区、短弹窗、上下文操作、返回与搜索、手机抽屉、独立界面记忆已完成并验证。未新增玩法系统；以下历史任务状态保留。
+
 ## 0.8.3-preview — travel defects repaired
 
 Removed the short scenery reset, interpolated movement and stopped obscured lab painting; enforced vehicle ownership; made every destination enterable directly; improved pixel room art. Old starter vehicles are preserved and explicitly labeled. Earlier pending work remains below.

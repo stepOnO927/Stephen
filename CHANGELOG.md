@@ -1,3 +1,11 @@
+## 0.9.0-preview — 2026-10-05
+
+- 八个主分区、52个二级入口；导航配置与组件独立模块化。
+- 首页精简、详情折叠；完整系统使用主内容区，短操作保留弹窗。
+- 面包屑、返回、Ctrl+K搜索、最近使用、实验体与住户情境操作。
+- 桌面侧栏 / 手机抽屉；界面偏好独立持久化。
+- 保留原有玩法、存档与剧情模式限制。完整玩法测试、52入口及驾驶浏览器检查通过。
+
 ## 0.8.3-preview — 2026-10-04
 
 - Replaced the shared short scenery loop with stable distance-indexed landmarks, varied by route. Visual-only interpolation smooths 100ms simulation updates.
