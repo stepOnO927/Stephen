@@ -1,3 +1,13 @@
+## 0.8.3-preview — 2026-10-04
+
+- Replaced the shared short scenery loop with stable distance-indexed landmarks, varied by route. Visual-only interpolation smooths 100ms simulation updates.
+- Stop painting and pause animations in the obscured laboratory while Roads are open; restore on close. Cache WebGL environment/cabin meshes and adapt internal resolution on slow frames.
+- New saves own no vehicle. Acquire the sedan for 120 credits (including 20 L of fuel) or another eligible vehicle; driving and cabin commands require actual ownership. Road save version 3 retains existing owned vehicles and explicitly labels old starter gifts.
+- Direct Get Out / Enter Location controls work after arrival in all 39 locations, including friendly settlements. Safe rooms have no guards, locked doors or repeatable loot chests.
+- Pixel room fixtures follow 12 purposes, with distinct clinic, ward, theatre, morgue, control and cooling layouts. Fixed viewport clipping and doubled HUD.
+- Verified acquisition / departure / arrival / entry / exit / reload; old saves, friendly and hostile interiors, keyboard/touch controls and mobile. Full original regression suite passed. In the same software-rendering test, average frame time fell from roughly 100ms to 18ms after obscured background painting was disabled; this is a test result, not a universal FPS guarantee.
+- Remaining scope: route-based driving; complete indoor settlement commerce and NPC routines are not included.
+
 ## 0.8.2-preview — 2026-10-04
 
 - Cockpit now has explicit destination selection / Start Trip controls, rather than opening an inert parked driving view.

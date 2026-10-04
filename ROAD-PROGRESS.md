@@ -1,3 +1,11 @@
+## Travel repair — 0.8.3-preview
+
+Completed: distance-indexed route-specific scenery, visual interpolation, cached meshes, adaptive render resolution, suspended background lab painting; explicit garage ownership and no free starter in new saves; direct entry at all 39 destinations; 12 pixel room purposes and purpose-specific hospital/machine-room fixtures; small-screen/HUD fixes.
+
+Save migration: Road v3 preserves old owned vehicles, route progress and other game state. Old automatic sedans are labeled legacy gifts instead of silently deleting them. New saves start with no vehicle, and purchase/recovery records its origin. A selected vehicle absent from the owned list is rejected on load and cannot drive.
+
+Verification: full regression suite passes; real browser acquisition, trip arrival, safe-town entry, hospital entry, movement, exit and reload pass. 30/30 rendered cursor samples update. Under software WebGL, hiding the otherwise still-animated background laboratory lowered average test frame time from about 100ms to 18ms. Actual hardware frame rates may differ. Historical pending work is unchanged below.
+
 ## Controls repair — 0.8.2-preview
 
 Completed: explicit cockpit departure controls; canvas keyboard focus restoration; immediate failure text; seat/resume without trip reset; clear standing controls and compact-car limits; upper-right minimap.

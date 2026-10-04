@@ -1,3 +1,7 @@
+## 0.8.3-preview — travel defects repaired
+
+Removed the short scenery reset, interpolated movement and stopped obscured lab painting; enforced vehicle ownership; made every destination enterable directly; improved pixel room art. Old starter vehicles are preserved and explicitly labeled. Earlier pending work remains below.
+
 ## 0.8.2-preview — driving controls repaired
 
 Explicit departure / seating / standing controls, keyboard-focus restoration and upper-right minimap verified. Compact cars have seated looking, not standing aisles. Historical pending work remains below.
