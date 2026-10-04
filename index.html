@@ -4845,6 +4845,7 @@ Abyss.EnglishCatalog={
   "累计探索相关地点 6 次": "Explore the associated location six times",
   "第 16 天后，累计照护 15 次": "After day 16, provide care 15 times",
   "第 32 天后，累计照护 40 次": "After day 32, provide care 40 times",
+  "远行裁缝工坊": "Wayfarer Atelier",
   "探索发现或废料抽取": "Expedition discovery or scrap draws",
   "共同生活的纪念": "A memento of life together",
   "潮汐同行": "Tidal Companions",
@@ -6335,6 +6336,7 @@ t("衣橱 · 补给商店","Wardrobe \u00b7 Supply shop");
 t("累计探索相关地点 6 次","Explore the associated location six times");
 t("第 16 天后，累计照护 15 次","After day 16, provide care 15 times");
 t("第 32 天后，累计照护 40 次","After day 32, provide care 40 times");
+t("远行裁缝工坊","Wayfarer Atelier");
 Abyss.I18n.register(Abyss.AtelierEnglish); }
 
 </script>
@@ -13207,7 +13209,7 @@ Abyss.Data.accessoryStyles={
  void:{label:'无名回声',base:'#4d3b67',light:'#9985b9',shade:'#211d36',trim:'#d1c1da',metal:'#9798b9'}
 };
 Abyss.AccessoryStyle={
- get(a){if(a.visual.renderer==='atelier'){const [base,light,shade,trim,metal]=Abyss.AtelierData.palettes[a.visual.palette];return {base,light,shade,trim,metal,family:'atelier'};}const r=a.visual.renderer;
+ get(a){if(a.visual.renderer==='atelier'){const [base,light,shade,trim,metal]=Abyss.AtelierData.palettes[a.visual.palette];return {label:'远行裁缝工坊',base,light,shade,trim,metal,family:'atelier'};}const r=a.visual.renderer;
  const family=a.rarity==='anomalous'?'void':/halo|moonmask|prism|compass|apparatus|voidcrown/.test(r)||['oracle_lens','guardian_mantle','ceremonial_cloth'].includes(a.id)?'lunar':/rain/.test(a.id)||a.id==='paper_crown'?'rain':/mushroom|woven|friendship|ribbon_crown/.test(a.id)?'forest':/ribbon|scarf|bell|monocle|tophat|sweater|key/.test(r)?'vintage':/helmet|restraint|harness|armor|tank|container|goggles|ring/.test(r)?'industrial':'lab';
  return {...Abyss.Data.accessoryStyles[family],family};
  }
