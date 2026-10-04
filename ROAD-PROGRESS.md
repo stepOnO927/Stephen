@@ -1,3 +1,7 @@
+## 0.10.0-preview — weather integration
+
+Roads now read saved regional weather and persistent conditions, route around closures, show a departure brief and charge weather-adjusted fuel/wear. New closures can park an active trip safely. Collapsed bridges remain until repaired. Existing ownership, 39 destination entries, 67 links, bounds and minimap behavior are preserved. Details and remaining limitations: TASK-STATUS.md.
+
 ## Travel repair — 0.8.3-preview
 
 Completed: distance-indexed route-specific scenery, visual interpolation, cached meshes, adaptive render resolution, suspended background lab painting; explicit garage ownership and no free starter in new saves; direct entry at all 39 destinations; 12 pixel room purposes and purpose-specific hospital/machine-room fixtures; small-screen/HUD fixes.
