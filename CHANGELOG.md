@@ -212,3 +212,10 @@
 - Saved one-use state, bounded secondary damage, actual shield/repair suppression and in-game-only error windows.
 - Fixed anomalous resonance attack-time modifiers being ignored.
 - Six mechanism checks, 69-weapon R6 replay and isolated 1366/1920 browser combat/reload checks pass. Other remaining Weapon 2.0 work is still in progress.
+
+## Weapon 2.0 — remaining resonance and encounter systems (2026-10-05)
+- Add all six ranks for Second Hand, Empty Chamber, Red Thread, Companion Fang, Chain Arc, Silver Rail, Dismantling Hook and Drone Relay.
+- Saved delayed-damage combat clock, real independent second target and continuation, Jack/pet party HP and selectable existing pet companions.
+- Finish six-rank coverage for all 13 Epic, 8 Legendary and 6 Anomalous weapons; reset Rare consecutive-hit windows on misses.
+- Add weapon-only DPS estimates, saved independent weapon display, physical carried-weapon cargo volume/weight, rare universal cores and max-resonance duplicate guidance.
+- Added timed, team and final audit tests. Full regression baseline and current affected-system tests passed; browser checks cover 8 remaining advanced weapons, real second-target damage, party/timer/reload and display/companion controls. Art remains replaceable procedural SVG.
