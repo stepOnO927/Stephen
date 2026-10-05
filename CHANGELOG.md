@@ -195,3 +195,9 @@
 - 加入两组隐藏套装共鸣，整合探索掉落与废料抽取；两件普通生活纪念自动解锁。
 - 已兑换全收藏的旧档自动补齐新装扮，已有装备、预设和关系保留。
 - 准备GitHub Pages发布包，服务器密钥不进入公开包。
+
+## Weapon 2.0 — Dawn / Null Pointer (2026-10-05)
+- Dawn: first successful strike, next-encounter victory bonus, temporary defense and dedicated light effect.
+- Null Pointer: six exclusive resonance ranks, capped positive streak, once-per-fight defense dereference and probabilistic incoming damage nullification.
+- Persisted combat state and bilingual resonance descriptions.
+- Verified 10 new mechanism checks and isolated browser combat/reload at 1366 and 1920 widths. Weapon 2.0 remains in progress.
