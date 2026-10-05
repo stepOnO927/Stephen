@@ -1,3 +1,13 @@
+## 2026-10-06 — 顶部等级横向显示修复
+
+研究等级与时间在同一横向基线显示；日期和行动点不再自动断行。窄屏顶部栏使用独立布局行，内容区自动按实际栏高避让。中英文及1920、1366、1024、768、390宽度已检查。公开游戏仍使用本地备用对白，云端AI尚未开放。
+
+## 0.13.0-preview · 2026-10-06 · 本机验证版（未发布公网AI）
+
+- 新增服务器端AI权限审批，兑换后待审批、主机SSE通知、批准/暂停/封禁，每人20次/日、全局100次/日。
+- 未批准/已封禁/超额在OpenAI之前拦截，失败仍有本地对白，权限与玩家存档分离。
+- 主机后台仅本机可访问；不是公网管理员认证。Vercel/Supabase连接和生产持久化仍待完成。
+
 ## 0.12.9-preview · 2026-10-06
 
 - 第09张CG_ACT2_BLANK_TAPE_FINGERPRINT正式接入，使用用户提供第一版，daily_nickname第15行从08交叠切换。
@@ -298,3 +308,4 @@
 - Finish six-rank coverage for all 13 Epic, 8 Legendary and 6 Anomalous weapons; reset Rare consecutive-hit windows on misses.
 - Add weapon-only DPS estimates, saved independent weapon display, physical carried-weapon cargo volume/weight, rare universal cores and max-resonance duplicate guidance.
 - Added timed, team and final audit tests. Full regression baseline and current affected-system tests passed; browser checks cover 8 remaining advanced weapons, real second-target damage, party/timer/reload and display/companion controls. Art remains replaceable procedural SVG.
+
