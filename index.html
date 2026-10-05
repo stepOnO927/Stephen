@@ -11871,7 +11871,7 @@ Abyss.WeaponRare=(()=>{
  case 'ud_weapon_10':if((f.distance??2.5)<=1.5)f.weaponPointUsed=true;break;
  case 'ud_weapon_11':if(f.weaponCharged){f.weaponBypass=Math.round(damage*.25);}break;
  }return damage;}
- function counter(s,w,f,e,damage){const p=stats(s,w,f,e),r=rank(s,w);damage*=p.counterDamage;f.weaponCounterTurn=f.turn;if(r>=6&&w?.id==='weapon_bracer'&&f.guarding){f.enemyShield=Math.max(0,f.enemyShield-Math.round(damage*.55));f.weaponGuardTurn=f.turn;}if(r>=6&&w?.id==='weapon_harpoon'){f.distance=Math.max(.5,(f.distance??2.5)-1);f.weaponWeakUntil=f.turn+1;}if(r>=6&&w?.id==='weapon_disc'&&!f.weaponReturnUsed&&e.range>=4){f.weaponReturnUsed=true;damage*=1.35;}return Math.round(damage);}
+ function counter(s,w,f,e,damage){const p=stats(s,w,f,e),r=rank(s,w);damage*=p.counterDamage;f.weaponCounterTurn=f.turn;if(r>=6&&w?.id==='weapon_bracer'&&f.guarding){f.enemyShield=Math.max(0,f.enemyShield-Math.round(damage*.55));f.weaponGuardTurn=f.turn;}if(r>=6&&w?.id==='weapon_harpoon'){f.distance=Math.max(.5,(f.distance??2.5)-1);f.weaponWeakUntil=f.turn+1;}if(r>=6&&w?.id==='weapon_disc'&&!f.weaponReturnUsed&&(e.range>=4||e.behavior==='sniper')){f.weaponReturnUsed=true;damage*=1.35;}return Math.round(damage);}
  function interrupt(s,w,f,e){if(w?.id!=='weapon_scrambler'||rank(s,w)<6||!mechanical(e)||!has(f,'weaken')||f.weaponSignalUsed)return false;f.weaponSignalUsed=true;return Abyss.Util.random(s)<.4;}
  function statusTurns(s,w,id){const r=rank(s,w);return id==='burn'&&w?.id==='weapon_fork'&&r>=2||id==='slow'&&w?.id==='weapon_tether'&&r>=5||id==='weaken'&&w?.id==='weapon_scrambler'&&r>=5?4:3;}
  return {fields,designs,stats,hit,beforeHit,defenses,counter,interrupt,statusTurns,rank,mechanical};
