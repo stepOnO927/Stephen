@@ -891,6 +891,32 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
 @media(max-width:750px){#story-player .vn-picture{bottom:0}#story-chapter{top:calc(12px + env(safe-area-inset-top,0px));left:max(14px,env(safe-area-inset-left,0px))}#story-countdown{top:calc(25px + env(safe-area-inset-top,0px))}.vn-dialogue-box{padding:14px max(18px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}}
 @media(prefers-reduced-motion:reduce){#story-cg,#story-cg-previous{animation:none!important;transform:none!important}}
 
+/* Floating glass dialogue: luminance is controlled independently of the CG. */
+#story-player .vn-picture{z-index:0}#story-player .vn-dialogue-box{z-index:3}#story-chapter,#story-countdown,.vn-toolbar{z-index:4}#story-choices{z-index:5}
+#story-player{--vn-reading-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI Variable Text","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",sans-serif}
+#story-player .vn-dialogue-box{
+ left:50%;right:auto;bottom:max(24px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);
+ width:min(1240px,calc(100% - 64px));min-height:174px;max-height:35%;padding:22px 34px 25px;
+ border:1px solid #e5f1ff38;border-radius:32px;isolation:isolate;overflow:hidden;
+ background:linear-gradient(145deg,rgba(113,142,161,.12),rgba(25,38,49,.06) 48%,rgba(133,163,178,.09)),rgba(11,19,27,clamp(.52,calc(var(--vn-alpha)*.9),.88));
+ -webkit-backdrop-filter:blur(22px) saturate(115%) brightness(.68);backdrop-filter:blur(22px) saturate(115%) brightness(.68);
+ box-shadow:0 20px 65px #0006,0 4px 18px #0003,inset 0 1px 0 #f1f8ff40,inset 0 -1px 0 #bdcddd16;
+ font-family:var(--vn-reading-font);-webkit-font-smoothing:antialiased;
+}
+#story-player .vn-dialogue-box::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at 6% 0%,#e9f4ff1b,transparent 42%),linear-gradient(180deg,#eef6ff0d,transparent 42%,#02070d14)}
+#story-player .vn-dialogue-box>div{min-height:36px;gap:16px}
+#story-speaker{display:inline-flex;align-items:center;padding:5px 13px;border-radius:99px;border:1px solid #e9f4ff25;background:linear-gradient(135deg,#dfefff15,#a5c3db08);font:600 13px/1.5 var(--vn-reading-font);letter-spacing:.05em;color:#e1edf1;text-shadow:0 1px 2px #0009}
+#story-speaker:empty{display:none}
+#story-dialogue{font-family:var(--vn-reading-font);font-size:21px;font-weight:500;line-height:1.85;letter-spacing:.025em;color:#f5f7f8;margin:10px 0 0;max-height:min(18vh,190px);text-shadow:0 1px 3px #000b,0 2px 10px #0005;scrollbar-width:thin;scrollbar-color:#c3d2dc5c transparent;overflow-wrap:anywhere}
+#story-player[data-text-size=small] #story-dialogue{font-size:18px}#story-player[data-text-size=large] #story-dialogue{font-size:25px}#story-player[data-text-size=extra] #story-dialogue{font-size:29px}
+#story-player .vn-dialogue-box #story-next{margin-left:auto;width:36px;height:36px;min-width:36px;padding:0!important;border:1px solid #e7f2fb26!important;border-radius:50%;background:linear-gradient(145deg,#d8edff15,#d8edff05)!important;color:#e2ecf0!important;box-shadow:inset 0 1px 0 #ffffff1c;font-size:11px!important}
+#story-feedback{display:block;margin-top:7px;font:500 12px/1.6 var(--vn-reading-font);color:#d4dfe7;text-shadow:0 1px 2px #000b}#story-feedback:empty{display:none}
+#story-choices{bottom:calc(38% + 32px)}#story-choices button{border-radius:18px}
+@media(max-width:1100px){#story-player .vn-dialogue-box{width:calc(100% - 48px);border-radius:28px;min-height:170px;padding:18px 26px 22px;max-height:36%}#story-dialogue{font-size:20px;max-height:17vh}#story-player .vn-dialogue-box #story-next{width:44px;height:44px;min-width:44px}}
+@media(max-width:750px){#story-player .vn-dialogue-box{width:calc(100% - 24px);bottom:max(12px,env(safe-area-inset-bottom,0px));border-radius:26px;min-height:180px;max-height:42%;padding:16px 20px 20px}#story-dialogue{font-size:18px;line-height:1.85;max-height:21vh}#story-player[data-text-size=small] #story-dialogue{font-size:17px}#story-player[data-text-size=large] #story-dialogue{font-size:22px}#story-player[data-text-size=extra] #story-dialogue{font-size:25px}#story-speaker{font-size:12px}#story-choices{bottom:calc(44% + 18px)}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#story-player .vn-dialogue-box{background:linear-gradient(135deg,#192630f5,#0e1923f5)}}
+@media(prefers-contrast:more),(prefers-reduced-transparency:reduce){#story-player .vn-dialogue-box{background:#101923f5;-webkit-backdrop-filter:none;backdrop-filter:none;border-color:#d9e5ef99}#story-dialogue{color:#fff;text-shadow:none}}
+
 </style>
 </head>
 <body>
@@ -898,7 +924,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.12.2-preview</small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · v0.12.3-preview</small></span>
     </a>
     <div class="top-stats"><div class="top-stat"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -5441,6 +5467,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "圆润玻璃对白框": "Rounded Glass Dialogue",
+  "对白框改为悬浮圆角玻璃：透明渐变、磨砂背景、柔和反光和阴影；保留不透明度设置。": "Dialogue now floats in rounded glass with transparent gradients, a frosted backdrop, soft reflections and shadows; opacity settings are retained.",
+  "更新阅读字体、字重、行距和明亮文字；角色名与推进按钮独立呈现。": "Updated reading fonts, weight, spacing and bright text, with distinct speaker labels and advance controls.",
+  "修复16:9画面中CG覆盖对白与工具栏的图层问题，检查中英文大字号和iPad/手机布局。": "Fixed a layering issue where CGs covered dialogue and controls at 16:9; checked large Chinese and English text and iPad/mobile layouts.",
   "序章生命维持维修CG": "Prologue Life-Support Repair CG",
   "序章第三张正式CG在Jack用垫圈修补管道时出现，完成发现、检查、维修的连续顺序。": "The third Prologue CG appears as Jack patches the pipe with a washer, completing discovery, inspection and repair.",
   "700毫秒交叠淡化、9秒微幅推镜，聚焦双手、扳手与管道；观看后解锁图库。": "A 700ms crossfade and restrained nine-second push focus on the hands, wrench and pipe. The gallery unlocks on view.",
@@ -20099,6 +20129,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+ {date:'2026-10-05',version:'0.12.3-preview',title:t('圆润玻璃对白框','Rounded Glass Dialogue'),items:[t('对白框改为悬浮圆角玻璃：透明渐变、磨砂背景、柔和反光和阴影；保留不透明度设置。','Dialogue now floats in rounded glass with transparent gradients, a frosted backdrop, soft reflections and shadows; opacity settings are retained.'),t('更新阅读字体、字重、行距和明亮文字；角色名与推进按钮独立呈现。','Updated reading fonts, weight, spacing and bright text, with distinct speaker labels and advance controls.'),t('修复16:9画面中CG覆盖对白与工具栏的图层问题，检查中英文大字号和iPad/手机布局。','Fixed a layering issue where CGs covered dialogue and controls at 16:9; checked large Chinese and English text and iPad/mobile layouts.')],pending:[]},
  {date:'2026-10-05',version:'0.12.2-preview',title:t('序章生命维持维修CG','Prologue Life-Support Repair CG'),items:[t('序章第三张正式CG在Jack用垫圈修补管道时出现，完成发现、检查、维修的连续顺序。','The third Prologue CG appears as Jack patches the pipe with a washer, completing discovery, inspection and repair.'),t('700毫秒交叠淡化、9秒微幅推镜，聚焦双手、扳手与管道；观看后解锁图库。','A 700ms crossfade and restrained nine-second push focus on the hands, wrench and pipe. The gallery unlocks on view.'),t('Jack长期CG美术规范已记录：优先背面、侧面或遮脸；正面时必须戴磨旧深色帽子遮住大部分脸。','Permanent Jack CG direction is recorded: favor rear, side or obscured views; frontal views require a worn dark cap covering most of his face.')],pending:[]},
  {date:'2026-10-05',version:'0.12.1-preview',title:t('序章双CG与iPad全屏','Two Prologue CGs & iPad Fullscreen'),items:[t('序章首次发现B-07和检查玻璃温度分别显示两张正式CG；第二张使用自然手指姿势版本。','The first discovery of B-07 and the glass temperature check now display two dedicated CGs; the second uses the natural finger pose.'),t('加入800毫秒淡入、650毫秒交叠淡化及7–8秒微幅推镜。关闭动态时显示静止画面。','Added an 800ms fade, 650ms crossfade and restrained 7–8 second camera pushes. Disabling motion keeps the images still.'),t('全屏兼容Safari前缀接口，菜单与存档不再落在全屏之外；适配iPad横竖屏、安全边距和浏览器工具栏变化。','Fullscreen supports Safari-prefixed APIs and includes menus and saves. iPad portrait, landscape, safe areas and browser toolbar changes are accommodated.'),t('两张CG按实际观看解锁，存档、回看、日志、自动播放和快进保留。','Both CGs unlock when viewed; saving, rollback, log, auto playback and skip remain available.')],pending:[t('不支持原生全屏的Safari使用铺满可用屏幕方式；网页不能强制隐藏浏览器地址栏。测试为触屏和接口模拟，尚未在实体iPad验收。','Safari without native fullscreen fills its available viewport; a webpage cannot force its browser bar to disappear. Tests use touch and API emulation; a physical iPad has not yet been tested.')]},
  {date:'2026-10-05',version:'0.12.0-preview',title:t('审定剧情整合与全屏演出','Approved Narrative Integration & Full-screen Presentation'),items:[t('逐字接入六个中英文审定场景和六段日常，精简ACT IX为四个原因与两个行动选择，门后路径自动分流。','Integrated six approved bilingual scenes and six everyday scenes verbatim. ACT IX now has four reasons and two actions, followed by automatic branching.'),t('新增全屏剧情播放器、首次见面CG、已读跳过、自动播放、回看、十个手动位置、快速与自动记录、图鉴。','Added a full-screen story player, first-sight CG, read-only skip, auto playback, rollback, ten manual positions, quick and auto records, and a gallery.'),t('Jasmine日常记忆、体温记录和BLACK-17-C游戏内72小时计时接入存档；旧档保留路线与旗标。','Jasmine memories, temperature records and BLACK-17-C’s 72 in-game hours are saved; old routes and flags are preserved.'),t('养成模式顶部实验室与货币栏固定，滚动不再带走；独立存档含备用恢复。','The Raising laboratory and currency header stays in place while scrolling. Story positions support backup recovery.')],pending:[t('其余CG、正式音乐与配音未提供；E-3到期后仅记录待审定后续。历史大型扩展仍有未完成任务，见任务核对文件。','Further CGs, finished music and voice recordings are not supplied. E-3 expiry records a pending narrative resolution. Historical large expansions still contain unfinished work; see the task audit.')]},
