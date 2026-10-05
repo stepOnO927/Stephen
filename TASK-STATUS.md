@@ -1,3 +1,5 @@
+> 0.12.6停电陪伴CG已接入，见BLACKOUT-CG-REPORT.md。
+
 > 0.12.5缺口搪瓷杯CG报告见CHIPPED-MUG-CG-REPORT.md。
 
 > 0.12.4已接入ACT I空碟CG，见ACT1-CG-REPORT.md。
@@ -6,7 +8,7 @@
 
 > 本轮iPad全屏与双CG报告见 [PROLOGUE-CG-REPORT.md](PROLOGUE-CG-REPORT.md)。
 
-> 当前版本0.12.5-preview。最新已完成/部分完成/未完成核对见 [TASK-AUDIT.md](TASK-AUDIT.md)，本轮18项验收见 [NARRATIVE-INTEGRATION-REPORT.md](NARRATIVE-INTEGRATION-REPORT.md)。以下为历史分轮记录。
+> 当前版本0.12.6-preview。最新已完成/部分完成/未完成核对见 [TASK-AUDIT.md](TASK-AUDIT.md)，本轮18项验收见 [NARRATIVE-INTEGRATION-REPORT.md](NARRATIVE-INTEGRATION-REPORT.md)。以下为历史分轮记录。
 
 # 四季与生存压力 — v0.10.0-preview
 
