@@ -206,3 +206,9 @@
 - Council blade: six distinct ranks, opening ceremony, timed block, next-hit retaliation, capped stability recovery and explicit faction benefits.
 - Black Clearance rifle: elite and Abyss targeting, first shield breach, elite victory carry and saved three-way enemy intel scan.
 - Both pass isolated 1366/1920 browser combat and reload checks; previous 69-weapon R6 replay remains passing. Remaining advanced weapons, companions and multiple targets are still in progress.
+
+## Weapon 2.0 — 404 POP-UP (2026-10-05)
+- Six distinct resonance ranks: trigger probability, second window, critical/speed, shield-clear interruption, damage redirection and two distinct first-trigger effects.
+- Saved one-use state, bounded secondary damage, actual shield/repair suppression and in-game-only error windows.
+- Fixed anomalous resonance attack-time modifiers being ignored.
+- Six mechanism checks, 69-weapon R6 replay and isolated 1366/1920 browser combat/reload checks pass. Other remaining Weapon 2.0 work is still in progress.
