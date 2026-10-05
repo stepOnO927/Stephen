@@ -10,3 +10,5 @@
 - Jack face hidden; permanent rear/side/lowered-head art direction unchanged.
 - Unit tests pass: exact source hash, cue before/after19, motion limits, quick-load and collection export/import. Protected scene hashes, bilingual approved scenes and 20-chapter flow pass.
 - Chromium desktop1366×768 and touch768×1024: exact image decode, motion, spoiler collection, quick/load/reload/rollback, no horizontal overflow or page errors. Not a physical iPad Safari test.
+
+- Boundary check found BACK retained keyboard focus on its button, so Space could click BACK again. Rollback now returns focus to the story panel; Space advances correctly after rollback.
