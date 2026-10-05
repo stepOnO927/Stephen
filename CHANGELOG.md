@@ -1,3 +1,10 @@
+## 0.12.8-preview · 2026-10-06
+
+- 接入第08张CG_ACT2_BAD_NICKNAMES，daily_nickname第8行转身时从07交叠切换。
+- 700ms交叠、9秒1.00→1.03微推；观看解锁。
+- 第09张仅预留CG_ACT2_BLANK_TAPE_FINGERPRINT与第15行指印节点，到这里回到黑底，不使用其他CG替代。
+- 保留07原图、审定台词、章节触发与旧存档。
+
 ## 0.12.7-preview · 2026-10-06
 
 - 第07张CG_ACT2_B07_NAMEPLATE在daily_nickname第0行铭牌文字出现。没有制作第08张。
