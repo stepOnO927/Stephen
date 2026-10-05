@@ -1,8 +1,10 @@
+> 0.12.4已接入ACT I空碟CG，见ACT1-CG-REPORT.md。
+
 > 0.12.3对白框与图层修复见DIALOGUE-GLASS-REPORT.md。
 
 > 本轮iPad全屏与双CG报告见 [PROLOGUE-CG-REPORT.md](PROLOGUE-CG-REPORT.md)。
 
-> 当前版本0.12.3-preview。最新已完成/部分完成/未完成核对见 [TASK-AUDIT.md](TASK-AUDIT.md)，本轮18项验收见 [NARRATIVE-INTEGRATION-REPORT.md](NARRATIVE-INTEGRATION-REPORT.md)。以下为历史分轮记录。
+> 当前版本0.12.4-preview。最新已完成/部分完成/未完成核对见 [TASK-AUDIT.md](TASK-AUDIT.md)，本轮18项验收见 [NARRATIVE-INTEGRATION-REPORT.md](NARRATIVE-INTEGRATION-REPORT.md)。以下为历史分轮记录。
 
 # 四季与生存压力 — v0.10.0-preview
 
