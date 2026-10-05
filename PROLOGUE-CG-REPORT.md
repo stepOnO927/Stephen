@@ -1,3 +1,15 @@
+# 0.12.2追加：生命维持维修CG
+
+第三张正式ID CG_PROLOGUE_LIFE_SUPPORT_REPAIR。正式资源assets/story/cg/prologue_life_support_repair.png原样复制用户新图，SHA256 d690e0eaad825e273ca8571f55f41dc087f27b8860030f0de21922703e9ffec7。
+
+project_b07第13句“他用一片垫圈补住管道。”切入，前两张仍第4/6句；没有改动任何场景正文/选择。700ms两层交叠，9秒1→1.035，水平-2px、垂直0，变换中心60%/63%靠向双手和管道。人物未单独变形，无额外overlay。
+
+Jack永久美术规范见STORY-CG-ART-DIRECTION.md及StoryCG.artDirection：背面、3/4背面、侧面、低头、部分遮脸优先；正面必须戴磨旧的深色帽子，帽檐遮大部分脸。
+
+图库按实际观看解锁，未看前无缩略图。沿用增量Meta/StoryBook，不追补授予；Save/Load/Rollback从scene+line恢复第三图。触屏浏览器检查1366×768、1024×768、768×1024的真实切换、运动、quick/读取/刷新/回看/日志/图库；单元测试核对三图触发与原图哈希，保护场景/20章仍通过。实体iPad限制仍见下方0.12.1记录。
+
+修改presentation.js、cgLayer.js、server.js白名单、版本/日志/构建allowlist；新增正式PNG、美术规范、repair-browser测试；重生成portable HTML与英文包。下方为0.12.1双CG验收历史记录。
+
 # 序章双CG与iPad全屏 · 0.12.1-preview
 
 2026-10-05，St3phEn。
