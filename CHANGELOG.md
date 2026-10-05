@@ -1,3 +1,9 @@
+## 0.12.5-preview · 2026-10-06
+
+- daily_cup第6行递出搪瓷杯时显示CG_ACT1_CHIPPED_MUG。此前使用空碟CG建立连续日常视觉。
+- 700ms交叠，9秒1.00→1.035微推、-2px横向漂移；首次观看解锁。
+- 仅调整daily_cup的ACT I显示标题，不改变章节推进、台词或存档格式。
+
 ## 0.12.4-preview · 2026-10-05
 
 - ACT I新增CG_ACT1_EMPTY_DISH，在project_survival第6行食盆到位时淡入。原文不变。
