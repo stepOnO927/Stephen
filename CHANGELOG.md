@@ -201,3 +201,8 @@
 - Null Pointer: six exclusive resonance ranks, capped positive streak, once-per-fight defense dereference and probabilistic incoming damage nullification.
 - Persisted combat state and bilingual resonance descriptions.
 - Verified 10 new mechanism checks and isolated browser combat/reload at 1366 and 1920 widths. Weapon 2.0 remains in progress.
+
+## Weapon 2.0 — Authority and Clearance (2026-10-05)
+- Council blade: six distinct ranks, opening ceremony, timed block, next-hit retaliation, capped stability recovery and explicit faction benefits.
+- Black Clearance rifle: elite and Abyss targeting, first shield breach, elite victory carry and saved three-way enemy intel scan.
+- Both pass isolated 1366/1920 browser combat and reload checks; previous 69-weapon R6 replay remains passing. Remaining advanced weapons, companions and multiple targets are still in progress.
