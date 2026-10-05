@@ -1,3 +1,9 @@
+## 2026-10-06 — 温室 / 医务室基础闭环（预览）
+
+- 新增200条植物名录、基础种植收获和跨日医疗照护。完整MEGA扩展尚未完成。
+- 修复分类导航滚动、返回空页及旧导航遮挡。
+- 公网AI仍未启用。
+
 ## 2026-10-06 — 顶部等级横向显示修复
 
 研究等级与时间在同一横向基线显示；日期和行动点不再自动断行。窄屏顶部栏使用独立布局行，内容区自动按实际栏高避让。中英文及1920、1366、1024、768、390宽度已检查。公开游戏仍使用本地备用对白，云端AI尚未开放。
@@ -308,4 +314,5 @@
 - Finish six-rank coverage for all 13 Epic, 8 Legendary and 6 Anomalous weapons; reset Rare consecutive-hit windows on misses.
 - Add weapon-only DPS estimates, saved independent weapon display, physical carried-weapon cargo volume/weight, rare universal cores and max-resonance duplicate guidance.
 - Added timed, team and final audit tests. Full regression baseline and current affected-system tests passed; browser checks cover 8 remaining advanced weapons, real second-target damage, party/timer/reload and display/companion controls. Art remains replaceable procedural SVG.
+
 
