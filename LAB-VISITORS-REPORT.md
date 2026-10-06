@@ -37,3 +37,5 @@
 新增tests/lab-visitor-care.test.cjs与真实Chrome tests/lab-visitor-care-browser.cjs。专项验证真实评估/治疗成本、日程/资源/报告/读档、异地排他、隔离的正负传播、离开/死亡、无住户排班副作用、关闭医疗室失败原子性。实际界面点击隔离放行、评估、基础照护，保存重载保留physical方案；768/390宽按钮可达、无横溢出、0页面错误。隔离测试档，不触碰玩家真实进度。最终公开发布结果后补。
 
 最终相关回归16文件全部通过：visitor-care、visitors、physician-presence、residency、duty-relief、operations、rooms、illness、clinical-behavior、outbreaks、disease-long-balance、disease-care-cycle、disease-sustained-balance、lab-cultivation-care、lab-year-storage、caravans-street。包括10800病程、3368真实四日照护周期、27000持续患者日、18种植照护场景、2920年度运营日与12次重载。末尾追加关闭医务室边界后visitor-care专项和实际浏览器再次通过。没有将16项回归称为99文件全套通过。
+最终源码HTTP测试通过：299本地CSS/脚本资源；私有路径拦截仍有效。
+截图检查发现隔离解除按钮仍可点击但会失败；已让界面使用同一visitorIsolationLocked判断禁用按钮，浏览器新增禁用断言并复测通过。
