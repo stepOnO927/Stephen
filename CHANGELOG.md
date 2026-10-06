@@ -316,3 +316,12 @@
 - Added timed, team and final audit tests. Full regression baseline and current affected-system tests passed; browser checks cover 8 remaining advanced weapons, real second-target damage, party/timer/reload and display/companion controls. Art remains replaceable procedural SVG.
 
 
+## 0.13.1-preview · 2026-10-06 — 地区疫情、医疗新闻与温室加工
+
+- 加入90种疾病风险分类、症状与宿主筛选；宠物、其他怪兽和已接触NPC的医疗记录、隔离及入所观察。
+- 地区疫情沿聚落道路传播，检疫站影响控制；当地医疗/食品价格及高风险道路成本读取实际疫情状态。
+- 新闻读取实际天气、商队、物资、疫情和死亡记录；90个新闻主题已建档，但并非90条完整独立事件链。
+- 温室加入六种加工、保存期限/出售价值、多代品系与三种遗传特征、品系改名；200种植物使用可替换程序SVG。
+- 修复新救援宠物在存读档时补建医疗记录导致的状态不一致，补齐加工和品系改名操作入口。
+- 配音由用户后续提供；公网AI仍未开放，正式美术及历史大型扩展仍有剩余。
+
