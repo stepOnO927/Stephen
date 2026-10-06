@@ -1,4 +1,4 @@
-# 27房间功能化 · 0.13.7-preview
+# 27房间功能化 · 0.13.8-preview
 
 此表由实际房间数据生成。27原ID保持；物理房间等级和专属设施等级独立。主/次入口复用既有控制器，不复制一套温室、医疗或武器系统。
 
@@ -10,10 +10,10 @@
 | 医疗室 | medical | 0 | 查看患者 (patients) | pharmacy / recovery / quarantine | bed | 13 | — |
 | 遗传实验室 | genetics | -1 | 突变分析 (mutations) | experiment / serums / plantArchive | scanner | 4 | — |
 | 工程室 | engineering | -1 | 基地维护 (maintenance) | power / water / roads | toolwall | 29 | fault:airClog |
-| 厨房 | kitchen | 0 | 准备恢复餐 (cook) | food / harvest / pharmacy | stove | 6 | — |
-| 仓库 | storage | 0 | 整理库存 (inventory) | valuables / trade / bedroom | racks | 5 | — |
+| 厨房 | kitchen | 0 | 准备恢复餐 (cook) | food / harvest / pharmacy | stove | 10 | incident:kitchen_seal / incident:kitchen_labels / incident:kitchen_drain |
+| 仓库 | storage | 0 | 整理库存 (inventory) | valuables / trade / bedroom | racks | 10 | incident:storage_damp / incident:storage_ledger / incident:storage_crate |
 | 温室 | greenhouse | -1 | 检查种植槽 (plants) | seeds / ecology / harvest | hydroponics | 22 | — |
-| 工坊 | workshop | -1 | 武器工坊 (weapons) | weapons / parts / roads | weaponbench | 4 | — |
+| 工坊 | workshop | -1 | 武器工坊 (weapons) | weapons / parts / roads | weaponbench | 10 | incident:workshop_vice / incident:workshop_sparks / incident:workshop_batch |
 | 观察室 | observation | -1 | 观察公共区域 (cameras) | habits / pets / visitors | monitors | 12 | — |
 | 档案室 | archive | -1 | 查阅档案 (storyFiles) | medicalArchive / newsArchive / personnel | files | 8 | — |
 | 供电室 | power | -2 | 供电与分配 (power) | maintenance / powerPolicy / climate | generator | 14 | fault:powerDrop |

@@ -11,7 +11,8 @@
   "longMinHealth": 81,
   "maxResupplyCredits": 30,
   "rooms": 27,
-  "lifeEvents": 100,
+  "lifeEvents": 115,
+  "roomIncidents": 9,
   "maintenanceEvents": 104,
   "duties": 7,
   "equipment": 13,
@@ -20,7 +21,7 @@
   "annualScenarios": 8,
   "annualDays": 2920,
   "annualSaveBytes": {
-    "min": 254198,
-    "max": 302061
+    "min": 257282,
+    "max": 307083
   }
 }

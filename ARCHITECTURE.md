@@ -308,3 +308,6 @@ newsChainsData / Batch2 / Batch3Data只持有中英文场景、等待日和显�
 - lab/roomData.js：27原ID的楼层、入口、专精、声景/未来背景引用；rooms.js：权限、有限动作、人物位置和隐私；roomUI.js复用已有玩法并保持返回上下文；roomDiagnostics.js只读取同一设备状态。
 - roomArt.js/roomDecorArt.js独立SVG层，可替换正式图片；roomAudio.js管理用户开启后的合成环境声与切换清理。没有新增大型引擎或付费生成调用。
 - 顶层状态version仍为4；operations与roomSystems各自version 1。旧档缺分支时按当前日初始化，保留原有医疗、人物、物品、剧情与设施升级。没有将物理房间等级硬映射为医疗/温室等级。
+
+### 房间事件（0.13.8）
+roomIncidentData.js定义双语题目、选择、成本、后续与逾期；roomIncidents.js处理有界存档、按日触发及原库存结算。operations.incidents兼容旧档，UI通过ops:incident命令调用，剧情模式不参与。

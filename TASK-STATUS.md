@@ -216,3 +216,6 @@ Added connected roads, bounded driving lanes and live minimap position/heading; 
 
 ## 第10张CG现已补齐
 CG_ACT3_BEFORE_THE_FIRST_WORD正式接入；此前缺第10张仅为历史状态，累计正式CG11张。固定10→11，原首词变量及保护文本保留。
+
+## 0.13.8第一批房间事件
+3房完成10/3事件容量，219总观察池+9跨日事件；其余24房未完整。公开发布结果以ROOM-INCIDENTS-REPORT.md收据为准。
