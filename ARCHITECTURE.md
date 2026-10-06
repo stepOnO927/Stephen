@@ -311,3 +311,6 @@ newsChainsData / Batch2 / Batch3Data只持有中英文场景、等待日和显�
 
 ### 房间事件（0.13.8）
 roomIncidentData.js定义双语题目、选择、成本、后续与逾期；roomIncidents.js处理有界存档、按日触发及原库存结算。operations.incidents兼容旧档，UI通过ops:incident命令调用，剧情模式不参与。
+
+### 房间事件扩展（0.13.9）
+roomIncidentExpansion.js以独立双语数据追加72条内容；roomLightExpansion.js追加108条观察。两文件置于roomIncidents/events运行时之前；每档记录上限依据实际81条事件和327条观察动态校验，不修改旧flags、物品或路线。实验体事件校验存活、在场与养成模式。

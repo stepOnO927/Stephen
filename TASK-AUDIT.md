@@ -1,3 +1,7 @@
+## 当前交付：0.13.9-preview（2026-10-07）
+
+27房间已达到每房至少10条轻观察、3条独立跨日运营事件：327观察（223生活、104维护）、81事件、162选择分支。新增模块roomIncidentExpansion.js与roomLightExpansion.js；保留原房间ID、原剧情文本/flags、库存和存档结构。完整测试与发布结果见ROOM-INCIDENTS-REPORT.md。正式手绘/录制声景、历史NPC和世界长剧情、公网AI部署仍未完成。以下为历史记录。
+
 ## 当前交付：0.13.7-preview（2026-10-06）
 
 90病逐病长期平衡、实验室运营与27房间功能化本轮报告见LAB-OPERATIONS-REPORT.md；逐房容量见ROOM-FUNCTIONALIZATION-REPORT.md。旧记录仅为各次交付时状态，不代表当前数量。90新闻链已完成；每房最终重大剧情、正式美术/音频、部分历史扩展与公网AI部署仍未完成。
