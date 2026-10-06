@@ -1,0 +1,26 @@
+{
+  "diseases": 90,
+  "careCycles": 3368,
+  "sustainedScenarios": 180,
+  "patientDays": 27000,
+  "careDays": {
+    "min": 2,
+    "max": 26
+  },
+  "courseMinHealth": 81,
+  "longMinHealth": 81,
+  "maxResupplyCredits": 30,
+  "rooms": 27,
+  "lifeEvents": 100,
+  "maintenanceEvents": 104,
+  "duties": 7,
+  "equipment": 13,
+  "cultivationScenarios": 18,
+  "cultivationDays": 2160,
+  "annualScenarios": 8,
+  "annualDays": 2920,
+  "annualSaveBytes": {
+    "min": 254198,
+    "max": 302061
+  }
+}

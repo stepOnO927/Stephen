@@ -1,3 +1,9 @@
+## 当前交付：0.13.7-preview（2026-10-06）
+
+90病逐病长期平衡、实验室运营与27房间功能化本轮报告见LAB-OPERATIONS-REPORT.md；逐房容量见ROOM-FUNCTIONALIZATION-REPORT.md。旧记录仅为各次交付时状态，不代表当前数量。90新闻链已完成；每房最终重大剧情、正式美术/音频、部分历史扩展与公网AI部署仍未完成。
+
+> 2026-10-06 · 本机0.13.0-preview：AI兑换申请与主机审批已实现，公开版仍0.12.9，本地对白；Vercel/Supabase未连接，云端尚未部署。详见AI-ACCESS-PROGRESS.md。
+
 > 0.12.9正式接入09第一版，见FINGERPRINT-CG-REPORT.md。
 
 > 0.12.8接入08，09仅预留，见NICKNAMES-CG-REPORT.md。
@@ -203,3 +209,4 @@ Added connected roads, bounded driving lanes and live minimap position/heading; 
 
 ## 2026-10-05 当前新增交付范围
 武器2.0与叙事重写已推进到验收：69把武器、27把高级六阶专属、30段生活场景、语言0–5、6段Jasmine回忆、7/8个Host/连续性提示、固定隐藏结局与20章元数据。具体证据见STORY-REPORT.md、WEAPON2-PROGRESS.md和verification目录。上面的历史大型扩展待办仍有效，不能将本轮模块验收误写成全部历史需求完成。
+
