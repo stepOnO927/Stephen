@@ -13,3 +13,17 @@ CG_ACT3_FIRST_WORD → assets/story/cg/act3_first_word.png，使用用户原图�
 真实Chrome浏览器1366×768与768×1024通过：Space首词/CG、图片解码、首见解锁、快存/读档/刷新、回看及养成模式隔离，0页面错误、无页面横溢出。并非物理iPad Safari测试。
 
 修改：js/story/presentation.js、tools/build-github.cjs、index.html；新增资源与tests/first-word-cg*.cjs。
+
+公开提交：bb42a8723cfe5c00d5e6f6eb18f28ddaa9ac461a。在线验证记录将在本报告本地副本补充。
+
+公开网站Chrome隔离验证已通过1366×768、768×1024：第11张实际资源加载、Space推进、首词对白、解锁、快存/读档/刷新、回看、养成隔离，0页面错误。截图verification/act3-first-word-*.png。
+
+## 第10张正式接入（当前状态）
+
+CG_ACT3_BEFORE_THE_FIRST_WORD使用用户提供的原始图片，复制到assets/story/cg/act3_before_first_word.png。此前“缺少第10张”的记录仅为历史状态，现已补齐，不再保留reserved状态。
+
+固定顺序：project_first_word第0–1行显示10，第2行B-07说{firstWord}时切11。没有插入或改写保护文本。10用700ms淡入、9秒1→1.02轻推镜；10→11沿用550ms双层交叉淡化、不经过黑屏，11为8秒1→1.025。两图不对人物做变形/动画，无震屏/闪白/粒子/音效爆点。
+
+两张各自首见解锁，未看到11时其缩略图仍锁定。首词存档字段不变。剧情音轨尚未正式接入，因此未制造额外音效或假称已做音量压低。
+
+原图哈希、10→11节点顺序、非默认首词回调、存档/导入与保护文本专项测试已通过。实际浏览器测试结果另附。正式CG累计11张。

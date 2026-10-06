@@ -210,3 +210,9 @@ Added connected roads, bounded driving lanes and live minimap position/heading; 
 ## 2026-10-05 当前新增交付范围
 武器2.0与叙事重写已推进到验收：69把武器、27把高级六阶专属、30段生活场景、语言0–5、6段Jasmine回忆、7/8个Host/连续性提示、固定隐藏结局与20章元数据。具体证据见STORY-REPORT.md、WEAPON2-PROGRESS.md和verification目录。上面的历史大型扩展待办仍有效，不能将本轮模块验收误写成全部历史需求完成。
 
+
+## 第11张CG补丁
+正式资源累计10张（用户编号01–09与11）；第10张缺源图，仅预留。CG11接入首词节点，专项存档及桌面/平板浏览器验证通过。
+
+## 第10张CG现已补齐
+CG_ACT3_BEFORE_THE_FIRST_WORD正式接入；此前缺第10张仅为历史状态，累计正式CG11张。固定10→11，原首词变量及保护文本保留。
