@@ -314,3 +314,6 @@ roomIncidentData.js定义双语题目、选择、成本、后续与逾期；room
 
 ### 房间事件扩展（0.13.9）
 roomIncidentExpansion.js以独立双语数据追加72条内容；roomLightExpansion.js追加108条观察。两文件置于roomIncidents/events运行时之前；每档记录上限依据实际81条事件和327条观察动态校验，不修改旧flags、物品或路线。实验体事件校验存活、在场与养成模式。
+
+### 0.13.10：独立目标布局校验器
+js/happyClub/TargetPlacementValidator.js纯几何模块，浏览器Abyss命名空间和CommonJS双入口。不可变plan、实例私有弱引用、连续路径凸包证书及成对Bomb间距判断。Source在core之后载入；没有靶场控制器/经济/存档逻辑。详见TARGET-PLACEMENT-REPORT.md。
