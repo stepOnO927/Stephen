@@ -1,4 +1,4 @@
-# 27房间功能化 · 0.13.18-preview
+# 27房间功能化 · 0.13.20-preview
 
 此表由实际房间数据生成。27原ID保持；物理房间等级和专属设施等级独立。主/次入口复用既有控制器，不复制一套温室、医疗或武器系统。
 
@@ -10,7 +10,7 @@
 | 医疗室 | medical | 0 | 查看患者 (patients) | pharmacy / recovery / quarantine | bed | 13 | incident:bed_brake / incident:thermometer_case / incident:privacy_screen / incident:ops_thermo_offset |
 | 遗传实验室 | genetics | -1 | 突变分析 (mutations) | experiment / serums / plantArchive | scanner | 10 | incident:sample_labels / incident:cooler_door / incident:microscope_lens / incident:ops_exhaust_gasket |
 | 工程室 | engineering | -1 | 基地维护 (maintenance) | power / water / roads | toolwall | 29 | fault:airClog / incident:tool_return / incident:plan_revision / incident:bench_ground / incident:ops_heater_guard |
-| 厨房 | kitchen | 0 | 准备餐盒 (cook) | food / harvest / pharmacy | stove | 10 | incident:kitchen_seal / incident:kitchen_labels / incident:kitchen_drain / incident:ops_cold_coil |
+| 厨房 | kitchen | 0 | 准备餐盒 (cook) | food / harvest / pharmacy / jasmine | stove | 10 | incident:kitchen_seal / incident:kitchen_labels / incident:kitchen_drain / incident:ops_cold_coil |
 | 仓库 | storage | 0 | 整理库存 (inventory) | valuables / trade / bedroom | racks | 10 | incident:storage_damp / incident:storage_ledger / incident:storage_crate / incident:ops_load_brace |
 | 温室 | greenhouse | -1 | 检查种植槽 (plants) | seeds / ecology / harvest | hydroponics | 22 | incident:bed_leak / incident:seed_envelope / incident:shade_screen / incident:ops_root_mat |
 | 工坊 | workshop | -1 | 武器工坊 (weapons) | weapons / parts / roads | weaponbench | 10 | incident:workshop_vice / incident:workshop_sparks / incident:workshop_batch / incident:ops_grinder_flange |
