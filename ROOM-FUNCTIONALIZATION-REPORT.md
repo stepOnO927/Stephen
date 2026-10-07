@@ -1,4 +1,4 @@
-# 27房间功能化 · 0.13.16-preview
+# 27房间功能化 · 0.13.17-preview
 
 此表由实际房间数据生成。27原ID保持；物理房间等级和专属设施等级独立。主/次入口复用既有控制器，不复制一套温室、医疗或武器系统。
 
@@ -18,7 +18,7 @@
 | 档案室 | archive | -1 | 查阅档案 (storyFiles) | medicalArchive / newsArchive / personnel | files | 10 | incident:folder_mould / incident:catalog_gap / incident:reader_fan |
 | 供电室 | power | -2 | 供电与分配 (power) | maintenance / powerPolicy / climate | generator | 14 | fault:powerDrop / incident:battery_clip / incident:fuel_strainer / incident:breaker_cover |
 | 净水室 | water | -2 | 净水与供水 (water) | waterTest / maintenance / ecology | tank | 24 | fault:waterLeak / incident:test_cup / incident:tank_lid / incident:drain_mesh |
-| 通讯室 | radio | -1 | 收听新闻 (news) | visitors / caravans / climate / dailyReport | radios | 10 | incident:aerial_clamp / incident:message_slip / incident:speaker_cone |
+| 通讯室 | radio | -1 | 收听新闻 (news) | visitors / deliveries / caravans / climate / dailyReport | radios | 10 | incident:aerial_clamp / incident:message_slip / incident:speaker_cone |
 | 研究大厅 | hall | -1 | 规划研究 (research) | plantArchive / diseaseArchive / mutations | whiteboard | 10 | incident:board_leg / incident:projector_dust / incident:meeting_chairs |
 | 封锁下层 | lower | -2 | 调查下层设施 (survey) | restore / materials / leave | barrier | 10 | incident:barrier_lamp / incident:debris_edge / incident:survey_anchor |
 | 零号通道 | zero | -3 | 零号资料 (zeroArchive) | continuity / survey / leave | airlock | 10 | incident:airlock_seal / incident:gauge_window / incident:reader_contacts |

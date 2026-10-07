@@ -1,5 +1,5 @@
 {
-  "version": "0.13.16-preview",
+  "version": "0.13.17-preview",
   "observations": 327,
   "incidentChoices": 162,
   "minRoomObservations": 10,
@@ -26,7 +26,7 @@
   "annualScenarios": 8,
   "annualDays": 2920,
   "annualSaveBytes": {
-    "min": 283243,
-    "max": 333339
+    "min": 284494,
+    "max": 346062
   }
 }
