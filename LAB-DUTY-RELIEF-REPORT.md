@@ -23,3 +23,9 @@
 额外修复日报B-07位置：复用LabRooms.characters的实时岗位/隔离/休息位置，避免值班时日报仍报休息房间。专项覆盖白天与晚上。
 
 实际隔离Chrome已验证27房模型和控制、12日报栏、排班、制作、温室往返、保存重载与1024/768/390宽布局；无页面错误。旧玩家存档没有读取或修改。
+
+## 发布与剩余项证据
+
+0.13.11-preview已发布。Pages run61：https://github.com/stepOnO927/Stephen/actions/runs/37532686571 ，界面确认completed successfully，耗时1m 0s。公网隔离Chrome实测临时替班、日志可见、原排班保留、保存重载以及0页面错误通过；截图verification/lab-duty-relief-public.png。
+
+源码核对：lastRadioDay目前仅在operations.js成功值班时设置、operationsState.js读取，未发现新闻/来访消费这一效果，PART LXXXVI的广播预警增益尚待补齐。不能以日期字段存在证明这一条已完成。当前全目标保持active，已累计超过3小时，但时间达到不代表所有规格已完成。

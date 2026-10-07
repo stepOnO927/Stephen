@@ -1,7 +1,7 @@
 {
-  "version": "0.13.17-preview",
+  "version": "0.13.18-preview",
   "observations": 327,
-  "incidentChoices": 162,
+  "incidentChoices": 200,
   "minRoomObservations": 10,
   "minRoomIncidents": 3,
   "diseases": 90,
@@ -17,7 +17,7 @@
   "maxResupplyCredits": 30,
   "rooms": 27,
   "lifeEvents": 223,
-  "roomIncidents": 81,
+  "roomIncidents": 100,
   "maintenanceEvents": 104,
   "duties": 7,
   "equipment": 13,
@@ -26,7 +26,7 @@
   "annualScenarios": 8,
   "annualDays": 2920,
   "annualSaveBytes": {
-    "min": 284494,
-    "max": 346062
+    "min": 338997,
+    "max": 399566
   }
 }
