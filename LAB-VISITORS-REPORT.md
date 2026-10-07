@@ -39,3 +39,23 @@
 最终相关回归16文件全部通过：visitor-care、visitors、physician-presence、residency、duty-relief、operations、rooms、illness、clinical-behavior、outbreaks、disease-long-balance、disease-care-cycle、disease-sustained-balance、lab-cultivation-care、lab-year-storage、caravans-street。包括10800病程、3368真实四日照护周期、27000持续患者日、18种植照护场景、2920年度运营日与12次重载。末尾追加关闭医务室边界后visitor-care专项和实际浏览器再次通过。没有将16项回归称为99文件全套通过。
 最终源码HTTP测试通过：299本地CSS/脚本资源；私有路径拦截仍有效。
 截图检查发现隔离解除按钮仍可点击但会失败；已让界面使用同一visitorIsolationLocked判断禁用按钮，浏览器新增禁用断言并复测通过。
+
+0.13.15涉及文件：js/lab/visitors.js、operations.js、roomUI.js；js/greenhouse/medicine.js、UI.js、diseaseBalance.js、clinicalEffects.js、illness.js；js/street.js、economyUI.js、data/updateLog.js；index.source.html/编译index.html、package.json、tools/test.cjs/pack-release.ps1；新增visitor-care专项和浏览器测试、更新visitors-browser版本断言；状态/日志/验收索引与生成报告。主存档schema保持不变，旧档缺少访客字段仍为空表；没有改变故事文本、route或ending。
+
+
+## 0.13.15公开验收
+Pages67（37546598502）Success，32秒；最终隔离按钮补丁Pages68（https://github.com/stepOnO927/Stephen/actions/runs/37546997401）Success。最终公网实际Chrome测试通过隔离放行、医疗评估和照护按钮、重载physical方案/医务室位置、隔离按钮禁用、768/390患者按钮可见无溢出、0页面错误。凭证verification/lab-visitor-care-public.png。发布后验收记录保存在本地报告与下载包；公开报告为提交时版本。全目标仍active，140项未逐条验收完成。
+
+## 0.13.16 · 留院观察
+已评估且正在照护/有活动病况的访客可登记留院，容量为医务室等级1–4床；关闭房间时不接受新留院。留院者跨日仍在医务室，日消耗0.3食品/0.35水并叠加既有症状补水；无重复入住或排班资格。不能在照护中、活动病况/恢复观察未结束、隔离未结束或尚未复查时出院。出院记录和原患者历史保留。长途离开多日仍进行当地照护，玩家在外不能远程操作出院。
+
+新增care/ careStartedDay为加法迁移；旧档缺少时NONE，不强制旧访客变成住院。访问历史60条上限会优先保留最多4个唯一当前留院人物。死亡/非法起始日记录不产生住院资格；有限床位不自动扩大。修正心理病況的入口隔离：只有目录标记quarantineRequired或已隔离记录强制隔离，不把心理状态当传染病。封闭医务室不再提供扫描仪增强恢复。
+
+新增lab-inpatient专项和浏览器测试。四实际照护日精确食品-1.2、水-1.4，原聚落水不变；真实四日照护/复查/出院、满床/房间封闭/重复登记失败原子性、保存重载、批量离开、死亡释放、记录上限/异常存档均有专项断言。实际Chrome点击登记、四次Engine rest、读档、复查和出院，1366/768/390按钮可达、无横溢出、0页面错误。
+
+首轮浏览器复查遇既有随机事件p5_random_shadow阻止医疗操作，调查确认是正常事件门禁；测试通过真实event命令完成事件后再复查，没有移除游戏门禁。测试场景使用独立浏览器和隔离存档。更多访客类别、完整交易交接、医生来访和完整140项验收仍未完成。
+完整人物目录追加检查发现旧患者表120条会截掉后面的已知NPC；容量上限改为256，157位已知人物逐个验证都有患者记录，目录末位NPC留院和照护方案重载通过。病例仍有硬上限，未无限扩张。
+本轮15个相关测试文件全部通过；包括3368真实四日照护周期、27000持续患者日和2920年度运营日。临床容量追加补丁后157人目录/留院专项再次通过。未重跑100文件全套，不把专项称为全套完成。
+最终源码HTTP验证299资源可加载，私有路径仍拦截；最终本地0.13.16浏览器完整留院/出院再次通过，首次失败的事件门禁已用真实event流程处理后验证。
+最终文案整理时本地浏览器发现operationsUI括号语法错误；已以共享visitorStatus函数修复并通过node语法检查和完整浏览器留院/出院复测。没有提交错误版本。日报入口记录增加care字段，显示留院照护；字段为可选，旧日报仍能读取。追加运营/157人留院专项通过，年度存储重新运行以检验新增报告字段。
+最终报告字段版本的2920年度运营日再次通过，有界记录/真实有限维修资源/12次重载/故事flag保持通过。
