@@ -1,3 +1,7 @@
+## 0.13.38-preview · 护畜犬与实际夜间安全（本地候选）
+
+新增独立护畜犬（保留原40种），实际岗位/额外饲料/缺料停勤；破损围栏可触发野兽伤害、真实饲料失窃和同UID动物被盗/付费寻找。健康值勤护卫减少但不消除风险，保存安全记录。旧档可选字段兼容并不追补过去入侵。专项及12相关回归通过，真实浏览器验证中；马/驴/蜂效用和历史欠项未完成。详见HOMESTEAD-GUARD-RAIDS-PROGRESS.md。
+
 ## 0.13.37-preview · 动物出售、易物、赠送与送养（本地候选）
 
 四种真实转交、先报价后确认、健康/位置/繁育和容量复核、无损拒绝；保留同一个活体档案和血统，停止本实验室生产/消耗。旧存档departure默认null。专项及10相关回归通过，三宽度浏览器验证中；完整畜牧与历史扩展仍未完成。详见HOMESTEAD-TRANSFERS-PROGRESS.md。
@@ -438,5 +442,12 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 
 提交d02339006d46cf5fbc35078080f77142237b90ca；GitHub Pages #91 Success：https://github.com/stepOnO927/Stephen/actions/runs/37823279251 。
 公开版tests/homestead-events-batch5-browser.cjs退出0，1366/768/390×离栏/育幼/到达共9流程，中英、原生选择、真实扣费/效果、刷新历史通过。源码HTTP347资源及私密路径隔离通过。新批次40Engine分支复测退出0。整体engine长跑session72105已exit0，100种子35日及15项检查通过；不是144文件全套回归。真实玩家存档、密钥和付费AI均未访问。总目标保持active，其余原规格欠项不取消。
+
+
+
+## 0.13.37 公网验收
+
+提交e5870d9b7fd9b0ec4e6c101caaeacdf26e40cd04；GitHub Pages #92 Success：https://github.com/stepOnO927/Stephen/actions/runs/37825342007 。
+公开tests/homestead-transfers-browser.cjs退出0，四种转交×1366/768/390共12原生流程：报价时不转出、确认时费用和饲料正确、同个活体档案/家谱保存、中英与刷新正常，无pageerror或横溢出。源码348资源及私密隔离、转交专项和10相关回归通过。没有触碰真实存档或付费API。源码/测试/报告及12屏幕证据打包为abyss-lab-0.13.37-preview.zip。整体目标active，工作动物/安全护卫/群落/完整稀有获取及其他历史模块未完成。
 
 
