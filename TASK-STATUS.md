@@ -319,3 +319,11 @@ CG_ACT3_BEFORE_THE_FIRST_WORD正式接入；此前缺第10张仅为历史状态�
 
 ## 2026-10-08 / 0.13.24 本地候选
 养殖首批已挂载并通过真实按钮/保存与原功能回归，详见HOMESTEAD-CORE-PROGRESS.md；靶场活动/夜场/反应/新程序靶子见HAPPY-CLUB-EVENTS-PROGRESS.md。原120文件.23已公开，.24按修改范围专项回归，没有重新声明全131文件命令一次性通过。新八个养殖测试、三尺寸原生UI、334资源HTTP，以及100种子长期养成/温室/90病目录/20章剧情通过。公网.24尚待本次发布验证。目标保持active，后续100畜牧事件/稀有来源、植物品系、食堂与历史扩展继续执行。
+
+2026-10-08 公开验收：0.13.24-preview提交e96f1b84ed49716d45beef35e61cffe46ca5f07b；GitHub Pages #76 / run37709492371 Success（30秒）。公开养殖三宽度原生按钮、血统预测/繁育费用、存档刷新测试退出0（verification/homestead-public-browser.txt）；公开靶场节/夜场/真实封路三宽度退出0（happy-club-events-public.txt）。没有访问真实玩家档、没有调用付费AI。源代码/8项专项/原功能回归详见homestead-integrated-core.txt、homestead-release-followup.txt、homestead-source-http.txt；尚未全131文件重跑。全历史目标保持active。
+
+2026-10-08 继续实施：本地补齐种畜标记/全血统命名/家谱/死亡档案字段、真实灰线与落日商队动物报价/付款/预留空间/次日实验室唯一运输交接。专项与三宽度原生UI通过，详见HOMESTEAD-LINEAGES-MARKET-PROGRESS.md。尚未发布此补充；拍卖、救助、100独立事件等整份欠项继续推进，不标整体完成。
+
+2026-10-08 继续实装：种畜拍卖与3个真实远征救援事件已经本地实施。拍卖4类NPC、资金托管/满钱包返款保留、共享运输唯一交接；救援保存原始基因/伤情/空间占位，实际返航才入养殖区。各自3宽度浏览器与专项退出0。尚未公开发布，最终回归仍检查，详见HOMESTEAD-AUCTION-RESCUE-PROGRESS.md。100动物事件/繁育中心及全历史目标仍欠，保持active。
+
+2026-10-08 继续实装：首批20个独立养殖事件/40结果分支已接入真实状态条件、资源扣除、跨日持久观察单、28日冷却和档案进度，专项退出0。100个还欠80个。此前尾段100种子35日engine/原integration-flow/严格20章story-rework已退出0；该engine进程早于新事件接入，新增事件另跑专项及当前集成回归，详见HOMESTEAD-EVENTS-PROGRESS.md。0.13.25仍本地候选，公开仍.24。
