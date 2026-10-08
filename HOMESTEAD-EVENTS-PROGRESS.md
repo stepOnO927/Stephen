@@ -26,4 +26,10 @@ homestead-events.test.cjs退出0，20条件夹具与40结果分支全部经真�
 
 公开版本仍待发布验证。100事件还欠80个；繁育中心/异常/黑市获取、完整性状与天气平衡、植物品系、食堂150食谱30速食、役用和正式美术等继续。未把程序动物模型当成最终绘制美术。
 
-终态补证：homestead-events-browser.txt三宽度1366/768/390均退出0；原生选择实际扣4木材/1AP、围栏40→58、观察单清除，刷新保留处理结果，无pageerror/横向溢出。homestead-events-integration.txt当前8文件（model/daily/engine/rescue/auction/events/integration-flow/严格20章story-rework）全部退出0。没有全量135文件重跑。
+终态补证：homestead-events-browser.txt三宽度1366/768/390均退出0；原生选择实际扣4木材/1AP、围栏40→58、观察单清除，刷新保留处理结果，无pageerror/横向溢出。homestead-events-integration.txt当前8文件（model/daily/engine/rescue/auction/events/integration-flow/严格20章story-rework）全部退出0。没有全量136文件重跑。
+
+部署回执：commit96d98d4abe0cda39ac1fd37745afb6f686d9a13c，Pages #77 / run37722319341 Success，29秒。新增55文件公开构建中只上传本次8个静态游戏/报告文件。实际公网隔离操作正在运行，终态后补证。
+
+2026-10-08 0.13.25公开验收：commit96d98d4abe0cda39ac1fd37745afb6f686d9a13c；GitHub Pages #77 / run37722319341 Success，29秒。公网事件/拍卖/救援/血统商队四文件×1366/768/390共12组原生UI及读档全部退出0。实际public build25,113,987字节、55文件允许名单，本次上传8个静态文件。没有真实玩家档或API密钥，没有付费AI测试。源HTTP340资源/私密404退出0；完整136文件入口未全量重跑，专项/长跑/当前集成证据分批保留。100动物事件20/100，历史总目标保持active。
+
+2026-10-08 本地第2批养殖事件：新增20独立场景/40结果，总数40/100；实际出生/双胞胎/新性状/优良小犊、Stage2实验体命名、在场宠物与同栏病况条件接入；根茎扣费遗漏已修复，命名不覆盖玩家名字，隔离布尔读档与原病况保持。新专项退出0，当前相关回归与三宽度实际界面正在验收；0.13.26候选尚未发布。详见HOMESTEAD-EVENTS-BATCH2-PROGRESS.md。全目标仍active。
