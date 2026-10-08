@@ -466,3 +466,11 @@
 - 11项靶场成就、真实命中率、RECOVERED结算统计修复、五位人物程序外观和交谈；高对比和24/32/48px光标按存档保存。
 - 专项与三宽度浏览器验证已通过。120文件按前118文件及末两文件修复复验完成；原全套运行曾失败，不记为一次性通过。公开发布待验收。
 - 活动/新闻、动物料理等新奖池和正式美术仍欠项；畜牧40物种、个体与遗传核心已开始但未接入正式游戏，不称畜牧已完成。
+
+## 0.13.24-preview — Homestead first playable batch + club schedules
+
+- Laboratory → Homestead: exact unlock resources; ordinary farm supply; pens, names, feed/water, production batches, growth, saved breeding/lineages, veterinary care and independent death records. Eight farm unit/integration suites plus three viewport native UI tests.
+- Real greenhouse harvest-to-feed/timber and manure-to-compost; invalid/repeated actions remain atomic. Missing old-save farms stay locked without retroactive RNG or production.
+- Forty replaceable procedural animal illustrations; final painted art, rare acquisition paths, 100 farm events, plant cultivar expansion and canteen remain pending.
+- Happy Club festival, static night, actual adjacent-road bandit closure/news, language-stage reactions and nine target designs.
+- Existing 100-seed long runs, greenhouse, disease catalog, full merge flow and 20 story chapters passed targeted regression; 334 source resources HTTP pass. This is a tested partial expansion, not completion of every historical request.
