@@ -13,3 +13,6 @@
 实际Chrome隔离档：1366/768/390分别操作产物留观→刷新→出售禁用→放行→出售，以及隔离休息→刷新；6流程通过、0页面错误、无横向溢出。测试未读取真实档、未调用付费AI。现测试注册138文件，未宣称整套138本轮都跑过。
 
 改动：js/homestead/eventsBatch3.js、events.js、model.js、daily.js、core.js、ui.js、index.source.html、对应测试/构建语言包/发布文档。程序动物美术仍是程序造型，非最终正式美术。
+
+
+公开验收回执：0.13.27-preview，提交ab2a33225c8bda3f99433f3ee1856c0c8d429396，Pages #79成功（https://github.com/stepOnO927/Stephen/actions/runs/37726421245）。公网6流程1366/768/390均退出0；文件verification/homestead-events-batch3-public-browser.txt。网站https://stepono927.github.io/Stephen/。上述本地候选说明保留过程记录，当前已发布并验证；总目标仍active，剩余40养殖事件及其余历史扩展继续。

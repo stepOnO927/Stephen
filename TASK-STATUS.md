@@ -336,3 +336,7 @@ CG_ACT3_BEFORE_THE_FIRST_WORD正式接入；此前缺第10张仅为历史状态�
 
 
 0.13.27候选：新增20产物/兽医/血统真实情境，累计60/100事件和120独立结果。产物留观阻售阻堆肥、实际批次扣减、1AP复核放行/丢弃，旧字段默认迁移与医疗休息保存。10相关检查、6浏览器隔离流程（1366/768/390）及342资源HTTP/私有404通过；整套138注册测试未本轮全跑。仍欠40动物事件及食堂、植物品系、世界历史扩展、正式美术、公网AI等。详见HOMESTEAD-EVENTS-BATCH3-PROGRESS.md。
+
+公开验收回执：0.13.27-preview，提交ab2a33225c8bda3f99433f3ee1856c0c8d429396，Pages #79成功（https://github.com/stepOnO927/Stephen/actions/runs/37726421245）。公网6流程1366/768/390均退出0；文件verification/homestead-events-batch3-public-browser.txt。网站https://stepono927.github.io/Stephen/。上述本地候选说明保留过程记录，当前已发布并验证；总目标仍active，剩余40养殖事件及其余历史扩展继续。
+
+0.13.28候选：遗传性状接入成长/产物/生育/医疗风险/天气，新获取实际性状与后代小概率新性状、原别名与旧个体保留；蜂群实际温室授粉；商队旧运输genes/traits保存，动物页作用说明。相关18文件去重专项与三宽度浏览器购买/展开/照护/刷新通过。事件仍60/100，未以机制改动增加数量。详见HOMESTEAD-TRAITS-PROGRESS.md；所有历史欠项目标继续active。
