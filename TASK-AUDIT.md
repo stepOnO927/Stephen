@@ -640,3 +640,13 @@
 
 - 本批公网验收补记：游戏提交 2356a9c458c94515ccb2d70f6c5b8041e096447e，GitHub Pages 工作流 38321479274 build/report/deploy 均 success。公开 index 与5外部CG同本地发布包逐字节匹配。公网1366×900/768×1024/390×844/844×390五区原生操作、英文、姓名转义、购票/切区锁/唯一结算/保存刷新均通过。现在已公开0.13.96；此前“等待发布”是当时历史状态，保留原记录。
 - 交付包 outputs/abyss-lab-0.13.96-preview.zip：1549允许文件，151322532字节（补记后以新打包结果为准）；加入20张五区域截图。整体目标继续active，其余历史扩展继续逐项验收。
+
+
+## 2026-10-13 — 0.13.97 俱乐部独立减弱动态
+
+- 核对Happy Club FINAL SPEC PART LXIV/LXV：Round已有50%移动行程/40%变形幅度，但缺少俱乐部独立开关。本批保留原算法，补club-reduced-motion原生控件和preferences.reducedMotion nullable字段。
+- 旧档/缺字段默认null，沿用settings.motion；新false/true覆盖仅靶场。对比度/光标旧操作保留新字段。异常参数原子拒绝。当前轮以serialized reducedMotion为准，不允许中途改轨迹，控件禁用；其他显示设置仍可改。无Save版本升级或旧flag删除。
+- 150种混合32位seed的匹配候选检查移动行程减半与变形0.4、稀有度/停留时间不变；六池相同种子/Token实际兑换结果一致。旧档默认/显式false持久化/显式true开局/active拒改/保存继续通过。测试初版fixture直接伪造site无地图被迁移回park，修正为实际road:enter；没有改生产迁移来满足测试。
+- 1366/768/390隔离浏览器原生勾选、保存、刷新、实际开局、active禁用、再次刷新原轮、结束解锁、反勾选、仅扣8000且plays=1、英文、零pageerror/横溢出通过。截图verification/happy-club-motion-{1366,768,390}.png。
+- 原5100序列化检查点、费用/日上限/唯一结算、重复身份拒绝及五语言阶段B-07反应回归通过。default tests与交付截图白名单登记。
+- 本批待公网发布验收；整体目标active，其他历史扩展/正式美术/全服装/公开AI审批后端继续。没有读取玩家存档/密钥、没有调用付费AI。
