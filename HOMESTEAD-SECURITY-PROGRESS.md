@@ -15,3 +15,9 @@
 新增字段：animal.escape（加法迁移，Homestead version1兼容，不删除旧字段）。关键文件：security.js、model.js、daily.js、core.js、clinic.js、events.js、ui.js、入口/本地语言包/测试。
 
 当前养殖事件数仍80/100。本机制不冒称最后20个事件、完整安全袭击/护卫/工作动物/贸易送养/群落或全部历史模块已经完成。
+## 0.13.35 公网畜牧安全验收
+
+提交bc565e00ffc526ceda5871d99c8747de65f4fad2；GitHub Pages #90 Success：https://github.com/stepOnO927/Stephen/actions/runs/37818228048 。
+独立Chrome tests/homestead-security-browser.cjs正式公开版退出0，1366/768/390均通过读取离栏、禁用隔空照护、中英离栏文字、引回扣费、真实围栏维修、刷新保存。未读取真实玩家档或调用付费AI。
+本地安全专项含1000风险种子、原11相关文件回归与源码HTTP346资源通过。整体engine 100种子35日长跑仍在运行，尚不记为结束或通过。全143文件本轮未全量重跑。
+动物事件仍80/100；安全袭击/护卫、工作动物、完整交易送养等及其他历史扩展仍欠，总目标保持active。

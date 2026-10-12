@@ -17,3 +17,9 @@ penHygiene效果直接修改原栏舍hygiene，个体hygiene仍独立；不伪�
 变更：js/homestead/eventsBatch4.js、events.js、index.source.html、js/locales/en.js、目录数量断言、专项/浏览器测试和注册器。40种动物美术仍程序造型，配音由用户后续提供。
 
 剩余：事件20个，完整逃跑/安全/工作动物/贸易送养/群落等整份畜牧功能；植物品系、150食谱30速食、远处身影、历史社会生命梦扩展、公网AI后端等，不能以这批事件数当作总目标完成。
+## 0.13.34 公网验收回执
+
+提交4f081a9735426b9631b0fadf3010e48505e1e9c1；GitHub Pages #89 Success：https://github.com/stepOnO927/Stephen/actions/runs/37815611927 。
+正式公开站 tests/homestead-events-batch4-browser.cjs退出0，1366/768/390×拥挤/缺料/清理共9流程；原生点击、真实AP/饲料/栏舍卫生效果、保存刷新/历史、观察卡中英无中文残留、无pageerror与横溢出全部通过。截图为公开版。旧档用隔离夹具验证，未访问真实玩家档、密钥或付费API。
+源码HTTP345个资源通过、私密路径仍404。当前相关10文件回归与新增40选择专项均通过；全142文件本轮没有完整重跑，不作全套通过声明。
+目录正式80/100，剩20；完整畜牧机制及其他历史扩展仍欠。总目标保持active。

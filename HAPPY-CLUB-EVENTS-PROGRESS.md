@@ -13,3 +13,5 @@
 验证：happy-club-events、reactions、art、save、wheels、news-state专项通过；活动与夜场1366/768/390浏览器购票/刷新/封路与奖励保留通过，九种新外观后的三宽度原生两击/结算/日次数通过；325个源码资源HTTP通过，私有路径仍404。当前完整入口新增三文件为123项，没有重新跑123文件全套；先前120文件与本次针对性回归分别保留证据。
 
 仍欠：完整分区场景、动物/高基因/料理/车辆零件与正式新壁纸奖池、永久联网AI与其他大型模块。畜牧40物种/个体/双遗传核心在HOMESTEAD-CORE-PROGRESS.md，未挂载为可玩农场。
+
+2026-10-08 公开验收：0.13.24-preview提交e96f1b84ed49716d45beef35e61cffe46ca5f07b；GitHub Pages #76 / run37709492371 Success（30秒）。公开养殖三宽度原生按钮、血统预测/繁育费用、存档刷新测试退出0（verification/homestead-public-browser.txt）；公开靶场节/夜场/真实封路三宽度退出0（happy-club-events-public.txt）。没有访问真实玩家档、没有调用付费AI。源代码/8项专项/原功能回归详见homestead-integrated-core.txt、homestead-release-followup.txt、homestead-source-http.txt；尚未全131文件重跑。全历史目标保持active。
