@@ -1194,7 +1194,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.109-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.110-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6075,6 +6075,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "枯株与低健康模型修复": "Withered and Stressed Plant Models",
+  "温室模型现在读取实际健康：枯株显示干枝、下垂叶片和落叶，低健康植株显示受损颜色。死亡后的异常根须不继续移动；影子性状保留。": "Greenhouse models now follow actual health. Withered plants show dry branches, drooping leaves and fallen foliage; low-health plants use stressed colors. Dead anomalous roots stop changing position and shadow traits remain intact.",
+  "状态绘制不改变基因、健康、资源或随机数；已提供正式图片可配置枯株版本，缺图时使用可读的状态处理。": "Rendering changes no genes, health, resources or RNG. Final images can supply withered variants, with readable fallback treatment when absent.",
+  "正式美术、长期平衡、其他历史扩展及公开AI审批后端仍在完成中。": "Final artwork, long-term balance, other historical expansions and the public AI approval backend remain in progress.",
   "种畜标记资格修复": "Breeding Stock Eligibility Fix",
   "种畜标记按实际发育成熟和繁育年龄判断，成长迟缓、过龄、离栏和外出个体不能新标记。早熟与长寿性状、生育基因的年龄窗口继续生效。": "Stock marking now follows developmental maturity and breeding age. Delayed, over-age, escaped and absent animals cannot gain new marks. Early maturity, long life and fertility-based age windows still apply.",
   "旧档已有标记保留并可取消，标记不增加基因或收取资源；界面和实际操作使用同一资格规则。": "Existing saved marks remain and can be removed. Marking grants no gene bonus and consumes no resources; UI and actual actions use the same eligibility rules.",
@@ -6620,6 +6624,8 @@ Abyss.EnglishCatalog={
   "不派车辆": "No vehicle",
   "车辆支援已派出 · 往返4燃料": "Vehicle support dispatched · 4 fuel round trip",
   "物品故事与用途": "Story & use",
+  "枯株": "Withered",
+  "生长受损": "Stressed",
   "品系分析需要在实验室、遗传实验室LV4、1AP与完整五轴记录；相同报告不重复收费。": "Cultivar analysis needs laboratory presence, Genetics Lab LV4, one AP and a five-axis record. Identical reports are not charged again.",
   "品系分析报告已保存；缺失祖代和普通种源引用不等于外部认证。": "Cultivar analysis saved. Missing ancestors and species-source references are not external certification.",
   "仅可归档已用尽的批次；请检查目标库容量。": "Only exhausted lots can be archived; check destination capacity.",
@@ -33512,6 +33518,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-13',version:'0.13.110-preview',title:t('枯株与低健康模型修复','Withered and Stressed Plant Models'),items:[t('温室模型现在读取实际健康：枯株显示干枝、下垂叶片和落叶，低健康植株显示受损颜色。死亡后的异常根须不继续移动；影子性状保留。','Greenhouse models now follow actual health. Withered plants show dry branches, drooping leaves and fallen foliage; low-health plants use stressed colors. Dead anomalous roots stop changing position and shadow traits remain intact.'),t('状态绘制不改变基因、健康、资源或随机数；已提供正式图片可配置枯株版本，缺图时使用可读的状态处理。','Rendering changes no genes, health, resources or RNG. Final images can supply withered variants, with readable fallback treatment when absent.')],pending:[t('正式美术、长期平衡、其他历史扩展及公开AI审批后端仍在完成中。','Final artwork, long-term balance, other historical expansions and the public AI approval backend remain in progress.')]},
 {date:'2026-10-13',version:'0.13.109-preview',title:t('种畜标记资格修复','Breeding Stock Eligibility Fix'),items:[t('种畜标记按实际发育成熟和繁育年龄判断，成长迟缓、过龄、离栏和外出个体不能新标记。早熟与长寿性状、生育基因的年龄窗口继续生效。','Stock marking now follows developmental maturity and breeding age. Delayed, over-age, escaped and absent animals cannot gain new marks. Early maturity, long life and fertility-based age windows still apply.'),t('旧档已有标记保留并可取消，标记不增加基因或收取资源；界面和实际操作使用同一资格规则。','Existing saved marks remain and can be removed. Marking grants no gene bonus and consumes no resources; UI and actual actions use the same eligibility rules.')],pending:[t('长期平衡、其他历史扩展、正式美术和公开AI审批后端仍在完成中。','Long-term balance, other historical expansions, final artwork and the public AI approval backend remain in progress.')]},
 {date:'2026-10-13',version:'0.13.108-preview',title:t('植物生命力与多年采收寿命','Plant Vigor and Perennial Lifespans'),items:[t('生命力影响重复采收植株的寿命；树木、果实与其他多年采收植物分别计龄。留种的新植株从零开始，寿命结束后可清理为堆肥。','Vigor affects regrowing plants’ lifespans. Trees, fruit and other perennial crops track care age. Plants grown from retained seeds start anew; expired plants can be cleared for compost.'),t('旧档不补算历史年龄，无基因旧植株保持原有规则。精准分析显示寿命，健康恢复与病害护理继续生效。','Legacy care age is not backfilled and plants without recorded genes retain old rules. Exact analysis reveals lifespan; health recovery and disease care still apply.')],pending:[t('全植物长期平衡、其他历史扩展、正式美术和公开AI审批后端仍在完成中。','Long-term plant balance, other historical expansions, final artwork and the public AI approval backend remain in progress.')]},
 {date:'2026-10-13',version:'0.13.107-preview',title:t('血统评分与种畜评估','Bloodline and Breeding Appraisals'),items:[t('血统评分接入五轴基因、性状、真实代际稳定、近亲程度及留存健康记录。缺档不补造优秀经历，旧评分和已付款交易保留。','Bloodline scores now include five-axis genes, traits, recorded generational stability, relatedness and retained health history. Missing records grant no invented pedigree; legacy scores and paid transactions remain intact.'),t('遗传实验室LV5显示评分贡献与种畜价值；低等级不通过评分泄露隐藏性状。评分与物种稀有度独立，不是出售报价。','Genetics Lab LV5 shows appraisal contributions and breeding value. Lower levels do not reveal hidden traits through scores. Appraisals are independent of species rarity and are not sale quotes.')],pending:[t('长期平衡、其他历史扩展、正式美术和公开AI审批后端仍在完成中。','Long-term balance, other historical expansions, final artwork and the public AI approval backend remain in progress.')]},
@@ -34744,9 +34751,11 @@ Abyss.StoryPlayer=(()=>{
 Abyss.PlantArt = (() => {
  const esc=x=>Abyss.Util.escape(String(x));
  function render(d,growth=100,individual=null,day=1){
-  if(d.visual?.file)return `<img class="garden-art" src="${esc(d.visual.file)}" alt="${esc(d.name)}">`;
-  const n=d.number,scale=.35+Math.max(0,Math.min(100,growth))*.0065;
-  const shades=['#638958','#78956b','#567c72','#8eaa69','#67846a'],green=shades[n%5],hue=(n*29)%360,fruit=`hsl(${hue} 45% 53%)`,leaf=(x,y,a,s=1)=>`<ellipse cx="${x}" cy="${y}" rx="${16*s}" ry="${7*s}" fill="${green}" stroke="#bfd2a055" transform="rotate(${a} ${x} ${y})"/>`;
+  const health=individual?.health,state=Number.isFinite(health)?health<=0?'WITHERED':health<35?'STRESSED':'HEALTHY':'HEALTHY',dead=state==='WITHERED',stressed=state==='STRESSED';
+  const status=dead?Abyss.HomeData.t('枯株','Withered'):stressed?Abyss.HomeData.t('生长受损','Stressed'):'';
+  if(d.visual?.file)return `<img class="garden-art" data-plant-state="${state}" src="${esc(dead&&d.visual.witheredFile||stressed&&d.visual.stressedFile||d.visual.file)}" alt="${esc(d.name+(status?' · '+status:''))}"${dead&&!d.visual.witheredFile?' style="filter:grayscale(1) sepia(.6);opacity:.7"':stressed&&!d.visual.stressedFile?' style="filter:saturate(.45) sepia(.3)"':''}>`;
+  const n=d.number,scale=Math.max(dead?.7:0,.35+Math.max(0,Math.min(100,growth))*.0065);
+  const shades=['#638958','#78956b','#567c72','#8eaa69','#67846a'],green=stressed?'#9b9461':shades[n%5],hue=(n*29)%360,fruit=stressed?'#a08a68':`hsl(${hue} 45% 53%)`,leaf=(x,y,a,s=1)=>`<ellipse cx="${x}" cy="${y}" rx="${16*s}" ry="${7*s}" fill="${green}" stroke="#bfd2a055" transform="rotate(${a} ${x} ${y})"/>`;
   let plant='';
   if(d.category==='tree'){
    plant=`<path d="M116 158 Q${106+n%15} 110 118 56 M116 115 L88 91 M117 99 L145 78" stroke="#887058" stroke-width="9" fill="none"/>`;
@@ -34766,11 +34775,19 @@ Abyss.PlantArt = (() => {
     for(let i=-1;i<=1;i++)plant+=`<path d="M${117+i*7} ${tuber?133:106} Q${111+i*9} ${tuber?144:120} ${117+i*7} ${tuber?155:134}" fill="none" stroke="#352c2f33"/>`;
    }
   }
+  if(dead){
+   const dry=['#826e50','#776b56','#8c785e'][n%3],twig=(x,y,top)=>`<path d="M120 157 Q${x} 126 ${x} ${top} m0 17 l-17 -12 m17 26 l19 -9" fill="none" stroke="${dry}" stroke-width="${d.category==='tree'?5:2.5}" stroke-linecap="round"/>`;
+   if(d.category==='tree')plant=twig(116,157,56)+twig(95,157,93)+`<path d="M116 112l28-23 13 12m-41-21 18-20" fill="none" stroke="${dry}" stroke-width="3"/>`;
+   else if(/Aloe|Agave|Cactus/.test(d.en))plant=Array.from({length:5},(_,i)=>`<path d="M118 156 Q${78+i*19} 98 ${73+i*22} ${132+i%2*9} Q${101+i*8} 152 121 157Z" fill="${dry}" stroke="#b5a07855"/>`).join('');
+   else plant=Array.from({length:d.category==='herb'?5:3},(_,i)=>twig(89+i*(d.category==='herb'?14:28),157,85+(n+i*7)%25)).join('');
+   plant+=Array.from({length:4},(_,i)=>`<path d="M${91+i*17} ${148+i%2*4}q-8-10-13-2q4 9 13 2Z" fill="${dry}" opacity=".8"/>`).join('');
+  }
   const has=id=>Abyss.PlantBreeding.has(individual,id);
+  if(dead)day=0; // Dead roots do not keep moving when the calendar changes.
   const detail=(id,body)=>has(id)?'<g data-botanical-trait="'+id+'">'+body+'</g>':'';
   const signs=detail('WRONG_SEASON','<path d="M70 70h16m-8-8v16m-6-14 12 12m0-12-12 12" stroke="#abc9cf" fill="none"/><path d="M78 82q9-14 13-4q-3 9-13 4" fill="#879d78"/>')+detail('MEMORY_BLOOM','<path d="M156 99q-22-27-31 0q9 27 31 0m-5 0q-13-15-18 0q5 15 18 0" fill="none" stroke="#b69aaf"/>')+detail('STATIC_PETALS','<path d="m76 95 8-5-2 9 8-5m45-50 5 7-8-2 5 8m30 38-7 5 2-8-8 5" stroke="#bdc6bd" fill="none" stroke-width="1.2"/>')+detail('MOVING_ROOT','<path d="M145 160q'+((day+(individual?.uid||0))%2?'-7 13 11 18':'18 10 5 22')+'q-7 10 4 13" fill="none" stroke="#a6987d" stroke-width="2.5"/>')+detail('TIME_SHIFTED_GROWTH','<path d="M177 76v65m-6-48h13m-13 17h13" stroke="#a6b4ac" fill="none" stroke-width="1"/>');
   const rare=['EPIC','LEGENDARY','ANOMALOUS'].includes(d.rarity),pot=rare?'#727f7f':'#746858';
-  return `<svg class="garden-art" viewBox="0 0 240 210" role="img" aria-label="${esc(d.name)}"><defs><linearGradient id="pot-${n}" x2="1" y2=".8"><stop stop-color="${pot}"/><stop offset="1" stop-color="#293733"/></linearGradient></defs>${has('SHADOWLESS')?'':'<ellipse data-plant-shadow cx="120" cy="195" rx="72" ry="8" fill="#0005"/>'}<g transform="translate(${120-120*scale} ${158-158*scale}) scale(${scale})">${plant}</g><path d="M83 153 L91 191 Q120 204 149 191 L157 153Z" fill="url(#pot-${n})" stroke="#b5bca355"/><ellipse cx="120" cy="153" rx="37" ry="9" fill="#574c3e" stroke="#b5bca388"/><path d="M92 167 L96 188" stroke="#d2d7bd55" stroke-width="3"/><rect x="105" y="171" width="32" height="13" rx="2" fill="#d7d7c3"/><text x="121" y="180" text-anchor="middle" fill="#354440" font-size="7">B-${String(n).padStart(3,'0')}</text>${signs}${has('SHADOWLESS')?'<g data-botanical-trait="SHADOWLESS"></g>':''}${d.rarity==='ANOMALOUS'?'<path d="M60 92 Q86 77 65 65 M171 58 Q197 78 181 99" stroke="#bb929a66" fill="none"/>':''}</svg>`;
+  return `<svg class="garden-art" data-plant-state="${state}" viewBox="0 0 240 210" role="img" aria-label="${esc(d.name+(status?' · '+status:''))}"><defs><linearGradient id="pot-${n}" x2="1" y2=".8"><stop stop-color="${pot}"/><stop offset="1" stop-color="#293733"/></linearGradient></defs>${has('SHADOWLESS')?'':'<ellipse data-plant-shadow cx="120" cy="195" rx="72" ry="8" fill="#0005"/>'}<g transform="translate(${120-120*scale} ${158-158*scale}) scale(${scale})">${plant}</g><path d="M83 153 L91 191 Q120 204 149 191 L157 153Z" fill="url(#pot-${n})" stroke="#b5bca355"/><ellipse cx="120" cy="153" rx="37" ry="9" fill="#574c3e" stroke="#b5bca388"/><path d="M92 167 L96 188" stroke="#d2d7bd55" stroke-width="3"/><rect x="105" y="171" width="32" height="13" rx="2" fill="#d7d7c3"/><text x="121" y="180" text-anchor="middle" fill="#354440" font-size="7">B-${String(n).padStart(3,'0')}</text>${signs}${has('SHADOWLESS')?'<g data-botanical-trait="SHADOWLESS"></g>':''}${d.rarity==='ANOMALOUS'?'<path d="M60 92 Q86 77 65 65 M171 58 Q197 78 181 99" stroke="#bb929a66" fill="none"/>':''}</svg>`;
  }
  return {render};
 })();
