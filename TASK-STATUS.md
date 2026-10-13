@@ -1289,3 +1289,51 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 
 - 公网最终验收：0.13.115游戏提交78fde6f00e30aa56e547ae9fa9a0168a385db3b9，Pages38466932175成功。公开index与五张CG逐字节一致，1366/768/390每档真实原生食用→保存strength与4小时until→双语显示→原生智力训练增量5.5/5.575/5.65、同AP扣除/时间4小时/专注到期清除→刷新仍到期全部通过，零pageerror溢出。
 - 追加160实际食谱逐项食用与各自完整effect集合、130%保存刷新保留；实际Jack维修三品质、能量胶与专注取max不叠乘，护畜犬7小时蛋白健康/工作压力收益更强且身份读档保留专项通过。交付abyss-lab-0.13.115-preview.zip含十效果三强度、160食谱、旧档迁移与三尺寸原生证据。仍欠长期平衡、其余历史扩展、美术和公开AI审批后端，总目标active，不读真实进度和密钥、不付费AI测试。
+
+## 2026-10-13 — 公开AI服务器云存储接线（未上线）
+
+- access-provider选择器接入server.js，正常入口明确供配置；指定Supabase缺配置或故障不降级本地审批、不执行AI。原localhost/admin边界和备用对白保持，未把本地服务器直接上传公网。
+- 13审批/多实例/配额/故障和6对话/源码隔离回归通过，全部假数据库/模拟Responses/隔离存档端口，零付费AI。新测试登记默认入口。
+- Supabase已连接但无项目，用户已确认使用唯一组织puwhqgqvtnihdiylyuca；费用查询工具UNAVAILABLE，尚不能核实收费/创建数据库。Vercel团队Stephen已连接。详见CLOUD-AI-DEPLOYMENT-PROGRESS.md，明确真实数据库、公网路由、凭据配置和公开流程未验收。
+- 公版仍0.13.115本地备用对白，此轮没有发布或声称公开AI上线；没有读取.env/真实密钥/主机审批记录/玩家档。其余历史目标继续active。
+
+## 2026-10-13 — 公开请求边界与云函数入口（尚未部署）
+
+- 新增server/network-policy.cjs。CHAT_PUBLIC_ORIGIN必须为单一HTTPS origin；精确校验Host，不信任X-Forwarded-Host替代域名。公网模式强制Supabase审批存储，禁止accessControl=false或本地JSON模式；申请/聊天Origin只接受配置的同源地址。
+- 公网会话增加Secure/HttpOnly/SameSite=Strict。公开模式的/ai-admin及所有/api/admin/ai-access路径无条件拒绝，即使代理连接来自127.0.0.1也不能冒充主机；原localhost本地后台保留。
+- 新增server/public-handler.cjs请求处理工厂，不读取.env、不打开监听端口；配置不足或初始化失败返回503 PUBLIC_AI_NOT_CONFIGURED，不降级本地审批、不输出异常凭据。实际部署时仍需注册Vercel入口和路由并做真实HTTPS验证，此文件不等于已部署函数。
+- 23项隔离HTTP/provider/配额/并发/错误/官方Responses形状/396源码资源与私密404全部通过。初次使用fetch设置模拟Host，客户端未按测试预期发送该Host导致202断言收到403；改成可精确设置Host的node:http测试客户端真实重跑，未放宽生产域名规则。模拟审批pending零AI调用、approved仅一个模拟调用、外站和伪造转发头拒绝；没有付费调用。
+- 数据库费用查询不可用和无项目阻碍仍在；用户已批准组织选择，不重复询问组织。Vercel Stephen团队无现有项目。真实数据库SQL/RLS/配额、Vercel部署配置、真实HTTPS会话、公开游戏连接与主机跨实例审批通知仍待验证。
+- 当前采用同源HTTPS会话策略，不开放跨站CORS；GitHub Pages仍本地备用对白。需要同源部署/安全代理来接入公开游戏，不能把跨站Cookie限制当作已解决。原剧情、存档、公开游戏0.13.115不变。其余目标active，不读密钥/真实档。
+
+## 2026-10-13 — 独立AI部署源码包（未上线）
+
+- 新增tools/build-cloud-api.cjs，明确9个来源文件+5个生成文件+manifest，共15文件独立包；只读取源码允许名单，不扫描.env/server-private/玩家存档或依赖。API entry、独立package.json、Node24与30秒函数配置、固定依赖声明、README和.gitignore均具备。
+- 全路径路由到公开API入口，再只允许api/health、api/creature-chat、api/ai-access/status、api/ai-access/redeem。未知路由、源码、角色设定、SQL、manifest、.env和admin路径返回空404，防止平台把后端文件当静态下载。原处理器继续HTTPS域名/同源/审批/配额/Secure边界，配置缺失503。
+- 24项隔离测试通过：重建15文件包与逐文件SHA256、生成入口在空配置的真实HTTP503、7类私密/非API路径404、其余公开请求/审批/原SDK/源码396与私密路径回归。此为本地入口及配置验证，不是Vercel build/真实HTTPS/真实数据库成功证据。新测试和构建器登记完整交付。
+- 独立文件abyss-lab-ai-backend-source.zip已生成、15文件实际ZIP检查通过。完整游戏包仍0.13.115更新源码。真实Vercel部署、数据库创建/RLS与费用确认、服务端凭据配置及同源前端接入尚未完成；不能声称公网AI上线。用户已选Supabase组织，不再次询问；费用工具不可用仍待解决。没有读取上传API密钥/审批记录/真实玩家档，未调用付费AI。其余历史目标active。
+
+## 2026-10-13 — Vercel关闭后端实际部署与HTTPS验证
+
+- 实际创建Stephen团队Vercel项目abyss-lab-ai，id prj_UoRQClxFtrLfs2RtwwVQtT5SYzc1。只上传14个源码允许文件，没有任何环境变量/数据库钥匙/OpenAI钥匙/真实进度；默认平台登录保护保留。CLI whoami显示logged out，使用已授权连接的MCP完成部署，没有要求用户重复授权或导出token。
+- 首次部署dpl_6Er1WftfYVJvnUDnmXqp2JuTG5Kh READY，但平台自动识别根server.js，本地入口实际请求500。构建日志定位到Using server.js，调整构建器把本地服务器映射server/http-server.cjs及相对依赖/设定路径，public-handler随映射，Vercel项目framework清为null；本地源server.js的启动方式不改。独立生成目录v2防止旧文件混入。
+- 修正版dpl_6uJFZHivSE51tbFKooUZShkSLsyw READY，https://abyss-lab-lm0k3xe4u-stephen-5974.vercel.app 。已授权平台认证访问/api/health取得503与PUBLIC_AI_NOT_CONFIGURED，/README.md和/api/not-an-api取得空404。证明真实构建、入口和普通拒绝路由可用，不证明审批数据库或AI实际已开通。平台普通未认证请求302登录保护，并未关闭保护。
+- 自动审批拒绝通过认证访问/.env和/api/admin/ai-access：可能暴露密钥或真实审批记录。未重试、不绕过、不使用间接参数取同样内容；仅普通API/README/未知路径用于真实部署验收。原模拟HTTP中的私密路径验证仍保留，不冒充生产私密路径实测。
+- 修正版入口/路由5项重跑通过；独立ZIP实际15文件、无根server.js，包含源码路径修复与manifest哈希。完整包仍0.13.115更新构建器和测试。费用查询再次UNAVAILABLE，数据库仍无项目，凭据尚未配置；公开游戏仍本地对白，同源前端与主机跨实例审批/额度/封禁全流程待真实数据库后继续。总目标active，不读密钥/真实档、不付费AI测试。
+
+## 2026-10-13 — 审批SQL参数、幂等与限额验证
+
+- 原SQL p_op=NULL会绕过NOT IN分支，decide缺status会落到非法update，重复相同状态每次插通知。新增严格操作白名单和JSON object校验，缺/错误状态及UUID返回ok=false；决定先锁用户，状态相同返回ok=true/changed=false且不写事件，真实变更返回changed=true。
+- Supabase adapter兼容旧RPC无changed字段；新changed=false不emit重复审批SSE，仍返回成功。未改审批状态枚举/原UTC计费日/原配额全局→用户锁序，无AI调用进入事务。
+- 实际隔离PGlite SQL执行通过：anon/authenticated拒绝、甚至模拟错误授权后显式service_role边界仍拒绝、pending不能预留/旧授权封禁拒绝、个人2/总3、UTC滚日、申请频次/容量、空操作/数组/标量拒绝、重复决定事件数不变、重新应用SQL全记录不变、40排队RPC仅3成功并且个人不超过2。该WASM环境是单连接排队，不冒称真实多连接锁争用验收，真实Supabase/RLS/advisors仍待数据库创建。
+- SQL、adapter、公开入口/源码包和原本地审批等20项隔离回归通过；所有RPC/AI为模拟或内存SQL，无真实审批记录、玩家档或密钥读取，无付费AI。SQL专项为可选运行，依赖已隔离PGlite，不将其运行依赖混入用户包或默认测试入口。
+- 关闭后端更新部署dpl_Ck1d2pH6wSJgqGCnteqWZH4sqWHy READY，https://abyss-lab-4x91njqox-stephen-5974.vercel.app ，认证访问普通/api/health实际503 PUBLIC_AI_NOT_CONFIGURED。未访问被自动审批拒绝的.env/admin生产路径，也未向真实数据库应用SQL。
+- 独立源码ZIP15文件已重建并检查；完整0.13.115包更新源码/测试/记录。数据库、服务端凭据、前端同源接入与真实全链路仍未完成；其他历史目标继续active。此批修复不等于公开AI已开通。
+
+## 0.13.116-preview — 照护者跨年与旧档年龄修复
+
+- 原始多代养成规格46的caretaker aging已实接正常休息：以day 1为起点，day365→366 Jack27→28；旧档已记录的更高年龄保持，不在迎接下一实验体时倒退。剧情模式不增长Jack年龄，不改实验体年龄/代数/出生日期/关系/货币。生命档案增加岁/years old说明。
+- 新caretaker-aging.test.cjs通过跨年/前一天/读档/同日/剧情隔离/99岁旧档后继实验体检查，登记默认回归。mega原测试仍按28壁纸断言，实际已保留30，更新数量而不删资源；15项全通过。legacy-scenes与entitlement-carry均通过。
+- 新caretaker-aging-browser.cjs在1366/768/390三个隔离新档中通过真实休息按钮day365→366、reload和生命档案Jack28/代数1/原birthDay355；无pageerror。不读取用户真实档或密钥，不调用AI。首次夹具缺可选homestead字段已修测试条件检查。
+- 整体回归session77051仍运行；100种子×35天养成长跑已经通过15 engine checks，后续历史测试尚未终态。过程中旧engine已装载115，年龄修复另有116定向证据，不冒称全回归统一116或全部规格完成。
+- 公开AI数据库仍待已同意组织的费用查询/真实项目，当前Vercel关闭入口503不等于可用AI；其他历史欠项依原附件继续审核。此条是本地完成/待发布记录，线上成功另记。
