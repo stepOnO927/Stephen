@@ -287,3 +287,13 @@
 - 新legacy-archive.test.cjs通过实际封存快照/原词存盘、成熟形态投影及颜色/变异、完整字段、HTML逃逸、旧/非法快照、不改当前值/RNG。继续117遗传继承及旧遗物场景通过。三尺寸1366/768/390本地原生告别→两个档案（一个老档缺字段）→SVG成功解码→展开八性格→双语所有详情→reload照片和实际firstWord仍保持→查看过程current state/RNG完全相同，零pageerror/页面溢出，目视390详情。初夹具13字名字超现有12字规则已改短，英文UI中文词断言改为检验canonical firstWord；游戏姓名/翻译规则未改变。英文构建初空字符串天单位映射冲突已用Recorded day修正，不删除原词条。
 - 公开发布与最终源码/双语/继承回归待做；不把复用现有SVG渲染器当正式美术全部完成，其他历史功能与真实公开AI仍欠，整体goal active。未读真实存档/.env/密钥，无付费AI测试。
 - 发布前发现游戏内更新日志仍停在0.13.115，与新包版本不一致，optical-fit版本检查真实失败。补入已经验收的116/117及本轮118双语日志，保留全部旧日志与pending说明；版本检查重跑通过，未放宽断言。397源码资源/私密路径HTTP通过，3724本地语言源与469剧情节点/全部选项检查通过；Claude保护hash、遗物/跨代/年龄/mega15项通过。档案现有窗口直接切英文（不手动重开）的三个尺寸验证也通过。档案姓名data-user-text保护，不把旧个体名字当普通词翻译。
+### 0.13.118 最终公开验收
+- 游戏提交3e61bb56b43ee493b991ad0048676cef50fed534，Pages38483642806 completed/success。公开index与五张外部CG逐字节一致；1366/768/390公网原生封存→完整档案和独立静态SVG成功显示→展开性格→原窗口直接中英切换→保存刷新历史外形/实际第一个词保持，所有档案操作不改变current state/RNG，零页面错误与横向溢出。已目视390历史外形，包含红色、成熟守护形态及已记录变异。
+- 交付abyss-lab-0.13.118-preview.zip，包含新档案组件、封存快照、旧档兼容、三尺寸原生测试、日志版本补齐与源码。新档案快照不是重画正式角色美术；旧档缺失字段不回填。核心养成/章节flag/旧结局与保护台词不改。
+- 总目标active，下一步继续按原附件核对历史世界、社会、旅程、梦与连续性真实行为及遗漏，不以当前展示或绿色测试代表全规格完成。公开AI真实数据库/凭据/同源审批流程与正式美术仍欠；没有读取真实进度/.env/API密钥或调用付费AI。
+## 0.13.119-preview — 区域旅程原生按钮、能力与营地在场修复
+- 对原Mega Expansion15变异开路/17营地及Lab Operations外出日报核对：Journey.active未进入LabOperations.atLab判断，营地Jack/B07被误认为在实验室。加入active旅程检查，真实Engine departure创建operations.away，读取仍away，零AP免费return保存returnReport且重复return不新增报告。实验室设备/其他员工运营不删除，主页面位置显示区域旅程。
+- adapted原以mutation ID正则猜测gill/wing/synthetic/claw/void；改读Evolution实际abilities：水生lake、飞行mountain、机械industry、强力障碍underground、异常grey；真实强度60与已表达成熟路线生效，假ID不生效，保留已有地图线索开路。576实际变异×区域与成熟路线/力量/非法ID案例通过；不据此宣称所有地点玩法完成。
+- 真实浏览器复现route:start点后AP仍1、无trip：Navigation捕获阶段所有data-route按钮stopImmediatePropagation，把journey data-route=short误当主导航。排除data-mega专用命令，让原ExpansionUI处理；未改合法导航/俱乐部返回道路按钮。纯Journey.plan供执行与UI共用，51区域路线预览不改资源/RNG，旧旅程保存字段不变；冲突梦/狩猎/车程/俱乐部与剧情模式拒绝，AP/费用/邻接/天气关闭/能力或地图线索明确理由，零AP advance禁用而return可用。
+- 本地1366/768/390原生城市region→合法short启程AP1→0/钱12→6→保存刷新营地仍away→免费return→报告保存刷新、英文不足条件/禁用显示、零pageerror与横向溢出通过。初测试未知data-route选择器也匹配SVG改为button；诊断括号错误已修，未为过测试改变AP/资源规则。
+- Journey69遭遇/地图mega15项、旅行餐实际疲劳/睡眠、农场蛋白餐外出安全、个人日常/医务值班观察90病421宿主/早晚报告、旅行互斥及Claude保护hash全部相关回归通过。此次为实质原生按钮和在场修复，尚未完成所有历史世界扩展/正式美术/真实公开AI，总goal active，无真实进度/.env/密钥读取，无付费AI。
