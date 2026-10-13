@@ -1352,3 +1352,9 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 最终夹具加入旧成熟阶段及B07/Jack实际expose疾病，Engine专项通过：新体evolution0/form空，旧路线写档案；B07疾病清除，Jack疾病完整保留；继承后下一日实际饲料只扣1，作物继续生长/动物五基因不变。源码396CSS/script HTTP与私密拒绝、人类餐效、旧档年龄、受保护剧情hash等定向回归均通过。没有重复整轮已验证长跑；本批主要改Legacy继承边界。
 - 交付abyss-lab-0.13.117-preview.zip，明确白名单不含真实.env/密钥/玩家档。修复不会追溯恢复此前已经被旧代码丢失的物品；保留尚在现有档内的资产，原先导出或备份可另作恢复来源，未读取用户档。
 - 剩余重点：生命档案展示仍只呈现部分已记录字段，正式美术与历史世界/社会功能仍按原规格逐项验收；真实公开AI审批数据库、凭据和同源流未完成。总体目标active，不把继承修复当全部完成。
+## 0.13.118-preview — 生命档案完整展示与历史外形
+- 原Mega Expansion 39要求name/lifespan/appearance/mutations/personality/favorite food/accessory/first word/memories/evolution route/fate。此前保存了多数元数据，UI仅名字/寿命/三条记忆。本次新增js/legacyArchive.js只读展示：告别方式中英、起止日、形态/皮肤/颜色/路线、食物/装扮喜好、实际第一个词、所有保留的20条重要记忆及八性格数值、已保存变异，详情折叠/圆角卡片。区分未选择颜色/装扮与旧档未记录。
+- 新告别记录appearance版本1：原age/stats与进化stage/route/form/scores；配合既有mutations/skin/color/equipped/personality构造隔离预览。使用已有怪物Renderer克隆为每张独立SVG image，SVG ID各自封闭不指向主页，关闭角色运动并移除animate；不保存当前世界/原玩家档截图，不赋给当前个体或赠送收藏。缺旧appearance不回填，显示未记录/没有存留快照，非法stats拒绝预览。
+- 新legacy-archive.test.cjs通过实际封存快照/原词存盘、成熟形态投影及颜色/变异、完整字段、HTML逃逸、旧/非法快照、不改当前值/RNG。继续117遗传继承及旧遗物场景通过。三尺寸1366/768/390本地原生告别→两个档案（一个老档缺字段）→SVG成功解码→展开八性格→双语所有详情→reload照片和实际firstWord仍保持→查看过程current state/RNG完全相同，零pageerror/页面溢出，目视390详情。初夹具13字名字超现有12字规则已改短，英文UI中文词断言改为检验canonical firstWord；游戏姓名/翻译规则未改变。英文构建初空字符串天单位映射冲突已用Recorded day修正，不删除原词条。
+- 公开发布与最终源码/双语/继承回归待做；不把复用现有SVG渲染器当正式美术全部完成，其他历史功能与真实公开AI仍欠，整体goal active。未读真实存档/.env/密钥，无付费AI测试。
+- 发布前发现游戏内更新日志仍停在0.13.115，与新包版本不一致，optical-fit版本检查真实失败。补入已经验收的116/117及本轮118双语日志，保留全部旧日志与pending说明；版本检查重跑通过，未放宽断言。397源码资源/私密路径HTTP通过，3724本地语言源与469剧情节点/全部选项检查通过；Claude保护hash、遗物/跨代/年龄/mega15项通过。档案现有窗口直接切英文（不手动重开）的三个尺寸验证也通过。档案姓名data-user-text保护，不把旧个体名字当普通词翻译。
