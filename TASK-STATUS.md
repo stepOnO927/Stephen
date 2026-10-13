@@ -1368,3 +1368,7 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 真实浏览器复现route:start点后AP仍1、无trip：Navigation捕获阶段所有data-route按钮stopImmediatePropagation，把journey data-route=short误当主导航。排除data-mega专用命令，让原ExpansionUI处理；未改合法导航/俱乐部返回道路按钮。纯Journey.plan供执行与UI共用，51区域路线预览不改资源/RNG，旧旅程保存字段不变；冲突梦/狩猎/车程/俱乐部与剧情模式拒绝，AP/费用/邻接/天气关闭/能力或地图线索明确理由，零AP advance禁用而return可用。
 - 本地1366/768/390原生城市region→合法short启程AP1→0/钱12→6→保存刷新营地仍away→免费return→报告保存刷新、英文不足条件/禁用显示、零pageerror与横向溢出通过。初测试未知data-route选择器也匹配SVG改为button；诊断括号错误已修，未为过测试改变AP/资源规则。
 - Journey69遭遇/地图mega15项、旅行餐实际疲劳/睡眠、农场蛋白餐外出安全、个人日常/医务值班观察90病421宿主/早晚报告、旅行互斥及Claude保护hash全部相关回归通过。此次为实质原生按钮和在场修复，尚未完成所有历史世界扩展/正式美术/真实公开AI，总goal active，无真实进度/.env/密钥读取，无付费AI。
+### 0.13.119 最终公开验收
+- 游戏提交b894e395d51fe5a469778ad3b08938b3ae4ca31e，Pages38485782204 completed/success。公开index与五张外部CG字节一致。1366/768/390公网原生主页“打开地图”（正常导航仍有效）→城市路线条件禁用与解释→short真实扣1AP/6CR出发→零AP advance禁用/return可用→保存刷新营地仍away→原生免费return→报告保存刷新→英文不足AP解释与disabled状态均通过，零pageerror/横向溢出；目视390地图并通过自动原生滚动到返程按钮。
+- 新source397资源/私密路径HTTP通过；3724本地语言源、469剧情节点/全部选项、保护台词hash、准确游戏内版本/旧日志保留检查通过。与本批改动相关运营/报告、餐效/旅行/69遭遇和地图mega回归通过；没有重跑无关整轮长跑冒称世界全部平衡完成。
+- 交付abyss-lab-0.13.119-preview.zip。整体goal active，仍继续原附件逐项地图变化、地标实际交互、伙伴/社会及其他世界扩展审计；正式美术和真实公开AI依赖项未完成。没有访问真实玩家进度/.env/密钥，无付费AI测试。
