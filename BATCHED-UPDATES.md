@@ -1025,3 +1025,14 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 真实浏览器复现route:start点后AP仍1、无trip：Navigation捕获阶段所有data-route按钮stopImmediatePropagation，把journey data-route=short误当主导航。排除data-mega专用命令，让原ExpansionUI处理；未改合法导航/俱乐部返回道路按钮。纯Journey.plan供执行与UI共用，51区域路线预览不改资源/RNG，旧旅程保存字段不变；冲突梦/狩猎/车程/俱乐部与剧情模式拒绝，AP/费用/邻接/天气关闭/能力或地图线索明确理由，零AP advance禁用而return可用。
 - 本地1366/768/390原生城市region→合法short启程AP1→0/钱12→6→保存刷新营地仍away→免费return→报告保存刷新、英文不足条件/禁用显示、零pageerror与横向溢出通过。初测试未知data-route选择器也匹配SVG改为button；诊断括号错误已修，未为过测试改变AP/资源规则。
 - Journey69遭遇/地图mega15项、旅行餐实际疲劳/睡眠、农场蛋白餐外出安全、个人日常/医务值班观察90病421宿主/早晚报告、旅行互斥及Claude保护hash全部相关回归通过。此次为实质原生按钮和在场修复，尚未完成所有历史世界扩展/正式美术/真实公开AI，总goal active，无真实进度/.env/密钥读取，无付费AI。
+### 0.13.119 最终公开验收
+- 游戏提交b894e395d51fe5a469778ad3b08938b3ae4ca31e，Pages38485782204 completed/success。公开index与五张外部CG字节一致。1366/768/390公网原生主页“打开地图”（正常导航仍有效）→城市路线条件禁用与解释→short真实扣1AP/6CR出发→零AP advance禁用/return可用→保存刷新营地仍away→原生免费return→报告保存刷新→英文不足AP解释与disabled状态均通过，零pageerror/横向溢出；目视390地图并通过自动原生滚动到返程按钮。
+- 新source397资源/私密路径HTTP通过；3724本地语言源、469剧情节点/全部选项、保护台词hash、准确游戏内版本/旧日志保留检查通过。与本批改动相关运营/报告、餐效/旅行/69遭遇和地图mega回归通过；没有重跑无关整轮长跑冒称世界全部平衡完成。
+- 交付abyss-lab-0.13.119-preview.zip。整体goal active，仍继续原附件逐项地图变化、地标实际交互、伙伴/社会及其他世界扩展审计；正式美术和真实公开AI依赖项未完成。没有访问真实玩家进度/.env/密钥，无付费AI测试。
+## 0.13.120-preview — 十个地标现场功能化
+- 对原Mega Expansion18逐项核对，原10地标只有介绍及黑列车/海岸路到达标记。本批新增landmarkActivities数据（20个唯一action ID、每地标4档反应）/Landmarks核心/LandmarkUI，10个不同SVG场景：桥梁断板、红塔桁架、透明枝林、里程碑、干水库、内锁列车、医院、白坑、放映机影院、海岸护栏。保留原地点文字为地点记录，不替换Claude任何scene；实际当前反应Stage0只动作，Stage1单词，Stage2短句，Stage3以上简短完整句，缺席/封存/零健康不发言。
+- 实际区域到达、已发现及对应当前region才可siteEnter；现场journey.site计作外出，不能同时做实验室/驾车/新旅程，可过夜与零AP免费返回，EndingNotice确认允许避免现场休息死锁。每个现场两项操作各1AP且全球单次，回收真实既有库存物品/工具/地图等，部分强力/异常身体能力门槛；8类路线线索接既有unknown路线，不新造主线结局或隐flag。既有P5_03和promise_sea到达触发保留。
+- Journey新增site/siteRecords为可选增量，旧档默认空不回填奖励；旧记录若claimed字段缺失，从有效history恢复一次性资格而不再赠物资；非法/未来/未知操作清理。与公路/其他行动矛盾的import site丢弃，避免无法返程；旧路线/地标/历史不删除。多代next退出site但保留实物和已做siteRecords/地图线索，不给下一代重新刷现场物资。
+- 核心测试10实际Engine入场/20回收操作 exact1AP/items/clues/保存重载/重复拒绝/能力与库存上限原子失败/不改narrative flags/缺schema及矛盾档迁移/0AP返回与ackEnding通过。新增真实10条相邻路线规划→出发→实际遭遇选择→到达→进入→读档→返回测试通过（影院需已有零里碑）；黑列车文档/海岸承诺不变；实际零AP撤退不发现目的地、不授海岸承诺。
+- 本地1366/768/390每尺寸10原生入场/20原生操作→库存/AP/Stage0动作→refresh现场及claim保留/不能再领→详情/中英现场切换→0AP返程通过，共30site流程60操作，无页面错误/横向溢出。已目视390黑列车现场与按钮/记录；截图只来自隔离测试，不读真实玩家档。相关69旅途遭遇、旧地图15项、跨代资产、档案、旅行餐、旅行互斥和Claude保护hash回归通过。最终构建/公网待验收，整体goal active，其他世界功能/正式美术/真实AI未全部完成，无.env/真实存档/密钥读取，无付费AI。
+- 最终源码HTTP400个资源与私密路径拒绝通过；3724本地词条、469剧情节点/全部选择/占位变量一致通过。已注册landmarks/landmark-arrival默认测试。实际10条旅途从邻接起点通过正常出发/继续/既有遭遇选择到达并进入，免费返回且保存site；实际0AP选择撤退不授目的地与海岸promise。领取字段缺失时有效history恢复claimed防重复、但不回填物品专项通过。地标画面仍为本地SVG场景，不冒称历史所有正式美术已完成。
