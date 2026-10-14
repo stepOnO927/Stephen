@@ -1385,3 +1385,8 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 公网1366/768/390每种尺寸所有10原生地标入口与20真实操作通过：现场正确away，物资/AP准确，Stage0只有动作、两次领取标记保存/刷新后不能重复，现场直接中英切换，0AP免费返程与base恢复，无pageerror/横向溢出。共30现场流程/60操作，截图均是隔离测试，未读用户真实存档。独行身体能力、缺claimed从history恢复且不赠物资、10实际相邻旅程到达/既有遭遇与撤退保护及Core保护剧情等本地专项通过。
 - 400源码CSS/脚本资源及私密路径拒绝、3724语言源/469剧情节点/全部选项与占位符、准确游戏内版本/旧日志保留通过；最终补注册7条新失败提示使English无需先触发相关场景。交付abyss-lab-0.13.120-preview.zip，白名单无真实.env/密钥/玩家档。核心Actor/Game flags不删除，黑列车文档与海岸承诺原规则保留。
 - 总目标仍active；其他历史世界地图演变、伙伴与社会、梦/连续性、正式美术和真实公开AI审批依赖尚须继续核对，未以十地标实装替代全项目完成。无付费AI测试。
+## 0.13.121-preview — 营地个体记忆与档案回收
+- 原Mega Expansion17要求camp scenes形成relationship memories。旧Journey.advance只写logs与世界j.camps发现列表，未写s.memories；新增rememberCamp，将真正已发生的20个原营地文本按journey_camp_<真实campId>存入当前个体记忆。当天同片段去重，隔天再次经历更新count/lastDay；不加忠诚、性格、AP、货币或额外RNG，不改原camp/Claude对白。
+- Phase2State只接受现有20个真实camp ID，不开放任意memory前缀；保存个体记忆上限64，旧记忆保持，未知ID丢弃。Legacy存留记忆上限64，避免20营地加其他重要记忆在读档时被截掉；新个体仍fresh，历史营地发现列表不回填成个人记忆，档案保留旧人自己的camp记录。地图提供Shared camp memories只读首日/最近日/次数与原文展示，无任务领奖弹窗。
+- camp-memories专项20实际Engine继续旅程各产生不同营地记忆且完整save/load通过；同日dedup、隔日callback无属性/AP/币/RNG奖励；21原记忆封存/读档保留/next不继承；旧档不回填/伪ID拒绝/Story及封存、死亡、失联、零健康不写忆通过。初旧档夹具拿到已真实记过的camp却断言无记忆，改为明确无camp的旧档输入，未删真实记录迎合测试。
+- 1366/768/390隔离浏览器原生继续行进→地图显示当前camp→reload首日/最近日/count/原文一致→原窗口直接切英文且状态/RNG不变，零pageerror通过。当前为营地memory实接，非新创台词，不代表所有旅程/世界系统完成。后续相关回归/公开部署待验收，整体goal active，未读真实进度/.env/密钥，无付费AI测试。
