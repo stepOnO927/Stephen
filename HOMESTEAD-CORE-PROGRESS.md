@@ -541,3 +541,20 @@ ContinuityNPCs新增10独立中英场景：Elias Ward、Mara Quinn、Old Finch�
 修改index.source.html、js/continuityCollisions.js、continuity.js、continuityEchoes.js、storyMode.js、storyUI.js、story/player.js及版本/更新日志/测试清单。两项新增测试：continuity-collisions.test.cjs与continuity-collisions-browser.cjs。三宽度1366/768/390真实按钮、23句精确双语、Space、快速存读档、回退、日志、刷新、隐藏完成按钮和原剧情/资源/关系保持均通过，无溢出/脚本错误。最初空active测试夹具触发已有自动日常选择导致预期差异；改用真实life_battery节点后完整三宽度通过，没有为过测试改游戏逻辑。
 
 本批只补Part75–77连续核对场景，不把完整结局/成就/动态壁纸回收、所有NPC或其他历史扩展计为完成。Supabase用户已选择组织，但get_cost仍UNAVAILABLE，未创建项目/产生费用，真正公网AI审批仍未上线。配音仍待用户提供。目标active。
+### 0.13.134 公开验收回执（2026-10-14）
+
+游戏提交c53e25a82dc71be6a2b3310702a98daf64aa07eb，Pages38654802169 completed/success。公开index与5张外置CG逐字节匹配；1366/768/390三宽度各五次真实档案核对、23句精确双语，Space/QUICK SAVE/LOAD/BACK/LOG/刷新恢复全部通过。完整五段回执有序，完成按钮隐藏，原剧情位置/关系/资源未变，无横向溢出或脚本错误。最终构建本地三宽度同样通过。412源码资源/私密路径屏蔽、实际死亡来源优先及旧档回退、保护文本/20章/已有回声回归通过。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.134
+文件：../abyss-lab-0.13.134-preview.zip（1712白名单文件，未包含.env、密钥、真实玩家存档或审批记录）。重大碰撞五段完成；完整结局回收/成就/动态壁纸、其他角色和历史扩展、真实公网AI主机审批仍未完成。Supabase get_cost工具本轮再次明确UNAVAILABLE，未创建项目或产生费用。目标仍active。
+## 0.13.135-preview · 连续性最终选择、结局演出与成就回收（待公开）
+
+核对MEGA Part78–82发现Story最终菜单少LET B-07 DECIDE；原命令虽支持decide，UI未呈现。补story-final-loop_decide，使用Story B07_AUTONOMY/B07_CURIOSITY选择leave或preserve，养成旧入口保持原personality行为。保留全部旧路由/结局ID和门槛，不把上批新碰撞条件强加给旧结局。
+
+continuityEndings.js数据统一提供六个结局的各自演出：break/preserve/merge/erase/leave/enough；七种实际最终选择都进入正常ending对白框。“Which one of you is real?”及“I was about to ask you the same damn thing.”、“No / No? / No more ancient terminals…We’re making breakfast.”按原规格及三档语言处理，原Claude保护节点不改。Meta结局收藏摘要也各不相同。结局段逐句自动落盘、快速存读/回退/日志/刷新沿用原系统。最终决定先清旧排队场景，修复结束后继续播放life_dish等错误。清队列仅在真实最终决定成功落盘后进行，失败命令不清。
+
+修复Meta.observe未检查ExpansionRewards导致Story的BEGIN/ENOUGH等成就不解锁；两种模式共用条件，但新增四个meta奖项严格Story。新增mega_again、mega_died_here、mega_not_first、mega_subject_count，与旧You Remember、BEGIN、ENOUGH构成原Part82七项：分别需要新一轮+version2真实已完记录、已读死去碰撞片段、真实首词里程碑、三个不同已完记录。排除当前/导入占位/未知结局/重复ID，不补造旧档事实。既有begin/twolabs等壁纸解锁与continuity_record奖励经实际结局验证；不把复用echoLayer壁纸美术当作已完成独立设计。
+
+改index.source.html、js/data/continuityEndings.js、storyMode.js、continuity.js、meta.js、story/presentation.js、版本更新日志/测试清单，新增两个endings测试。七个真实最终选择、21个三宽度浏览器分支、逐句双语、Space/QUICK/LOAD/BACK/刷新/结束/BEGIN菜单与成就收藏专项。逻辑测试验证无AP/货币/属性/关系损耗，实际Story自主值选择不受养成独立性污染，旧完成档仍可读。保护文本/20章/碰撞/22回声/真实世界线记录/保存专项通过。413源码资源和私密路径屏蔽通过。
+
+剩余：连续性壁纸独立正式美术及更多NPC、其他历史扩展审计、真实公网AI审批/通知/封禁/限额。Supabase组织已选但费用查询UNAVAILABLE仍未创建；配音待用户。目标active。
