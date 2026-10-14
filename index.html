@@ -1215,7 +1215,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.126-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.127-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6101,6 +6101,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "四条秘密梦境路线": "Four Secret Dream Sequences",
+  "Jasmine、零号、Host记忆与连续性梦接入前置条件、21个原有梦境的固定顺序与完整结束记录。提前醒来不算完成，共享段落等待语言发展，不新增任务提示或属性奖励。": "Jasmine, Zero, Host Memory and Continuity dreams now have prerequisites, ordered sequences of twenty-one existing dreams and completion records. Waking early does not complete a scene; shared sections wait for language development. No quest prompts or stat rewards are added.",
+  "旧梦境与存档继续兼容，不按零散历史补造路线进度。修复Host条件引用无法保存的旧标识，改用已有Host触发或已完成Host结局回声；原文本、选择和主线标记保留。": "Existing dreams and saves remain compatible without fabricating sequence progress from scattered history. Host conditions now use actual Host triggers or completed Host-ending echoes instead of unsaveable old identifiers. Original text, choices and main-story flags remain.",
+  "其余历史扩展、正式美术、完整连续性长线与公开AI审批仍未全部完成。": "Other historical expansions, final artwork, the complete Continuity storyline and public AI approval remain incomplete.",
   "梦中轮廓与档案室旧物": "Dream Outlines and Archive Objects",
   "红钥匙、玻璃贝壳、白花与空照片获得独立模型和档案室陈列。实际梦中记录、白色陨坑经历及实验室过夜后逐个登记，保留来源未定；不进入普通物资或给出属性奖励。": "Red Key, Glass Shell, White Flower and Empty Photograph now have individual models and an archive display. They are registered individually after dream records, the White Crater and an overnight stay at the lab, with origins left undetermined. They grant no ordinary supplies or stat rewards.",
   "物件保存实际登记日、可核对的梦境记录和代数。旧档缺资料显示未记录；下一代保留实验室实物，自己的梦与象征记忆从头开始。": "Objects retain their actual registration date, verifiable dream record and generation. Missing details in old saves remain unrecorded. The next generation keeps physical lab objects while beginning its own dreams and symbolic memories independently.",
@@ -17007,17 +17011,48 @@ Abyss.DreamSpaces=(()=>{
 })();
 
 </script>
+<script data-source="js/dreamPaths.js">
+'use strict';
+// Secret paths reuse authored dream scenes. No player-facing route labels or rewards.
+Abyss.DreamPaths=(()=>{
+ const A=Abyss;
+ const paths={
+ jasmine:['dream_exp_jack_1','dream_thread','dream_exp_jack_7','dream_exp_jack_17','dream_exp_jack_21'],
+ zero:['dream_exp_unknown_0','dream_exp_unknown_1','dream_unknown1','dream_exp_jack_20','dream_exp_unknown_4'],
+ host:['dream_exp_creature_15','dream_exp_creature_16','dream_host','dream_exp_creature_17','dream_exp_creature_18'],
+ continuity:['dream_exp_unknown_2','dream_exp_unknown_3','dream_exp_shared_4','dream_exp_shared_5','dream_exp_unknown_6','dream_exp_unknown_7']
+ };
+ const fresh=()=>Object.fromEntries(Object.keys(paths).map(id=>[id,[]]));
+ function read(raw,s){const out=fresh();for(const [id,order]of Object.entries(paths)){for(const r of Array.isArray(raw?.[id])?raw[id]:[]){if(!r||r.id!==order[out[id].length]||!Number.isInteger(r.day)||r.day<1||r.day>s.day||r.day<(out[id].at(-1)?.day||1))break;const d=A.DreamData.dreams.find(d=>d.id===r.id),choices=d.stages?d.stages.at(-1).choices.map(c=>c.id):['open','wait','ask','take','leave'];if(!choices.includes(r.choice))break;out[id].push({id:r.id,day:r.day,choice:r.choice});if(out[id].length===order.length)break;}}return out;}
+ const flag=(s,id)=>s.story?.flags[id]===true||s.narrative.flags[id]===true||s.narrative.jack.flags[id]===true||s.campaign.flags[id]===true;
+ const readScene=(s,id)=>!!s.narrative.seen[id]||s.narrative.history.some(h=>h.id===id);
+ function hostKnown(s){if(flag(s,'HOST_TRIGGER')||s.campaign.anomaly==='host_mirror'||s.progress.evolution.route==='host')return true;const m=A.Continuity.load();return !m.broken&&m.timelines.some(t=>t.id!==s.continuity.id&&['observer','betrayal'].includes(t.ending));}
+ function eligible(s,id){if(s.mode!=='raising'||s.campaign.ending)return false;if(id==='jasmine')return flag(s,'mia_shared')||s.narrative.jack.miaEvidence.length>0||['JASMINE_MEMORY_KNOT','JASMINE_MEMORY_SINK','JASMINE_MEMORY_PLATE','JASMINE_MEMORY_REMOTE'].some(k=>flag(s,k))||readScene(s,'project_mia');if(id==='zero')return flag(s,'show_zero')||flag(s,'ZERO_FILE_CONTRADICTORY')||flag(s,'ZERO_REDACTED_LINK_B')||readScene(s,'project_zero')||s.progress.research.level>=11&&(s.inventory.first_specimen_tag||0)>0&&s.narrative.languageStage>=2;if(id==='host')return s.legacy.active&&s.campaign.creatureAlive!==false&&!s.awaySince&&s.stats.health>0&&hostKnown(s);if(id==='continuity'){const m=A.Continuity.load();return !m.broken&&m.timelines.some(t=>t.id!==s.continuity.id&&A.Phase6Data.endings.some(e=>e.id===t.ending));}return false;}
+ function validActive(d,path,id){return !!paths[path]&&paths[path][d.paths[path].length]===id;}
+ function select(s){if(s.day%3!==1)return null;const list=Object.keys(paths).filter(id=>eligible(s,id)).map(path=>({path,id:paths[path][s.dreams.paths[path].length]})).filter(r=>r.id&&A.Dreams.available(s,A.DreamData.dreams.find(d=>d.id===r.id)));if(!list.length)return null;const r=list[Math.floor(s.day/7)%list.length];return {path:r.path,dream:A.DreamData.dreams.find(d=>d.id===r.id)};}
+ function finish(s,active,choice){if(!validActive(s.dreams,active.path,active.id))return false;s.dreams.paths[active.path].push({id:active.id,day:s.day,choice});return true;}
+ function reserved(s,id){return Object.entries(paths).some(([path,order])=>order.includes(id)&&s.dreams.paths[path].length<order.length&&eligible(s,path));}
+ return {paths,fresh,read,eligible,validActive,select,finish,reserved,hostKnown};
+})();
+
+
+
+</script>
 <script data-source="js/dreams.js">
 'use strict';
 Abyss.Dreams=(()=>{
  const D=Abyss.DreamData,U=Abyss.Util,t=Abyss.HomeData.t;
- const fresh=()=>({version:1,history:[],items:[],physical:[],shared:[],active:null,stress:0,lastDay:0});
- function read(raw,s){const d=fresh(),r=raw.dreams;if(!r)return d;const ids=D.dreams.map(d=>d.id);d.history=Array.isArray(r.history)?r.history.filter(h=>h&&ids.includes(h.id)&&Number.isInteger(h.day)&&h.day<=s.day).slice(-100):[];for(const k of ['items','physical'])if(Array.isArray(r[k]))d[k]=[...new Set(r[k].filter(id=>id in D.items))];d.shared=Array.isArray(r.shared)?r.shared.filter(id=>ids.includes(id)):[];if(r.active&&ids.includes(r.active.id))d.active={id:r.active.id,step:Number.isInteger(r.active.step)?U.clamp(r.active.step,0,(D.dreams.find(d=>d.id===r.active.id).stages?.length||4)-1):0};if(d.active&&Abyss.DreamSpaces.layout(d.active))d.active.space=Abyss.DreamSpaces.read({...d.active,space:r.active.space});d.stress=U.clamp(Number(r.stress)||0);if(Number.isInteger(r.lastDay)&&r.lastDay<=s.day)d.lastDay=r.lastDay;return d;}
- function command(s,type,p={}){const d=s.dreams,active=D.dreams.find(x=>x.id===d.active?.id);if(type==='wake'){d.active=null;return {ok:true,message:''};}if(type==='move'||type==='inspect')return Abyss.DreamSpaces.command(s,type,p);if(!active)return {ok:false,message:t('此刻没有未醒的梦。','There is no active dream.')};if(type!=='choose'||!(active.stages?active.stages[d.active.step].choices.some(c=>c.id===p.id):['open','wait','ask','take','leave'].includes(p.id)))return {ok:false,message:t('未知的梦中选择。','Unknown dream choice.')};const text=active.stages?active.stages[d.active.step].text:p.id==='open'?t('门开了，房间是空的。身后的声音说：“错的门。”','The door opens onto an empty room. A voice behind says “Wrong door.”'):p.id==='ask'?t('“谁在那里？”没有回答。Jack 没有把沉默当作熟悉的证明。','“Who is there?” No answer. Jack does not take silence as proof of familiarity.'):p.id==='take'?t('它不重。醒来后，掌心却仍记得那个轮廓。','It weighs nothing. After waking, the palm still remembers its shape.'):p.id==='wait'?t('他们等了一会儿。梦没有因为没有答案而惩罚他们。','They wait. The dream does not punish them for lacking an answer.'):t('Jack 离开走廊。不是每扇门都必须被打开。','Jack leaves the corridor. Not every door must be opened.');Abyss.State.log(s,text,'story');if(p.id==='take'||p.id==='open')d.items=[...new Set([...d.items,active.item])];d.history.push({id:active.id,day:s.day,choice:p.id});d.history=d.history.slice(-100);if(active.type==='shared')d.shared=[...new Set([...d.shared,active.id])];if(active.stages?d.active.step<active.stages.length-1:active.major&&d.active.step<1){d.active.step++;Abyss.DreamSpaces.reset(d.active);}else d.active=null;return {ok:true,message:''};}
- function available(s,x){const route=s.campaign.anomaly==='host_mirror'?'host':s.progress.evolution.route,base={dream_intellect:'intellect',dream_abyss:'abyssal',dream_companion:'companion',dream_synthetic:'synthetic',dream_anomaly:'anomaly',dream_host:'host'},needed=x.route||base[x.id],present=s.legacy.active&&s.campaign.creatureAlive!==false&&!s.awaySince&&s.stats.health>0;return (!needed||needed===route)&&(x.type!=='creature'||present)&&(x.type!=='shared'||present&&s.narrative.languageStage>=4);}
- function observe(before,s,c){const d=s.dreams;if(c.type!=='rest'||d.active)return;d.stress=U.clamp(s.resentment/2+(100-s.stats.mood)/3+s.experimentsToday*4);if(s.day-d.lastDay<5||s.day%(d.stress>35?5:7)!==0)return;const allowed=D.dreams.filter(x=>available(s,x));let pool=allowed.filter(x=>!d.history.some(h=>h.id===x.id));if(!pool.length)pool=allowed;const chosen=pool[(s.day+Object.keys(s.narrative.milestones).length)%pool.length];d.active={id:chosen.id,step:0};d.lastDay=s.day;Abyss.DreamArtifacts.register(s);}
+ const fresh=()=>({version:1,history:[],items:[],physical:[],shared:[],active:null,stress:0,lastDay:0,paths:Abyss.DreamPaths.fresh()});
+ function read(raw,s){const d=fresh(),r=raw.dreams;if(!r)return d;d.paths=Abyss.DreamPaths.read(r.paths,s);const ids=D.dreams.map(d=>d.id);d.history=Array.isArray(r.history)?r.history.filter(h=>h&&ids.includes(h.id)&&Number.isInteger(h.day)&&h.day<=s.day).slice(-100):[];for(const k of ['items','physical'])if(Array.isArray(r[k]))d[k]=[...new Set(r[k].filter(id=>id in D.items))];d.shared=Array.isArray(r.shared)?r.shared.filter(id=>ids.includes(id)):[];if(r.active&&ids.includes(r.active.id))d.active={id:r.active.id,step:Number.isInteger(r.active.step)?U.clamp(r.active.step,0,(D.dreams.find(d=>d.id===r.active.id).stages?.length||4)-1):0};if(d.active&&Abyss.DreamPaths.validActive(d,r.active.path,d.active.id))d.active.path=r.active.path;if(d.active&&Abyss.DreamSpaces.layout(d.active))d.active.space=Abyss.DreamSpaces.read({...d.active,space:r.active.space});d.stress=U.clamp(Number(r.stress)||0);if(Number.isInteger(r.lastDay)&&r.lastDay<=s.day)d.lastDay=r.lastDay;return d;}
+ function command(s,type,p={}){const d=s.dreams,active=D.dreams.find(x=>x.id===d.active?.id);if(type==='wake'){d.active=null;return {ok:true,message:''};}if(type==='move'||type==='inspect')return Abyss.DreamSpaces.command(s,type,p);if(!active)return {ok:false,message:t('此刻没有未醒的梦。','There is no active dream.')};if(type!=='choose'||!(active.stages?active.stages[d.active.step].choices.some(c=>c.id===p.id):['open','wait','ask','take','leave'].includes(p.id)))return {ok:false,message:t('未知的梦中选择。','Unknown dream choice.')};const text=active.stages?active.stages[d.active.step].text:p.id==='open'?t('门开了，房间是空的。身后的声音说：“错的门。”','The door opens onto an empty room. A voice behind says “Wrong door.”'):p.id==='ask'?t('“谁在那里？”没有回答。Jack 没有把沉默当作熟悉的证明。','“Who is there?” No answer. Jack does not take silence as proof of familiarity.'):p.id==='take'?t('它不重。醒来后，掌心却仍记得那个轮廓。','It weighs nothing. After waking, the palm still remembers its shape.'):p.id==='wait'?t('他们等了一会儿。梦没有因为没有答案而惩罚他们。','They wait. The dream does not punish them for lacking an answer.'):t('Jack 离开走廊。不是每扇门都必须被打开。','Jack leaves the corridor. Not every door must be opened.');Abyss.State.log(s,text,'story');if(p.id==='take'||p.id==='open')d.items=[...new Set([...d.items,active.item])];d.history.push({id:active.id,day:s.day,choice:p.id});d.history=d.history.slice(-100);if(active.type==='shared')d.shared=[...new Set([...d.shared,active.id])];if(active.stages?d.active.step<active.stages.length-1:active.major&&d.active.step<1){d.active.step++;Abyss.DreamSpaces.reset(d.active);}else {Abyss.DreamPaths.finish(s,d.active,p.id);d.active=null;}return {ok:true,message:''};}
+ function available(s,x){const route=s.progress.evolution.route,base={dream_intellect:'intellect',dream_abyss:'abyssal',dream_companion:'companion',dream_synthetic:'synthetic',dream_anomaly:'anomaly',dream_host:'host'},needed=x.route||base[x.id],present=s.legacy.active&&s.campaign.creatureAlive!==false&&!s.awaySince&&s.stats.health>0;return (!needed||(needed==='host'?Abyss.DreamPaths.hostKnown(s):needed===route))&&(x.type!=='creature'||present)&&(x.type!=='shared'||present&&s.narrative.languageStage>=4);}
+ function observe(before,s,c){const d=s.dreams;if(c.type!=='rest'||d.active)return;d.stress=U.clamp(s.resentment/2+(100-s.stats.mood)/3+s.experimentsToday*4);if(s.day-d.lastDay<5||s.day%(d.stress>35?5:7)!==0)return;const allowed=D.dreams.filter(x=>available(s,x)&&!Abyss.DreamPaths.reserved(s,x.id));let pool=allowed.filter(x=>!d.history.some(h=>h.id===x.id));if(!pool.length)pool=allowed;const secret=Abyss.DreamPaths.select(s),chosen=secret?.dream||pool[(s.day+Object.keys(s.narrative.milestones).length)%pool.length];d.active={id:chosen.id,step:0,...(secret?{path:secret.path}:{})};if(Abyss.DreamSpaces.layout(d.active))d.active.space=Abyss.DreamSpaces.read(d.active);d.lastDay=s.day;Abyss.DreamArtifacts.register(s);}
  return {fresh,read,command,observe,available};
 })();
+
+
+
+
 
 
 
@@ -34125,6 +34160,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-14',version:'0.13.127-preview',title:t('四条秘密梦境路线','Four Secret Dream Sequences'),items:[t('Jasmine、零号、Host记忆与连续性梦接入前置条件、21个原有梦境的固定顺序与完整结束记录。提前醒来不算完成，共享段落等待语言发展，不新增任务提示或属性奖励。','Jasmine, Zero, Host Memory and Continuity dreams now have prerequisites, ordered sequences of twenty-one existing dreams and completion records. Waking early does not complete a scene; shared sections wait for language development. No quest prompts or stat rewards are added.'),t('旧梦境与存档继续兼容，不按零散历史补造路线进度。修复Host条件引用无法保存的旧标识，改用已有Host触发或已完成Host结局回声；原文本、选择和主线标记保留。','Existing dreams and saves remain compatible without fabricating sequence progress from scattered history. Host conditions now use actual Host triggers or completed Host-ending echoes instead of unsaveable old identifiers. Original text, choices and main-story flags remain.')],pending:[t('其余历史扩展、正式美术、完整连续性长线与公开AI审批仍未全部完成。','Other historical expansions, final artwork, the complete Continuity storyline and public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.126-preview',title:t('梦中轮廓与档案室旧物','Dream Outlines and Archive Objects'),items:[t('红钥匙、玻璃贝壳、白花与空照片获得独立模型和档案室陈列。实际梦中记录、白色陨坑经历及实验室过夜后逐个登记，保留来源未定；不进入普通物资或给出属性奖励。','Red Key, Glass Shell, White Flower and Empty Photograph now have individual models and an archive display. They are registered individually after dream records, the White Crater and an overnight stay at the lab, with origins left undetermined. They grant no ordinary supplies or stat rewards.'),t('物件保存实际登记日、可核对的梦境记录和代数。旧档缺资料显示未记录；下一代保留实验室实物，自己的梦与象征记忆从头开始。','Objects retain their actual registration date, verifiable dream record and generation. Missing details in old saves remain unrecorded. The next generation keeps physical lab objects while beginning its own dreams and symbolic memories independently.')],pending:[t('其余历史扩展、正式美术、连续性长线与真实公开AI审批仍未全部完成。','Other historical expansions, final artwork, the Continuity storyline and live public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.125-preview',title:t('五套可探索的大型梦境','Five Explorable Major Dreams'),items:[t('大型梦境接入五套不同的房间和15个象征轮廓。支持方向键/WASD与触摸移动、碰撞边界、靠近观察、自动保存位置和观察记录；保留全部原定梦境对白和选择。','Major dreams now have five different spaces and fifteen symbolic outlines. Move with arrows/WASD or touch, respect walls, approach and inspect, and automatically save position and observations. All existing dream dialogue and choices remain.'),t('探索时隐藏普通HUD，不消耗真实行动点、物资或货币，不触发现实世界结算。读档自动恢复梦境画面，醒来或Escape安全返回；专属进化梦只在对应路线出现。','Exploration hides the normal HUD, spends no real AP, supplies or credits, and does not settle the real world. Loading restores the dream screen automatically; waking or Escape returns safely. Evolution dreams now appear only on their corresponding route.')],pending:[t('其余历史扩展、正式美术、完整连续性长线与真实公开AI审批仍未全部完成。','Other historical expansions, final artwork, the complete Continuity storyline and live public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.124-preview',title:t('会留下变化的废土地图','A Wasteland Map That Retains Change'),items:[t('实际过夜会记录道路受损、火势扩散与熄灭、移动的灰潮覆盖。受损直路可以绕行；到达并进入当地地标后可消耗真实物资加固临时道路。','Actual overnight stays track road damage, spreading and extinguished fires, and moving Grey Tide coverage. Damaged direct roads allow detours; after entering a local landmark, real supplies can reinforce a temporary road.'),t('阵营边界与聚落扩建接到既有世界状态，条件满足时出现聚落—森林贸易通道。再次到达会对比上次实地记录；刷新和新个体不会重置世界。','Faction borders and settlement growth follow existing world state. A settlement–forest trade route opens when conditions allow. Return visits compare the last field record; reloading or a new individual does not reset the world.')],pending:[t('其余历史扩展、正式美术和真实公开AI审批仍未全部完成。','Other historical expansions, final artwork and live public AI approval remain incomplete.')]},
@@ -34241,6 +34277,7 @@ Abyss.UpdateLog=(()=>{
  for(const [zh,en]of [['更新日志','Update log'],['制作组','Studio'],['尚未完成','Unfinished'],['回顾','Retrospective']])t(zh,en);
  Abyss.I18n.register(english);return {entries,english,studio:'St3phEn'};
 })();
+
 
 
 
@@ -36829,6 +36866,7 @@ Abyss.HomesteadUI=(()=>{
 </script>
 </body>
 </html>
+
 
 
 

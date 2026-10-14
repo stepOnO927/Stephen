@@ -1473,3 +1473,12 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 四真实梦选择/四真休息夜来源保存、全物件去重/无标准库存赠送、world陈列跨代而个人dreams独立、外出/现场/驾车/无crater/Story守门与旧/坏/重复资料迁移专项通过；406源码资源/私密路径404、五行走梦/15mega/Claude原文hash/继承档案/世界地图/准确更新日志/3724语言源及469剧情节点等相关回归通过。
 - 源包abyss-lab-0.13.126-preview.zip明确白名单不含真实.env/密钥/玩家档；没有付费AI测试、读取真实进度或擅改11已有CG/保护scene/route/ending/flags。物件属于来源未定的世界旧物，不确认轮回/时间异常或给出哲学结论。
 - 整体goal active；其他历史梦秘密路线/逆向环境声/连续性长线、正式美术、真实公开AI独立审批后端及其他未验收历史要求仍须继续完成，不以本批四模型完成替代所有欠项。
+
+## 0.13.127-preview — 四条秘密梦序列与真实Host门槛
+- 原Mega Expansion61要求Jasmine（原Mia）/Zero/Host Memory/Continuity四条秘密梦路线。旧Dreams只有进化筛选、75散梦、五major三阶段，无四路线条件或推进。新增js/dreamPaths.js集中四组21既有梦ID，不重写任何梦/Claude文本、选择、scene、主线route/ending/flags；前置后的合格梦夜每3周期的一档可进入，非新任务/统计奖励，不显示路线标题或HOST提示。
+- Jasmine读已分享背景、原miaEvidence、四JASMINE_MEMORY或project_mia实读；Zero用已展示原show_zero/已读零号矛盾资料或真实11级研究+first_specimen_tag+语言2；保留旧字段兼容不凭空设新flag。Continuity须另一条真正已完成且已识别结局的世界线、循环未终止；中段共享梦仍等语言4/存活在场，不强行越级。Host须现有HOST_TRIGGER或已完成observer/betrayal旧线回声（旧host_mirror/host字符串仅兼容不新建），当前生物在场/存活/有健康。
+- 实际审计发现旧Host条件两个标识都不可存：campaign.anomaly只接受16个真实旧物、Phase3 families不含host，所以旧flag在validate后丢失，路线事实上不可能走。改读现有规范HOST_TRIGGER/真实Host结局回声，正常其他生物梦仍按当前进化，新增Host记忆不排掉本体其他梦；不添加EVO家族或篡改Story触发旗。已验证合法旧Host世界线在完整State.validate后也可出Host候选、break后新回声停用。
+- 新可选dreams.paths四组严格前缀、日期单调/不未来、合法最终选择，21节点仅完整梦结束才推进（major必须三阶段）。普通零散motif/提前wake不算完成；未完且有资格的序列节点暂不混进普通池，防前后乱序。已完成route不额外循环/赠奖励。旧档默认空不按散history补造，当前旧梦ID/step/space保持；active.path仅与下一节点一致才恢复。个体next仍fresh全部个人梦路线。
+- 单项四route全部21真实观察/合法Engine选择/保存收据、无AP/币/库存/结局旗奖励、major未完/wake/普通motif不误计、共享暂停、五类门槛及旧/伪/错序checkpoint通过。初夹具比较原始库存与标准化零项结构不同，改在Engine.replace后取真实基线；未为测试改物资机制。真实Host测试发现不可存标识后已修规范门槛，而非保留无效夹具冒充可达。
+- 本地1366/768/390全部21原生合格休息夜/待处理保存刷新/全部原选择/路线完成再次刷新通过，共63夜。首次major新夜只写ID/step而读档补space导致严格checkpoint不一致，现新夜直接初始化原默认出生/空观察，保存刷新完全一致，不改旧默认逻辑。未显示路线任务弹窗，无pageerror/横溢出。新slot回归、梦物件/5行走梦/15mega/Claude保护hash/继承/世界地图/更新日志/3724语言源及469剧情节点等通过；最终源码与公网仍待验收。
+- 整体goal active；四梦路线排序核心不等于完整连续性世界线碰撞长线或所有历史任务完成，逆向环境音/正式美术/真实公开AI审批等仍欠。没有读真实.env/密钥/玩家档或调用付费AI；测试全球Meta只用隔离fake ending数据。
