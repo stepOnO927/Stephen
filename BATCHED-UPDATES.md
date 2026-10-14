@@ -1192,3 +1192,25 @@ Part66补known_switch：真实完成旧世界线带首词时，仅新线day<=5�
 ### 0.13.130 本地验收追加
 
 真实NEW STORY命令推进至day3，pending=known_switch；语言仍<=1且本身体firstWord=null。无旧记录及day>5拒绝开关片刻，低语言阶段拒绝声音回调。22条件专项、世界线事实、Claude保护、21梦长线、Story20章节、10独立Story保存位置和语言检查通过。1366/768/390下22个片刻共66次原生对白、精确双语、Space、QUICK SAVE/LOAD、BACK、LOG及AUTO/已读SKIP通过，无脚本错误或横向溢出。
+
+### 0.13.130 公开验收回执（2026-10-14）
+
+游戏提交505ca6a41b8202509215209b0e299d0fd0324073，Pages38629480533 completed/success。公开index与5外置CG逐字节匹配；1366/768/390三宽度22个片刻共66次原生对白、精确中英、Space、QUICK SAVE/LOAD、BACK、LOG、AUTO及已读SKIP全部通过，无脚本错误/横向溢出。真实NEW STORY至day3的开关片刻及当前首词仍为空在引擎专项中通过；保护原文/路线/存档未删除。此证据只覆盖本批早期回声，不代表Part70等完整连续性或所有历史扩展完成。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.130
+下载：../abyss-lab-0.13.130-preview.zip（白名单游戏源码/资源/测试/文档，不含.env、真实存档/密钥）。
+下一项已查明：StoryFiles.mirror为chapter16；StoryMode.command与StoryUI两个入口都用章节条件，Meta当前16个异常物件没有cracked_mirror。Part70须加入真实获取、兼容读取/全收藏/展示、共同入口条件和对应选择，不能只降低mirror章节或假设兑换授权等于完成世界线。其余UI异常、NPC/碰撞长线、成就/动态壁纸及公网AI等仍欠，目标active。
+
+## 0.13.131-preview · 裂纹镜片与异常物件早期钥匙（本地专项通过，待公开）
+
+Part70实装cracked_mirror：后期chapter>=16实际READ_mirror且记录未销毁时取得，Meta.anomalyOrigins可选字段记录真实世界线ID并随收藏导入导出；来源所属世界线须已完成、不是当前线、循环未终止，且当前已过序章，才开放早期mirror。源码UI与命令共用ContinuityKeys.access，不直接修改原chapter16。
+
+SHOW THE MIRROR触发mirror_key_first手动片刻，存档/自动/QUICK/LOAD/BACK和日志使用既有正常对白框；EARLY_MIRROR_INSPECTED/SHOWN默认缺失为false，不设置READ_mirror、SHARED_mirror或HOST_TRIGGER，也不累计后期menuVisits.mirror。展示后早期continuity碎页开放，原阅读效果6分仅一次；原终局条件不变。后期mirror原Host效果2+18及SHARED_b03/三次访问条件通过。早期无B-07台词、无旧首词/关系继承、无资源奖励。
+
+独立多层裂纹/金属框/玻璃反射SVG，收藏按钮在剧情中进入调查，未满足条件禁用并解释条件。元数据写入失败撤回镜片和来源缓存，恢复存储后重试；无镜片的旧收藏不凭空获得，不用无关已完成结局充作镜片来源。22自动回声ID及保护原文/旧routes/endings/flags保留，新增anomaly_cracked_mirror普通物件节点。
+
+获取/来源/片刻/纸页分流/重复/保存失败和恢复/旧收藏专项、Phase6十四项、Story20章、Claude保护、Story独立保存、21梦长线、兑换与世界线事实回归通过。三宽度原生后期获取、独立模型无标题遮挡、早期SHOW、Space/QUICK SAVE/LOAD/BACK/双语、纸页读取及刷新通过，后续仍需公开验收。完整连续性/视觉UI/NPC/重大碰撞/成就壁纸、其他历史扩展与公网AI仍欠，目标active。
+
+### 0.13.131 本地追加验收
+
+最终来源约束已校验：仅镜片所属的已完成世界线可开早期入口；无关结局、当前世界线、未完成记录、循环终止、序章未完均不满足。元数据anomalyOrigins可选且旧档默认空，保存失败回滚新来源。409资源与私密路径屏蔽通过。最终三宽度原生取得/收藏模型/早期SHOW/安静片刻/保存加载回退双语/连续性碎页/刷新通过；22自动回声、世界线事实和相关保存回归通过。没有将本批镜片钥匙算作全部连续性长线完成。
