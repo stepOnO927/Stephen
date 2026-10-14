@@ -1456,3 +1456,12 @@ GitHub Pages #87 Success，部署任务6m21s。提交eb6de9b692971ea3ab09b9e7328
 - 单独核对DreamData分类为30 Jack、25 creature、10 shared、10 unknown，共75；五个major及原文本/15原选择未删除。五个空间/15对象可达、严禁墙外/非法动作、无现实副作用、旧/坏checkpoint迁移、进化/Host与缺席身体门槛专项通过；旧major直接choose流程仍通过，不强制旧档先探索。
 - 405源码资源加载与私密路径404、15原mega综合、Claude原文hash与scene/ending/flag保护、继承/世界地图、准确更新日志及3724语言源/469剧情节点回归通过。源包abyss-lab-0.13.125-preview.zip明确白名单不含真实.env/密钥/玩家档。
 - 本批完成五个major可探索核心；秘密梦路线完整回调/物理象征物可见实装、逆向环境音及完整连续性碰撞長线仍须原规格核对，不以75目录数量代表所有梦与历史扩展完成。其余正式美术/历史欠项/真实公开AI审批亦继续，整体goal active；无付费AI测试。
+
+## 0.13.126-preview — 梦境轮廓的现实旧物与跨代陈列
+- 原Mega Expansion60要求Red Key/Glass Shell/White Flower/Empty Photograph等梦内符号后来在现实出现，但保持不确定。旧Dreams.observe只在crater+梦夜给第一个physical字符串，没有可见物件、来源和模型，next又清空。新增js/dreamArtifacts.js四个独立有材质/阴影的矢量物件与各自普通物件记录，档案室前方实际陈列柜及梦记录/档案室的同一世界物件预览；不授标准库存、资金/属性奖励或结局/Host等解释flag。
+- 继续使用已梦中过open/take获得的原items、白色陨坑记录与真正合格梦夜；改为每合格实验室夜登记一个未比对符号，四个皆可出现，外出/现场/驾车/缺crater/Story不登记。已存在同ID世界实物只更新当前个体的比对标记、不复制物件或重写发现日期。保留原“记录没有写证实”的措辞，各自物件名区分条目；不确认梦是真实记忆。
+- home.dreamArtifacts可选四ID唯一世界记录id/day/dream/generation，经已有home clone跨代保留；新个体dreams.items/physical/history仍fresh，不继承原人的梦。新登记实际日/代数，origin仅从真实对应item且open/take历史找；旧physical标记迁移可见物件但日期/代数/梦源为null，不编造。未知ID丢弃，坏日期/来源/代数保持物件但以未记录呈现，强去重避免刷新复制。
+- 四模型分别金属红钥匙/有气泡玻璃贝壳/白花罩/空白照片，四SVG样式/命名资源不同；柜体落在档案室地板上，物件脚点按台面透视斜率排列，不漂浮；旧低等级/封闭房间规则保留。卡片默认84px模型+名称日期，物件说明与来源放可展开记录，small逐行，修正初版代数与来源连字/长卡片拥挤。
+- 新专项由四次真正Dreams.choose获得四符号，再四个真正Engine休息夜登记，save/load日期/代数/梦源准确；一物一次、无库存奖励、查看不动AP/币/RNG/库存、四不同模型/房间柜、next保持世界物件而个人dreams空、已存物件再次比对不复制、五禁入条件、旧/伪/重复/坏资料迁移通过。初真实保存发现新代数校验被文本替换误置null，已修实际读取器并重跑，不改期望隐藏问题。
+- 本地1366/768/390四次原生休息/梦醒/档案室实际模型与柜体/刷新/中英/只读状态/RNG/唯一SVG资源ID通过；随后紧凑折叠记录、房间物件属性和Story守门更新，最终公网需复核这版。405→406源码资源待检，五可行走梦/15mega/Claude保护hash/继承档案/世界地图/语言/更新日志相关回归通过。
+- 同时移除125字符串替换在Dreams.observe内留下的不可达重复空间校验（该分支active先return，未触发引用r错误），原active checkpoint读取校验保留。未改原75梦文本/CG或主线scene/route/ending/flag。整体goal active，其他历史梦路线/逆向环境声/连续性长线、正式美术与公开AI审批仍须完成；无.env/密钥/真实玩家档访问，无付费AI测试。
