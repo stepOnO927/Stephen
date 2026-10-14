@@ -1252,3 +1252,20 @@ ContinuityNPCs新增10独立中英场景：Elias Ward、Mara Quinn、Old Finch�
 真正story:person talk后，已完成的不同世界线npcContacts中该确切ID必须met=true且非接班人；当前本人须存活且非替代者、循环未终止、无其他pending。本周目每人一次，原普通交谈及其合法记录继续发生，回声不另给资源/关系/能力；NPC回声占用既有可保存/回退正常对白框。窗口交接自动关闭人物弹窗，读完仍回原剧情行。无旧关系值复制，无角色复活或死者替代者身份混用。
 
 结束快照新增可选npcContacts，仅实际visited人员，记录met/personal/replaced事实，旧全局世界线缺少此字段不补造。10条件实际Story命令/落盘/重复/死亡/接班/当前/未完成/破环/养成排除专项、镜片/Claude保护/Story20章通过。三宽度30原生人物列表/滤镜/分页交谈与已有肖像、Space/QUICK SAVE/LOAD/BACK/精确双语/刷新通过，无脚本错误、溢出或关系/资源继承。继续欠其余角色/重大碰撞/结局完整回收/成就壁纸、其他历史扩展和真正公网AI，目标active。
+
+### 0.13.133 公开验收回执（2026-10-14）
+
+游戏提交b713bef55b5d5636b69babc53770be8541acdd33，Pages38649263933 completed/success。公开index与5外置CG逐字节匹配；1366/768/390三宽度十名人物共30次原生人物列表/过滤/分页/交谈与肖像、窗口关闭切入安静回声、Space/QUICK SAVE/LOAD/BACK/精确双语/刷新全部通过；没有脚本错误、溢出、旧信任/新身体关系或额外资源继承。411源码资源与私密路径屏蔽通过。NPC来源/真实结束快照/重复/死者接班/当前/未完成/破环/养成排除专项及镜片/22自动回声/保护文本/Story20章/语言回归通过。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.133
+下载：../abyss-lab-0.13.133-preview.zip（白名单源码/正式资源/测试/文档，无.env、密钥、真实玩家存档或真实审批记录）。本批实现十名人员的具体回声，不把NPC全部扩展或重大碰撞/结局完整回收算完成。旧结束记录缺少npcContacts时仍无凭空接触证明，未来实际结束才记录新事实。其余历史任务及真正公网AI审批/限额继续欠，目标active。
+
+## 0.13.134-preview · 重大世界线碰撞（本地验收，待公开）
+
+按原MEGA Part75–77接入五个有序连续片段，共23句中英文：collision_reports / collision_b07_death / collision_jack_first / collision_standing / collision_outcomes。后期章节16+、语言4、READ_continuity、ZERO_CHAMBER与原调查分值基础上，还需三个不同已完成结局，以及B-07死且Jack活、Jack死且B-07活的两个不同来源。version2优先真实deaths；旧记录才依照已知结局规范回退。保留全部旧结局门槛、Claude保护场景、route和flag，不改已有主线正文。
+
+真实连续性档案“并排核对矛盾记录”按钮触发，每次下一段；正常对白框显示正确说话者与逐行内容，保留三档粗口选择。23句逐步保存，quick/load/back/log/refresh恢复当前根ID+step+来源，读完回原行。新增可选continuity.collisions顺序回执；旧档默认空、不强制补播，坏step/乱序/自身来源丢弃。五段读完设置CONTINUITY_COLLISION_COMPLETE，无奖励、关系继承、死亡改写或资源扣除。
+
+修改index.source.html、js/continuityCollisions.js、continuity.js、continuityEchoes.js、storyMode.js、storyUI.js、story/player.js及版本/更新日志/测试清单。两项新增测试：continuity-collisions.test.cjs与continuity-collisions-browser.cjs。三宽度1366/768/390真实按钮、23句精确双语、Space、快速存读档、回退、日志、刷新、隐藏完成按钮和原剧情/资源/关系保持均通过，无溢出/脚本错误。最初空active测试夹具触发已有自动日常选择导致预期差异；改用真实life_battery节点后完整三宽度通过，没有为过测试改游戏逻辑。
+
+本批只补Part75–77连续核对场景，不把完整结局/成就/动态壁纸回收、所有NPC或其他历史扩展计为完成。Supabase用户已选择组织，但get_cost仍UNAVAILABLE，未创建项目/产生费用，真正公网AI审批仍未上线。配音仍待用户提供。目标active。

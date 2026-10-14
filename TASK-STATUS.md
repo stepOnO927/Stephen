@@ -1602,3 +1602,13 @@ ContinuityNPCs新增10独立中英场景：Elias Ward、Mara Quinn、Old Finch�
 
 公开：https://stepono927.github.io/Stephen/?release=0.13.133
 下载：../abyss-lab-0.13.133-preview.zip（白名单源码/正式资源/测试/文档，无.env、密钥、真实玩家存档或真实审批记录）。本批实现十名人员的具体回声，不把NPC全部扩展或重大碰撞/结局完整回收算完成。旧结束记录缺少npcContacts时仍无凭空接触证明，未来实际结束才记录新事实。其余历史任务及真正公网AI审批/限额继续欠，目标active。
+
+## 0.13.134-preview · 重大世界线碰撞（本地验收，待公开）
+
+按原MEGA Part75–77接入五个有序连续片段，共23句中英文：collision_reports / collision_b07_death / collision_jack_first / collision_standing / collision_outcomes。后期章节16+、语言4、READ_continuity、ZERO_CHAMBER与原调查分值基础上，还需三个不同已完成结局，以及B-07死且Jack活、Jack死且B-07活的两个不同来源。version2优先真实deaths；旧记录才依照已知结局规范回退。保留全部旧结局门槛、Claude保护场景、route和flag，不改已有主线正文。
+
+真实连续性档案“并排核对矛盾记录”按钮触发，每次下一段；正常对白框显示正确说话者与逐行内容，保留三档粗口选择。23句逐步保存，quick/load/back/log/refresh恢复当前根ID+step+来源，读完回原行。新增可选continuity.collisions顺序回执；旧档默认空、不强制补播，坏step/乱序/自身来源丢弃。五段读完设置CONTINUITY_COLLISION_COMPLETE，无奖励、关系继承、死亡改写或资源扣除。
+
+修改index.source.html、js/continuityCollisions.js、continuity.js、continuityEchoes.js、storyMode.js、storyUI.js、story/player.js及版本/更新日志/测试清单。两项新增测试：continuity-collisions.test.cjs与continuity-collisions-browser.cjs。三宽度1366/768/390真实按钮、23句精确双语、Space、快速存读档、回退、日志、刷新、隐藏完成按钮和原剧情/资源/关系保持均通过，无溢出/脚本错误。最初空active测试夹具触发已有自动日常选择导致预期差异；改用真实life_battery节点后完整三宽度通过，没有为过测试改游戏逻辑。
+
+本批只补Part75–77连续核对场景，不把完整结局/成就/动态壁纸回收、所有NPC或其他历史扩展计为完成。Supabase用户已选择组织，但get_cost仍UNAVAILABLE，未创建项目/产生费用，真正公网AI审批仍未上线。配音仍待用户提供。目标active。
