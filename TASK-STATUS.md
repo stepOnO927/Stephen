@@ -1535,3 +1535,11 @@ Part66补known_switch：真实完成旧世界线带首词时，仅新线day<=5�
 ### 0.13.130 本地验收追加
 
 真实NEW STORY命令推进至day3，pending=known_switch；语言仍<=1且本身体firstWord=null。无旧记录及day>5拒绝开关片刻，低语言阶段拒绝声音回调。22条件专项、世界线事实、Claude保护、21梦长线、Story20章节、10独立Story保存位置和语言检查通过。1366/768/390下22个片刻共66次原生对白、精确双语、Space、QUICK SAVE/LOAD、BACK、LOG及AUTO/已读SKIP通过，无脚本错误或横向溢出。
+
+### 0.13.130 公开验收回执（2026-10-14）
+
+游戏提交505ca6a41b8202509215209b0e299d0fd0324073，Pages38629480533 completed/success。公开index与5外置CG逐字节匹配；1366/768/390三宽度22个片刻共66次原生对白、精确中英、Space、QUICK SAVE/LOAD、BACK、LOG、AUTO及已读SKIP全部通过，无脚本错误/横向溢出。真实NEW STORY至day3的开关片刻及当前首词仍为空在引擎专项中通过；保护原文/路线/存档未删除。此证据只覆盖本批早期回声，不代表Part70等完整连续性或所有历史扩展完成。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.130
+下载：../abyss-lab-0.13.130-preview.zip（白名单游戏源码/资源/测试/文档，不含.env、真实存档/密钥）。
+下一项已查明：StoryFiles.mirror为chapter16；StoryMode.command与StoryUI两个入口都用章节条件，Meta当前16个异常物件没有cracked_mirror。Part70须加入真实获取、兼容读取/全收藏/展示、共同入口条件和对应选择，不能只降低mirror章节或假设兑换授权等于完成世界线。其余UI异常、NPC/碰撞长线、成就/动态壁纸及公网AI等仍欠，目标active。
