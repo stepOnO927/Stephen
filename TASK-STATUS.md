@@ -1612,3 +1612,9 @@ ContinuityNPCs新增10独立中英场景：Elias Ward、Mara Quinn、Old Finch�
 修改index.source.html、js/continuityCollisions.js、continuity.js、continuityEchoes.js、storyMode.js、storyUI.js、story/player.js及版本/更新日志/测试清单。两项新增测试：continuity-collisions.test.cjs与continuity-collisions-browser.cjs。三宽度1366/768/390真实按钮、23句精确双语、Space、快速存读档、回退、日志、刷新、隐藏完成按钮和原剧情/资源/关系保持均通过，无溢出/脚本错误。最初空active测试夹具触发已有自动日常选择导致预期差异；改用真实life_battery节点后完整三宽度通过，没有为过测试改游戏逻辑。
 
 本批只补Part75–77连续核对场景，不把完整结局/成就/动态壁纸回收、所有NPC或其他历史扩展计为完成。Supabase用户已选择组织，但get_cost仍UNAVAILABLE，未创建项目/产生费用，真正公网AI审批仍未上线。配音仍待用户提供。目标active。
+### 0.13.134 公开验收回执（2026-10-14）
+
+游戏提交c53e25a82dc71be6a2b3310702a98daf64aa07eb，Pages38654802169 completed/success。公开index与5张外置CG逐字节匹配；1366/768/390三宽度各五次真实档案核对、23句精确双语，Space/QUICK SAVE/LOAD/BACK/LOG/刷新恢复全部通过。完整五段回执有序，完成按钮隐藏，原剧情位置/关系/资源未变，无横向溢出或脚本错误。最终构建本地三宽度同样通过。412源码资源/私密路径屏蔽、实际死亡来源优先及旧档回退、保护文本/20章/已有回声回归通过。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.134
+文件：../abyss-lab-0.13.134-preview.zip（1712白名单文件，未包含.env、密钥、真实玩家存档或审批记录）。重大碰撞五段完成；完整结局回收/成就/动态壁纸、其他角色和历史扩展、真实公网AI主机审批仍未完成。Supabase get_cost工具本轮再次明确UNAVAILABLE，未创建项目或产生费用。目标仍active。
