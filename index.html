@@ -1243,7 +1243,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.146-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.147-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6193,6 +6193,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "晚报记住白天的变化": "Evening Reports Remember the Day",
+  "当天报告新增已观察到的人物健康、生命状态和新闻变化摘要；同一天保留首次观察值与最新值，休息后仍可在历史晚报查看。远处人物、潜伏病况与来源原文不混入。": "Daily reports now summarize observed health, life-status and news changes, retaining the first and latest observations within the day. They remain in evening history after rest. Remote people, latent conditions and source text are excluded.",
+  "本地存档增加无损压缩，完整保留人物与新闻记录，普通导出格式不变；旧格式仍可读取，损坏记录可恢复备份。五个大型存档及60天不同变化的容量测试通过。": "Local saves gain lossless compression while retaining full people and news records. Portable exports stay unchanged, old formats remain readable, and malformed records can recover from backup. Capacity testing passes with five mature slots and 60 days of distinct changes.",
+  "27房间及历史大型扩展统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。": "Unified acceptance of all 27 rooms and historical expansions, other final artwork and long story arcs, and live public AI approval remain incomplete.",
   "车库维修与途中停车修正": "Garage Repairs and Roadside Stops",
   "维修会检查实际独立部件与滤芯、雨刷损坏，不再因总车况100%误报修满；按钮显示本次真实修复量和费用，满状态与资金不足不可点击。": "Repairs inspect individual components, filters and wipers instead of falsely reporting full condition when the hull is at 100%. Buttons show actual repair quantity and cost, and disable for full condition or insufficient funds.",
   "途中停车不能在出发地车库换车；无车时隐藏车辆状态、昵称与维修操作，阻止虚构车库记录，并补齐核心公路失败提示的中文。": "A roadside stop no longer lets you swap vehicles at the origin garage. Without an owned vehicle, vehicle status, nickname and service controls are hidden, phantom garage records are blocked, and core road failure messages are localized.",
@@ -8108,6 +8112,7 @@ Abyss.EnglishCatalog={
   "库存天数为按当前配置估算，不是保证。": "Stock duration is an estimate from the current setup, not a guarantee.",
   "读完": "Read",
   "略过并归档": "Skip and archive",
+  "当日已观察变化": "Changes observed today",
   "晚间记录": "Evening notes",
   "夜间结果": "Overnight results",
   "跨日汇总": "Multi-day summary",
@@ -30740,12 +30745,12 @@ Abyss.LabNightDetails=(()=>{
  const named=id=>Abyss.StreetData.people.some(p=>p.id===id);
  const topic=n=>Abyss.NewsData.some(d=>d.number===n);
  const empty=()=>({npc:[],weather:null,news:[]});
- function unpack(raw,names){if(raw?.version!==1)return raw;const ids=Array.isArray(names)?names:[];
+ function unpack(raw,names,groups){if(raw?.version===2){if(!Array.isArray(groups)||groups.length>60||!Number.isInteger(raw.ref)||raw.ref<0||raw.ref>=groups.length||groups[raw.ref]?.version!==1)return undefined;raw=groups[raw.ref];}if(raw?.version!==1)return raw;const ids=Array.isArray(names)?names:[];
   const npc=(Array.isArray(raw.npc)?raw.npc:[]).map(n=>typeof n==='string'&&/^[0-9a-z]{1,11}$/.test(n)?parseInt(n,36):n).filter(n=>Number.isSafeInteger(n)&&n>=0).map(n=>{const values=[];for(const base of [10001,10001,13,13,2,2]){values.push(n%base);n=Math.floor(n/base);}return {id:ids[n],beforeHealth:values[0]/100,afterHealth:values[1]/100,beforeCases:values[2],afterCases:values[3],beforeAlive:!!values[4],afterAlive:!!values[5]};});
   const news=(Array.isArray(raw.news)?raw.news:[]).filter(n=>Number.isInteger(n)&&n>0&&n<5000).map(n=>{const number=n%91,code=Math.floor(n/91),before=code%7,after=Math.floor(code/7);return after?{number,kind:'CHAIN',before:before?statuses[before-1]:null,after:statuses[after-1]}:{number,kind:'BULLETIN'};});
   return {npc,weather:raw.weather,news};
  }
- function read(raw,names){raw=unpack(raw,names);const out=empty();if(!raw||typeof raw!=='object')return out;
+ function read(raw,names,groups){raw=unpack(raw,names,groups);const out=empty();if(!raw||typeof raw!=='object')return out;
   const used=new Set();for(const r of (Array.isArray(raw.npc)?raw.npc:[]).slice(0,256)){
    if(!r||!named(r.id)||used.has(r.id)||!number(r.beforeHealth)||!number(r.afterHealth)||!count(r.beforeCases)||!count(r.afterCases)||typeof r.beforeAlive!=='boolean'||typeof r.afterAlive!=='boolean')continue;
    used.add(r.id);out.npc.push({id:r.id,beforeHealth:r.beforeHealth,afterHealth:r.afterHealth,beforeCases:r.beforeCases,afterCases:r.afterCases,beforeAlive:r.beforeAlive,afterAlive:r.afterAlive});
@@ -30760,13 +30765,13 @@ Abyss.LabNightDetails=(()=>{
  }
  // Compact only the storage boundary. The live game and exports keep named fields.
  // IDs are saved in a per-save dictionary, never derived from catalog ordering.
- function packState(s){if(!s.operations?.nights?.some(n=>n.details))return s;const names=[],nights=s.operations.nights.map(n=>{if(!n.details)return n;const d=read(n.details);
+ function packState(s){if(!s.operations?.nights?.some(n=>n.details)&&!s.operations?.reports?.some(r=>r.changes))return s;const names=[],dayChangeGroups=[],groupIndex=new Map();function packDetails(details){const d=read(details);
    const npc=d.npc.map(r=>{let index=names.indexOf(r.id);if(index<0){index=names.length;names.push(r.id);}const values=[Math.round(r.beforeHealth*100),Math.round(r.afterHealth*100),r.beforeCases,r.afterCases,+r.beforeAlive,+r.afterAlive,index],bases=[10001,10001,13,13,2,2];let packed=values.at(-1);for(let i=bases.length-1;i>=0;i--)packed=packed*bases[i]+values[i];return packed.toString(36);});
    const news=d.news.map(r=>r.number+(r.kind==='CHAIN'?91*((r.before?statuses.indexOf(r.before)+1:0)+7*(statuses.indexOf(r.after)+1)):0));
-   return {...n,details:{version:1,npc,weather:d.weather,news}};
-  });return {...s,operations:{...s.operations,nights,nightDetailsNames:names}};
+   return {version:1,npc,weather:d.weather,news};}
+  const nights=s.operations.nights.map(n=>n.details?{...n,details:packDetails(n.details)}:n),reports=s.operations.reports.map(r=>{if(!r.changes)return r;const detail=packDetails(r.changes),key=JSON.stringify(detail);let ref=groupIndex.get(key);if(ref===undefined){ref=dayChangeGroups.length;dayChangeGroups.push(detail);groupIndex.set(key,ref);}return {...r,changes:{version:2,ref}};});return {...s,operations:{...s.operations,nights,reports,nightDetailsNames:names,...(dayChangeGroups.length?{dayChangeGroups}:{})}};
  }
- function capture(before,s){const out=empty(),round=n=>+n.toFixed(2),I=Abyss.Infirmary;
+ function capture(before,s,includeSameDay=false){const out=empty(),round=n=>+n.toFixed(2),I=Abyss.Infirmary;
   // Union catches a resident or admitted patient who dies/leaves during this span.
   const ids=new Set([...before.infirmary.patients,...s.infirmary.patients].filter(p=>p.hostType==='NPC'&&(Abyss.LabOperations.npcAtLab(before,p.id)||Abyss.LabOperations.npcAtLab(s,p.id))).map(p=>p.id));
   for(const id of ids){if(!named(id))continue;const a=before.infirmary.patients.find(p=>p.id===id),b=s.infirmary.patients.find(p=>p.id===id);if(!a||!b)continue;
@@ -30779,17 +30784,19 @@ Abyss.LabNightDetails=(()=>{
   const a=weather(before),b=weather(s);if(a.id!==b.id||a.temperature!==b.temperature)out.weather={before:a,after:b};
   for(const r of s.infirmary.newsChains.records){const old=before.infirmary.newsChains.records.find(x=>x.number===r.number);if(!old||old.status!==r.status)out.news.push({number:r.number,kind:'CHAIN',before:old?.status||null,after:r.status});}
   const previous=new Set(before.infirmary.newsHistory.map(r=>[r.day,r.number,r.actor].join(':'))),used=new Set(out.news.map(r=>r.number));
-  for(const r of s.infirmary.newsHistory)if(r.day>before.day&&r.day<=s.day&&!previous.has([r.day,r.number,r.actor].join(':'))&&!used.has(r.number)){out.news.push({number:r.number,kind:'BULLETIN'});used.add(r.number);}
+  for(const r of s.infirmary.newsHistory)if((includeSameDay?r.day>=before.day:r.day>before.day)&&r.day<=s.day&&!previous.has([r.day,r.number,r.actor].join(':'))&&!used.has(r.number)){out.news.push({number:r.number,kind:'BULLETIN'});used.add(r.number);}
   return read(out);
  }
- function html(details){const d=read(details),en=Abyss.I18n.language()==='en',t=(zh,enText)=>en?enText:zh,esc=Abyss.Util.escape;
+ function merge(first,next){const a=read(first),b=read(next),npc=new Map(a.npc.map(r=>[r.id,r])),news=new Map(a.news.map(r=>[r.number,r]));for(const r of b.npc){const old=npc.get(r.id);npc.set(r.id,old?{...r,beforeHealth:old.beforeHealth,beforeCases:old.beforeCases,beforeAlive:old.beforeAlive}:r);}for(const r of b.news){const old=news.get(r.number);if(old?.kind==='CHAIN'&&r.kind==='BULLETIN')continue;news.set(r.number,r.kind==='CHAIN'&&old?.kind==='CHAIN'?{...r,before:old.before}:r);}return read({npc:[...npc.values()],weather:null,news:[...news.values()]});}
+ function html(details,presentation='night'){
+const d=read(details),en=Abyss.I18n.language()==='en',t=(zh,enText)=>en?enText:zh,esc=Abyss.Util.escape;
   const status=id=>t(...({OPEN:['已收到','Received'],WAITING:['等待后续','Waiting'],FOLLOWUP:['后续可回应','Follow-up available'],RESOLVING:['处理中','Resolving'],CLOSED:['本轮已结束','Closed'],EXPIRED:['回应期限已过','Response window expired']}[id]||['新增','New']));
   const npc=d.npc.map(r=>'<p>'+esc(Abyss.StreetData.people.find(p=>p.id===r.id).name)+' · HP '+r.beforeHealth+' → '+r.afterHealth+' · '+t('活动病例','Active cases')+' '+r.beforeCases+' → '+r.afterCases+(r.beforeAlive&&!r.afterAlive?' · '+t('生命记录已封存','Life record archived'):'')+'</p>').join('');
   const weather=w=>{const found=Abyss.ClimateData.weather.find(p=>p.id===w.id);return esc(en?found.en:found.name)+' '+w.temperature+'°C';};
   const news=d.news.map(r=>'<p>#'+r.number+' · '+(r.kind==='CHAIN'?(r.before?status(r.before):t('未收到','Not received'))+' → '+status(r.after):t('新增已确认播报','New confirmed bulletin'))+'</p>').join('');
-  return (npc?'<section data-night-detail="npc"><h4>'+t('在实验室的人','People at the laboratory')+'</h4>'+npc+'</section>':'')+(d.weather?'<section data-night-detail="weather"><h4>'+t('实验室外的天气','Weather outside the laboratory')+'</h4><p>'+weather(d.weather.before)+' → '+weather(d.weather.after)+'</p></section>':'')+(news?'<section data-night-detail="news"><h4>'+t('新闻变化摘要','News changes')+'</h4>'+news+'</section>':'');
+  return (npc?'<section data-'+(presentation==='day'?'day':'night')+'-detail="npc"><h4>'+t('在实验室的人','People at the laboratory')+'</h4>'+npc+'</section>':'')+(d.weather?'<section data-'+(presentation==='day'?'day':'night')+'-detail="weather"><h4>'+t('实验室外的天气','Weather outside the laboratory')+'</h4><p>'+weather(d.weather.before)+' → '+weather(d.weather.after)+'</p></section>':'')+(news?'<section data-'+(presentation==='day'?'day':'night')+'-detail="news"><h4>'+t('新闻变化摘要','News changes')+'</h4>'+news+'</section>':'');
  }
- return {empty,read,capture,html,packState};
+ return {empty,read,capture,html,packState,merge};
 })();
 
 </script>
@@ -31104,7 +31111,7 @@ Abyss.LabOperationsState=(()=>{
   o.routines=(Array.isArray(r.routines)?r.routines:[]).filter(p=>p&&D.duties.some(d=>d.id===p.action)&&Abyss.HomeData.rooms.some(d=>d.id===p.location)).slice(-40).map(p=>({routineId:text(p.routineId,80),subject:text(p.subject,80),action:p.action,timePreference:['morning','evening'].includes(p.timePreference)?p.timePreference:'morning',location:p.location,frequency:Math.floor(bounded(p.frequency,0,999)),strength:bounded(p.strength,0,100),interrupted:p.interrupted===true,...(p.interrupted===true&&Object.hasOwn(Abyss.LabRoutineTransitions.reasons,p.interruptionReason)?{interruptionReason:p.interruptionReason}:{}),...(Number.isInteger(p.lastTransitionDay)&&p.lastTransitionDay>0&&p.lastTransitionDay<=s.day?{lastTransitionDay:p.lastTransitionDay}:{})}));
   o.chains=(Array.isArray(r.chains)?r.chains:[]).filter(c=>D.chains.some(d=>d.id===c.id)&&Number.isInteger(c.start)&&c.start<=s.day).slice(-8).map(c=>({id:c.id,start:c.start,stage:Math.floor(bounded(c.stage,0,2)),resolved:c.resolved===true}));
   o.notes=(Array.isArray(r.notes)?r.notes:[]).filter(p=>p&&Number.isInteger(p.day)&&p.day<=s.day).slice(-100).map(p=>({day:p.day,room:text(p.room,40),zh:text(p.zh),en:text(p.en),kind:text(p.kind,30)}));
-  o.reports=(Array.isArray(r.reports)?r.reports:[]).filter(p=>p&&Number.isInteger(p.day)&&p.day>0&&p.day<=s.day&&snapshot(p.snapshot)).slice(-60).map(p=>({day:p.day,...(p.phase==='EVENING'&&Number.isInteger(p.closedOn)&&p.closedOn>p.day&&p.closedOn<=s.day?{phase:'EVENING',closedOn:p.closedOn}:{}),read:p.read===true,presented:p.presented===true||p.read===true||p.archived===true,archived:p.archived===true,snapshot:snapshot(p.snapshot),evening:Array.isArray(p.evening)?p.evening.filter(x=>x&&typeof x==='object').slice(0,40).map(x=>({zh:text(x.zh),en:text(x.en),kind:text(x.kind,30)})):[]}));
+  o.reports=(Array.isArray(r.reports)?r.reports:[]).filter(p=>p&&Number.isInteger(p.day)&&p.day>0&&p.day<=s.day&&snapshot(p.snapshot)).slice(-60).map(p=>({day:p.day,...(p.changes?{changes:Abyss.LabNightDetails.read(p.changes,r.nightDetailsNames,r.dayChangeGroups)}:{}),...(p.phase==='EVENING'&&Number.isInteger(p.closedOn)&&p.closedOn>p.day&&p.closedOn<=s.day?{phase:'EVENING',closedOn:p.closedOn}:{}),read:p.read===true,presented:p.presented===true||p.read===true||p.archived===true,archived:p.archived===true,snapshot:snapshot(p.snapshot),evening:Array.isArray(p.evening)?p.evening.filter(x=>x&&typeof x==='object').slice(0,40).map(x=>({zh:text(x.zh),en:text(x.en),kind:text(x.kind,30)})):[]}));
   o.nights=Abyss.LabNightReport.read(r.nights,s,r.nightDetailsNames);
   o.seen=(Array.isArray(r.seen)?r.seen:[]).filter(x=>Abyss.LabEvents?.byId(x)).slice(-(Abyss.LabEvents?.rows.length||204));o.incidents=Abyss.LabRoomIncidents?.read(r.incidents,s);o.visitors=Abyss.LabVisitors?.read(r.visitors,s);o.trade=Abyss.LabTrade?.read(r.trade,s);
   o.policy=['medical','greenhouse','security','living'].includes(r.policy)?r.policy:'medical';
@@ -31307,6 +31314,7 @@ Abyss.LabOperations=(()=>{
   if(o.away&&atLab(s)){o.returnReport={day:s.day,days:s.day-o.away.day,read:false,resources:Object.fromEntries(Object.keys(o.away.resources).map(k=>[k,+(s.climate.labResources[k]-o.away.resources[k]).toFixed(1)])),notes:o.notes.filter(n=>n.day>=o.away.day).slice(-20),snapshot:summary(s)};note(s,'engineering','Jack回来检查了离开期间的记录。','Jack returns and checks the records kept while he was away.','return');o.away=null;}
   Abyss.LabPersonalRoutines.finish(before,s,c);Abyss.LabDutyObservations.finish(before,s);Abyss.LabOperationalMemories.finish(before,s,c);Abyss.LabNightReport.capture(before,s);
   if(!o.reports.some(r=>r.day===s.day))o.reports.push({day:s.day,read:false,presented:false,archived:false,snapshot:summary(s),evening:o.notes.filter(n=>n.day===s.day).map(n=>({zh:n.zh,en:n.en,kind:n.kind}))});
+  if(s.day===before.day){const delta=Abyss.LabNightDetails.capture(before,s,true);if(delta.npc.length||delta.news.length){const report=o.reports.find(r=>r.day===s.day);report.changes=Abyss.LabNightDetails.merge(report.changes,delta);}}
   o.reports=o.reports.slice(-60);
   if(c.type==='garden:harvest')o.firsts.harvest||=s.day;if(c.type==='medical:treat')o.firsts.patient||=s.day;if(s.climate.labResources.power<10)o.firsts.blackout||=s.day;
  }
@@ -33629,6 +33637,10 @@ return {restore,grantCG,grantWallpaper,selectWallpaper,grantColor,colorUnlocked:
 // Lossless JSON key dictionary at the storage boundary; exports and live state stay unchanged.
 ((root,factory)=>{const codec=factory();if(typeof module==='object'&&module.exports)module.exports=codec;if(root.Abyss)root.Abyss.LocalStoreCodec=codec;})(typeof globalThis==='object'?globalThis:this,()=>{
  const FORMAT='abyss-local-keys-v2',LEGACY_FORMAT='abyss-local-keys-v1',MAX_KEYS=10000,MAX_NODES=2000000,MAX_DEPTH=160;
+ const LZW_FORMAT='abyss-local-lzw-v1',MAX_TEXT=32*1024*1024,LZW_LIMIT=32768;
+ // Lossless synchronous compression only at localStorage's boundary; exports stay readable.
+ function compress(text){if(text.length<2000||text.length>MAX_TEXT)return null;const chars=[],seen=new Set();for(let i=0;i<text.length;i++){const c=text[i];if(!seen.has(c)){seen.add(c);chars.push(c);}}if(chars.length>=LZW_LIMIT-1)return null;const clear=chars.length,seed=()=>new Map(chars.map((c,i)=>[c,i]));let dict=seed(),next=clear+1,w=text[0];const out=[],emit=n=>out.push(String.fromCharCode(n+256));for(let i=1;i<text.length;i++){const c=text[i],wc=w+c;if(dict.has(wc))w=wc;else{emit(dict.get(w));if(next<LZW_LIMIT)dict.set(wc,next++);else{emit(clear);dict=seed();next=clear+1;}w=c;}}emit(dict.get(w));return {format:LZW_FORMAT,alphabet:chars.join(''),data:out.join('')};}
+ function decompress(raw){if(typeof raw.alphabet!=='string'||!raw.alphabet.length||raw.alphabet.length>=LZW_LIMIT-1||typeof raw.data!=='string'||!raw.data.length||raw.data.length>MAX_TEXT)throw new TypeError('Invalid compressed local save');const chars=raw.alphabet.split('');if(new Set(chars).size!==chars.length)throw new TypeError('Duplicate compression alphabet');const clear=chars.length;let dict=chars.slice(),next=clear+1,previous='',length=0;const out=[];for(let i=0;i<raw.data.length;i++){const code=raw.data.charCodeAt(i)-256;if(code<0||code>=LZW_LIMIT)throw new TypeError('Invalid compression token');if(code===clear){if(!previous||next<LZW_LIMIT)throw new TypeError('Unexpected dictionary reset');dict=chars.slice();next=clear+1;previous='';continue;}const entry=code<dict.length?dict[code]:code===next&&previous?previous+previous[0]:undefined;if(typeof entry!=='string')throw new TypeError('Invalid compression reference');length+=entry.length;if(length>MAX_TEXT)throw new RangeError('Expanded local save exceeds limits');out.push(entry);if(previous&&next<LZW_LIMIT)dict[next++]=previous+entry[0];previous=entry;}return out.join('');}
  const leaf=v=>v===null||typeof v==='string'||typeof v==='boolean'||typeof v==='number'&&Number.isFinite(v);
  function pack(value){const keys=[],indices=new Map(),counts=new Map(),strings=[],stringIndices=new Map();let nodes=0;
   const count=(v,depth)=>{if(++nodes>MAX_NODES||depth>MAX_DEPTH)throw new RangeError('Local save exceeds structural limits');if(typeof v==='string'){if(v.length>=12)counts.set(v,(counts.get(v)||0)+1);return;}if(leaf(v))return;if(!v||typeof v!=='object')throw new TypeError('Local save must contain JSON values');for(const item of Array.isArray(v)?v:Object.values(v))count(item,depth+1);};count(value,0);
@@ -33637,7 +33649,7 @@ return {restore,grantCG,grantWallpaper,selectWallpaper,grantColor,colorUnlocked:
    const pairs=Object.entries(v).map(([key,item])=>{if(!indices.has(key)){if(keys.length>=MAX_KEYS)throw new RangeError('Too many local save keys');indices.set(key,keys.length);keys.push(key);}return [indices.get(key),walk(item,depth+1)];});return pairs.length>=4?{o:pairs.flatMap(pair=>pair)}:Object.fromEntries(pairs);
   };return {format:FORMAT,keys,strings,data:walk(value,0)};
  }
- function unpack(raw){if(raw?.format!==FORMAT&&raw?.format!==LEGACY_FORMAT)return raw;
+ function unpack(raw){if(raw?.format===LZW_FORMAT){raw=JSON.parse(decompress(raw));if(raw?.format===LZW_FORMAT)throw new TypeError('Nested compressed local save');}if(raw?.format!==FORMAT&&raw?.format!==LEGACY_FORMAT)return raw;
   const strings=raw.format===FORMAT?raw.strings:[];if(!Array.isArray(strings)||strings.length>MAX_KEYS||strings.some(s=>typeof s!=='string'||s.length>1000000)||new Set(strings).size!==strings.length)throw new TypeError('Invalid local save text dictionary');
   if(!Array.isArray(raw.keys)||raw.keys.length>MAX_KEYS||raw.keys.some(k=>typeof k!=='string'||k.length>10000)||new Set(raw.keys).size!==raw.keys.length||!Object.hasOwn(raw,'data'))throw new TypeError('Invalid local save dictionary');let nodes=0;
   const walk=(v,depth)=>{if(++nodes>MAX_NODES||depth>MAX_DEPTH)throw new RangeError('Local save exceeds structural limits');if(leaf(v))return v;if(!v||typeof v!=='object')throw new TypeError('Invalid local save value');if(Array.isArray(v))return Array.from(v,x=>walk(x,depth+1));if(raw.format===FORMAT&&Object.hasOwn(v,'s')){if(Object.keys(v).length!==1||!Number.isSafeInteger(v.s)||v.s<0||v.s>=strings.length)throw new TypeError('Invalid local save text reference');return strings[v.s];}
@@ -33645,8 +33657,8 @@ return {restore,grantCG,grantWallpaper,selectWallpaper,grantColor,colorUnlocked:
    return Object.fromEntries(Object.entries(v).map(([code,item])=>{if(!/^(0|[1-9]\d*)$/.test(code)||!Number.isSafeInteger(Number(code))||Number(code)>=raw.keys.length)throw new TypeError('Invalid local save key reference');return [raw.keys[Number(code)],walk(item,depth+1)];}));
   };return walk(raw.data,0);
  }
- function stringify(value){const plain=JSON.stringify(value),packed=JSON.stringify(pack(JSON.parse(plain)));return packed.length<plain.length?packed:plain;}
- return Object.freeze({FORMAT,LEGACY_FORMAT,pack,unpack,stringify});
+ function stringify(value){const plain=JSON.stringify(value),packed=JSON.stringify(pack(JSON.parse(plain)));const base=packed.length<plain.length?packed:plain,lzw=compress(base);if(!lzw)return base;const encoded=JSON.stringify(lzw);return encoded.length<base.length?encoded:base;}
+ return Object.freeze({FORMAT,LEGACY_FORMAT,LZW_FORMAT,pack,unpack,stringify});
 });
 
 </script>
@@ -38122,6 +38134,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-15',version:'0.13.147-preview',title:t('晚报记住白天的变化','Evening Reports Remember the Day'),items:[t('当天报告新增已观察到的人物健康、生命状态和新闻变化摘要；同一天保留首次观察值与最新值，休息后仍可在历史晚报查看。远处人物、潜伏病况与来源原文不混入。','Daily reports now summarize observed health, life-status and news changes, retaining the first and latest observations within the day. They remain in evening history after rest. Remote people, latent conditions and source text are excluded.'),t('本地存档增加无损压缩，完整保留人物与新闻记录，普通导出格式不变；旧格式仍可读取，损坏记录可恢复备份。五个大型存档及60天不同变化的容量测试通过。','Local saves gain lossless compression while retaining full people and news records. Portable exports stay unchanged, old formats remain readable, and malformed records can recover from backup. Capacity testing passes with five mature slots and 60 days of distinct changes.')],pending:[t('27房间及历史大型扩展统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。','Unified acceptance of all 27 rooms and historical expansions, other final artwork and long story arcs, and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.146-preview',title:t('车库维修与途中停车修正','Garage Repairs and Roadside Stops'),items:[t('维修会检查实际独立部件与滤芯、雨刷损坏，不再因总车况100%误报修满；按钮显示本次真实修复量和费用，满状态与资金不足不可点击。','Repairs inspect individual components, filters and wipers instead of falsely reporting full condition when the hull is at 100%. Buttons show actual repair quantity and cost, and disable for full condition or insufficient funds.'),t('途中停车不能在出发地车库换车；无车时隐藏车辆状态、昵称与维修操作，阻止虚构车库记录，并补齐核心公路失败提示的中文。','A roadside stop no longer lets you swap vehicles at the origin garage. Without an owned vehicle, vehicle status, nickname and service controls are hidden, phantom garage records are blocked, and core road failure messages are localized.')],pending:[t('其余载具正式美术、历史扩展统一终验及真实公网AI审批仍未全部完成。','Other final vehicle artwork, unified historical expansion acceptance and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.145-preview',title:t('Jack在工作中学习','Jack Learns on the Job'),items:[t('烹饪、基础照护和植物照料从实际完成的值班中分别积累；失败、离岗、隔离、断电和休班不增长。成长后的能力影响真实值班成功率，不只是显示数字。','Cooking, basic care and plant care develop independently through completed shifts. Failed work, absence, isolation, power outages and time off grant no progress. Improved proficiency affects actual shift success, not just displayed numbers.'),t('排班页显示技能、实际成功班次与下一级门槛。旧档从无训练记录开始，技能随Jack保留至下一代零号；基础照护仍不能代替诊断和治疗。','The duty view shows proficiency, completed shifts and the next threshold. Old saves start without invented training history; Jack retains his skills across creature generations. Basic care still cannot replace diagnosis or treatment.')],pending:[t('实验室运营其余条款与27房间统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。','Remaining lab-operation clauses and unified acceptance of all 27 rooms, other final artwork and long story arcs, and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.144-preview',title:t('零号自己的值班安排','Zero’s Own Duty Decisions'),items:[t('零号会忘记步骤、休息、拿错工具、拒绝接班，或改去另一个可用空岗；实际效果、房间和习惯按真正发生的工作记录，拒绝不会先增加值班疲劳。','Zero may forget a step, rest, hand over the wrong tool, decline a shift or choose another available vacant task. Effects, rooms and routines follow the actual work; declining no longer adds shift fatigue first.'),t('新增双语值班记录，保存最近30天，每日不重复决定；旧档默认无历史，新个体不会继承上一只的决定。复核四种屏幕尺寸的狩猎菜单，内容滚动时菜单位置保持不变。','A bilingual duty record retains the last 30 days with no repeated daily decision. Old saves start without invented history; new individuals do not inherit previous decisions. The hunting menu remains stationary while content scrolls at four screen sizes.')],pending:[t('其余正式美术、人物长剧情、历史大型扩展统一终验和真实公网AI审批仍未全部完成。','Other final artwork, personal story arcs, full historical expansion acceptance and live public AI approval remain incomplete.')]},
@@ -39637,7 +39650,7 @@ Abyss.LabOperationsUI=(()=>{
    ['PETS',t('住户','Inhabitants'),n.pets.map(x=>`${esc(x.name)} · ${Math.round(x.health)} HP`).join('<br>')||'—'],
    ['TASKS',t('推荐事项','Suggested tasks'),n.tasks.map(x=>taskRow(s,x)).join('<br>')||t('没有紧急维修；安排休息也可以。','No urgent repair. Rest is an option.')]
   ];
-  return `${!r||r.day===s.day?alertPanel(s):''}<p class="ops-report-lead">DAY ${r?.day||s.day} · ${r?.phase==='EVENING'?t('已结算晚报','Final evening report'):t('晨报','Morning briefing')} · ${t('库存天数为按当前配置估算，不是保证。','Stock duration is an estimate from the current setup, not a guarantee.')}</p><div class="ops-report-grid">${sections.map(([id,name,body])=>`<article data-ops-section="${id}"><small>${id}</small><h3>${name}</h3><p>${body}</p></article>`).join('')}</div><div class="modal-buttons">${button('markReport',t('读完','Read'),{day:r?.day||s.day})}${button('markReport',t('略过并归档','Skip and archive'),{day:r?.day||s.day,archive:true})}</div><h3>${t('晚间记录','Evening notes')}</h3>${(r?.evening||[]).map(n=>`<p>${esc(t(n.zh,n.en))}</p>`).join('')||'<p>—</p>'}`;
+  return `${!r||r.day===s.day?alertPanel(s):''}<p class="ops-report-lead">DAY ${r?.day||s.day} · ${r?.phase==='EVENING'?t('已结算晚报','Final evening report'):t('晨报','Morning briefing')} · ${t('库存天数为按当前配置估算，不是保证。','Stock duration is an estimate from the current setup, not a guarantee.')}</p><div class="ops-report-grid">${sections.map(([id,name,body])=>`<article data-ops-section="${id}"><small>${id}</small><h3>${name}</h3><p>${body}</p></article>`).join('')}</div><div class="modal-buttons">${button('markReport',t('读完','Read'),{day:r?.day||s.day})}${button('markReport',t('略过并归档','Skip and archive'),{day:r?.day||s.day,archive:true})}</div>${r?.changes?'<section class="ops-day-changes"><h3>'+t('当日已观察变化','Changes observed today')+'</h3>'+Abyss.LabNightDetails.html(r.changes,'day')+'</section>':''}<h3>${t('晚间记录','Evening notes')}</h3>${(r?.evening||[]).map(n=>`<p>${esc(t(n.zh,n.en))}</p>`).join('')||'<p>—</p>'}`;
  }
  function open(view='report'){tab=view;render();}
  function night(s,n){return '<details class="ops-night-report"><summary>'+t('夜间结果','Overnight results')+' · D'+n.fromDay+' → D'+n.throughDay+(n.throughDay-n.fromDay>1?' · '+t('跨日汇总','Multi-day summary'):'')+'</summary><p>'+t('储备实际变化','Actual reserve changes')+': '+Object.entries(n.resources).map(([k,v])=>word(k)+' '+(v>0?'+':'')+v).join(' · ')+'</p><p>'+t('可收获植物','Ready plants')+' '+n.plants.readyBefore+' → '+n.plants.readyAfter+' · '+t('存活植物','Living plants')+' '+n.plants.aliveBefore+' → '+n.plants.aliveAfter+'</p><p>'+t('在场活动病例','Active cases present')+' '+n.patients.activeBefore+' → '+n.patients.activeAfter+' · '+t('危重病例','Critical cases')+' '+n.patients.criticalBefore+' → '+n.patients.criticalAfter+'</p>'+n.equipment.map(e=>'<p>'+label(Abyss.LabOperationsData.equipment.find(d=>d.id===e.id))+' '+e.before+' → '+e.after+'</p>').join('')+n.pets.map(p=>'<p>'+esc(s.pets.find(x=>x.id===p.id)?.name||t('宠物记录','Pet record'))+' · HP '+p.before+' → '+p.after+'</p>').join('')+'<p>'+t('已记录来访 / 离开','Recorded arrivals / departures')+' '+n.arrivals+' / '+n.departures+'</p>'+Abyss.LabNightDetails.html(n.details)+'</details>';}
