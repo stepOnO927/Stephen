@@ -1085,6 +1085,7 @@ body:not([data-section="home"]):not(.narrative-mode) .game-grid{display:none!imp
 .nav-docked-dialog.wardrobe-modal .accessory-inventory{grid-template-columns:repeat(auto-fit,minmax(88px,1fr));max-height:none;overflow:visible}
 .nav-docked-dialog.wardrobe-modal .accessory-thumbnail{height:56px}
 .nav-docked-dialog.wardrobe-modal .wardrobe-inventory-panel{min-width:0;overflow:visible}
+.nav-docked-dialog.wardrobe-modal #wardrobe-creature-mount{flex:0 0 220px;height:220px;min-height:220px}
 .nav-docked-dialog.wardrobe-modal .wardrobe-categories{position:static;max-height:none}
 .nav-docked-dialog.wardrobe-modal #modal-content{scroll-padding-top:8px}
 .nav-docked-dialog.wardrobe-modal #modal-content>.wardrobe-nav{position:static!important;box-shadow:none;padding:4px 0}
@@ -1094,7 +1095,7 @@ body:not([data-section="home"]):not(.narrative-mode) .game-grid{display:none!imp
  .nav-docked-dialog.wardrobe-modal .wardrobe-categories>small,.nav-docked-dialog.wardrobe-modal .wardrobe-set-note{display:none}
  .nav-docked-dialog.wardrobe-modal .wardrobe-categories button{padding:6px 9px;white-space:nowrap}
  .nav-docked-dialog.wardrobe-modal .wardrobe-preview{min-height:230px}
- .nav-docked-dialog.wardrobe-modal #wardrobe-creature-mount{height:160px;min-height:0}
+ .nav-docked-dialog.wardrobe-modal #wardrobe-creature-mount{flex-basis:160px;height:160px;min-height:160px}
  .nav-docked-dialog.wardrobe-modal .outfit-slots{grid-template-columns:repeat(3,minmax(0,1fr))}
  .nav-docked-dialog.wardrobe-modal .wardrobe-nav{display:block}
  .nav-docked-dialog.wardrobe-modal .wardrobe-mode-tabs{overflow-x:auto;padding-bottom:4px}
@@ -1242,7 +1243,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.140-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.141-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6192,6 +6193,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "十件面部装扮独立造型": "Ten Distinct Face Accessories",
+  "地下商店十件面部装扮改为各自的镜框、滤罐、漆面、裂纹、盐蚀和茶色玻璃；金丝单片镜只有一片，不再共用双椭圆模型。": "Ten underground face accessories now have distinct frames, filters, lacquer, cracks, salt wear and tea glass. The gold monocle has one lens instead of sharing the generic paired ovals.",
+  "镜片独立适配眼型，滤罐和镜桥保持位置；修复裂纹护镜底板遮眼、手机衣橱预览被压到零高度，并补齐六件狩猎眼镜的来源定位数据。": "Lenses fit the eyes independently while filters and bridges keep their positions. Cracked goggles no longer hide the eyes behind a solid backing, mobile wardrobe previews no longer collapse to zero height, and six hunting optics gain authored fitting coordinates.",
+  "其余正式美术、历史扩展、剩余676条独立日常和真实公开AI审批继续推进。": "Other final artwork, historical expansions, the remaining 676 independent ambient lines and live public AI approval remain in progress.",
   "服装裁切与镜片对齐修复": "Garment Cropping and Lens Alignment Repairs",
   "修正地下、天气与道路来源24件衣服的坐标，随九种体型调整衣摆；手套独立贴在双手上，预览不会再重排主页层级。": "Twenty-four underground, weather and road garments now use normalized source coordinates and body-specific hems. Gloves attach above the hands, and previews no longer reorder the main creature.",
   "20件眼镜按实际镜片中心对齐不同眼型；呼吸器保留口部位置。滚动正文时狩猎分类条保持原位，支持窄屏横向选择。": "Twenty optical accessories align their authored lens centers to changing eyes. Respirators retain their mouth position. The hunt category strip stays outside the scrolling content and supports horizontal selection on narrow screens.",
@@ -35361,7 +35366,9 @@ Abyss.AttachmentRig=(()=>{
  function fitOptics(group,item,s,id){
   const authored=item.visual.lenses;
   if(!authored&&!['monocle'].includes(item.visual.renderer)){fitFace(group,item,s,id);return;}
-  const lenses=authored||[{eye:'right',x:280,y:208,rx:27.5,ry:27.5}],v=profile(s).eyes?.variant||'normal';
+  const lenses=authored||[{eye:'right',x:280,y:208,rx:30,ry:30}],v=profile(s).eyes?.variant||'normal';
+  const independent=[...group.querySelectorAll('[data-fit-eye]')];
+  if(independent.length){for(const lens of lenses){const part=independent.find(g=>g.dataset.fitEye===lens.eye);if(!part)continue;const right=lens.eye==='right',x=right?280:199,[rx,ry]=Abyss.EyeArt.size(v,right),fit=document.createElementNS('http://www.w3.org/2000/svg','g');fit.dataset.lensFit=lens.eye;fit.dataset.lensEye=lens.eye;fit.dataset.lensSource=lens.x+','+lens.y;fit.setAttribute('transform','translate('+x+' 207) scale('+Math.max(.6,(rx+3)/lens.rx)+' '+Math.max(.6,(ry+3)/lens.ry)+') translate('+(-lens.x)+' '+(-lens.y)+')');part.before(fit);fit.append(part);}return;}
   const staging=document.createElementNS('http://www.w3.org/2000/svg','g');staging.innerHTML=group.innerHTML;group.innerHTML='';
   const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');group.append(defs);
   for(const old of staging.querySelectorAll('defs')){while(old.firstChild)defs.append(old.firstChild);old.remove();}
@@ -35734,6 +35741,48 @@ Abyss.WeatherArt=(()=>{
 })();
 
 </script>
+<script data-source="js/underground/faceArt.js">
+'use strict';
+// Named objects own their geometry; eye attachments never paint replacement eyes.
+Abyss.UndergroundFaceArt=(()=>{
+ let serial=0;
+ const names=['narrow-frames','gas-mask','dust-goggles','lacquer-halfmask','gold-monocle','cracked-goggles','filter-respirator','salt-diving-mask','second-layer-frames','tea-round-frames'];
+ const family=a=>Math.floor(a.visual.variant/7)%10;
+ function lenses(a){const f=family(a),ry=f===0?16:22+f%3*5;return (f===4?['right']:['left','right']).map(eye=>({eye,x:eye==='left'?199:280,y:207,rx:31,ry}));}
+ function geometry(a){const f=family(a),c=a.visual.color,t=a.visual.accent,id='ud-face-'+(++serial),r=22+f%3*5;
+  const path=(d,fill='none',stroke=c,w=2)=>'<path d="'+d+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+w+'" stroke-linejoin="round" stroke-linecap="round"/>',ellipse=(x,y,rx,ry,fill,stroke,w=2)=>'<ellipse cx="'+x+'" cy="'+y+'" rx="'+rx+'" ry="'+ry+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+w+'"/>',rect=(x,y,w,h,round,fill,stroke,sw=2)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+round+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'"/>';
+  const glass='url(#'+id+'-glass)',metal='url(#'+id+'-rim)';
+  const oval=(rx=31,ry=r)=>ellipse(0,2,rx+2,ry+2,'none','#10232c',5)+ellipse(0,0,rx,ry,glass,metal,4)+path('M-20-8q2-9 13-10','none','#d8e7df',1.5);
+  const box=(round=6)=>rect(-33,-r+2,66,r*2,round,'none','#10232c',4)+rect(-31,-r,62,r*2,round,glass,metal,3)+path('M-23 '+(-r+8)+'h17','none','#d8e7df',1.5);
+  function lens(eye){const right=eye==='right',x=right?280:199;let shape='';
+   if(f===0)shape=rect(-33,-15,66,32,5,'none','#10232c',4)+rect(-31,-16,62,32,4,glass,c,3)+path('M-27-10h18','none',t,1)+path((right?'M31 0l17-7':'M-31 0l-17-7'),'none',t,3);
+   if(f===1)shape=oval()+ellipse(0,0,27,r-4,'none','#161f26',2)+[[-25,-16],[25,-16],[-25,16],[25,16]].map(([x,y])=>ellipse(x,y,1.7,1.7,t,'none')).join('');
+   if(f===2)shape=path('M-31-'+(r-9)+'l12-9h39l11 12v'+(r*2-22)+'l-14 10h-37l-11-12z',glass,metal,4)+path('M-24-13l14-8m-6 43h22','none','#c4d3c3',1.5)+path(right?'M31 2l17 5':'M-31 2l-17 5','none','#675a49',5);
+   if(f===3)shape='<path fill-rule="evenodd" d="'+(right?'M-40-18Q-3-37 42-9L34 30 4 39-36 16Z':'M-42-9Q3-37 40-18L36 16-4 39-34 30Z')+'M31 0a31 22 0 1 0-62 0a31 22 0 1 0 62 0Z" fill="url(#'+id+'-lacquer)" stroke="#111b27" stroke-width="3"/>'+ellipse(0,0,31,22,glass,t,2)+path('M-25-26q24-8 43 0','none','#d5bda0',1);
+   if(f===4)shape=oval()+ellipse(0,0,27,r-4,'none','#e0c580',1)+path('M-28-5l-7-4m63 12 5 5','none',t,3);
+   if(f===5)shape=box(9)+rect(-37,-12,6,24,2,'#736d57',t,1)+rect(31,-12,6,24,2,'#736d57',t,1)+path(right?'M-18-29l12 14-9 7 14 19-7 17':'M20-29l-12 17 7 8-16 16 8 17','none','#c7ddd7',1.3);
+   if(f===6)shape=path('M-32-12l13-10h37l14 12v23L17 23h-35l-14-12Z',glass,metal,4)+path('M-23-10h14m-14 5h8','none',t,1.2)+ellipse(right?25:-25,17,3,3,'#313b32',t,1);
+   if(f===7)shape=oval()+path('M-29-12q14-14 24-11m17 47 11-7','none','#c6c8a1',3)+path('M-31 5l-8-1v-17h9m61 18 8-1v-17h-9','none','#5c796d',3)+ellipse(15,-12,3,1.5,'#d4dbca','none',0);
+   if(f===8)shape=rect(-34,-r+2,68,r*2,2,'none','#702d4b',3)+rect(-31,-r,62,r*2,2,glass,c,3)+path('M-27-23h10m-10 7h5m43 28h-9','none','#dfb3b2',1.3)+path('M-28 25h8m29-51h12','none',t,2);
+   if(f===9)shape=oval()+ellipse(0,0,27,r-4,'none','#8f704e',1)+path('M-30-2h-9m69 0h9','none','#c8ab7a',2)+path('M-17-12l6-3','none','#f4dfb2',1.3);
+   return '<g data-fit-eye="'+eye+'" transform="translate('+x+' 207)">'+shape+'</g>';
+  }
+  let fixed=path('M231 204q8-9 17 0','none',t,f===0?2:4);
+  if(f===1)fixed+=path('M174 232l19 28 29 15h36l29-15 20-28','none','#243a36',8)+path('M214 233l25-16 26 16-9 31h-34z','#334a44',c,3)+ellipse(239,248,13,12,'#172b2c',t,2)+[-7,0,7].map(y=>path('M231 '+(248+y)+'h16','none',c,2)).join('')+ellipse(182,265,17,21,metal,'#182d2c',3)+ellipse(297,265,17,21,metal,'#182d2c',3);
+  if(f===2)fixed+=path('M166 206l-13 5m160-5 13 5','none','#847659',6)+path('M234 228l5-5 5 5','none',t,2);
+  if(f===3)fixed+=path('M231 207l8-11 9 11-9 15Z',metal,'#251e2b',1);
+  if(f===4)fixed=path('M310 223q22 25 16 46t-11 35','none','#d5b46d',2)+ellipse(315,307,4,5,'none','#d5b46d',2);
+  if(f===5)fixed+=rect(233,198,12,15,3,'#343c38',t,1)+path('M162 202h-12m167 0h12','none','#524a3d',8);
+  if(f===6)fixed+=path('M222 231l17-9 18 9 4 25-22 12-22-12Z','#283e39',c,3)+rect(226,238,26,16,4,'#152e2d',t,1)+path('M224 257q-30 26-48 7m78-7q30 26 48 7','none','#23342d',8)+rect(156,250,23,32,4,metal,'#192a29',2)+rect(300,250,23,32,4,metal,'#192a29',2)+[255,262,269,276].map(y=>path('M159 '+y+'h17m127 0h17','none','#374a3e',2)).join('');
+  if(f===7)fixed+=path('M231 225l8-4 9 4-4 18h-10Z','#789c9c','#294e56',2)+path('M166 204l-15 8m162-8 15 8','none','#2d5359',7)+ellipse(239,244,3,3,'#bdc2aa','none');
+  if(f===8)fixed+=path('M229 198h21m-21 13h21','none','#a86577',1.5)+path('M163 204h-12m166 0h12','none','#b592b2',3);
+  if(f===9)fixed+=path('M167 205l-17-8m162 8 17-8','none','#b49b79',3)+ellipse(239,203,3,2,'#cab696','none');
+  return '<defs><linearGradient id="'+id+'-glass" x2=".8" y2="1"><stop stop-color="'+(f===9?'#c49a5c':'#b6d8d4')+'" stop-opacity=".2"/><stop offset=".43" stop-color="#d2e6dd" stop-opacity=".035"/><stop offset="1" stop-color="'+(f===9?'#543c27':'#29464e')+'" stop-opacity=".16"/></linearGradient><linearGradient id="'+id+'-rim" x2=".2" y2="1"><stop stop-color="'+t+'"/><stop offset=".35" stop-color="'+c+'"/><stop offset=".75" stop-color="#283a3c"/><stop offset="1" stop-color="'+c+'"/></linearGradient><linearGradient id="'+id+'-lacquer" x2=".4" y2="1"><stop stop-color="#6c4a63"/><stop offset=".45" stop-color="#291d34"/><stop offset="1" stop-color="#503746"/></linearGradient></defs><g data-face-model="'+names[f]+'">'+fixed+lenses(a).map(l=>lens(l.eye)).join('')+'</g>';
+ }
+ return {geometry,lenses,names};
+})();
+
+</script>
 <script data-source="js/underground/art.js">
 'use strict';
 // Procedural placeholders: silhouettes, side planes and trim stay separate from game data.
@@ -35750,8 +35799,8 @@ Abyss.UndergroundArt=(()=>{
  }
  function object(d){const explicit=electronics(d);if(explicit)return explicit;const i=d.visual.variant,c=['#708d87','#a9916b','#7d93aa','#987b9f','#b9aa85'][i%5],w=54+i%5*5,h=43+i%7*4,shapes=[`<ellipse cx="80" cy="74" rx="43" ry="20" fill="${c}"/><ellipse cx="80" cy="68" rx="43" ry="20" fill="#c7bd9e"/><path d="M63 69l12-11 19 12-12 8z" fill="#695f53"/>`,`<rect x="${80-w/2}" y="25" width="${w}" height="${h+45}" rx="8" fill="${c}"/><circle cx="80" cy="${52+i%7*2}" r="23" fill="#c6c2aa"/><path d="M80 33v25l15 7" stroke="#344b4d" stroke-width="3"/>`,`<path d="M32 41h96v65H32z" fill="${c}"/><path d="M32 41l12-9h73l11 9z" fill="#b5b9a3"/><circle cx="90" cy="73" r="27" fill="#243f47"/><circle cx="90" cy="73" r="17" fill="#73a2a577"/><path d="M41 48h17v14H41" fill="#c5b690"/>`,`<ellipse cx="80" cy="75" rx="33" ry="35" fill="none" stroke="${c}" stroke-width="12"/><path d="M58 43l22-20 22 20-22 18z" fill="#b4c9be"/>`,`<path d="M65 22h30v24l17 18v53H48V64l17-18z" fill="${c}"/><path d="M70 26h20v19l16 22v42" fill="none" stroke="#d2ddcf88" stroke-width="3"/><rect x="53" y="80" width="54" height="20" fill="#c6b498"/>`,`<path d="M34 24l83 7v79l-83-8z" fill="#c5b49a"/><path d="M117 31l9-7v79l-9 7" fill="${c}"/><path d="M45 32v60M51 43l55 4m-55 12 55 4m-55 12 40 3" stroke="#666554"/>`,`<path d="M70 44v56h20V68h17v-12H90V44" fill="${c}"/><circle cx="80" cy="31" r="22" fill="none" stroke="${c}" stroke-width="10"/><circle cx="80" cy="31" r="10" fill="#263e46"/>`,`<path d="M29 46l67-15 34 24v50l-66 17-35-24z" fill="${c}"/><path d="M29 46l35 20 66-11M64 66v56" fill="none" stroke="#b9c4b5"/><path d="M74 58V42l24-5v17" fill="none" stroke="#4a6366" stroke-width="5"/>`,`<path d="M57 20h46l6 44-27 20-28-18z" fill="#9bc0bc88" stroke="${c}"/><path d="M82 83v22m-25 5h50" stroke="${c}" stroke-width="5"/><path d="M64 25v35" stroke="#d1ddd166" stroke-width="3"/>`,`<path d="M36 103l78-82 16 16-78 82z" fill="${c}"/><path d="M43 95l10 9M106 27l17 15" stroke="#d3c5a5" stroke-width="3"/><path d="M42 110l-16 11 8-20" fill="#b6bbb1"/>`,`<circle cx="80" cy="72" r="44" fill="#354d51" stroke="${c}" stroke-width="7"/><circle cx="80" cy="72" r="25" fill="none" stroke="#a8b4a355"/><circle cx="80" cy="72" r="8" fill="#c6b394"/>`];return shapes[i%shapes.length]+`<path d="M${31+i%9} 123h${72-i%9}" stroke="${c}" stroke-width="2"/><text x="80" y="137" text-anchor="middle" fill="#8eaaa6" font-size="7" font-family="monospace">${e(d.id.toUpperCase())}</text>`;}
  function item(id){const d=Abyss.UndergroundData.catalog.find(d=>d.id===id);if(!d)return '';if(d.kind==='weapon')return Abyss.WeaponArt.svg(Abyss.WeaponData.weapons.find(x=>x.id===id));if(d.kind==='serum')return Abyss.SerumArt.model(Abyss.SerumData.serums.find(x=>x.id===id));if(d.kind==='accessory')return `<svg viewBox="100 80 300 390">${accessory(Abyss.Data.accessories.find(x=>x.id===id))}</svg>`;if(['furniture','object'].includes(d.kind)){const a=[...Abyss.ContainmentData.furniture,...Abyss.ContainmentData.objects].find(x=>x.id===id);return `<svg viewBox="-90 -110 180 170">${Abyss.BedroomArt.model(a)}</svg>`;}return `<svg class="ud-item-art" viewBox="0 0 160 150" aria-hidden="true"><defs><linearGradient id="ud-glass-${++serial}" x2="1" y2="1"><stop stop-color="#c8d7c7"/><stop offset="1" stop-color="#19393f"/></linearGradient></defs><ellipse cx="80" cy="126" rx="53" ry="8" fill="#020a10"/><g transform="translate(3 4)" opacity=".35">${object(d)}</g><g stroke="#30454a" stroke-width="1.2" stroke-linejoin="round">${object(d)}</g></svg>`;}
- function accessory(a){const i=a.visual.variant,c=a.visual.color,accent=a.visual.accent,f=Math.floor(i/7),v=i%7;let shape='';if(v===0){const crown=f===8?'<path d="M172 139l18-46 32 29 29-49 23 49 29-29 14 46z" fill="none" stroke="'+c+'" stroke-width="6"/>':`<path d="M180 150l${10+f*2}-${26+f*3}h${94-f*3}l18 ${26+f*3}z" fill="${c}"/><ellipse cx="239" cy="153" rx="73" ry="12" fill="${c}"/>`;shape=crown+`<path d="M196 138h85" stroke="${accent}" stroke-width="3"/>`;}else if(v===1){shape=`<ellipse cx="199" cy="207" rx="31" ry="${22+f%3*5}" fill="#86b6bf22" stroke="${c}" stroke-width="5"/><ellipse cx="280" cy="207" rx="31" ry="${22+f%3*5}" fill="#86b6bf22" stroke="${c}" stroke-width="5"/><path d="M231 204h17m-81 0-14-8m157 8 14-8" stroke="${accent}" stroke-width="4"/>`;}else if(v===2){shape=`<path d="M171 274q69 32 136 0l-7 17q-61 25-122-1z" fill="${c}"/><path d="M222 291l17 ${20+f*2} 17-${20+f*2}" fill="${accent}"/><circle cx="239" cy="291" r="7" fill="#c3b286"/>`;}else if(v===3){shape=`<path d="M171 308q67 19 136 0l25 94-30 36H173l-27-35z" fill="${c}"/><path d="M205 310l34 28 36-28-12 51h-48z" fill="#172f37"/><path d="M239 338v95M169 380h36m66 0h39" stroke="${accent}" stroke-width="3"/>`+Array.from({length:3+f%3},(_,n)=>`<circle cx="251" cy="${357+n*15}" r="3" fill="${accent}"/>`).join('');}else if(v===4){shape=`<path d="M302 289l${36+f*3}-10 24 38v${60+f*3}l-60 8-15-40z" fill="${c}"/><path d="M321 303l28-3 11 69-32 4z" fill="#20383b"/><path d="M314 286v-12q18-20 38 0v12" fill="none" stroke="${accent}" stroke-width="5"/>`;}else if(v===5){shape=`<path d="M401 284l27 20-15 17-24-19z" fill="${c}"/><path d="M414 303l29 27m-24-20-1 40" stroke="${accent}" stroke-width="4"/>`;}else{shape=`<path d="M322 319v35" stroke="${c}" stroke-width="3"/><path d="M303 356l19-${20+f%4*4} 20 ${20+f%4*4}-20 22z" fill="${c}"/><circle cx="322" cy="356" r="7" fill="${accent}"/>`;}
- return `<g data-underground-fashion="${e(a.id)}" stroke="#223940" stroke-width="2.2" stroke-linejoin="round">${shape}<path d="M${184+f*3} ${v===3?425:157}h${8+f}" stroke="${accent}" stroke-width="2"/></g>`;}
+ function accessory(a){const i=a.visual.variant,c=a.visual.color,accent=a.visual.accent,f=Math.floor(i/7),v=i%7;let shape='';if(v===0){const crown=f===8?'<path d="M172 139l18-46 32 29 29-49 23 49 29-29 14 46z" fill="none" stroke="'+c+'" stroke-width="6"/>':`<path d="M180 150l${10+f*2}-${26+f*3}h${94-f*3}l18 ${26+f*3}z" fill="${c}"/><ellipse cx="239" cy="153" rx="73" ry="12" fill="${c}"/>`;shape=crown+`<path d="M196 138h85" stroke="${accent}" stroke-width="3"/>`;}else if(v===1){shape=Abyss.UndergroundFaceArt.geometry(a);}else if(v===2){shape=`<path d="M171 274q69 32 136 0l-7 17q-61 25-122-1z" fill="${c}"/><path d="M222 291l17 ${20+f*2} 17-${20+f*2}" fill="${accent}"/><circle cx="239" cy="291" r="7" fill="#c3b286"/>`;}else if(v===3){shape=`<path d="M171 308q67 19 136 0l25 94-30 36H173l-27-35z" fill="${c}"/><path d="M205 310l34 28 36-28-12 51h-48z" fill="#172f37"/><path d="M239 338v95M169 380h36m66 0h39" stroke="${accent}" stroke-width="3"/>`+Array.from({length:3+f%3},(_,n)=>`<circle cx="251" cy="${357+n*15}" r="3" fill="${accent}"/>`).join('');}else if(v===4){shape=`<path d="M302 289l${36+f*3}-10 24 38v${60+f*3}l-60 8-15-40z" fill="${c}"/><path d="M321 303l28-3 11 69-32 4z" fill="#20383b"/><path d="M314 286v-12q18-20 38 0v12" fill="none" stroke="${accent}" stroke-width="5"/>`;}else if(v===5){shape=`<path d="M401 284l27 20-15 17-24-19z" fill="${c}"/><path d="M414 303l29 27m-24-20-1 40" stroke="${accent}" stroke-width="4"/>`;}else{shape=`<path d="M322 319v35" stroke="${c}" stroke-width="3"/><path d="M303 356l19-${20+f%4*4} 20 ${20+f%4*4}-20 22z" fill="${c}"/><circle cx="322" cy="356" r="7" fill="${accent}"/>`;}
+ return `<g data-underground-fashion="${e(a.id)}" stroke="#223940" stroke-width="2.2" stroke-linejoin="round">${shape}${v===1?'':`<path d="M${184+f*3} ${v===3?425:157}h${8+f}" stroke="${accent}" stroke-width="2"/>`}</g>`;}
  function weaponDetail(w,m){const i=w.visual.variant;return `<path d="M-8 24h16m-16 ${7+i%5}h16" stroke="${m.light}" stroke-width="2"/><path d="M-13 50l${10+i%9} ${8+i%4} 11-9" fill="none" stroke="${w.fx.color}" stroke-width="2"/><circle cx="${-21+i%6*7}" cy="-6" r="${3+i%4}" fill="${m.metal}"/>`;}
  return {item,accessory,weaponDetail};
 })();
@@ -35763,7 +35812,7 @@ Abyss.UndergroundArt=(()=>{
 Abyss.AccessoryArt=(()=>{
  const draw=Abyss.AccessoryModels.draw;draw.club_backbeat=Abyss.HappyClubCosmetics.geometry;draw.atelier=Abyss.TailoredModels.geometry;draw.weather=Abyss.WeatherArt.geometry;draw.underground=Abyss.UndergroundArt.accessory;let sequence=0;
  function markup(a,s){
-  if(a.visual.renderer==='road')return Abyss.RoadArt.markup(a,s);if(a.visual.renderer==='hunt')return Abyss.HuntArt.accessory(a,s);const v=a.visual;if(v.asset)return `<image href="${Abyss.Util.escape(v.asset)}" x="0" y="0" width="480" height="430"/>`;
+  if(a.visual.renderer==='road')return Abyss.RoadArt.markup(a,s);if(a.visual.renderer==='hunt')return Abyss.HuntArt.accessory(a,s);const v=a.visual;if(v.asset)return `<image href="${Abyss.Util.escape(v.asset)}" x="0" y="0" width="480" height="430"/>`;if(v.renderer==='underground'&&a.slot==='face')return Abyss.UndergroundArt.accessory(a);
   const p=Abyss.AccessoryStyle.get(a),id='accessory-material-'+(++sequence);let transform='',model=(draw[v.renderer]||draw.star)(a);
   if(a.slot==='tail'){
    const [x,y]=Abyss.AttachmentRig.tail(s);transform=`translate(${x} ${y})`;
@@ -36038,7 +36087,8 @@ Abyss.AccessoryFitData=(()=>{
    if(/单片/.test(a.zh))pair=[lens('right',278,205,37,37)];
    else if(!/面纱|耳机|面罩|面板|呼吸器|口罩/.test(a.zh))pair=[lens('left',195.5,208,31,21),lens('right',282,208,31,21)];
   }
-  if(v.renderer==='underground'){const family=Math.floor(v.variant/7);pair=[lens('left',199,207,31,22+family%3*5),lens('right',280,207,31,22+family%3*5)];}
+  if(v.renderer==='underground')pair=Abyss.UndergroundFaceArt.lenses(a);
+  if(v.renderer==='hunt'&&!v.sculpture){const sets={1:[lens('left',214,205,13.5,15),lens('right',264,205,13.5,15)],3:[lens('left',208,205.5,26,23.5),lens('right',270,205.5,26,23.5)],4:[lens('left',208.5,206.5,17.5,18.5),lens('right',269.5,206.5,17.5,18.5)],5:[lens('left',208,207,25,25),lens('right',270,207,25,25)],6:[lens('left',208,207,23,23),lens('right',270,207,23,23)],7:[lens('left',212,205,28,28)]};pair=sets[v.variant]||null;}
   if(v.renderer==='weather'){
    if(v.variant===4)v.optical=false; // Respirator filters follow the mouth, not the eyes.
    else pair=[lens('left',207.5,208.5,30.5,32.5),lens('right',279,208.5,30,32.5)];
@@ -36529,6 +36579,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-15',version:'0.13.141-preview',title:t('十件面部装扮独立造型','Ten Distinct Face Accessories'),items:[t('地下商店十件面部装扮改为各自的镜框、滤罐、漆面、裂纹、盐蚀和茶色玻璃；金丝单片镜只有一片，不再共用双椭圆模型。','Ten underground face accessories now have distinct frames, filters, lacquer, cracks, salt wear and tea glass. The gold monocle has one lens instead of sharing the generic paired ovals.'),t('镜片独立适配眼型，滤罐和镜桥保持位置；修复裂纹护镜底板遮眼、手机衣橱预览被压到零高度，并补齐六件狩猎眼镜的来源定位数据。','Lenses fit the eyes independently while filters and bridges keep their positions. Cracked goggles no longer hide the eyes behind a solid backing, mobile wardrobe previews no longer collapse to zero height, and six hunting optics gain authored fitting coordinates.')],pending:[t('其余正式美术、历史扩展、剩余676条独立日常和真实公开AI审批继续推进。','Other final artwork, historical expansions, the remaining 676 independent ambient lines and live public AI approval remain in progress.')]},
 {date:'2026-10-15',version:'0.13.140-preview',title:t('服装裁切与镜片对齐修复','Garment Cropping and Lens Alignment Repairs'),items:[t('修正地下、天气与道路来源24件衣服的坐标，随九种体型调整衣摆；手套独立贴在双手上，预览不会再重排主页层级。','Twenty-four underground, weather and road garments now use normalized source coordinates and body-specific hems. Gloves attach above the hands, and previews no longer reorder the main creature.'),t('20件眼镜按实际镜片中心对齐不同眼型；呼吸器保留口部位置。滚动正文时狩猎分类条保持原位，支持窄屏横向选择。','Twenty optical accessories align their authored lens centers to changing eyes. Respirators retain their mouth position. The hunt category strip stays outside the scrolling content and supports horizontal selection on narrow screens.')],pending:[t('完整正式美术、剩余676条独立日常台词、历史扩展和真实公开AI审批仍未完成。','Final artwork, the remaining 676 independent ambient lines, historical expansions and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.139-preview',title:t('街谈巷语：再添一百六十句','Street Talk: Another 160 Lines'),items:[t('新增16类共160条独立中英文短句，日常独立库由164增至324条。寒潮、沙尘、酸雨、雷暴等句子各自声明真实天气条件，不靠统一前缀拼接。','160 independent bilingual fragments across 16 categories expand the authored ambient library from 164 to 324 lines. Cold snaps, dust, acid rain and thunder each have explicit weather conditions, without multiplying generic prefixes.'),t('人物列表卡片显示各自职业与生活背景。新句进入实际交谈和交往记忆，支持双向语言切换与读档；旧人物、关系、故事条件和拼接记录兼容保留。','People-list cards now show distinct occupations and backgrounds. New lines enter real talks and encounter memories, with two-way language switching and loading. Old people, relationships, story conditions and historical combined records remain compatible.')],pending:[t('1000条独立日常台词目标仍欠676条；人物长剧情、正式画像、其余历史扩展与真实公网AI审批继续欠。','676 more independent ambient lines are needed to reach 1,000. Personal story arcs, finished portraits, other historical expansions and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.138-preview',title:t('街上人的工作与生活','Work and Lives on the Street'),items:[t('120位次要人物接入各不相同的职业/身份，以及按既有种子决定的生活习惯与愿望。保留人物ID、姓名、关系和旧种子；详情不再重复同一句愿望。','The 120 minor people now have distinct occupations or circumstances, with habits and wishes derived from their existing seeds. IDs, names, relationships and old seeds remain intact. Details no longer repeat the same wish.'),t('新增16类64条独立中英文日常台词，按真实天气、人物职业、醉酒、恐惧、信任与B-07存活状态筛选。停止实际交谈中的无条件拼接天气前缀，首谈记录改为保存真正说出的第一句，人物与交往记录支持双向语言切换。','64 independent bilingual ambient lines in 16 categories now use actual weather, occupation, intoxication, fear, trust and B-07 survival. Live talks no longer add unconditional weather prefixes. First-talk memories now record the actual first utterance, with two-way language switching for people and encounter records.')],pending:[t('当前为原100条职业短句加64条新增独立台词，仍未达到1000条独立台词；完整次要人物故事、美术和其余历史目标继续欠。','There are 100 original role fragments plus 64 new independent lines, still short of 1,000 independent lines. Full minor-person stories, artwork and the remaining historical goals are unfinished.')]},
