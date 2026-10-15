@@ -1650,3 +1650,14 @@ continuityEndings.js数据统一提供六个结局的各自演出：break/preser
 
 公开：https://stepono927.github.io/Stephen/?release=0.13.136
 文件：../abyss-lab-0.13.136-preview.zip（1733白名单文件，包含15张隔离壁纸截图；不含.env、API密钥、真实玩家存档或真实审批记录）。本批完成Part83五张独立透视SVG环境及局部动画，不把其余正式美术/人物/历史扩展/真正公网AI主机审批算完成。目标仍active。
+## 0.13.137-preview · 三十位核心人物回声与一次性记录容量（待公开）
+
+原世界线Part69–74“旧经历回调/其他人记得”继续接入，continuityNPCs在旧10位之外新增20个各自中英文本：Ada、Ivo、Nara、Bridge Tom、Ash、Sera、Oona、Ben、Luz、Orin、Bea、Sol、Paz、Teo、Hana、Emi、Sal、Tess、Vera、Nell。全部30个StreetData.named ID逐项集合匹配，文本中英各30唯一；各自通行证盖章、药账、检测批号、桥板、护甲扣带、接线条、坐席布、鞋朝向、缺音、铁桶节拍、酒吧凳、账单岁数、烘干机齿轮、干袜子与泵图、种子袋印、门钥匙、小杯早餐、磁带日期、合同复印签字、缝针等细节。保留人类声线与物件动作，不添NPC/B07哲学解释、不改Claude正文和已有角色名字/模型/关系。
+
+真实story:person talk触发，必须不同的已完成世界线npcContacts精确met=true、旧本人非接班，当前存活非接班、无pending、循环未终止；每周目每人一次。不给额外AP/钱/关系/能力，旧档缺contact不会补造。30人均通过实际Story命令、落盘/ACK/重复/结束快照。只读known增加非字符串保护。
+
+发现seen原最大40项会因30人物+22自动回声等超量淘汰前几人，导致读完又播。读取/旧文本迁移/写入三处改120有界去重，保留旧数组。用同一隔离周目实际交谈30人，再加入22已知普通回声测试记录容量，52项经Engine.replace/Save.load仍全保留，最早Elias实际再交谈无pending；可见echoes日志仍限20，不扩大全量history。此容量测试不冒充22回声触发门槛测试；原22条件专项另已通过。
+
+修改js/continuityNPCs.js、continuity.js、两个NPC测试、版本/更新日志。三宽度1366/768/390共90原生人物列表/按地点过滤/分页/交谈及肖像、窗口交接、Space/QUICK/LOAD/BACK/精确双语/刷新全部通过，无错误/横溢出/旧信任复制/额外资源。七文件回归覆盖保护文本/20章/镜片/22回声/真实世界线记录/重大碰撞/结局，无失败。首次新集合断言遇VM数组原型差异，改为JSON普通数组比较后通过，未改变业务去迁就断言。
+
+此批不把150人物整份扩展算完。120位minor仍有共用detail/want及12句轮换ambient，正式独立画像/生活和世界社会扩展继续欠，接下来需审计处理；真实公网AI审批也未上线，Supabase费用工具不可用依赖保留。目标active。
