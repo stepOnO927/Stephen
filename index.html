@@ -765,6 +765,24 @@ body.dream-exploration> :not(#dream-stage):not(script):not(style){visibility:hid
 .continuity-menu-trace svg{display:block;width:100%;height:auto}
 .continuity-menu-trace small{display:block;text-align:center;font-size:11px;letter-spacing:.12em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
+/* Continuity environments: local layers only; the creature and floor remain still. */
+.continuity-environment[data-animated="true"] .cw-lamp{animation:cw-lamp 13s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-bleed{animation:cw-bleed 21s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-trace{animation:cw-trace 17s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-seam{animation:cw-seam 19s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-impossible{animation:cw-room 23s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-loop-light{animation:cw-loop 16s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-steam{animation:cw-steam 12s ease-in-out infinite alternate}
+.continuity-environment[data-animated="true"] .cw-curtain{animation:cw-curtain 15s ease-in-out infinite alternate}
+@keyframes cw-lamp{from{opacity:.7}to{opacity:1}}
+@keyframes cw-bleed{from{opacity:.11;transform:translateX(-3px)}to{opacity:.3;transform:translateX(3px)}}
+@keyframes cw-trace{from{opacity:.07}to{opacity:.22}}
+@keyframes cw-seam{from{opacity:.5}to{opacity:.9}}
+@keyframes cw-room{from{opacity:.44}to{opacity:.86}}
+@keyframes cw-loop{from{opacity:.42}to{opacity:.9}}
+@keyframes cw-steam{from{opacity:.12;transform:translateY(2px)}to{opacity:.32;transform:translateY(-3px)}}
+@keyframes cw-curtain{from{transform:translateX(0)}to{transform:translateX(1.5px)}}
+@media(prefers-reduced-motion:reduce){.continuity-environment *{animation:none!important}}
 </style>
 <style data-source="hunt.css">
 /* Wasteland Hunt follows the existing laboratory materials and typography. */
@@ -1224,7 +1242,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.135-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.136-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6154,6 +6172,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "五个不同的连续性环境": "Five Distinct Continuity Environments",
+  "世界线渗透、两个实验室、不存在的房间、连续性循环与开始现在各有独立透视构图、设备和材质。错位舱体、双侧实验室、门中深室、递进走廊及晨光厨房不再共用同一叠影。": "Worldline Bleed, Two Labs, The Room That Never Existed, Continuity Loop and BEGIN now have distinct perspective layouts, equipment and materials: displaced chambers, opposing labs, a room beyond a doorway, nested corridors and a morning kitchen.",
+  "缓慢局部灯光、叠影、蒸汽和窗帘动画保持地面稳定。低性能或系统减少动态时停止动画；培养室和主菜单选择继续保存。": "Slow local lighting, overlap, steam and curtain animation leaves the floor stable. Low performance and system reduced motion stop animation. Laboratory and main menu selections remain saved.",
+  "其余人物和历史扩展审计、其他正式美术以及真实公网AI审批仍欠。": "Remaining people and historical expansion audits, other finished artwork and live public AI approval remain incomplete.",
   "让它决定与结局演出": "Its Decision and Ending Performances",
   "剧情最终菜单补上“让 B-07 决定”，使用剧情自主性与好奇心判断。六种连续性结局拥有各自对白；合并与“够了”接入原规格台词，结局逐句自动保存。": "The final Story menu now includes LET B-07 DECIDE, using Story autonomy and curiosity. Six Continuity endings have distinct dialogues. MERGE and ENOUGH include the specified lines, with automatic saves after each beat.",
   "修复剧情模式的扩展成就解锁，并新增“又一次”“我死在这里”“不是第一个 B-07”“个体数量：？”。结局读完不再误播排队的日常场景，旧结局条件和记录保留。": "Expansion achievements now unlock in Story Mode, with AGAIN, I DIED HERE, NOT THE FIRST B-07 and SUBJECT COUNT: ?. Finishing an ending no longer plays a queued ordinary scene. Old ending conditions and records remain intact.",
@@ -32674,6 +32696,56 @@ Abyss.RuinsWallpaper=(()=>{
 })();
 
 </script>
+<script data-source="js/continuityWallpaperArt.js">
+'use strict';
+// Five authored perspective environments, independent of gameplay and saved state.
+Abyss.ContinuityWallpaperArt=(()=>{
+ let serial=0;
+ const ids=['wall_bleed','wall_twolabs','wall_neverroom','wall_loop','wall_begin'];
+ function render(w,{animated=true}={}){
+ const id='cw'+(++serial),g=n=>`url(#${id}-${n})`,begin=w.id==='wall_begin',ink=begin?'#c6bc91':'#9cb5ca';
+ const R=(x,y,a,b,c,extra='')=>`<rect x="${x}" y="${y}" width="${a}" height="${b}" fill="${c}" ${extra}/>`;
+ const P=(d,c='none',stroke=ink,width=1)=>`<path d="${d}" fill="${c}" stroke="${stroke}" stroke-width="${width}"/>`;
+ const palette=({wall_bleed:['#342742','#111a29','#b897cd'],wall_twolabs:['#12333a','#191e35','#83c9c0'],wall_neverroom:['#343831','#131e24','#b3b49c'],wall_loop:['#25253c','#0c1822','#9fb2d6'],wall_begin:['#88735c','#26373c','#f2ca8b']})[w.id];
+ const defs=`<defs><linearGradient id="${id}-wall" x2="0" y2="1"><stop stop-color="${palette[0]}"/><stop offset="1" stop-color="${palette[1]}"/></linearGradient><linearGradient id="${id}-floor" x2="0" y2="1"><stop stop-color="${palette[1]}"/><stop offset="1" stop-color="#071217"/></linearGradient><linearGradient id="${id}-metal" x2="1" y2=".2"><stop stop-color="#101d23"/><stop offset=".38" stop-color="#5a6970"/><stop offset=".45" stop-color="#283c45"/><stop offset="1" stop-color="#11232b"/></linearGradient><radialGradient id="${id}-light"><stop stop-color="${palette[2]}" stop-opacity=".35"/><stop offset="1" stop-color="${palette[2]}" stop-opacity="0"/></radialGradient><linearGradient id="${id}-glass" x2="1" y2="1"><stop stop-color="#98c9cf" stop-opacity=".18"/><stop offset=".5" stop-color="#cde8e3" stop-opacity=".025"/><stop offset="1" stop-color="#b6cdda" stop-opacity=".16"/></linearGradient></defs>`;
+ const lamp=(x,y)=>`<g class="cw-lamp">${R(x,y,100,5,palette[2])}<ellipse cx="${x+50}" cy="${y+100}" rx="160" ry="150" fill="${g('light')}"/></g>`;
+ const console=(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})">${P('M0 0H140L166-17H23Z','#66787b')}${P('M140 0L166-17V107L140 127Z','#10202b')}${R(0,0,140,127,g('metal'))}${R(12,13,116,60,'#06151c','rx="4"')}${P('M22 40H45L54 30L62 54L72 40H116','none',palette[2],1.5)}${R(17,89,68,5,'#647f80')}${R(17,101,68,3,'#394e59')}${[0,1,2].map(i=>R(105,87+i*9,12,3,palette[2])).join('')}</g>`;
+ const piping=(x,y,h)=>`<g>${R(x,y,14,h,g('metal'))}${[16,h/2,h-22].map(d=>R(x-5,y+d,24,6,'#62747b')).join('')}</g>`;
+ let scene=R(0,0,1000,600,g('wall'))+P('M0 0L230 105V372L0 600Z','#10212b','#314853')+P('M1000 0L770 105V372L1000 600Z','#0b1a25','#304552')+P('M0 600L230 372H770L1000 600Z',g('floor'),'#32444f');
+ scene+=`<g data-plane="floor" opacity=".5">${[0,140,310,690,860,1000].map(x=>P(`M${x} 600L${500+(x-500)*.2} 372`)).join('')}${[405,452,518,587].map(y=>P(`M${230-(y-372)} ${y}H${770+(y-372)}`)).join('')}</g>`;
+ scene+=`<g data-plane="materials" opacity=".42">${[0,1,2,3,4,5].map(i=>P(`M${48+i*30} ${47+i*14}V${553-i*29}M${952-i*30} ${47+i*14}V${553-i*29}`,'none','#597079',2)).join('')}${[0,1,2,3,4,5,6,7,8].map(i=>P(`M${282+i*47} 105V368`,'none','#5d6873',.7)).join('')}${[0,1,2,3,4,5,6,7,8,9].map(i=>P(`M${281+i*53} ${416+(i*23)%145}l${9+i%4} -2`,'none','#75858b',.7)).join('')}${[0,1,2,3].map(i=>P(`M68 ${176+i*37}L161 ${189+i*25}M932 ${176+i*37}L839 ${189+i*25}`,'none','#94a2a0',3)).join('')}</g>`;
+ if(w.id==='wall_bleed'){
+ scene+=`<g data-plane="present">${P('M255 127H750V368H255Z','#1a2636','#536372',3)}${piping(270,147,214)}${piping(712,147,214)}${console(600,282,.8)}${lamp(325,120)}${R(360,158,230,147,g('glass'),'rx="18"')}${P('M360 300H590V316H360Z',g('metal'),'#607c85',3)}</g>`;
+ scene+=`<g class="cw-bleed" data-plane="other-time" opacity=".24">${P('M256 138H743V355H256Z','none','#c896d2',2)}${P('M365 144L568 165V303L365 319Z',g('glass'),'#c396cb',3)}${console(297,280,.65)}${P('M615 165H673V271H615Z','#3a244c','#9c769f',2)}${P('M242 395L806 401M202 467L837 452','none','#c694bb',2)}</g>`;
+ scene+=`<g class="cw-trace" opacity=".2">${P('M300 198H690M310 243H668M280 347H720','none','#cab2dc',1)}</g>`;
+ scene+=`${P('M335 324H616L634 310H351Z','#405064','#788493',2)}${R(340,326,10,43,'#334552')}${R(602,326,10,43,'#334552')}${P('M594 343C656 357 679 372 695 381','none','#778c97',3)}${[0,1,2,3].map(i=>R(632,169+i*16,42,6,'#514154')).join('')}`;
+ }else if(w.id==='wall_twolabs'){
+ scene+=`<g data-plane="left-lab">${P('M80 110L484 148V364L80 470Z','#1c393d','#688c8b',3)}${P('M102 124L463 158V190L102 171Z','#446665')}${piping(120,190,233)}${P('M165 210L340 221V336L165 376Z',g('glass'),'#8cb7b8',3)}${console(350,275,.6)}${lamp(243,155)}</g>`;
+ scene+=`<g data-plane="right-lab">${P('M920 110L516 148V364L920 470Z','#2c273d','#8a7898',3)}${P('M898 124L537 158V190L898 171Z','#5c4a66')}${piping(872,190,233)}${P('M835 210L660 221V336L835 376Z',g('glass'),'#be9abf',3)}${console(540,275,.6)}${lamp(655,155)}</g>`;
+ scene+=`<g class="cw-seam" data-plane="junction">${P('M500 102V381L501 568','none','#c6c4e4',2)}${P('M487 160V365M513 159V365','none','#8fa8b9',1)}<ellipse cx="500" cy="415" rx="95" ry="150" fill="${g('light')}"/></g>`;
+ scene+=`${P('M165 380L341 339V350L165 391Z','#48686b','#90acaa',2)}${P('M660 339L835 380V391L660 350Z','#5f4c68','#b092b0',2)}${[0,1,2].map(i=>P(`M${190+i*48} ${320-i*12}v-49l13-5v49Z`,'#355e65','#81aaa7',2)+P(`M${807-i*48} ${320-i*12}v-49l-13-5v49Z`,'#543d60','#b193b0',2)).join('')}`;
+ }else if(w.id==='wall_neverroom'){
+ scene+=`<g data-plane="outer-room">${P('M312 105H689V373H312Z','#092027','#68786b',8)}${P('M334 128H668V365H334Z','#16252a','#333e39',3)}${piping(274,118,267)}${piping(718,118,267)}${console(740,390,.9)}${lamp(422,101)}</g>`;
+ scene+=`<g class="cw-impossible" data-plane="missing-room" opacity=".78">${P('M348 144H651V353H348Z','#303a35','#647566',2)}${P('M348 353L432 303H570L651 353Z','#111f22','#627969')}${P('M349 145L432 191V303L349 353Z','#26332f')}${P('M650 145L570 191V303L650 353Z','#1c2e2d')}${R(432,191,138,112,'#0a171c')}${R(482,224,52,79,g('glass'))}${R(464,305,84,4,'#819187')}${lamp(458,195)}</g>`;
+ scene+=`${P('M334 360H666','none','#94aaa0',4)}${R(360,373,280,6,'#364b48')}<g data-plane="empty-plaque">${R(299,269,16,34,'#526860')}${R(302,275,10,22,'#929b84')}</g>`;
+ scene+=`${P('M454 298H503L513 289H464Z','#667367','#b0ba9f',2)}${P('M457 302V326M500 302V317','none','#839184',3)}${R(455,252,46,41,'#263a38','rx="3"')}${P('M484 331L550 350','none','#5a7366',1)}${P('M295 398L356 384M664 384L725 398','none','#97a190',2)}`;
+ }else if(w.id==='wall_loop'){
+ scene+=`<g data-plane="nested-corridor">${[0,1,2,3,4].map(i=>{const x=165+i*57,y=70+i*42,a=670-i*114,b=408-i*71;return P(`M${x} ${y+b}V${y}H${x+a}V${y+b}`,'none',i%2?'#758596':'#4b576e',9-i)+P(`M${x+8} ${y+18}H${x+a-8}`,'none',palette[2],2);}).join('')}${R(455,259,90,111,'#07151f')}${P('M455 370L500 400L545 370','none','#7d91a7',2)}</g>`;
+ scene+=`<g class="cw-loop-light" data-plane="return-light">${[0,1,2,3].map(i=>R(192+i*57,86+i*42,38,4,'#b5c4db')).join('')}<ellipse cx="500" cy="294" rx="100" ry="185" fill="${g('light')}"/></g>${console(102,417,1)}${piping(835,122,323)}${P('M141 571C340 563 704 551 726 505C750 456 472 458 455 480','none','#738f9d',3)}`;
+ scene+=`${[0,1,2,3].map(i=>P(`M${185+i*57} ${353-i*28}h23v37h-23Z`,'#273747','#8595a5',2)+P(`M${791-i*57} ${353-i*28}h23v37h-23Z`,'#233244','#7a8a9c',2)).join('')}${P('M788 480V465H811V480M798 465V427','none','#83949d',3)}`;
+ }else{
+ scene+=`<g data-plane="morning">${P('M257 124H579V329H257Z','#b4b393','#405b62',6)}${R(269,136,296,180,'#d7c69c')}${P('M269 259L355 211L445 241L565 190V316H269Z','#80968c','#91a59a')}${P('M410 135V317M269 221H566','none','#304b54',6)}${P('M257 329L405 486L690 453L579 329Z','#e3c691','none',0)}${lamp(655,126)}</g>`;
+ scene+=`<g data-plane="kitchen">${P('M598 331H885L912 310H627Z','#839087','#344e54',3)}${R(598,332,287,17,g('metal'))}${R(612,349,13,113,'#526c6b')}${R(864,349,13,113,'#455e64')}${P('M689 315Q728 290 771 315V324H689Z','#182d33','#8bada9',2)}${P('M698 307V282Q727 254 759 282V307','none','#aec5b5',3)}${R(801,297,25,28,'#d1d0b5','rx="4"')}${P('M826 302Q843 302 843 311Q843 320 826 320','none','#bfceb8',3)}${R(663,349,91,83,'#304c52')}${R(674,359,68,62,'#0b222b')}${piping(905,110,320)}</g>`;
+ scene+=`<g class="cw-steam" data-plane="steam" opacity=".25">${P('M718 277Q708 259 723 242Q733 229 722 213','none','#eee3bf',2)}${P('M741 277Q754 260 744 245Q734 231 746 219','none','#eee3bf',2)}</g><g class="cw-curtain" data-plane="curtain">${P('M257 124L278 135L281 311L258 329Z','#c5c0a0','#899c90',2)}${P('M579 124L557 135L555 311L579 329Z','#b5b9a0','#83968c',2)}</g>`;
+ scene+=`${P('M648 255H845L856 246H662Z','#67796d','#a2b4a1',2)}${R(661,209,25,36,'#394f54','rx="3"')}${R(696,218,32,28,'#b4b39b','rx="3"')}${P('M768 247h33l-6-29h-23Z','#78816a','#b0b393',2)}${P('M784 221v-27q-24 4-17-17q18-2 17 17q23-12 25 3q-20 12-25-3','none','#88a47b',3)}${P('M829 253V180L847 166','none','#698e87',2)}${R(757,320,24,4,'#acbaac')}`;
+ }
+ scene+=`<g data-plane="foreground">${P('M0 0H1000V22H0Z','#07171e')}${P('M0 588H1000V600H0Z','#040f15')}${[27,963].map(x=>piping(x,35,530)).join('')}${P('M45 41Q185 61 253 113M955 41Q820 69 747 113','none','#607077',3)}</g>`;
+ return `<svg xmlns="http://www.w3.org/2000/svg" class="wallpaper-scene continuity-environment" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" data-art="${w.art}" data-continuity-art="${w.id}" data-animated="${!!(animated&&w.dynamic)}" role="img" aria-label="${Abyss.Util.escape(w.name)}">${defs}${scene}</svg>`;
+ }
+ return {ids,render};
+})();
+
+</script>
 <script data-source="js/wallpaperArt.js">
 'use strict';
 // Perspective SVG environments. Geometry, materials, lights and effects stay replaceable.
@@ -32681,7 +32753,7 @@ Abyss.WallpaperArt=(()=>{
  let serial=0;
  const rect=(x,y,w,h,fill,extra='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
  const path=(d,fill,stroke='#627b7b',width=1)=>`<path d="${d}" fill="${fill}" stroke="${stroke}" stroke-width="${width}"/>`;
- function render(w,{animated=true}={}){if(Abyss.HappyClubWallpapers?.rows.some(r=>r.art===w.art))return Abyss.HappyClubWallpapers.render(w,{animated});if(w.art==='city_ruins')return Abyss.RuinsWallpaper.render(w,{animated});const id='wp'+(++serial),g=n=>`url(#${id}-${n})`,theme=w.art;
+ function render(w,{animated=true}={}){if(Abyss.ContinuityWallpaperArt.ids.includes(w.id))return Abyss.ContinuityWallpaperArt.render(w,{animated});if(Abyss.HappyClubWallpapers?.rows.some(r=>r.art===w.art))return Abyss.HappyClubWallpapers.render(w,{animated});if(w.art==='city_ruins')return Abyss.RuinsWallpaper.render(w,{animated});const id='wp'+(++serial),g=n=>`url(#${id}-${n})`,theme=w.art;
  const outdoor=['camp','sunrise','tower','storm'].includes(theme),warm=['furnace','sunrise','destroyed'].includes(theme),sky=theme==='sunrise'?'#b5916f':theme==='storm'?'#736b7e':'#21383f',accent=warm?'#c3996e':theme==='echo'?'#afa1c2':theme==='norecord'?'#9b7b88':theme==='evil'?'#80bc65':'#81aaa7';
  const palette=({room:['#304650','#1d323c','#101e2a'],night:['#253449','#172439','#0b1527'],radio:['#514e3d','#333c32','#192824'],observation:['#4d6166','#30484f','#192f3b'],camp:['#5c5943','#3c4234','#222f2c'],tower:['#526172','#324658','#1b2c40'],elevator:['#484840','#303733','#17272a'],terminal:['#404d66','#28364f','#121e35'],zero:['#4e6570','#2d424e','#142633'],black:['#3e3b40','#25272d','#101820'],furnace:['#63412e','#382921','#151b21'],sunrise:['#ab8468','#756557','#33434c'],greenhouse:['#435b42','#263d34','#142b29'],evil:['#344a27','#1d2e24','#101e19'],echo:['#51445f','#302d46','#171b2e'],norecord:['#5a3b46','#342531','#1b1826'],storm:['#635a72','#3a364e','#24263b'],destroyed:['#60402e','#342a29','#191d26'],nursery:['#5a5d56','#3d4645','#242f33'],archive:['#35435f','#26324b','#151c32'],corridor:['#5a4438','#3d3530','#22292c'],storage:['#565347','#383c38','#202b2c']})[theme]||['#304650','#1d323c','#101e2a'];
  let defs=`<defs><linearGradient id="${id}-wall" x2="0" y2="1"><stop stop-color="${palette[0]}"/><stop offset=".55" stop-color="${palette[1]}"/><stop offset="1" stop-color="${palette[2]}"/></linearGradient><linearGradient id="${id}-metal"><stop stop-color="#142329"/><stop offset=".18" stop-color="#4b6266"/><stop offset=".25" stop-color="#24363e"/><stop offset=".8" stop-color="#17272e"/><stop offset="1" stop-color="#526970"/></linearGradient><linearGradient id="${id}-floor" x2="0" y2="1"><stop stop-color="${palette[1]}"/><stop offset="1" stop-color="${palette[2]}"/></linearGradient><linearGradient id="${id}-glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#abd3c0" stop-opacity=".13"/><stop offset=".25" stop-color="#79b3b6" stop-opacity=".025"/><stop offset=".74" stop-color="#79b3b6" stop-opacity=".06"/><stop offset="1" stop-color="#d6e7d9" stop-opacity=".14"/></linearGradient><radialGradient id="${id}-light"><stop stop-color="${accent}" stop-opacity=".22"/><stop offset="1" stop-color="${accent}" stop-opacity="0"/></radialGradient><linearGradient id="${id}-sky" x2="0" y2="1"><stop stop-color="${sky}"/><stop offset="1" stop-color="#34494a"/></linearGradient><linearGradient id="${id}-ember" x2="0" y2="1"><stop stop-color="#ddba8b"/><stop offset=".35" stop-color="#b87853"/><stop offset="1" stop-color="#351f26"/></linearGradient><pattern id="${id}-grain" width="29" height="31" patternUnits="userSpaceOnUse"><circle cx="3" cy="7" r=".55" fill="#b3c0b8" opacity=".15"/><circle cx="23" cy="22" r=".6" fill="#000" opacity=".4"/></pattern></defs>`;
@@ -34422,6 +34494,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-14',version:'0.13.136-preview',title:t('五个不同的连续性环境','Five Distinct Continuity Environments'),items:[t('世界线渗透、两个实验室、不存在的房间、连续性循环与开始现在各有独立透视构图、设备和材质。错位舱体、双侧实验室、门中深室、递进走廊及晨光厨房不再共用同一叠影。','Worldline Bleed, Two Labs, The Room That Never Existed, Continuity Loop and BEGIN now have distinct perspective layouts, equipment and materials: displaced chambers, opposing labs, a room beyond a doorway, nested corridors and a morning kitchen.'),t('缓慢局部灯光、叠影、蒸汽和窗帘动画保持地面稳定。低性能或系统减少动态时停止动画；培养室和主菜单选择继续保存。','Slow local lighting, overlap, steam and curtain animation leaves the floor stable. Low performance and system reduced motion stop animation. Laboratory and main menu selections remain saved.')],pending:[t('其余人物和历史扩展审计、其他正式美术以及真实公网AI审批仍欠。','Remaining people and historical expansion audits, other finished artwork and live public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.135-preview',title:t('让它决定与结局演出','Its Decision and Ending Performances'),items:[t('剧情最终菜单补上“让 B-07 决定”，使用剧情自主性与好奇心判断。六种连续性结局拥有各自对白；合并与“够了”接入原规格台词，结局逐句自动保存。','The final Story menu now includes LET B-07 DECIDE, using Story autonomy and curiosity. Six Continuity endings have distinct dialogues. MERGE and ENOUGH include the specified lines, with automatic saves after each beat.'),t('修复剧情模式的扩展成就解锁，并新增“又一次”“我死在这里”“不是第一个 B-07”“个体数量：？”。结局读完不再误播排队的日常场景，旧结局条件和记录保留。','Expansion achievements now unlock in Story Mode, with AGAIN, I DIED HERE, NOT THE FIRST B-07 and SUBJECT COUNT: ?. Finishing an ending no longer plays a queued ordinary scene. Old ending conditions and records remain intact.')],pending:[t('连续性壁纸的独立美术、其余人物与历史扩展、真实公网AI审批仍欠。','Distinct Continuity wallpaper art, remaining people and historical expansions, and live public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.134-preview',title:t('并排的矛盾记录','Conflicting Records Side by Side'),items:[t('后期连续性档案可分五次核对互相矛盾的记录：两份舱体状态、B-07死去、Jack先死、站在这里和结果表。需要三个不同的已完成结局与两种实际生死记录，旧主线结局条件保留。','The late Continuity file offers five comparisons: chamber statuses, B-07 dying, Jack dying first, standing here and the outcome table. Three distinct completed endings and opposing death records are required. Existing main ending conditions remain intact.'),t('每段使用正常对白框，逐句保存，支持双语、快速保存、加载、回退、日志和刷新恢复。读完回到原剧情位置，不改变生死、关系或资源。','Each sequence uses the normal dialogue box, saves each beat and supports both languages, quick saves, loading, rollback, the log and reload recovery. It returns to the original story position without changing deaths, relationships or resources.')],pending:[t('完整结局、成就、动态壁纸回收、其余角色与其他历史扩展，以及真实公网AI审批仍欠。','Full ending, achievement and animated wallpaper callbacks, remaining people and other historical expansions, and live public AI approval remain incomplete.')]},
 {date:'2026-10-14',version:'0.13.133-preview',title:t('十个人留下的回声','Echoes Left by Ten People'),items:[t('十名既有人物拥有独立的旧世界线回声。只有旧记录确实见过该人物、所属世界线已完成，且现在仍是本人，实际交谈才会触发一次；旧存档不会凭空补出见面经历。','Ten existing people now have distinct past-worldline echoes. An actual talk triggers one only when a completed old worldline recorded meeting that same person and the present person is not a successor. Old saves do not invent meetings.'),t('回声进入正常对白框，支持快速保存、加载、回退、双语和刷新恢复。NPC旧信任和新身体的关系不继承，死亡与接班状态保留。','Echoes use the normal dialogue box, supporting quick saves, loading, rollback, both languages and reload recovery. Old NPC trust and new-body relationships are not inherited; deaths and succession remain intact.')],pending:[t('更多角色、重大世界线碰撞、完整结局/成就/动态壁纸回收、其他历史扩展和真实公网AI审批仍欠。','More characters, major worldline collisions, complete ending/achievement/wallpaper callbacks, other historical expansions and live public AI approval remain incomplete.')]},

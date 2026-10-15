@@ -1450,3 +1450,18 @@ continuityEndings.js数据统一提供六个结局的各自演出：break/preser
 改index.source.html、js/data/continuityEndings.js、storyMode.js、continuity.js、meta.js、story/presentation.js、版本更新日志/测试清单，新增两个endings测试。七个真实最终选择、21个三宽度浏览器分支、逐句双语、Space/QUICK/LOAD/BACK/刷新/结束/BEGIN菜单与成就收藏专项。逻辑测试验证无AP/货币/属性/关系损耗，实际Story自主值选择不受养成独立性污染，旧完成档仍可读。保护文本/20章/碰撞/22回声/真实世界线记录/保存专项通过。413源码资源和私密路径屏蔽通过。
 
 剩余：连续性壁纸独立正式美术及更多NPC、其他历史扩展审计、真实公网AI审批/通知/封禁/限额。Supabase组织已选但费用查询UNAVAILABLE仍未创建；配音待用户。目标active。
+### 0.13.135 公开验收回执（2026-10-14）
+
+游戏提交46872dfd74a9bd6be8d0d976a51034ff0c08883c，Pages38657186460 completed/success。公开index+5外置CG逐字节匹配。1366/768/390各七个真实最终按钮，共21条分支，六个各异的结局段落、双语逐句、Space/QUICK SAVE/LOAD/BACK/刷新/保留结局、BEGIN菜单和六项本批成就回收（BEGIN/ENOUGH及4新项）收藏显示全部通过。读完确实停在本轮结束，没有排队日常再误播、横向溢出或脚本错误。结局逻辑/已完成记录/养成不继承/隐藏门槛/独立五槽/铁连续/500天养成等14系统检查在最终4项成就加入后复测通过；413源码资源/私密路径屏蔽通过。
+
+公开：https://stepono927.github.io/Stephen/?release=0.13.135
+文件：../abyss-lab-0.13.135-preview.zip（1715白名单文件，不含.env、密钥、真实玩家存档或真实审批记录）。连续性最终六种选择与ENOUGH、六段结局演出、原Part82七种meta成就条件现已接入；独立壁纸设计仍欠，现有wall_bleed/ wall_twolabs/ wall_neverroom/ wall_loop/ wall_begin仍复用既有theme与同一echoLayer叠影，不能用只比SVG字符串不同的旧测试证明独立美术完成。其余历史扩展与真正公网AI审批继续欠，目标active。
+## 0.13.136-preview · 五张连续性壁纸独立透视美术（待公开）
+
+对应原MEGA Part83，wall_bleed / wall_twolabs / wall_neverroom / wall_loop / wall_begin保持原ID、稀有度、解锁与存档字段，转交独立ContinuityWallpaperArt模块。五种实际不同构图：现时/另一时刻舱体与设备错位；左右两个斜透视培养室在中央接缝并存；门后另一间有桌椅的深室；五层递进走廊与返回电缆；晨光窗口、窗帘、锅杯及植物的厨房。使用独立SVG几何、各色灯/金属/玻璃渐变、墙板、通风条、支架和地面磨损；不再调用相同wp-echo人形叠影。共同建筑边框属于同一实验室材质语言，不拿颜色/ID/文字差异冒充构图差异。
+
+局部层缓慢动画：bleed错位±3px/21s与稀薄横纹；twolabs接缝亮度19s；neverroom深室缓慢显隐23s；loop递进灯16s；begin蒸汽上下3px/12s与窗帘1.5px/15s。地面/前框无动画，不直接动画怪物，BEGIN没有世界线异常叠影。animated=false及低性能完全停动画，prefers-reduced-motion所有子层停止。渲染不改变游戏状态/随机数/存档；培养室/主菜单的既有选择路径不变。
+
+新增js/continuityWallpaperArt.js及两个专项测试，改wallpaperArt路由、style.css、index.source和版本/测试清单。几何测试去掉颜色/透明度等属性后五组仍不同；静态/动态、定义唯一、选择持久化及纯渲染检查通过。1366/768/390五张共15真实收藏预览/用于培养室/主菜单/刷新流程通过，确认computedStyle有实际局部动画、低性能和OS减少动态时全部为none，无溢出或脚本错误。15张隔离截图已生成，五张小屏最终细节截图逐张查看；不是只比SVG字符串。既有19项phase9及废墟轰炸/连续性结局回归通过。
+
+剩余人物扩展、其他历史模块/正式美术审计、真实公网AI主机审批/通知/封禁/限额继续欠；组织许可已收到但Supabase费用查询未可用，未创建收费资源。目标active，不报告全部完成。
