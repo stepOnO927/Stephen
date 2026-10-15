@@ -1243,7 +1243,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.147-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.148-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6193,6 +6193,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "恢复之后，记录仍在": "Recovery Does Not Erase the Record",
+  "人物当天受损后恢复到原值，日报仍保留已观察的逐段变化及健康/活动病例范围，不再只显示100→100。每人每天保留最近32段和累计次数，范围继续保留已记录极值。": "When someone recovers to the same value within a day, the report retains observed transitions and health/active-case bounds instead of showing only 100→100. Each person retains the latest 32 transitions and the total count for that day; recorded bounds remain available.",
+  "逐段列表可展开、切换中英文、刷新和在历史晚报查看；旧摘要不补写过去过程。保存时无损复用重复段和确实连续的状态，保留观察缺口，五个完整成熟存档容量测试通过。": "Transition lists expand, switch languages, survive reload and remain in evening history. Old summaries do not invent past transitions. Storage losslessly reuses identical transitions and genuinely contiguous states, preserving observation gaps. Five complete mature slots pass capacity testing.",
+  "运营与27房间全部条款统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。": "Unified acceptance of all operations and 27-room clauses, other final artwork and long story arcs, and live public AI approval remain incomplete.",
   "晚报记住白天的变化": "Evening Reports Remember the Day",
   "当天报告新增已观察到的人物健康、生命状态和新闻变化摘要；同一天保留首次观察值与最新值，休息后仍可在历史晚报查看。远处人物、潜伏病况与来源原文不混入。": "Daily reports now summarize observed health, life-status and news changes, retaining the first and latest observations within the day. They remain in evening history after rest. Remote people, latent conditions and source text are excluded.",
   "本地存档增加无损压缩，完整保留人物与新闻记录，普通导出格式不变；旧格式仍可读取，损坏记录可恢复备份。五个大型存档及60天不同变化的容量测试通过。": "Local saves gain lossless compression while retaining full people and news records. Portable exports stay unchanged, old formats remain readable, and malformed records can recover from backup. Capacity testing passes with five mature slots and 60 days of distinct changes.",
@@ -8018,6 +8022,12 @@ Abyss.EnglishCatalog={
   " 天": "",
   "原排班": "Scheduled",
   "实际安排": "Actual task",
+  "已观察健康范围": "Observed health range",
+  "活动病例范围": "Active-case range",
+  "逐段观察": "Observed transitions",
+  "按观察顺序；不推断原因或时刻。仅记录功能接入后的变化，最多保留最近32段，范围保留全部已观察值。": "In observed order; causes and clock times are not inferred. Records start when this feature is introduced. The latest 32 transitions are retained; ranges retain all observed values.",
+  "活动病例": "Active cases",
+  "生命记录已封存": "Life record archived",
   "Jack的工作技能": "Jack’s work skills",
   "从实际完成的值班中积累。离岗、断电或未完成不会计入；基础照护不替代诊断与治疗。": "Built through completed shifts. Absence, power outages and unfinished work do not count. Basic care does not replace diagnosis or treatment.",
   "工作能力": "Proficiency",
@@ -8066,8 +8076,6 @@ Abyss.EnglishCatalog={
   "合口味": "Liked",
   "食品不足": "Food shortage",
   "基础口粮": "Basic rations",
-  "活动病例": "Active cases",
-  "生命记录已封存": "Life record archived",
   "未收到": "Not received",
   "新增已确认播报": "New confirmed bulletin",
   "在实验室的人": "People at the laboratory",
@@ -30735,9 +30743,34 @@ Abyss.LabOperationsData=(()=>{
 })();
 
 </script>
+<script data-source="js/lab/dayTrace.js">
+'use strict';
+// Ordered observed transitions, never inferred causes or invented clock times.
+Abyss.LabDayTrace=(()=>{
+ const limit=32,fields=['beforeHealth','afterHealth','beforeCases','afterCases','beforeAlive','afterAlive'];
+ const hp=n=>Number.isFinite(n)&&n>=0&&n<=100,cases=n=>Number.isInteger(n)&&n>=0&&n<=12;
+ const changed=r=>r.beforeHealth!==r.afterHealth||r.beforeCases!==r.afterCases||r.beforeAlive!==r.afterAlive;
+ function read(raw,row){if(!raw||typeof raw!=='object')return undefined;
+  if([1,2,3].includes(raw.version)&&(!Array.isArray(raw.events)||!raw.events.length||raw.events.length>limit))return undefined;
+  if(raw.version===2){if(!Array.isArray(raw.entries)||!raw.entries.length||raw.entries.length>limit||raw.events.some(i=>!Number.isInteger(i)||i<0||i>=raw.entries.length))return undefined;raw={...raw,version:1,events:raw.events.map(i=>raw.entries[i])};}
+  if(raw.version===3){let previous;const expanded=[];for(const e of raw.events){if(!Array.isArray(e))return undefined;let row;if(e.length===6)row=e;else if(e.length===3&&previous)row=[previous[1],e[0],previous[3],e[1],previous[5],e[2]];else return undefined;expanded.push(row);previous=row;}raw={...raw,version:1,events:expanded};}
+  if(raw.version===1){if(!Array.isArray(raw.range)||raw.range.length!==4||!Array.isArray(raw.events))return undefined;raw={count:raw.count,lowHealth:raw.range[0],highHealth:raw.range[1],lowCases:raw.range[2],highCases:raw.range[3],events:raw.events.map(e=>Array.isArray(e)&&e.length===6&&[0,1].includes(e[4])&&[0,1].includes(e[5])?Object.fromEntries(fields.map((k,i)=>[k,i>3?!!e[i]:e[i]])):null)};}
+  if(!Number.isInteger(raw.count)||raw.count<1||raw.count>1e9||!hp(raw.lowHealth)||!hp(raw.highHealth)||raw.lowHealth>raw.highHealth||!cases(raw.lowCases)||!cases(raw.highCases)||raw.lowCases>raw.highCases||!Array.isArray(raw.events)||!raw.events.length||raw.events.length>limit||raw.events.length>raw.count)return undefined;
+  const within=r=>hp(r?.beforeHealth)&&hp(r.afterHealth)&&cases(r.beforeCases)&&cases(r.afterCases)&&typeof r.beforeAlive==='boolean'&&typeof r.afterAlive==='boolean'&&Math.min(r.beforeHealth,r.afterHealth)>=raw.lowHealth&&Math.max(r.beforeHealth,r.afterHealth)<=raw.highHealth&&Math.min(r.beforeCases,r.afterCases)>=raw.lowCases&&Math.max(r.beforeCases,r.afterCases)<=raw.highCases;
+  if(!within(row)||raw.events.some(e=>!within(e)||!changed(e)))return undefined;
+  const last=raw.events.at(-1);if(['afterHealth','afterCases','afterAlive'].some(k=>last[k]!==row[k]))return undefined;
+  return {count:raw.count,lowHealth:raw.lowHealth,highHealth:raw.highHealth,lowCases:raw.lowCases,highCases:raw.highCases,events:raw.events.map(e=>Object.fromEntries(fields.map(k=>[k,e[k]])))};
+ }
+ function add(previous,delta,old){const known=previous||{},points=[delta,...(old?[old]:[])];return {count:Math.min(1e9,(known.count||0)+1),lowHealth:Math.min(known.lowHealth??100,...points.flatMap(r=>[r.beforeHealth,r.afterHealth])),highHealth:Math.max(known.highHealth??0,...points.flatMap(r=>[r.beforeHealth,r.afterHealth])),lowCases:Math.min(known.lowCases??12,...points.flatMap(r=>[r.beforeCases,r.afterCases])),highCases:Math.max(known.highCases??0,...points.flatMap(r=>[r.beforeCases,r.afterCases])),events:[...(known.events||[]),Object.fromEntries(fields.map(k=>[k,delta[k]]))].slice(-limit)};}
+ function pack(r){const full={version:1,count:r.count,range:[r.lowHealth,r.highHealth,r.lowCases,r.highCases],events:r.events.map(e=>fields.map((k,i)=>i>3?+e[k]:e[k]))},entries=[],indices=new Map();const referenced={...full,version:2,entries,events:full.events.map(e=>{const key=JSON.stringify(e);if(!indices.has(key)){indices.set(key,entries.length);entries.push(e);}return indices.get(key);})};const sequential={...full,version:3,events:full.events.map((e,i)=>{const p=full.events[i-1];return p&&e[0]===p[1]&&e[2]===p[3]&&e[4]===p[5]?[e[1],e[3],e[5]]:e;})};return [full,referenced,sequential].sort((a,b)=>JSON.stringify(a).length-JSON.stringify(b).length)[0];}
+ function html(r){if(!r)return '';const t=(zh,en)=>Abyss.I18n.language()==='en'?en:zh;return '<div data-day-trace><p data-day-trace-range>'+t('已观察健康范围','Observed health range')+' '+r.lowHealth+'–'+r.highHealth+' · '+t('活动病例范围','Active-case range')+' '+r.lowCases+'–'+r.highCases+'</p><details><summary>'+t('逐段观察','Observed transitions')+' · '+r.events.length+' / '+r.count+'</summary><p>'+t('按观察顺序；不推断原因或时刻。仅记录功能接入后的变化，最多保留最近32段，范围保留全部已观察值。','In observed order; causes and clock times are not inferred. Records start when this feature is introduced. The latest 32 transitions are retained; ranges retain all observed values.')+'</p><ol>'+r.events.map(e=>'<li>HP '+e.beforeHealth+' → '+e.afterHealth+' · '+t('活动病例','Active cases')+' '+e.beforeCases+' → '+e.afterCases+(e.beforeAlive&&!e.afterAlive?' · '+t('生命记录已封存','Life record archived'):'')+'</li>').join('')+'</ol></details></div>';}
+ return {limit,read,add,pack,html};
+})();
+
+</script>
 <script data-source="js/lab/nightDetails.js">
 'use strict';
-// Endpoint observations only; no simulated events, rewards, RNG or invented times.
+// Observed endpoints and optional ordered daily transitions; no inferred causes, rewards or invented times.
 Abyss.LabNightDetails=(()=>{
  const statuses=['OPEN','WAITING','FOLLOWUP','RESOLVING','CLOSED','EXPIRED'];
  const number=n=>Number.isFinite(n)&&n>=0&&n<=100;
@@ -30746,14 +30779,14 @@ Abyss.LabNightDetails=(()=>{
  const topic=n=>Abyss.NewsData.some(d=>d.number===n);
  const empty=()=>({npc:[],weather:null,news:[]});
  function unpack(raw,names,groups){if(raw?.version===2){if(!Array.isArray(groups)||groups.length>60||!Number.isInteger(raw.ref)||raw.ref<0||raw.ref>=groups.length||groups[raw.ref]?.version!==1)return undefined;raw=groups[raw.ref];}if(raw?.version!==1)return raw;const ids=Array.isArray(names)?names:[];
-  const npc=(Array.isArray(raw.npc)?raw.npc:[]).map(n=>typeof n==='string'&&/^[0-9a-z]{1,11}$/.test(n)?parseInt(n,36):n).filter(n=>Number.isSafeInteger(n)&&n>=0).map(n=>{const values=[];for(const base of [10001,10001,13,13,2,2]){values.push(n%base);n=Math.floor(n/base);}return {id:ids[n],beforeHealth:values[0]/100,afterHealth:values[1]/100,beforeCases:values[2],afterCases:values[3],beforeAlive:!!values[4],afterAlive:!!values[5]};});
+  const npc=(Array.isArray(raw.npc)?raw.npc:[]).map((n,i)=>({n:typeof n==='string'&&/^[0-9a-z]{1,11}$/.test(n)?parseInt(n,36):n,trace:raw.traces?.[i]})).filter(r=>Number.isSafeInteger(r.n)&&r.n>=0).map(({n,trace})=>{const values=[];for(const base of [10001,10001,13,13,2,2]){values.push(n%base);n=Math.floor(n/base);}return {id:ids[n],beforeHealth:values[0]/100,afterHealth:values[1]/100,beforeCases:values[2],afterCases:values[3],beforeAlive:!!values[4],afterAlive:!!values[5],...(trace?{trace}:{})};});
   const news=(Array.isArray(raw.news)?raw.news:[]).filter(n=>Number.isInteger(n)&&n>0&&n<5000).map(n=>{const number=n%91,code=Math.floor(n/91),before=code%7,after=Math.floor(code/7);return after?{number,kind:'CHAIN',before:before?statuses[before-1]:null,after:statuses[after-1]}:{number,kind:'BULLETIN'};});
   return {npc,weather:raw.weather,news};
  }
  function read(raw,names,groups){raw=unpack(raw,names,groups);const out=empty();if(!raw||typeof raw!=='object')return out;
   const used=new Set();for(const r of (Array.isArray(raw.npc)?raw.npc:[]).slice(0,256)){
    if(!r||!named(r.id)||used.has(r.id)||!number(r.beforeHealth)||!number(r.afterHealth)||!count(r.beforeCases)||!count(r.afterCases)||typeof r.beforeAlive!=='boolean'||typeof r.afterAlive!=='boolean')continue;
-   used.add(r.id);out.npc.push({id:r.id,beforeHealth:r.beforeHealth,afterHealth:r.afterHealth,beforeCases:r.beforeCases,afterCases:r.afterCases,beforeAlive:r.beforeAlive,afterAlive:r.afterAlive});
+   const trace=Abyss.LabDayTrace.read(r.trace,r);used.add(r.id);out.npc.push({...(trace?{trace}:{}),id:r.id,beforeHealth:r.beforeHealth,afterHealth:r.afterHealth,beforeCases:r.beforeCases,afterCases:r.afterCases,beforeAlive:r.beforeAlive,afterAlive:r.afterAlive});
   }
   const weather=w=>w&&Abyss.ClimateData.weather.some(d=>d.id===w.id)&&Number.isFinite(w.temperature)&&Math.abs(w.temperature)<=150;
   if(weather(raw.weather?.before)&&weather(raw.weather?.after))out.weather={before:{id:raw.weather.before.id,temperature:raw.weather.before.temperature},after:{id:raw.weather.after.id,temperature:raw.weather.after.temperature}};
@@ -30768,7 +30801,7 @@ Abyss.LabNightDetails=(()=>{
  function packState(s){if(!s.operations?.nights?.some(n=>n.details)&&!s.operations?.reports?.some(r=>r.changes))return s;const names=[],dayChangeGroups=[],groupIndex=new Map();function packDetails(details){const d=read(details);
    const npc=d.npc.map(r=>{let index=names.indexOf(r.id);if(index<0){index=names.length;names.push(r.id);}const values=[Math.round(r.beforeHealth*100),Math.round(r.afterHealth*100),r.beforeCases,r.afterCases,+r.beforeAlive,+r.afterAlive,index],bases=[10001,10001,13,13,2,2];let packed=values.at(-1);for(let i=bases.length-1;i>=0;i--)packed=packed*bases[i]+values[i];return packed.toString(36);});
    const news=d.news.map(r=>r.number+(r.kind==='CHAIN'?91*((r.before?statuses.indexOf(r.before)+1:0)+7*(statuses.indexOf(r.after)+1)):0));
-   return {version:1,npc,weather:d.weather,news};}
+   return {version:1,npc,weather:d.weather,news,...(d.npc.some(r=>r.trace)?{traces:d.npc.map(r=>r.trace?Abyss.LabDayTrace.pack(r.trace):null)}:{})};}
   const nights=s.operations.nights.map(n=>n.details?{...n,details:packDetails(n.details)}:n),reports=s.operations.reports.map(r=>{if(!r.changes)return r;const detail=packDetails(r.changes),key=JSON.stringify(detail);let ref=groupIndex.get(key);if(ref===undefined){ref=dayChangeGroups.length;dayChangeGroups.push(detail);groupIndex.set(key,ref);}return {...r,changes:{version:2,ref}};});return {...s,operations:{...s.operations,nights,reports,nightDetailsNames:names,...(dayChangeGroups.length?{dayChangeGroups}:{})}};
  }
  function capture(before,s,includeSameDay=false){const out=empty(),round=n=>+n.toFixed(2),I=Abyss.Infirmary;
@@ -30787,11 +30820,11 @@ Abyss.LabNightDetails=(()=>{
   for(const r of s.infirmary.newsHistory)if((includeSameDay?r.day>=before.day:r.day>before.day)&&r.day<=s.day&&!previous.has([r.day,r.number,r.actor].join(':'))&&!used.has(r.number)){out.news.push({number:r.number,kind:'BULLETIN'});used.add(r.number);}
   return read(out);
  }
- function merge(first,next){const a=read(first),b=read(next),npc=new Map(a.npc.map(r=>[r.id,r])),news=new Map(a.news.map(r=>[r.number,r]));for(const r of b.npc){const old=npc.get(r.id);npc.set(r.id,old?{...r,beforeHealth:old.beforeHealth,beforeCases:old.beforeCases,beforeAlive:old.beforeAlive}:r);}for(const r of b.news){const old=news.get(r.number);if(old?.kind==='CHAIN'&&r.kind==='BULLETIN')continue;news.set(r.number,r.kind==='CHAIN'&&old?.kind==='CHAIN'?{...r,before:old.before}:r);}return read({npc:[...npc.values()],weather:null,news:[...news.values()]});}
+ function merge(first,next){const a=read(first),b=read(next),npc=new Map(a.npc.map(r=>[r.id,r])),news=new Map(a.news.map(r=>[r.number,r]));for(const r of b.npc){const old=npc.get(r.id);npc.set(r.id,old?{...r,beforeHealth:old.beforeHealth,beforeCases:old.beforeCases,beforeAlive:old.beforeAlive,trace:Abyss.LabDayTrace.add(old.trace,r,old)}:{...r,trace:Abyss.LabDayTrace.add(undefined,r)});}for(const r of b.news){const old=news.get(r.number);if(old?.kind==='CHAIN'&&r.kind==='BULLETIN')continue;news.set(r.number,r.kind==='CHAIN'&&old?.kind==='CHAIN'?{...r,before:old.before}:r);}return read({npc:[...npc.values()],weather:null,news:[...news.values()]});}
  function html(details,presentation='night'){
 const d=read(details),en=Abyss.I18n.language()==='en',t=(zh,enText)=>en?enText:zh,esc=Abyss.Util.escape;
   const status=id=>t(...({OPEN:['已收到','Received'],WAITING:['等待后续','Waiting'],FOLLOWUP:['后续可回应','Follow-up available'],RESOLVING:['处理中','Resolving'],CLOSED:['本轮已结束','Closed'],EXPIRED:['回应期限已过','Response window expired']}[id]||['新增','New']));
-  const npc=d.npc.map(r=>'<p>'+esc(Abyss.StreetData.people.find(p=>p.id===r.id).name)+' · HP '+r.beforeHealth+' → '+r.afterHealth+' · '+t('活动病例','Active cases')+' '+r.beforeCases+' → '+r.afterCases+(r.beforeAlive&&!r.afterAlive?' · '+t('生命记录已封存','Life record archived'):'')+'</p>').join('');
+  const npc=d.npc.map(r=>'<p>'+esc(Abyss.StreetData.people.find(p=>p.id===r.id).name)+' · HP '+r.beforeHealth+' → '+r.afterHealth+' · '+t('活动病例','Active cases')+' '+r.beforeCases+' → '+r.afterCases+(r.beforeAlive&&!r.afterAlive?' · '+t('生命记录已封存','Life record archived'):'')+'</p>'+Abyss.LabDayTrace.html(r.trace)).join('');
   const weather=w=>{const found=Abyss.ClimateData.weather.find(p=>p.id===w.id);return esc(en?found.en:found.name)+' '+w.temperature+'°C';};
   const news=d.news.map(r=>'<p>#'+r.number+' · '+(r.kind==='CHAIN'?(r.before?status(r.before):t('未收到','Not received'))+' → '+status(r.after):t('新增已确认播报','New confirmed bulletin'))+'</p>').join('');
   return (npc?'<section data-'+(presentation==='day'?'day':'night')+'-detail="npc"><h4>'+t('在实验室的人','People at the laboratory')+'</h4>'+npc+'</section>':'')+(d.weather?'<section data-'+(presentation==='day'?'day':'night')+'-detail="weather"><h4>'+t('实验室外的天气','Weather outside the laboratory')+'</h4><p>'+weather(d.weather.before)+' → '+weather(d.weather.after)+'</p></section>':'')+(news?'<section data-'+(presentation==='day'?'day':'night')+'-detail="news"><h4>'+t('新闻变化摘要','News changes')+'</h4>'+news+'</section>':'');
@@ -38134,6 +38167,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-15',version:'0.13.148-preview',title:t('恢复之后，记录仍在','Recovery Does Not Erase the Record'),items:[t('人物当天受损后恢复到原值，日报仍保留已观察的逐段变化及健康/活动病例范围，不再只显示100→100。每人每天保留最近32段和累计次数，范围继续保留已记录极值。','When someone recovers to the same value within a day, the report retains observed transitions and health/active-case bounds instead of showing only 100→100. Each person retains the latest 32 transitions and the total count for that day; recorded bounds remain available.'),t('逐段列表可展开、切换中英文、刷新和在历史晚报查看；旧摘要不补写过去过程。保存时无损复用重复段和确实连续的状态，保留观察缺口，五个完整成熟存档容量测试通过。','Transition lists expand, switch languages, survive reload and remain in evening history. Old summaries do not invent past transitions. Storage losslessly reuses identical transitions and genuinely contiguous states, preserving observation gaps. Five complete mature slots pass capacity testing.')],pending:[t('运营与27房间全部条款统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。','Unified acceptance of all operations and 27-room clauses, other final artwork and long story arcs, and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.147-preview',title:t('晚报记住白天的变化','Evening Reports Remember the Day'),items:[t('当天报告新增已观察到的人物健康、生命状态和新闻变化摘要；同一天保留首次观察值与最新值，休息后仍可在历史晚报查看。远处人物、潜伏病况与来源原文不混入。','Daily reports now summarize observed health, life-status and news changes, retaining the first and latest observations within the day. They remain in evening history after rest. Remote people, latent conditions and source text are excluded.'),t('本地存档增加无损压缩，完整保留人物与新闻记录，普通导出格式不变；旧格式仍可读取，损坏记录可恢复备份。五个大型存档及60天不同变化的容量测试通过。','Local saves gain lossless compression while retaining full people and news records. Portable exports stay unchanged, old formats remain readable, and malformed records can recover from backup. Capacity testing passes with five mature slots and 60 days of distinct changes.')],pending:[t('27房间及历史大型扩展统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。','Unified acceptance of all 27 rooms and historical expansions, other final artwork and long story arcs, and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.146-preview',title:t('车库维修与途中停车修正','Garage Repairs and Roadside Stops'),items:[t('维修会检查实际独立部件与滤芯、雨刷损坏，不再因总车况100%误报修满；按钮显示本次真实修复量和费用，满状态与资金不足不可点击。','Repairs inspect individual components, filters and wipers instead of falsely reporting full condition when the hull is at 100%. Buttons show actual repair quantity and cost, and disable for full condition or insufficient funds.'),t('途中停车不能在出发地车库换车；无车时隐藏车辆状态、昵称与维修操作，阻止虚构车库记录，并补齐核心公路失败提示的中文。','A roadside stop no longer lets you swap vehicles at the origin garage. Without an owned vehicle, vehicle status, nickname and service controls are hidden, phantom garage records are blocked, and core road failure messages are localized.')],pending:[t('其余载具正式美术、历史扩展统一终验及真实公网AI审批仍未全部完成。','Other final vehicle artwork, unified historical expansion acceptance and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.145-preview',title:t('Jack在工作中学习','Jack Learns on the Job'),items:[t('烹饪、基础照护和植物照料从实际完成的值班中分别积累；失败、离岗、隔离、断电和休班不增长。成长后的能力影响真实值班成功率，不只是显示数字。','Cooking, basic care and plant care develop independently through completed shifts. Failed work, absence, isolation, power outages and time off grant no progress. Improved proficiency affects actual shift success, not just displayed numbers.'),t('排班页显示技能、实际成功班次与下一级门槛。旧档从无训练记录开始，技能随Jack保留至下一代零号；基础照护仍不能代替诊断和治疗。','The duty view shows proficiency, completed shifts and the next threshold. Old saves start without invented training history; Jack retains his skills across creature generations. Basic care still cannot replace diagnosis or treatment.')],pending:[t('实验室运营其余条款与27房间统一终验、其余正式美术/长剧情和真实公网AI审批仍未全部完成。','Remaining lab-operation clauses and unified acceptance of all 27 rooms, other final artwork and long story arcs, and live public AI approval remain incomplete.')]},
