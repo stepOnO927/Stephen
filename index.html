@@ -1242,7 +1242,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.139-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.140-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6192,6 +6192,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "服装裁切与镜片对齐修复": "Garment Cropping and Lens Alignment Repairs",
+  "修正地下、天气与道路来源24件衣服的坐标，随九种体型调整衣摆；手套独立贴在双手上，预览不会再重排主页层级。": "Twenty-four underground, weather and road garments now use normalized source coordinates and body-specific hems. Gloves attach above the hands, and previews no longer reorder the main creature.",
+  "20件眼镜按实际镜片中心对齐不同眼型；呼吸器保留口部位置。滚动正文时狩猎分类条保持原位，支持窄屏横向选择。": "Twenty optical accessories align their authored lens centers to changing eyes. Respirators retain their mouth position. The hunt category strip stays outside the scrolling content and supports horizontal selection on narrow screens.",
+  "完整正式美术、剩余676条独立日常台词、历史扩展和真实公开AI审批仍未完成。": "Final artwork, the remaining 676 independent ambient lines, historical expansions and live public AI approval remain incomplete.",
   "街谈巷语：再添一百六十句": "Street Talk: Another 160 Lines",
   "新增16类共160条独立中英文短句，日常独立库由164增至324条。寒潮、沙尘、酸雨、雷暴等句子各自声明真实天气条件，不靠统一前缀拼接。": "160 independent bilingual fragments across 16 categories expand the authored ambient library from 164 to 324 lines. Cold snaps, dust, acid rain and thunder each have explicit weather conditions, without multiplying generic prefixes.",
   "人物列表卡片显示各自职业与生活背景。新句进入实际交谈和交往记忆，支持双向语言切换与读档；旧人物、关系、故事条件和拼接记录兼容保留。": "People-list cards now show distinct occupations and backgrounds. New lines enter real talks and encounter memories, with two-way language switching and loading. Old people, relationships, story conditions and historical combined records remain compatible.",
@@ -35344,13 +35348,15 @@ Abyss.AttachmentRig=(()=>{
  const bodies={normal:[1,1,0],slim:[.86,.94,0],bulky:[1.27,1.12,0],elongated:[1.02,1.06,0],compact:[1.08,.73,0],asymmetrical:[1.21,.97,-7],armored:[1.25,1.05,0],aquatic:[1.16,1,0],amorphous:[1.27,.86,0]};
  function profile(s){return s?.progress?Abyss.Evolution.profile(s):{};}
  function tail(s){const p=profile(s);if(p.tail)return [400+2*p.tail.index,288-5*p.tail.index];return s?.mutations?.some(id=>Abyss.Data.mutations.find(m=>m.id===id)?.layer==='tail')?[412,293]:[327,329];}
- function transform(slot,s){const p=profile(s),[w,h,dx]=bodies[p.body?.variant]||bodies.normal;let x=239,y=266,sx=1,sy=1,tx=0,ty=0;
- if(slot==='body'){x=239;y=350;sx=w*1.4;sy=h*1.12;tx=dx;ty=0;}
+ const hems={normal:350,slim:353,bulky:363,elongated:358,compact:331,asymmetrical:352,armored:363,aquatic:365,amorphous:360};
+ function transform(slot,s,item=null){const p=profile(s),[w,h,dx]=bodies[p.body?.variant]||bodies.normal;let x=239,y=266,sx=1,sy=1,tx=0,ty=0;
+ if(slot==='body'){if(item?.visual.attachment==='hands')return '';x=239;y=350;sx=w*1.4;sy=h*1.12;tx=dx;ty=(hems[p.body?.variant]||350)-350;}
  if(slot==='neck'){sx=1.1+(w-1)*.7;tx=dx*.45;ty=-2;}if(slot==='back'){sx=1+(w-1)*.75;sy=1+(h-1)*.5;tx=dx*.5;}
  if(['charm','utility','weapon'].includes(slot)){x=239;y=266;tx=dx;sx=w;sy=h;}
  // Lenses stay aligned with eyes rather than inheriting torso width.
  if(slot==='face'){x=239;y=207;}
- return 'translate('+(x+tx)+' '+(y+ty)+') scale('+sx+' '+sy+') translate('+(-x)+' '+(-y)+')';}
+ const matrix='translate('+(x+tx)+' '+(y+ty)+') scale('+sx+' '+sy+') translate('+(-x)+' '+(-y)+')',source=slot==='body'&&item?.visual.bodySource;
+ return matrix+(source?' translate(0 264) scale(1 '+(86/(source[1]-source[0]))+') translate(0 '+(-source[0])+')':'');}
  function fitFace(group,item,s,id){const p=profile(s),v=p.eyes?.variant||'normal';if(!['glasses','goggles','visor'].includes(item.visual.renderer)&&!(['atelier','weather','underground'].includes(item.visual.renderer)&&item.visual.optical))return;let original=group.innerHTML;const staging=document.createElementNS('http://www.w3.org/2000/svg','g');staging.innerHTML=original;group.innerHTML='';const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');group.append(defs);for(const old of staging.querySelectorAll('defs')){while(old.firstChild)defs.append(old.firstChild);old.remove();}original=staging.innerHTML;for(const [index,x]of [199,280].entries()){const [rx,ry]=Abyss.EyeArt.size(v,!!index),sx=Math.max(.72,(rx+8)/30),sy=Math.max(.72,(ry+8)/35),clipId='lens-fit-'+id+'-'+index;defs.insertAdjacentHTML('beforeend','<clipPath id="'+clipId+'"><rect x="'+(index?240:120)+'" y="140" width="120" height="150"/></clipPath>');group.insertAdjacentHTML('beforeend','<g data-lens-fit="'+index+'" transform="translate('+x+' 207) scale('+sx+' '+sy+') translate('+(-x)+' -207)"><g clip-path="url(#'+clipId+')">'+original+'</g></g>');}}
  function fitOptics(group,item,s,id){
   const authored=item.visual.lenses;
@@ -35367,7 +35373,7 @@ Abyss.AttachmentRig=(()=>{
    group.insertAdjacentHTML('beforeend','<g data-lens-fit="'+index+'" data-lens-eye="'+lens.eye+'" data-lens-source="'+lens.x+','+lens.y+'" transform="translate('+x+' 207) scale('+sx+' '+sy+') translate('+(-lens.x)+' '+(-lens.y)+')"><g clip-path="url(#'+clipId+')">'+original+'</g></g>');
   });
  }
- return {bodies,tail,transform,fitFace:fitOptics};
+ return {bodies,hems,tail,transform,fitFace:fitOptics};
 })();
 
 </script>
@@ -36013,6 +36019,39 @@ Abyss.VisualEvolution=(()=>{
 Abyss.SkinArt={render(s,root){const creature=root.querySelector('[data-creature]');let group=creature.querySelector('[data-skin-overlay]');if(!group){group=document.createElementNS('http://www.w3.org/2000/svg','g');group.setAttribute('data-skin-overlay','');creature.insertBefore(group,creature.querySelector('[data-layer="shell"]'));}creature.insertBefore(group,creature.querySelector('[data-layer="shell"]'));const i=Abyss.Phase6Data.skins.findIndex(k=>k.id===s.skin),family=Math.max(0,i)%5;let art='';if(i>2){if(family===0)for(let j=0;j<8;j++)art+=`<ellipse cx="${180+(j*31)%125}" cy="${258+(j*17)%64}" rx="${3+j%3}" ry="2" fill="#e6d6ad"/>`;if(family===1)art='<path d="M192 271q45-30 92 0M188 284q50-25 100 0M191 300q48-20 96 0" fill="none" stroke="#adcbd0" stroke-width="2"/>';if(family===2)art='<path d="M204 267l12 18-15 13m60-31l-12 18 15 13M226 308l13 14 14-14" fill="none" stroke="#e0ccaf" stroke-width="2"/>';if(family===3)art='<path d="M187 276q16-25 24 0q12-23 21 0q12-23 21 0q12-23 21 0q12-23 20 0M194 300q14-20 22 0q12-20 20 0q12-20 20 0q12-20 20 0" fill="none" stroke="#d3c2e5" stroke-width="2"/>';if(family===4)for(let j=0;j<7;j++)art+=`<path d="M${197+(j*29)%80} ${265+(j*19)%52}l4-5 4 5-4 5z" fill="#c6dccd"/>`;}group.setAttribute('opacity','.24');group.innerHTML=art;}};
 
 </script>
+<script data-source="js/data/accessoryFit.js">
+'use strict';
+// Source coordinate systems are rendering metadata, never save data or stat bonuses.
+Abyss.AccessoryFitData=(()=>{
+ const correctedBody=[],gloves=[],optics=[];
+ const lens=(eye,x,y,rx,ry)=>({eye,x,y,rx,ry});
+ for(const a of Abyss.Data.accessories){const v=a.visual;
+  if(a.slot==='body'){
+   if(v.renderer==='underground')v.bodySource=[308,438];
+   if(v.renderer==='weather')v.bodySource=[265,374];
+   if(v.renderer==='road'){if(/手套/.test(a.zh)){v.attachment='hands';gloves.push(a.id);}else v.bodySource=[246,/披/.test(a.zh)?382:/长外套/.test(a.zh)?402:367];}
+   if(v.bodySource)correctedBody.push(a.id);
+  }
+  if(a.slot!=='face')continue;
+  let pair=null;
+  if(v.renderer==='road'){
+   if(/单片/.test(a.zh))pair=[lens('right',278,205,37,37)];
+   else if(!/面纱|耳机|面罩|面板|呼吸器|口罩/.test(a.zh))pair=[lens('left',195.5,208,31,21),lens('right',282,208,31,21)];
+  }
+  if(v.renderer==='underground'){const family=Math.floor(v.variant/7);pair=[lens('left',199,207,31,22+family%3*5),lens('right',280,207,31,22+family%3*5)];}
+  if(v.renderer==='weather'){
+   if(v.variant===4)v.optical=false; // Respirator filters follow the mouth, not the eyes.
+   else pair=[lens('left',207.5,208.5,30.5,32.5),lens('right',279,208.5,30,32.5)];
+  }
+  if(a.id==='round_glasses')pair=[lens('left',199,208,29,29),lens('right',280,208,29,29)];
+  if(a.id==='cracked_goggles')pair=[lens('left',198.5,206.5,34.5,28.5),lens('right',281.5,206.5,34.5,28.5)];
+  if(a.id==='oracle_lens')pair=[lens('left',199,205,24,24),lens('right',280,205,24,24)];
+  if(pair){v.optical=true;v.lenses=pair;optics.push(a.id);}
+ }
+ return {correctedBody,gloves,optics};
+})();
+
+</script>
 <script data-source="js/renderer.js">
 'use strict';
 // Independent SVG layers. Replace a renderer with an <image href="assets/..."> later.
@@ -36059,7 +36098,7 @@ Abyss.Renderer = (() => {
    const rigId=root.dataset.rigId||=String(++rigSequence);let clip=root.querySelector('[data-garment-clip]');if(!clip){clip=document.createElementNS('http://www.w3.org/2000/svg','clipPath');clip.dataset.garmentClip='';clip.setAttribute('clipPathUnits','userSpaceOnUse');root.querySelector('defs').append(clip);}clip.id='garment-fit-'+rigId;clip.innerHTML='<path d="'+root.querySelector('[data-layer="body"]>path').getAttribute('d')+'"/>';
    for(const slot of Object.keys(Abyss.Data.slots)){
     const id=s.collection.equipped[slot],item=Abyss.Accessories.find(id),group=root.querySelector('[data-accessory-slot="'+slot+'"]');
-    const art=item?Abyss.AccessoryArt.markup(item,s):'';group.innerHTML=slot==='body'?'<g transform="'+Abyss.AttachmentRig.transform(slot,s)+'">'+art+'</g>':art;group.dataset.item=id||'';group.setAttribute('transform',slot==='body'?'':Abyss.AttachmentRig.transform(slot,s));if(slot==='body')group.setAttribute('clip-path','url(#'+clip.id+')');if(slot==='face'&&item)Abyss.AttachmentRig.fitFace(group,item,s,rigId);
+    const art=item?Abyss.AccessoryArt.markup(item,s):'';group.innerHTML=slot==='body'?'<g transform="'+Abyss.AttachmentRig.transform(slot,s,item)+'">'+art+'</g>':art;group.dataset.item=id||'';group.setAttribute('transform',slot==='body'?'':Abyss.AttachmentRig.transform(slot,s,item));if(slot==='body'&&item?.visual.attachment!=='hands')group.setAttribute('clip-path','url(#'+clip.id+')');else group.removeAttribute('clip-path');if(slot==='body'&&item?.visual.attachment==='hands')creature.insertBefore(group,creature.querySelector('[data-layer="accessory-neck"]'));if(slot==='face'&&item)Abyss.AttachmentRig.fitFace(group,item,s,rigId);
    }
    Abyss.SkinArt?.render(s,root);Abyss.Colors?.render(s,root);
    let anomaly=root.querySelector('[data-anomaly-layer]');if(!anomaly){anomaly=document.createElementNS('http://www.w3.org/2000/svg','g');anomaly.setAttribute('data-anomaly-layer','');root.querySelector('[data-creature]').appendChild(anomaly);}const token=s.campaign?.anomaly;anomaly.innerHTML=!token?'':token==='red_thread'?'<path d="M184 270 Q220 298 304 279" fill="none" stroke="#b16e79" stroke-width="3"/><path d="M264 286q12 25 22 7" fill="none" stroke="#b16e79" stroke-width="2"/>':token==='salt_shell'?'<path d="M264 285q-11-17 1-20q17-1 18 13l-13 13z" fill="#c9bda5" stroke="#f0dfbc"/><path d="M266 268l4 19m6-17l-6 17" stroke="#948c84"/>':'<path d="M260 273l12-12 13 14-13 16z" fill="#9088a9" stroke="#bbc7ce"/><circle cx="272" cy="275" r="3" fill="#ccd7d2"/>';
@@ -36068,7 +36107,7 @@ Abyss.Renderer = (() => {
    if(root.id==='monster')document.querySelector('.chamber').dataset.outfit=root.dataset.outfit;
  }
  function clone(s){
-   const source=document.getElementById('monster');prepare(source);
+   const source=document.getElementById('monster');
    const root=source.cloneNode(true);root.id='wardrobe-creature';delete root.dataset.rigId;
    // A preview owns its SVG definitions; duplicate IDs never refer to the main scene.
    const ids=new Map();root.querySelectorAll('[id]').forEach(el=>{const id=el.id;ids.set(id,'wardrobe-svg-'+id);el.id='wardrobe-svg-'+id;});
@@ -36490,6 +36529,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-15',version:'0.13.140-preview',title:t('服装裁切与镜片对齐修复','Garment Cropping and Lens Alignment Repairs'),items:[t('修正地下、天气与道路来源24件衣服的坐标，随九种体型调整衣摆；手套独立贴在双手上，预览不会再重排主页层级。','Twenty-four underground, weather and road garments now use normalized source coordinates and body-specific hems. Gloves attach above the hands, and previews no longer reorder the main creature.'),t('20件眼镜按实际镜片中心对齐不同眼型；呼吸器保留口部位置。滚动正文时狩猎分类条保持原位，支持窄屏横向选择。','Twenty optical accessories align their authored lens centers to changing eyes. Respirators retain their mouth position. The hunt category strip stays outside the scrolling content and supports horizontal selection on narrow screens.')],pending:[t('完整正式美术、剩余676条独立日常台词、历史扩展和真实公开AI审批仍未完成。','Final artwork, the remaining 676 independent ambient lines, historical expansions and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.139-preview',title:t('街谈巷语：再添一百六十句','Street Talk: Another 160 Lines'),items:[t('新增16类共160条独立中英文短句，日常独立库由164增至324条。寒潮、沙尘、酸雨、雷暴等句子各自声明真实天气条件，不靠统一前缀拼接。','160 independent bilingual fragments across 16 categories expand the authored ambient library from 164 to 324 lines. Cold snaps, dust, acid rain and thunder each have explicit weather conditions, without multiplying generic prefixes.'),t('人物列表卡片显示各自职业与生活背景。新句进入实际交谈和交往记忆，支持双向语言切换与读档；旧人物、关系、故事条件和拼接记录兼容保留。','People-list cards now show distinct occupations and backgrounds. New lines enter real talks and encounter memories, with two-way language switching and loading. Old people, relationships, story conditions and historical combined records remain compatible.')],pending:[t('1000条独立日常台词目标仍欠676条；人物长剧情、正式画像、其余历史扩展与真实公网AI审批继续欠。','676 more independent ambient lines are needed to reach 1,000. Personal story arcs, finished portraits, other historical expansions and live public AI approval remain incomplete.')]},
 {date:'2026-10-15',version:'0.13.138-preview',title:t('街上人的工作与生活','Work and Lives on the Street'),items:[t('120位次要人物接入各不相同的职业/身份，以及按既有种子决定的生活习惯与愿望。保留人物ID、姓名、关系和旧种子；详情不再重复同一句愿望。','The 120 minor people now have distinct occupations or circumstances, with habits and wishes derived from their existing seeds. IDs, names, relationships and old seeds remain intact. Details no longer repeat the same wish.'),t('新增16类64条独立中英文日常台词，按真实天气、人物职业、醉酒、恐惧、信任与B-07存活状态筛选。停止实际交谈中的无条件拼接天气前缀，首谈记录改为保存真正说出的第一句，人物与交往记录支持双向语言切换。','64 independent bilingual ambient lines in 16 categories now use actual weather, occupation, intoxication, fear, trust and B-07 survival. Live talks no longer add unconditional weather prefixes. First-talk memories now record the actual first utterance, with two-way language switching for people and encounter records.')],pending:[t('当前为原100条职业短句加64条新增独立台词，仍未达到1000条独立台词；完整次要人物故事、美术和其余历史目标继续欠。','There are 100 original role fragments plus 64 new independent lines, still short of 1,000 independent lines. Full minor-person stories, artwork and the remaining historical goals are unfinished.')]},
 {date:'2026-10-14',version:'0.13.137-preview',title:t('三十位人物留下的回声','Echoes Left by Thirty People'),items:[t('新增二十段人物独立回声，覆盖全部三十位核心人物。通行证、桥板、护甲扣带、电机接线、手风琴缺音、缝针等具体细节各不相同；只有旧完成记录真实见过本人，当前交谈才会触发。','Twenty distinct person echoes now cover all thirty core people. Permits, bridge planks, armor straps, motor wires, missing accordion notes and suture needles each have their own details. A present talk triggers an echo only when a completed old record met that exact person.'),t('修复一次性回声记忆上限过小，扩展后早期已读片段不再被挤掉。保留旧档、不补造旧接触记录，不继承关系或资源。','The one-time echo memory limit has been increased so early read echoes are not evicted by the expansion. Old saves remain compatible; old meetings are not invented, and relationships or resources are not inherited.')],pending:[t('一百二十位次要人物的重复内容、其余历史扩展/正式美术及真实公网AI审批仍欠。','Repeated content among the 120 minor people, other historical expansions and finished artwork, and live public AI approval remain incomplete.')]},
