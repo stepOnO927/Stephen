@@ -3682,3 +3682,49 @@ LXVI个人习惯、07厨房恢复/宠物送餐与植物病程护理已发布0.13
 换装与滚动回归1366×768、768×1024、1024×768、390×844、844×390通过：锁房可换装、模块品牌隐藏/主页恢复、顶栏原地、仓库分别完整显示21/10/10/6/4卡且可滚动。27房间状态/升级隔离、12陈设/5状态、7档案投影及Claude双语保护相关回归通过。435源码资源和私密路径保护通过。版本0.13.162中英日志/菜单/页脚一致，语言包14090。未改存档字段，无数据迁移；原旧档、物品/剧情/flags/route/ending不删除。
 
 验收边界：130入口可用不等于27房间每项专属玩法已实现。培养舱独立生命维持/玻璃门/旧物交互、Jack私人细节、其余原规格未逐条证实项继续列为待验；不能把通用观察文本当作完成。审定梦/Host、深层秘密、全部历史扩展统一终验、正式美术/人物长剧情及真实公网AI审批仍欠。公开结果在后续回执；整体目标未完成。
+
+
+### 0.13.162 · PART I / II 房间入口逐房证据
+
+以下每行在1366/768/390各实际点击所有列出按钮，并验证当前活动界面与返回。leave预期到培养舱；合理库存不足/未调查提示计为可见响应，不能计为完成其后玩法。测试从隔离房间基线开始，不将其夸大为从世界地图驾车到每间房或完成全流程。动态展开按钮/各专属系统深层功能不在此表的完整性结论内，仍须分别核对原规格。
+
+| 房间ID | 实际入口 | 当前入口结论 | 原规格专属玩法全量结论 |
+|---|---|---|---|
+| containment | `observe`、`food`、`medical`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| quarters | `rest`、`journal`、`inventory`、`jasmine`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| living | `wardrobe`、`privacy`、`bedroom`、`habits`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| medical | `patients`、`pharmacy`、`recovery`、`quarantine`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| genetics | `mutations`、`experiment`、`serums`、`plantArchive`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| engineering | `maintenance`、`power`、`water`、`roads`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| kitchen | `cook`、`food`、`harvest`、`pharmacy`、`jasmine`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| storage | `inventory`、`valuables`、`trade`、`bedroom`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| greenhouse | `plants`、`seeds`、`ecology`、`harvest`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| workshop | `weapons`、`parts`、`roads`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| observation | `cameras`、`habits`、`pets`、`visitors`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| archive | `storyFiles`、`medicalArchive`、`newsArchive`、`personnel`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| power | `power`、`maintenance`、`powerPolicy`、`climate`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| water | `water`、`waterTest`、`maintenance`、`ecology`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| radio | `news`、`visitors`、`deliveries`、`caravans`、`climate`、`dailyReport`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| hall | `research`、`plantArchive`、`diseaseArchive`、`mutations`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| lower | `survey`、`restore`、`materials`、`leave`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| zero | `zeroArchive`、`continuity`、`survey`、`leave`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| black | `blackOrders`、`research`、`storyFiles`、`e3`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| crawl | `repairBypass`、`maintenance`、`materials`、`survey`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| nursery | `pets`、`patients`、`storyFiles`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| series | `seriesRelics`、`storyFiles`、`objects`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| surgery | `advancedMedical`、`recovery`、`medicalArchive`、`survey`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| sublevel | `survey`、`restore`、`materials`、`leave`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| stairs | `steps`、`markSteps`、`listen`、`leave`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| core | `corePower`、`coreOverride`、`maintenance`、`continuity`、`roomMemory` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+| unnumbered | `unknownTerminal` | 三尺寸点击/返回通过 | 仍须按原条款逐项证明 |
+
+
+### 0.13.162 公开验收回执（2026-10-16）
+
+提交e6cf9b5d01045d6b597f65d6549f2ac8c4a0f3fe；Pages 38954294538 completed/success。最终公网27房间、每尺寸130个独立入口、1366/768/390共390次原生点击/当前窗口/返回通过，零失败；逐项JSON和27行验收表分别在verification/room-entry-matrix.json及LAB-SPEC-ACCEPTANCE-INDEX.md。普通离开与明确拒绝条件按真实预期校验，未把入口通过当作专属玩法全量完成。
+
+公网实际照料三尺寸通过：食物库存/AP、真实首照料发现保留、普通照料回原房间、库存筛选/语言/跨窗口返回、车辆子页/合法drive状态禁用返房/控制器拒绝且不改档、来访来源、锁定窗口无返房按钮且API不能跳过、睡眠取消/真实跨日落盘、Story存档拒绝养成房间操作且不改故事状态。三尺寸菜单/中英日志一致为0.13.162；index与五张外置CG逐字节一致。四个公网脚本连续执行退出0，verification/*-public-162.log留证。
+
+本地五尺寸换装/仓库/顶栏回归、435源码资源及私密路径、房间/陈设状态/发现档案/Claude保护相关回归通过。英文包14090。提供../abyss-lab-0.13.162-preview.zip，不含真实.env/密钥/玩家进度/依赖，无付费AI。既有存档字段/剧情文本/flags/routes/endings未改。
+
+下一批按原27房间条款补实际专属交互：优先培养舱生命维持、玻璃/门与已发现旧物，不写新剧情、不提前显示隐藏线索；同时继续未全量证明的历史目标。审定梦/Host、深层秘密、全历史统一验收、其余正式美术/人物长剧情与真实公网AI审批仍欠，整体目标保持未完成。
