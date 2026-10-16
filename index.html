@@ -1183,6 +1183,14 @@ body:not([data-section="home"]):not(.narrative-mode) .game-grid{display:none!imp
 .ops-evening-preview,.ops-night-report{padding:14px;margin:12px 0;border:1px solid #415b61;border-radius:12px;background:#17303966}.ops-evening-preview summary,.ops-night-report summary{cursor:pointer;color:#c7ded8}.ops-evening-preview p,.ops-night-report p{font-size:13px;line-height:1.8;overflow-wrap:anywhere}
 
 .ops-written-log label{display:block;margin:12px 0}.ops-written-log textarea{display:block;box-sizing:border-box;width:100%;min-height:110px;resize:vertical;padding:12px;border-radius:12px;background:#0b1a22;color:#e7f0ef;border:1px solid #668884;font:inherit;line-height:1.6}.ops-written-entry p{white-space:pre-wrap;overflow-wrap:anywhere}.ops-written-entry{margin:14px 0;padding:12px;border:1px solid #66888455;border-radius:12px}
+/* Room archives keep each discovery compact and independently readable. */
+.lab-room-subview [data-room-records]{min-width:0;max-width:100%}
+.lab-room-subview [data-room-record]{margin:10px 0;padding:12px 14px;border:1px solid #73989b45;border-radius:12px;background:linear-gradient(140deg,#729ca411,#172b3038);overflow-wrap:anywhere}
+.lab-room-subview [data-room-record] summary{cursor:pointer;font-weight:600;line-height:1.6}
+.lab-room-subview [data-room-record] p{white-space:pre-wrap;line-height:1.85}
+.lab-room-subview [data-room-record] small{color:#9cb5b9}
+.lab-room-subview [data-e3-record]{padding:14px;border:1px solid #a3976c66;border-radius:12px;background:#a3976c12}
+.lab-room-subview [data-e3-record] strong{font-size:clamp(22px,4vw,32px);font-variant-numeric:tabular-nums;letter-spacing:.06em}
 
 </style>
 <style data-source="story-player.css">
@@ -1245,7 +1253,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.153-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.154-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -8227,6 +8235,13 @@ Abyss.EnglishCatalog={
   "口粮": "rations",
   "无需物资": "No supplies",
   "检查处理结果": "Inspect the outcome",
+  "留下的记录": "A retained record",
+  "仅显示当前存档已读、已发现或实际听到的内容。查阅不会推进剧情、研究或计时。": "Only records read, discovered, or actually heard in this save appear here. Viewing advances no story, research, or timer.",
+  "BLACK-17-C执行窗口": "BLACK-17-C execution window",
+  "最早记下的词": "First recorded word",
+  "记录已销毁，保留处理记录。": "The record was destroyed; its handling remains recorded.",
+  "旧档只保留此场景已完成的记录，没有补写对白。": "This older save retains completion only; no dialogue has been reconstructed.",
+  "这里尚无已发现记录。": "No records have been discovered here yet.",
   "房间": "Room",
   "专属设施": "System",
   "沿用旧设施": "Legacy facility",
@@ -8242,6 +8257,7 @@ Abyss.EnglishCatalog={
   "记录滤芯读数": "Record filter reading",
   "旁路供电 · 1 AP / 3燃料": "Bypass · 1 AP / 3 fuel",
   "检查分区": "Survey zones",
+  "全部已发现档案": "All discovered records",
   "高级照护需要医务设施LV3，房间等级不能替代。": "Advanced care requires infirmary LV3; room level is separate.",
   "监控离线": "Cameras offline",
   "检查观察室的供电与摄像机。私人房间设置保持不变。": "Check observation-room power and the camera. Private-room settings remain unchanged.",
@@ -31510,6 +31526,35 @@ Abyss.LabRoomData=(()=>{
 })();
 
 </script>
+<script data-source="js/lab/roomRecords.js">
+'use strict';
+// Projections of discoveries already present in this save. Never reconstruct unseen lines.
+Abyss.LabRoomRecords=(()=>{
+ const scopes={
+ storyFiles:{title:['已发现档案','Discovered records'],files:null,documents:null,scenes:null},
+ zeroArchive:{title:['零号资料','Zero archive'],files:['zero'],documents:['P3_zero','P5_04','P5_05','P5_12'],scenes:['project_zero','chamber','project_chamber']},
+ seriesRelics:{title:['B系列遗物','B-series traces'],files:['b03'],documents:['004','P3_wing','P5_03','P5_06','P5_07'],scenes:['bseries','project_bseries','project_b07']},
+ blackOrders:{title:['权限与指令','Clearance & orders'],files:['black'],documents:['P3_black_floor','P5_10'],scenes:['project_black']},
+ e3:{title:['E-3记录','E-3 records'],files:['eden'],documents:[],scenes:['eden','project_eden','project_black']},
+ continuity:{title:['连续性记录','Continuity records'],files:['continuity','familiar'],documents:['001','P5_11'],scenes:['project_incident','between','project_between'],echoes:true},
+ unknownTerminal:{title:['未登记终端记录','Unlisted terminal records'],files:['continuity','familiar'],documents:['redacted','P3_deep'],scenes:[],echoes:true}
+ };
+ const t=(zh,en)=>Abyss.HomeData.t(zh,en),esc=Abyss.Util.escape,allows=(ids,id)=>ids===null||ids.includes(id);
+ function timer(s){const f=s.story?.flags||{},e=s.story?.revision?.e3;if(!e||!(f.BLACK_ORDER_17C_KNOWN||f.EDEN_E3_COUNTDOWN_72H||s.narrative.seen.project_black))return null;return {seconds:Math.max(0,Math.min(259200,Math.floor(Number(e.remainingSeconds)||0))),status:e.status==='expired'?'expired':'running'};}
+ function collect(s,action){const d=scopes[action];if(!d)return null;const rows=[],n=s.narrative,story=s.story||{};
+  for(const f of Abyss.StoryFiles.items){const handling=story.investigations?.[f.id],destroyed=handling==='destroy'||story.flags?.['DESTROYED_'+f.id]===true,known=destroyed||['read','show'].includes(handling)||story.flags?.['READ_'+f.id]===true;if(allows(d.files,f.id)&&known)rows.push({id:'file:'+f.id,kind:'file',title:f.name,text:destroyed?null:f.text,destroyed});}
+  for(const doc of Abyss.ExpeditionData.documents)if(allows(d.documents,doc.id)&&s.exploration.documents.includes(doc.id))rows.push({id:'document:'+doc.id,kind:'document',title:doc.name,text:doc.text});
+  for(const node of Abyss.NarrativeData.nodes){if(!allows(d.scenes,node.id))continue;const chapter=Abyss.NarrativeData.chapters.find(c=>c.id===node.id||'project_'+c.id===node.id);if(d.scenes===null&&!node.title&&!chapter)continue;const beats=n.history.filter(h=>h.id===node.id).map(h=>({day:h.day,speaker:h.speaker,text:h.text}));if(beats.length||n.seen[node.id])rows.push({id:'scene:'+node.id,kind:'scene',title:node.title||chapter?.name||t(...d.title),day:n.seen[node.id]||beats[0].day,beats});}
+  if(d.echoes)for(const [i,e]of s.continuity.echoes.entries())rows.push({id:'echo:'+i,kind:'echo',title:t('留下的记录','A retained record'),day:e.day,text:Abyss.I18n.language()==='en'?e.en||e.text:e.zh||e.text});
+  return {action,title:t(...d.title),rows,timer:['storyFiles','blackOrders','e3'].includes(action)?timer(s):null,firstWord:action==='storyFiles'&&n.firstWord?{word:n.firstWord.word,day:n.firstWord.day}:null};
+ }
+ function html(s,action){const view=collect(s,action);if(!view)return '';const e=view.timer,clock=e?[Math.floor(e.seconds/3600),Math.floor(e.seconds%3600/60),e.seconds%60].map(x=>String(x).padStart(2,'0')).join(':'):null;
+  return '<section data-room-records="'+esc(action)+'"><h3>'+esc(view.title)+'</h3><p>'+t('仅显示当前存档已读、已发现或实际听到的内容。查阅不会推进剧情、研究或计时。','Only records read, discovered, or actually heard in this save appear here. Viewing advances no story, research, or timer.')+'</p>'+(e?'<aside data-e3-record><h4>'+t('BLACK-17-C执行窗口','BLACK-17-C execution window')+'</h4><strong>'+clock+'</strong><p>'+t(e.status==='expired'?'窗口已到，后续内容待确认。':'按已记录的剧情日程推进。',e.status==='expired'?'The window has elapsed; the continuation awaits confirmation.':'Advances with the recorded story schedule.')+'</p></aside>':'')+(view.firstWord?'<p data-record-first-word>'+t('最早记下的词','First recorded word')+' · D'+view.firstWord.day+' · '+esc(view.firstWord.word)+'</p>':'')+view.rows.map(r=>'<details data-room-record="'+esc(r.id)+'"><summary>'+esc(Abyss.I18n.text(r.title))+(r.day?' · D'+r.day:'')+'</summary>'+(r.destroyed?'<p>'+t('记录已销毁，保留处理记录。','The record was destroyed; its handling remains recorded.')+'</p>':r.kind==='scene'?(r.beats.length?r.beats.map(b=>'<p><small>D'+b.day+' · '+esc(Abyss.I18n.text(b.speaker))+'</small><br>'+esc(Abyss.I18n.text(b.text))+'</p>').join(''):'<p>'+t('旧档只保留此场景已完成的记录，没有补写对白。','This older save retains completion only; no dialogue has been reconstructed.')+'</p>'):'<p>'+esc(Abyss.I18n.text(r.text||''))+'</p>')+'</details>').join('')+(!view.rows.length&&!e&&!view.firstWord?'<p data-room-records-empty>'+t('这里尚无已发现记录。','No records have been discovered here yet.')+'</p>':'')+'</section>';
+ }
+ return {scopes,collect,html,has:id=>Object.hasOwn(scopes,id)};
+})();
+
+</script>
 <script data-source="js/canteen/data.js">
 'use strict';
 Abyss.CanteenData=(()=>{
@@ -38623,7 +38668,7 @@ Abyss.LabRoomUI=(()=>{
   if(action==='trade'||action==='deliveries'){sourceRoom=id;Abyss.LabOperationsUI.open('trade');return;}
   if(action==='dailyReport'){sourceRoom=id;Abyss.LabOperationsUI.open();return;}
   if(action==='newsArchive'){sourceRoom=id;Abyss.WastelandNews.open('CHAINS');return;}
-  if(['zeroArchive','blackOrders','seriesRelics','unknownTerminal','e3','continuity'].includes(action)){sourceRoom=id;Abyss.ProgressionUI.open('story');return;}
+  if(Abyss.LabRoomRecords.has(action)){view(id,Abyss.LabRoomRecords.html(s,action)+(action!=='storyFiles'?button('storyFiles',id,t('全部已发现档案','All discovered records')):''));return;}
   if(action==='advancedMedical'){if(s.infirmary.level<3){Abyss.UI.toast(t('高级照护需要医务设施LV3，房间等级不能替代。','Advanced care requires infirmary LV3; room level is separate.'));return;}sourceRoom=id;Abyss.GardenUI.open('overview',true);return;}
   if(action==='cameras'){if(!Abyss.LabOperations.online(s,'camera')){view(id,`<h3>${t('监控离线','Cameras offline')}</h3><p>${t('检查观察室的供电与摄像机。私人房间设置保持不变。','Check observation-room power and the camera. Private-room settings remain unchanged.')}</p>${button('maintenance',id,t('检查设备','Check equipment'))}`);return;}const allowed=Abyss.LabRoomData.rooms.filter(r=>Abyss.LabRooms.canEnter(s,r.id));view(id,`<h3>${t('公共区域观察','Public-area observation')}</h3>${allowed.map(r=>`<article><h4>${esc(Abyss.I18n.text(Abyss.HomeData.rooms.find(x=>x.id===r.id).name))}</h4><p>${r.id==='living'&&s.roomSystems.rooms.living.private?t('摄像头关闭；这里属于它。','Camera off; this space is its own.'):Abyss.LabRooms.characters(s,r.id).map(p=>esc(p.name)).join(' · ')||'—'}</p></article>`).join('')}`);return;}
   if(action==='habits'){view(id,Abyss.LabPersonalRoutines.html(s)+`<h3>${t('重复的日常','Repeated daily actions')}</h3>${s.operations.routines.map(r=>`<p>${esc(r.subject)} · ${esc(r.action)} · ${r.frequency}</p>`).join('')||'<p>—</p>'}`);return;}
@@ -38639,7 +38684,7 @@ Abyss.LabRoomUI=(()=>{
  }
  function bind(){document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.canteen){const r=Abyss.Engine.dispatch({type:'room:canteen',payload:{room:'kitchen',action:b.dataset.canteen,id:b.dataset.canteen==='serveFarm'?{animal:b.closest('[data-farm-meal]').querySelector('[data-farm-meal-animal]').value,meal:Number(b.closest('[data-farm-meal]').querySelector('[data-farm-meal-box]').value)}:b.dataset.canteen==='sharedMeal'?{portions:[...b.closest('[data-shared-table]').querySelectorAll('[data-shared-person]')].filter(x=>x.value).map(x=>({person:x.dataset.sharedPerson,meal:Number(x.value)}))}:b.dataset.canteen==='experiment'?[...document.querySelectorAll('[data-trial-source]:checked')].map(x=>({source:x.dataset.trialSource,id:x.value,quantity:Number(x.parentElement.querySelector('[data-trial-quantity]').value)})):b.dataset.canteen==='servePerson'?{meal:b.dataset.id,person:b.closest('[data-human-meal]')?.querySelector('[data-meal-recipient]')?.value}:b.dataset.id}});Abyss.UI.toast(r.message);if(r.ok)Abyss.ExpansionUI.home('kitchen');return;}if(b.dataset.kitchenCare){const r=Abyss.Engine.dispatch({type:b.dataset.kitchenCare==='prepare'?'room:kitchenPrepare':'room:kitchenServe',payload:{room:'kitchen',kind:b.dataset.kind,id:b.dataset.person}});Abyss.UI.toast(r.message);if(r.ok)Abyss.ExpansionUI.home('kitchen');return;}if(b.dataset.kitchenPolicy!==undefined){const r=Abyss.Engine.dispatch({type:'ops:kitchenPolicy',payload:{enabled:b.dataset.kitchenPolicy==='true'}});Abyss.UI.toast(r.message);if(r.ok)Abyss.ExpansionUI.home('kitchen');return;}if(b.dataset.roomIncident){const r=Abyss.Engine.dispatch({type:'ops:incident',payload:{id:b.dataset.roomIncident,choice:b.dataset.incidentChoice}});Abyss.UI.toast(r.message);Abyss.ExpansionUI.home(Abyss.LabRoomIncidents.byId(b.dataset.roomIncident).room);return;}if(b.dataset.roomReturn){Abyss.ExpansionUI.home(b.dataset.roomReturn);return;}if(b.dataset.labRoomAction){execute(b.dataset.labRoomAction,b.dataset.labRoom,b.dataset.dish);return;}if(b.dataset.roomSurvey){const r=Abyss.Engine.dispatch({type:'room:survey',payload:{room:b.dataset.labRoom,zone:b.dataset.roomSurvey}});Abyss.UI.toast(r.message);if(r.ok)execute('survey',b.dataset.labRoom);}});
   Abyss.LabRoomAudio?.bind();
-  document.addEventListener('abyss:language',()=>{const panel=document.querySelector('#modal[open] [data-room-controls]');if(panel)Abyss.ExpansionUI.home(panel.dataset.roomControls);});
+  document.addEventListener('abyss:language',()=>{const records=document.querySelector('#modal[open] [data-room-records]');if(records){const room=records.closest('.lab-room-subview').querySelector('[data-lab-room]').dataset.labRoom,opened=[...records.querySelectorAll('[data-room-record][open]')].map(x=>x.dataset.roomRecord);execute(records.dataset.roomRecords,room);for(const x of document.querySelectorAll('[data-room-record]'))x.open=opened.includes(x.dataset.roomRecord);return;}const panel=document.querySelector('#modal[open] [data-room-controls]');if(panel)Abyss.ExpansionUI.home(panel.dataset.roomControls);});
   document.addEventListener('abyss:modal',attachReturn);
   document.getElementById('modal')?.addEventListener('close',clearContext);
   document.addEventListener('change',e=>{if(!e.target.dataset.roomSpecialization)return;const r=Abyss.Engine.dispatch({type:'room:specialize',payload:{room:e.target.dataset.roomSpecialization,specialization:e.target.value}});Abyss.UI.toast(r.message);Abyss.ExpansionUI.home(e.target.dataset.roomSpecialization);});
