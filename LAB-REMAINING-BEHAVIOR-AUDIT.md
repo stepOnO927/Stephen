@@ -511,3 +511,15 @@ roomSystems.rooms.quarters.wardrobe为可加v1，只存outfit与changedDay。旧
 
 ### 公开AI外部状态更新
 本轮Supabase list_projects返回projects为空；此前不可用的get_cost现在恢复，此前选定组织的project查询返回monthly/amount0。已按工具“先复述费用并确认”的明确要求向用户发出每月0美元创建abyss-lab-ai-access的确认，尚未收到答复；没有调用确认费用或创建项目。组织选择无需重问；等待不影响本地推进。未读取真实.env/密钥或玩家进度，无付费AI请求。整体目标保持未完成。
+
+
+### 0.13.167 公开验收回执（2026-10-16）
+
+提交c64e442e350fa9bf4e8172d5db2cfd15c768de74；Pages38977756651 completed/success。最终公网lab-jack-wardrobe-browser三尺寸全部通过：六套原生点击、实际房间与人物档案选衣同步、无零号/属性/库存/货币影响、中英、按钮命中/人物边界、精确刷新、原生自由告别/新个体与继续换衣。其后lab-private-effects-browser、room-care-browser、release-log-browser三尺寸及public-release-integrity全部通过，终端退出0；主页与五外置CG与安全公开目录逐字节一致。verification/*-public-167.log留证，七张Jack衣服/房间截图随包。
+
+新增单元同时覆盖27间实际房间render的单个Jack投影、纯读取与当前衣服引用；这是绘制层检查，不冒充27房间全部专属玩法终验。旧档缺字段、原子拒绝、实际世界资产继任、私人盒/相册、Claude保护、441源码资源/私密路径保护、本地原生三尺寸回归通过。英文包14169；内联主页44404126字节，公开主页26824934字节。
+
+#### 加载超时的真实边界
+曾分别出现30秒与120秒的page.reload等待DOMContentLoaded超时，进程均已明确失败退出，没有当作通过。相关回归把刷新导航上限与原首次打开的120秒统一，业务/存档断言不变；没有继续无限提高时限。用同一份公开产物本地file读取全三尺寸未复现；直接公网curl返回HTTP200，压缩传输17732426字节、3.216秒；磁盘空闲107.9GB、空闲内存10.07GB。加入可选网络/文档就绪日志后，最终公网私人收纳三尺寸精确刷新均通过：有阶段仍ready=loading而game=true，主文档结束后才DOMContentLoaded。超时根因仍未完全确认；不把统一时限当网页故障修复，首页体积与加载稳定性继续列为性能缺项，后续需量测与减重。相关诊断verification/private-effects-navigation-diagnostic-167.log与private-effects-public-artifact-local-167.log；后者是本地对照，不冒充公网结果。
+
+交付../abyss-lab-0.13.167-preview.zip，排除真实.env/密钥/玩家进度/依赖，没有付费AI测试。原五类Jack房间事件仍欠；冬装物资与季节经济沿用原系统，本批只完成基本外观换衣，不据此宣布冬季生存准备条款已完成。其余房间、梦/Host/秘密/历史统一终验、正式美术/长人物剧情仍需继续。公开AI数据库项目仍为空，0美元/月报价确认待用户答复；未调用创建。整体目标保持未完成。
