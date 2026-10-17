@@ -32970,7 +32970,7 @@ Abyss.LabQuartersLife=(()=>{
  const memories=s=>['KNOT','SINK','PLATE','REMOTE'].filter(id=>s.story.flags['JASMINE_MEMORY_'+id]||s.roomSystems.rooms.quarters.effects.memories[id]);
  function canVisit(s,id,arriving=false){if(!base(s)||Abyss.LabPersonalRoutines.reason(s,id,'quarters'))return false;if(arriving&&id==='b07'&&!Abyss.LabRooms.canEnter(s,s.home.location))return false;const pet=s.pets.find(p=>p.id===id);if(arriving&&pet&&!Abyss.LabRooms.canEnter(s,pet.room==='separate'?'nursery':'living'))return false;const other=Abyss.LabPersonalRoutines.location(s,id);return !other||other==='quarters';}
  const bedPet=s=>s.pets.find(p=>['cat','mouse','hound'].includes(p.species)&&p.alive&&!p.escaped&&p.room!=='separate'&&p.personality.affectionate>=45&&canVisit(s,p.id,true));
- function eligible(s,id){if(!ready(s)||id!=='sick'&&Abyss.Street.phase(s)<3)return false;const p=patient(s);if(id==='sick')return !!p&&!p.quarantine&&(!!s.climate.jack.illness||s.climate.jack.health<70||p.conditions.some(c=>c.status!=='RECOVERED'));
+ function eligible(s,id){if(!ready(s)||id!=='sick'&&Abyss.Street.phase(s)<3)return false;const p=patient(s);if(id==='sick')return !!p&&!p.quarantine&&(!!s.climate.jack.illness||s.climate.jack.health<70||p.conditions.some(c=>!['INCUBATING','RECOVERED'].includes(c.status)));
  if(id==='insomnia')return !!p&&!p.quarantine&&(p.sleep<35||p.stress>=65||(s.operations.people.jack?.fatigue||0)>=80);
  if(id==='petBed')return !!bedPet(s);
  if(id==='knock')return s.home.freedom&&s.legacy.active&&s.campaign.creatureAlive!==false&&s.stats.loyalty>=45&&s.resentment<45&&canVisit(s,'b07',true);
