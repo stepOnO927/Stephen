@@ -680,3 +680,10 @@ roomSystems.rooms.quarters.wardrobe为可加v1，只存outfit与changedDay。旧
 九种模型由collectionArt与ItemModel共用：实体库存和藏架同造型，手绘牌与标准牌、单骰与双骨骰、8×8棋盘与象棋分别表现；播放器有耳机/磁带窗，漫画有分镜，石猫有蜷曲姿态。卡片模型72px高、小圆角网格，不再用统一方箱。代码SVG不是全量正式手绘美术完成。
 
 验证：九种真实交接/拒绝/归还/每日防重复、费用/AP/RNG/flags/stat不变、容量与失败原子性、旧坏档迁移、实际Engine及告别继任通过；自主摆放、私人事件、既有私人收纳、显示、人物/电脑模型与Claude保护回归通过。源码HTTP448资源/私密路径保护通过。1366/768/390浏览器实际递出9件、九模型边界与完整显示、归还/拒绝、双语/展开记录/选项保留、刷新精确保留、无页面错误/横向溢出通过。桌面模型截图已查看。公开回执随后补记，原03与全部历史目标仍未整体完成。
+
+
+### 0.13.172 公开验收回执（2026-10-18）
+
+运行提交6b0a3f9637ab3ec2cd31c704f90ef0b2241ec790；Pages39101211624 completed/success。公网 https://stepono927.github.io/Stephen/?release=0.13.172 顺序执行 lab-living-collection-browser → lab-living-arrangement-browser → release-log-browser → public-release-integrity 整体exit 0。1366/768/390均原生递出九件（共27次接受）、九模型在边界内、准确归还/拒绝/同日限制/库存与架子数量守恒；AP/钱/RNG/flags/stats不变，中英切换保留选项与展开记录，刷新精确保留。原实际日结自主摆放三尺寸、新版本日志三尺寸通过，零pageerror/横溢出；index和11张原CG均HTTP200且SHA256与安全本地包逐字节相同。桌面与手机藏架截图已查看，手机双列显示。
+
+新增坏档回归确认前一条非法重复ID不能吞掉后一条有效实体。原03的私人收藏基础交接、实际持有与自动手边偏好取得代码和公网证据；不把它冒充NPC赠礼来源、藏水果/活植物等全部原条款完成，也不把程序SVG当作所有正式手绘完成。整体历史目标保持active。
