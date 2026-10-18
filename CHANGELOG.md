@@ -2224,3 +2224,10 @@ roomSystems.rooms.quarters.wardrobe为可加v1，只存outfit与changedDay。旧
 专项44件逐一实际扣除/归还与同模型、已摆副本不能复制、拒绝/每日防重复/满架/满库原子性、旧坏档、实际Engine存读与告别继任通过。原九种收藏、藏果、旧布局、世界继任、无编号收存、Claude保护文本回归通过。源码HTTP452资源及私密路径404通过，API密钥显式为空；完整仓库全套未执行，不以这些专项冒充全部历史终验。三屏最终公开回执随后记录。
 
 剩余保留：私人活植物、真实NPC赠物来源、正式美术、历史大型扩展逐条统一验收及公开AI后端；原目标未完成。
+
+
+### 0.13.177 最终公开验收（2026-10-18）
+
+运行提交0e6818833847cf00f68d8d941e212a16c9265103；Pages39112192775 completed/success；公开入口 https://stepono927.github.io/Stephen/?release=0.13.177 。公网顺序lab-living-anomalies-browser → lab-living-collection-browser → lab-living-fruit-browser → lab-unlisted-browser → release-log-browser → public-release-integrity整个命令exit 0。1366/768/390六类原生异常小物递出、同模型、摆放副本不可复制、准确归还/拒绝/刷新、中英展开状态与原AP/钱/RNG/flags不变；原九种收藏、实际藏果发现/食用/腐坏堆肥、无编号房间转存/布局/重载及日志全部通过。index和11原CG均HTTP200、SHA256逐字节等于安全本地输出，运行index Git blob e81b27e54a57c881349144dd87bc670ff4139014。手机实际紧凑双列四完整卡片截图已检查。
+
+完整证据verification/living-anomalies-177-results.json含44真实ID/尺寸与源码哈希；本批只完成异常小物真实交接、归属与许可基础。原03的自主挑选/藏物/实际观察发现、私人活植物、真实NPC赠礼来源仍欠；其余历史大型扩展、正式美术与真实公网AI继续按原目标逐条验收，整体目标未完成。没有读取真实玩家存档/.env/密钥，也没有付费AI测试；完整仓库全套未执行，不冒充全部通过。
