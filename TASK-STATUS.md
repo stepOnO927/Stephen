@@ -2657,3 +2657,12 @@ verification/living-sleep-182-results.json包含源码哈希与公网收据，�
 - 发布：runtime commit `fdcd1548b7e9a6e5ad8b7a5de0cd4fee49f53405`；index blob `851daa9e681498d32d2703ae89f8bfec3f84ed9d`；Pages run `39125907282` success。公开index、完整74节原规格索引、11张原CG共13文件逐字节一致。
 - 证据：verification/club-terminal-184-results.json、6张终局截图、3张到场截图与verification/public-release-integrity.json。隔离测试存档；未读取上传真实玩家存档/.env/密钥，未调用付费AI。
 - 仍欠：Happy Club全部74节统一终验、中文Token银行/模式枚举漏译核对、正式美术与全部历史大扩展逐项验收、公开AI审批后台。整体目标保持active；保护剧情/route/ending/flags及11张原CG保留。
+
+
+## 0.13.185 · 俱乐部双语显示与兑换连续性（本地已验收，待公开）
+
+六级Token银行/按钮/中奖等级类别与天数、四种挑战名称、奖励靶aria-label、五名原NPC名字/原对白/画像说明和节日新闻标题补齐本地语言。稳定DOM value、Token/模式ID、旧存档/概率/奖池/保底保持；开奖中切换语言不取消动画，已揭晓的物品名称随语言改变，不重新发奖。修复新日志记录缺必需pending字段后，原生菜单/日志入口三屏复测通过。源码入口顶部版本由旧0.13.95同步到0.13.185；自包含与公开包仍使用同一构建版本。
+
+1366/768/390浏览器实测：COMMON原生兑换→动画中双语切换→跳过→DRAW ALL共12个真实Token→每件名称核对→刷新，全部游戏字段一致（仅排除正常savedAt）；HARD原生购票/实际生成靶→动态语言切换→结束；四选项value不变，静电夜首票10000/困难8000；第77天节日与静电夜两类新闻、五个人像说明通过。纯切换语言时游戏状态/RNG完全不变，无溢出/pageerror。另有终局/正常两击/满库陈设三屏回归与22个相关单元文件通过，源码HTTP457资源通过；完整仓库全套未运行。六张本批截图和verification/club-locale-185-results.json随源码包交付。
+
+HAPPY-CLUB-SPEC-ACCEPTANCE.md仍保留74节全部原始正文，追加局部证据，不缩小目标。完整74节统一终验、正式美术/历史大扩展和公开AI审批后台仍欠；配音由用户后续提供。未读取上传真实存档/.env/密钥，无付费AI测试，保护剧情/route/ending/flags和11原CG保留，整体目标active。
