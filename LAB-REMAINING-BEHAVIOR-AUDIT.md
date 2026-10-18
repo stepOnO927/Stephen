@@ -588,3 +588,8 @@ roomSystems.rooms.quarters.wardrobe为可加v1，只存outfit与changedDay。旧
 并完成此前在做的27房间与运营标签局部汉化：新增独立displayLabels显示映射，六个专精保留canonical option value，费用与AP不变；12日报分类、6成色、楼层/等级/房间SVG/地名/日期可切换，历史查询同时匹配中英文地名，切语言保留草稿、筛选与展开记录；玩家维护文字标记data-user-text，保留原文。真实浏览器1366/768/390均完成27房间zh/en/zh、六个真实付费专精与刷新、十二分类/六成色、双语历史筛选、草稿与原文/主页标签且无状态变化、页面错误和溢出。
 
 专项模型、显示、维护日志、商路、房间记录及Claude保护文本测试通过；源码HTTP检查444资源和私密路径拦截通过（默认网络沙箱EACCES后在独立localhost重试通过）。原始大型扩展、剩余正式美术、全游戏漏译与公网AI审批仍未全部验收；本批不读取真实.env/密钥或玩家进度，不调用付费AI。
+
+
+### 0.13.170 公开验收回执（2026-10-18）
+
+运行提交586f1a8ac4e1959946d3793ab635dbb8822c2c2c，Pages39098732699 completed/success。公网 https://stepono927.github.io/Stephen/?release=0.13.170 顺序执行 anomalous-art-browser → lab-unlisted-browser → lab-display-labels-browser → release-log-browser → public-release-integrity，整个命令exit 0。55件图鉴/房间模型、32放大方向和4件修复截图通过；1366/768/390真实收存/取回/摆放、数量守恒、中英和读档通过；27房间三语言切换、六个实际付费专精/刷新、十二日报、六成色、双语历史搜索及草稿/维护原文保留通过，零pageerror/横向溢出。公网index及11张原CG均HTTP200，SHA256逐字节与安全本地输出一致。此批只修4件明确构造，不把55件几何测试等同55件美术已获用户认可。
