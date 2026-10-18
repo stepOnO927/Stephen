@@ -2193,3 +2193,7 @@ roomSystems.rooms.quarters.wardrobe为可加v1，只存outfit与changedDay。旧
 
 ## 0.13.175 · 陈设目录修复
 异常物品使用对应取景画框；紧凑卡片、可展开原故事与同模型大图；稀有度及摆放类型中文标签。新增真实目录四页55件中英/三尺寸验收，保留所有存档与房间实际尺寸。
+
+### 0.13.175 最终公开验收（2026-10-18）
+运行提交2e0dacb088a34afb8b98f9c36fb355a0f926629d；Pages39107282165 completed/success；https://stepono927.github.io/Stephen/?release=0.13.175 。公网顺序anomalous-catalogue-browser → lab-unlisted-browser → release-log-browser → public-release-integrity整个命令exit 0。1366/768/390真实目录四页55件匹配、取景占幅至少77%、中英至少四完整卡片、原文说明及同模型大图、普通家具画框保留、分类/页面不改存档，无裁切/横溢出/pageerror；三尺寸实际转入取回/读档和日志通过；index及11原CG HTTP200且SHA256逐字节与安全输出相同。
+旧公开174原生目录明确复现object_radio占幅0.368421失败，非仅新增属性检查。新手机实际截图已查看。55件共用[0.7,0.5]/0.8元数据另存anomalous-scale-audit-175.json为真实欠项，未放大旧档造成碰撞；全部独立造型/物理尺度/正式美术仍需继续。私人活植物、异常物归属、NPC礼物实际来源及其他历史扩展/公开AI依旧按原范围推进，整体目标active。
