@@ -2881,3 +2881,7 @@ B07原四种练习继续走原基础装盒，不叠加Jack新失误；256组原0
 ### 0.13.207 公网终验
 
 运行提交506235916fa10480f4cee8eb50c545fa5b387764，index 1c808f7f4f086944ab40ae9ecc84a546142c53d3；Pages 39269935858 completed/success。https://stepono927.github.io/Stephen/?release=0.13.207 。公网四浏览器脚本各1366/768/390通过：笔记储备/实际读书/研究出售/实体UID/真实史诗重复奖品与满库不扣整档、原笔记实际易物、真实随机探索来源返回/存读、科技滚动。正式入口、完整俱乐部索引和11张原CG共13文件逐字节一致。本地59相关单元和最终6文件补测通过；保护剧情与465源码资源通过。详见CANTEEN-NOTES-RESERVE-207-REPORT.md与verification/canteen-notes-reserve-207-results.json。完整历史目标继续active。
+
+### 0.13.208 公开验收
+
+运行提交ce1ce1f131b0653ea572dc89eba3a507c8ac9fdd；index blob c2ff44f0b83686878c36cb8be48040dbbfa85cd0。GitHub Pages 39275252016 completed/success。https://stepono927.github.io/Stephen/?release=0.13.208 。公网四脚本各1366/768/390终态通过：实际烹饪/到访/交付/返回/领取/读书、新闻7+4食物与三实际休息日/满架保留、英文交付的中文标准日志与完整展开正文、领取滚动、真实25秒鼠标两击节日≥3靶/TIME/490帧实际返航/领取存读、原笔记储备与科技页回归。13公开文件与本地安全包逐字节相同；保护剧情和11张原CG保留。66相关单元、最终专项和466源码资源通过。剩余历史目标继续active。
