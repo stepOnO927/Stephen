@@ -3140,3 +3140,7 @@ B07原四种练习继续走原基础装盒，不叠加Jack新失误；256组原0
 42个相关实际单元文件通过、原探索15项/900模拟通过，最终容量及继任补测4文件通过。原食谱总量160/开局10不变；没有将既有50配方再次计为新配方。源码包含六图及verification/canteen-field-205-results.json，CANTEEN-FIELD-205-REPORT.md列出来源和验收边界。
 
 后续仍需逐条验收VII其余任务/新闻/节日等路径、XXII的12类速食来源（当前普通forage仅城市/工厂/下水道随机食品，不能据此宣称覆盖12处），以及其他笔记来源满容量。CaravanBooks.read/Collection.grant的饱和笔记仍待统一处理，本轮只保证厨房整本阅读不吞溢出。正式美术、其余历史扩展、完整47节和总目标继续active。未读真实档/.env/密钥，未调用付费AI。
+
+### 0.13.207 公网终验
+
+运行提交506235916fa10480f4cee8eb50c545fa5b387764，index 1c808f7f4f086944ab40ae9ecc84a546142c53d3；Pages 39269935858 completed/success。https://stepono927.github.io/Stephen/?release=0.13.207 。公网四浏览器脚本各1366/768/390通过：笔记储备/实际读书/研究出售/实体UID/真实史诗重复奖品与满库不扣整档、原笔记实际易物、真实随机探索来源返回/存读、科技滚动。正式入口、完整俱乐部索引和11张原CG共13文件逐字节一致。本地59相关单元和最终6文件补测通过；保护剧情与465源码资源通过。详见CANTEEN-NOTES-RESERVE-207-REPORT.md与verification/canteen-notes-reserve-207-results.json。完整历史目标继续active。
