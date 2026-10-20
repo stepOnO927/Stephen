@@ -1331,7 +1331,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.230-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.231-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6487,6 +6487,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "容器与音乐盒独立重建": "Vessels and Music Box Rebuilt",
+  "重建空瓶、旧雨瓶、温热灰罐、第三只杯、回声碗及不闭合音乐盒。分别制作瓶口与内壁、独立瓶形和液体、罐盖扣、搪瓷开放手柄、碗内刻环，以及可见滚筒、音梳、发条与后倾盒盖。": "Rebuilt the empty bottle, old-rain bottle, warm ash jar, third cup, echo bowl and unclosing music box: open necks and inner walls, distinct bottles and liquid, jar latches, an enamel handle, inner bowl rings, and exposed cylinder, comb, spring and tilted lid.",
+  "目录和房间使用同一套可旋转模型。保留原物品编号、故事、数量、认证尺寸、旧尺寸存档与碰撞规则；其余49件异常物品模型不变。": "Catalogue and rooms use the same rotatable models. Item IDs, stories, quantities, certified dimensions, legacy-sized saves and collision rules remain; the other 49 anomalous models are unchanged.",
+  "55件物品的正式美术与历史大型扩展仍未全部完成，公网AI仍待私密配置。": "Final art for all 55 objects and the historical expansions is still incomplete; public AI still requires private configuration.",
   "扫描记录归属校验": "Individual Scan Records",
   "停用手术室扫描记录绑定具体个体。NPC替换、B-07新生或宠物身份变化后，需要本人的扫描才能开始照护；同一天可以重新付费扫描新个体。": "Old theater scans now belong to a specific individual. Replacement NPCs, newborn B-07 and changed pets require their own scan before care; a new individual can pay for a scan on the same day.",
   "旧版没有身份标记的记录保留为历史，不自动认领给当前患者。原扫描费用、隐藏症状保护和逐日照护疗程保持。": "Legacy records without identity remain in history and are not assigned to the current patient. Existing scan costs, hidden-symptom protection and daily care courses remain.",
@@ -32745,6 +32749,61 @@ Abyss.AnomalousObjectMesh=(()=>{
  const C={iron:'#526777',edge:'#a8b6b7',black:'#152833',brass:'#b79359',wood:'#856044',paper:'#d5c8a6',red:'#a44d46',glass:'#4c8998',mint:'#83b5a1',cloth:'#78868c',salt:'#e0dccb',felt:'#ab8b73',feltLight:'#cab399',feltDark:'#765f50',thread:'#dfcfb7',woodLight:'#aa835c',woodDark:'#624a32',stone:'#7c8586',stoneDark:'#626c70',stoneEdge:'#a5aaa4',paperBack:'#bcae91',ink:'#53616b'};
  function build(id){
   const faces=[];let part='body';
+  function emptyBottle(){
+   name('glass-body',()=>glass(()=>{const first=faces.length;lathe(0,0,0,[[0,0],[0,15],[4,18],[39,18],[51,15],[59,7],[79,7],[79,4.8],[60,4.8],[50,12.8],[39,15.8],[5,15.8],[5,0]],C.glass);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>[x,y*.72,z]);}));
+   name('bottle-lip',()=>lathe(0,0,78,[[0,4.8],[0,8.3],[3,8.3],[3,4.8],[0,4.8]],C.edge));
+   name('empty-bottle-hollow-neck',()=>lathe(0,0,66,[[0,4.8],[12,4.8]],'#294b56'));
+   name('empty-bottle-pressed-foot',()=>glass(()=>{const first=faces.length;lathe(0,0,1,[[0,15],[2,18],[4,18],[4,15]],C.glass);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>[x,y*.72,z]);}));
+   name('empty-bottle-shoulder-seams',()=>{for(const side of [-1,1]){beam([side*16,0,7],[side*16,0,41],.35,'#a1bebb');beam([side*16,0,41],[side*6.2,0,59],.35,'#a1bebb');}});
+   name('loose-bottle-stopper',()=>{lathe(28,-2,0,[[0,0],[0,5],[3,6],[11,5],[13,4],[13,0]],C.wood);for(const z of [3,7,10])lathe(28,-2,z,[[0,5.2],[.5,5.2]],C.woodDark);});
+  }
+  function rainBottle(){
+   name('glass-body',()=>glass(()=>lathe(0,0,0,[[0,0],[0,22],[4,25],[37,25],[46,22],[54,10],[67,10],[67,7],[54,7],[44,19],[36,22],[6,22],[6,0]],C.glass,'z',16)));
+   name('bottle-lip',()=>lathe(0,0,64,[[0,9],[0,12],[4,12],[4,9],[0,9]],C.edge,'z',16));
+   name('bottled-rain',()=>{const first=faces.length;lathe(0,0,6,[[0,0],[0,21],[13,21],[14,0]],'#386e83','z',24);for(let i=first;i<faces.length;i++)faces[i].opacity=.64;for(const [x,y,z]of [[-9,1,34],[4,4,44],[12,-3,30]]){beam([x,y,z+4],[x,y,z],.45,'#b1d5ce');orb(x,y,z,1.4,1.4,2,'#8cbdc5',6,12);}});
+   name('rain-bottle-sealed-cap',()=>{cylinder(0,0,67,12,6,C.iron);for(let i=0;i<16;i++){const a=i*Math.PI/8;beam([11.8*Math.cos(a),11.8*Math.sin(a),68],[11.8*Math.cos(a),11.8*Math.sin(a),72],.55,C.edge);}cylinder(0,0,73,10,1,C.edge);});
+   name('rain-bottle-wax-seal',()=>{box(-5,10,57,10,2,12,C.red);beam([0,12.4,59],[0,12.4,68],.55,'#d19b80');});
+  }
+  function ashJar(){
+   name('ash-jar-body',()=>lathe(0,0,0,[[0,0],[0,19],[4,23],[12,26],[43,26],[51,20],[55,20],[55,0]],C.iron,'z',16));
+   name('ash-jar-bottom-band',()=>lathe(0,0,3,[[0,21],[3,24],[6,24]],C.black,'z',16));
+   name('ash-jar-domed-lid',()=>lathe(0,0,55,[[0,0],[0,23],[3,24],[7,21],[10,13],[10,0]],C.brass,'z',24));
+   name('ash-jar-lid-handle',()=>{beam([-8,0,65],[-8,0,72],1.5,C.iron);beam([-8,0,72],[8,0,72],1.5,C.iron);beam([8,0,72],[8,0,65],1.5,C.iron);});
+   name('jar-lid-latch',()=>{for(const side of [-1,1]){beam([side*24,0,43],[side*27,0,53],1.2,C.edge);beam([side*27,0,53],[side*22,0,60],1.2,C.edge);cylinder(side*24,1.5,44,2,2,C.brass,'y');}});
+   name('ash-jar-recessed-label',()=>{panel(-14,26.5,17,28,20,C.paper);for(const [x,z,w]of [[-10,30,20],[-9,26,14],[-8,22,17]])panel(x,27.6,z,w,.6,C.wood);});
+   name('ash-jar-sealed-rivet-line',()=>{for(const z of [12,23,34,45])cylinder(-15,21.5,z,1.1,1,C.edge,'y');});
+  }
+  function thirdCup(){
+   name('cup-hollow-body',()=>lathe(0,0,0,[[0,0],[0,14],[3,17],[8,19],[37,21],[46,21],[46,18.7],[38,18.7],[8,16.7],[5,13],[5,0]],'#e8ece5'));
+   name('cup-handle',()=>{const pts=[[17,0,37],[27,0,40],[35,0,36],[39,0,28],[38,0,21],[32,0,14],[21,0,12],[17,0,15]];for(let i=0;i<pts.length-1;i++)beam(pts[i],pts[i+1],2.8,'#e8ece5');});
+   name('cup-rim-and-handle-joints',()=>{lathe(0,0,45,[[0,18.7],[0,22],[1.8,22],[1.8,18.7],[0,18.7]],C.iron);for(const z of [13,36])box(17,-3,z,5,6,4,'#e8ece5');});
+   name('cup-rolled-foot',()=>lathe(0,0,0,[[0,14],[1.4,16],[2.4,16],[2.4,14]],C.iron));
+   name('cup-enamel-wear',()=>{for(const [x,y,z]of [[-9,16,11],[5,19.7,17],[-3,19.3,8]]){beam([x,y,z],[x+2,y,z+1.2],.5,C.woodDark);beam([x+2,y,z+1.2],[x+3,y,z+.5],.4,C.woodDark);}});
+   name('cup-water',()=>{const first=faces.length;cylinder(0,0,28,18,.35,'#6fa2af');for(let i=first;i<faces.length;i++)faces[i].opacity=.58;});
+  }
+  function echoBowl(){
+   name('bowl-hollow-body',()=>lathe(0,0,3,[[0,0],[0,11],[3,19],[10,29],[20,38],[23,39],[23,36]],C.edge,'z',32));
+   name('echo-bowl-turned-foot',()=>lathe(0,0,0,[[0,10],[0,13],[3,14],[5,12],[5,10],[0,10]],C.iron));
+   name('bowl-incised-rim',()=>lathe(0,0,25,[[0,36.5],[0,39],[1,39],[1,36.5],[0,36.5]],C.brass,'z',32));
+   const innerRadius=z=>z>=20?35+(z-20)/3:z>=10?26+(z-10)*.9:z>=3?16+(z-3)*10/7:(z-2.5)*32;
+   const levels=[23,20,18.5,18,11.5,11,10,5.4,5,3,2.5];
+   for(let i=0;i<levels.length-1;i++){const upper=levels[i],lower=levels[i+1],engraved=[18.5,11.5,5.4].includes(upper);name(engraved?'echo-bowl-inner-rings':'bowl-hollow-body',()=>lathe(0,0,3,[[upper,innerRadius(upper)],[lower,innerRadius(lower)]],engraved?C.iron:C.edge,'z',32));}
+   name('echo-bowl-hammered-wall',()=>{for(let i=0;i<20;i++){const a=i*Math.PI/10,r=32.5;orb(r*Math.cos(a),r*Math.sin(a),17,1,1,.45,i%3?C.iron:C.brass,4,8);}});
+  }
+  function musicBox(){
+   name('musicbox-case',()=>{box(-31,-25,2,62,50,4,C.woodDark);for(const x of [-31,27])box(x,-25,6,4,50,18,C.wood);for(const y of [-25,21])box(-27,y,6,54,4,18,C.wood);});
+   name('musicbox-recessed-bed',()=>box(-27,-21,6,54,42,1.2,C.cloth));
+   name('musicbox-brass-rim',()=>{for(const x of [-31,28.5])box(x,-25,23,2.5,50,1,C.brass);for(const y of [-25,22.5])box(-28.5,y,23,57,2.5,1,C.brass);});
+   const first=faces.length;
+   name('musicbox-open-lid',()=>{box(-31,-27,24,62,4,48,C.woodDark);for(const x of [-31,27])box(x,-23,24,4,2,48,C.wood);for(const z of [24,68])box(-27,-23,z,54,2,4,C.wood);panel(-25,-22,30,50,36,C.paper);});
+   for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>{const a=Math.PI/15,Y=y+25,Z=z-24;return [x,-25+Y*Math.cos(a)-Z*Math.sin(a),24+Y*Math.sin(a)+Z*Math.cos(a)];});
+   name('musicbox-pinned-cylinder',()=>{beam([-18,-5,16],[14,-5,16],6,C.brass);for(let i=0;i<16;i++){const a=i*1.7;beam([-17+i*2,-5+5.8*Math.cos(a),16+5.8*Math.sin(a)],[-17+i*2,-5+6.9*Math.cos(a),16+6.9*Math.sin(a)],.45,C.edge);}});
+   name('musicbox-comb-and-hinge',()=>{box(-20,6,12,40,5,5,C.iron);for(let i=0;i<16;i++)beam([-18+i*2.3,7,17],[-18+i*2.3,-.5,18+(i%3)*.25],.55,C.edge);beam([-25,-24,24],[-15,-24,24],2,C.brass);beam([15,-24,24],[25,-24,24],2,C.brass);});
+   name('musicbox-spring-drum',()=>{cylinder(20,-9,8,6,7,C.iron);cylinder(20,-9,15,5.5,1,C.brass);for(let i=0;i<8;i++){const a=i*Math.PI/4;beam([20+4*Math.cos(a),-9+4*Math.sin(a),16.2],[20+5*Math.cos(a),-9+5*Math.sin(a),16.2],.5,C.edge);}});
+   name('musicbox-winding-crank',()=>{beam([31,0,13],[38,0,13],1,C.brass);beam([38,0,13],[38,0,7],1,C.brass);beam([38,0,7],[42,0,7],1.5,C.woodDark);});
+   name('musicbox-lid-stay',()=>{beam([25,-13,18],[25,-21,35],.8,C.brass);beam([25,-21,35],[25,-29,46],.8,C.brass);});
+   name('musicbox-feet-and-lock',()=>{for(const x of [-24,24])for(const y of [-18,18])cylinder(x,y,0,3,2,C.black);panel(-4,25.2,10,8,8,C.brass);cylinder(0,26.3,14,1.4,.5,C.black,'y');});
+  }
   const materials={ [C.iron]:'steel',[C.edge]:'steel',[C.brass]:'brass',[C.wood]:'wood',[C.paper]:'paper',[C.glass]:'glass',[C.cloth]:'cloth',[C.salt]:'salt',[C.felt]:'cloth',[C.feltLight]:'cloth',[C.feltDark]:'cloth',[C.thread]:'cloth',[C.woodLight]:'wood',[C.woodDark]:'wood',[C.stone]:'stone',[C.stoneDark]:'stone',[C.stoneEdge]:'stone',[C.paperBack]:'paper','#e8ece5':'enamel' };
   const add=(p,color)=>faces.push({p,color,part,material:materials[color]||'matte'});
   const name=(n,fn)=>{part=n;fn();};
@@ -32765,7 +32824,6 @@ Abyss.AnomalousObjectMesh=(()=>{
   function radio(portable){box(-39,-15,4,78,30,45,portable?C.iron:C.wood);name('radio-speaker',()=>{cylinder(-16,15.1,26,16,1,C.black,'y');for(let i=-10;i<=10;i+=4)panel(-29,16.3,26+i,26,.7,C.edge);});name('radio-tuning',()=>{panel(6,15.5,31,23,9,C.paper);for(let i=0;i<6;i++)panel(9+i*3,16.6,33,1,4,C.brass);cylinder(16,15.5,17,5,4,C.brass,'y');});name('radio-aerial',()=>beam([28,-9,49],[38,-9,80],.8,C.edge));if(portable){name('carry-handle',()=>{beam([-22,0,49],[-22,0,61],2);beam([-22,0,61],[21,0,61],2);beam([21,0,61],[21,0,49],2);});panel(25,17,8,9,16,C.paper);}else for(const x of [-29,29])box(x-3,-10,0,6,20,4,C.black);}
   function phone(push){box(-34,-25,0,68,50,12,C.red);box(-26,-20,12,52,34,7,C.red);name('handset',()=>{beam([-27,-12,32],[27,-12,32],4,C.red);orb(-27,-10,27,10,9,8,C.red);orb(27,-10,27,10,9,8,C.red);});for(const x of [-26,26])box(x-2,-16,18,4,7,8,C.brass);name(push?'phone-keypad':'phone-rotary-dial',()=>{if(push)for(let a=0;a<3;a++)for(let b=0;b<4;b++)box(-12+a*9,b*5,20,6,3,2,C.paper);else {cylinder(0,5,19,16,2,C.black);for(let i=0;i<10;i++){const a=i*2*Math.PI/10;cylinder(12*Math.cos(a),5+12*Math.sin(a),21,2,1,C.brass);}}});name('phone-cord',()=>{for(let i=0;i<12;i++)loop(-36-i*.5,0,16+i*.4,2.2,2.2,.6,C.black);});}
   function framed(type){box(-33,-4,0,66,8,88,type==='hungry'?C.wood:C.brass);name(type+'-surface',()=>panel(-28,4.2,6,56,76,type==='photo'?C.paper:C.glass));if(type==='photo'){for(const x of [-13,13]){orb(x,6,61,7,1,8,C.iron);panel(x-7,5.5,29,14,24,C.iron);for(const side of [-1,1])beam([x+side*3,6,30],[x+side*4,6,12],1.9,C.iron);}beam([-4,7,12],[7,7,77],.55,C.brass);}else if(type==='hungry'){name('mirror-seated-reflection',()=>{orb(2,5.6,58,6,.5,7,'#375866');panel(-5,5.5,33,14,18,'#375866');beam([4,6,34],[17,6,28],1.4,'#375866');beam([17,6,28],[17,6,14],1.4,'#375866');});}else{panel(-17,5.4,16,2,52,'#a7d4d0');panel(-11,5.4,46,1,23,'#77b6bd');}if(type!=='photo'){box(-40,-16,0,80,30,5,C.iron);beam([-28,0,6],[-28,0,18],2);beam([28,0,6],[28,0,18],2);}}
-  function vessel(type){if(type==='bottle'){name('glass-body',()=>lathe(0,0,0,[[0,0],[0,19],[4,21],[44,21],[59,9],[78,9],[78,6],[59,6],[44,18],[6,18],[6,0]],C.glass));name('bottle-lip',()=>lathe(0,0,77,[[0,8],[0,11],[5,11],[5,8],[0,8]],C.edge));beam([-13,13,10],[-13,13,42],1,'#a0c9c4');}else if(type==='jar'){lathe(0,0,0,[[0,0],[0,23],[5,26],[51,26],[57,20],[57,0]],C.iron);cylinder(0,0,57,25,5,C.brass);name('ash-jar-recessed-label',()=>{panel(-14,26.1,17,28,20,C.paper);panel(-10,27.4,23,20,2,C.wood);});}else if(type==='cup'){name('cup-hollow-body',()=>lathe(0,0,0,[[0,0],[0,19],[5,20],[43,22],[43,19],[6,17],[6,0]],'#e8ece5'));name('cup-handle',()=>loop(23,0,24,12,14,3,'#e8ece5'));name('cup-water',()=>{const first=faces.length;cylinder(0,0,26,18,.4,'#6fa2af');for(let i=first;i<faces.length;i++)faces[i].opacity=.58;});}else if(type==='bowl'){name('bowl-hollow-body',()=>lathe(0,0,0,[[0,0],[0,12],[5,21],[22,35],[24,35],[24,32],[7,18],[5,0]],C.edge));lathe(0,0,0,[[0,11],[3,12],[4,11]],C.brass);}}
   function hourglass(reverse){for(const z of [0,88])cylinder(0,0,z,28,6,C.wood);for(const x of [-20,20])for(const y of [-14,14])beam([x,y,6],[x,y,88],1.6,C.brass);name('glass-bulbs',()=>glass(()=>lathe(0,0,7,[[0,0],[0,21],[12,21],[27,9],[37,2],[43,2],[54,12],[70,21],[80,21],[80,0]],C.glass)));name('sand',()=>{if(reverse)lathe(0,0,13,[[0,0],[0,18],[8,18],[22,0]],C.paper);else lathe(0,0,43,[[0,0],[0,2],[29,18],[29,0]],C.paper);if(reverse)beam([0,0,26],[0,0,55],.8,C.paper);});}
   function doll(cloth){if(cloth)return plushDoll();
    name('doll-torso',()=>lathe(0,0,43,[[0,8],[4,13],[19,14],[25,10],[27,7]],C.wood,'z',10));
@@ -32863,14 +32921,14 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_doorhandle':name('backplate',()=>box(-8,-3,0,16,6,86,C.brass));name('handle',()=>{beam([0,3,56],[0,16,56],4,C.edge);beam([0,16,56],[34,16,56],4,C.edge);});cylinder(0,3,21,4,1,C.black,'y');break;
    case 'object_silent_bell':bell();name('bell-loop',()=>loop(0,0,66,6,8,2,C.brass));break;
    case 'object_black_flower':lathe(0,0,0,[[0,0],[0,14],[25,20],[27,21],[27,17],[6,11],[6,0]],C.wood);cylinder(0,0,23,17,1,C.black);beam([0,0,24],[0,0,73],1.8,C.mint);name('black-petals',()=>{for(let i=0;i<7;i++){const a=i*Math.PI*2/7;orb(16*Math.cos(a),12*Math.sin(a),78+4*Math.sin(a),12,7,5,C.black);}orb(0,0,79,6,6,5,C.brass);});break;
-   case 'object_empty_bottle':{const start=faces.length;vessel('bottle');for(let i=start;i<faces.length;i++)if(faces[i].part==='glass-body')faces[i].opacity=.24;name('empty-bottle-hollow-neck',()=>lathe(0,0,75,[[0,6],[5,6]],'#294b56'));break;}
+   case 'object_empty_bottle':emptyBottle();break;
    case 'object_roomkey':key(false);break;
    case 'object_hungry_mirror':framed('hungry');break;
    case 'object_whisper_bed':feet(68,94,23);name('bed-frame',()=>box(-34,-47,21,68,94,7,C.wood));name('mattress',()=>box(-31,-44,28,62,88,12,C.cloth));name('pillow',()=>orb(0,-28,43,25,12,6,C.paper));for(const x of [-30,30])box(x-2,-47,26,4,5,39,C.iron);box(-30,-47,57,60,5,6,C.iron);break;
    case 'object_red_phone':phone(false);break;
    case 'object_observer':name('camera-body',()=>box(-34,-15,4,68,30,42,C.iron));name('camera-lens',()=>{cylinder(7,15,25,18,14,C.black,'y');cylinder(7,29,25,15,2,C.edge,'y');name('camera-focus-rings',()=>{for(const y of [18,22,26])lathe(7,y,25,[[0,17.7],[.8,17.7],[.8,16.5],[0,16.5]],'#71868d','y');});name('camera-aperture',()=>{cylinder(7,31,25,12,.4,'#142731','y');for(let k=0;k<6;k++){const a=k*Math.PI/3,b=a+Math.PI/3;add([[7+10*Math.cos(a),31.5,25+10*Math.sin(a)],[7+10*Math.cos(b),31.5,25+10*Math.sin(b)],[7+4*Math.cos(b+.3),31.5,25+4*Math.sin(b+.3)],[7+4*Math.cos(a+.3),31.5,25+4*Math.sin(a+.3)]].reverse(),'#91a7a8');}});name('camera-front-glass',()=>glass(()=>cylinder(7,31.8,25,11,.4,C.glass,'y')));});name('camera-body-details',()=>{panel(-28,15.2,32,17,9,C.paper);box(-10,-7,46,24,15,10,C.black);cylinder(23,1,46,5,3,C.brass);for(const x of [-27,27])box(x-2,-11,0,4,22,4,C.black);});break;
-   case 'object_musicbox':name('musicbox-case',()=>{box(-31,-25,0,62,50,23,C.wood);box(-27,-21,23,54,42,3,C.brass);});name('musicbox-open-lid',()=>{box(-31,-26,23,62,5,49,C.wood);panel(-26,-20,30,52,35,C.paper);});cylinder(0,0,26,16,2,C.brass);orb(0,0,47,4,3,5,C.paper);beam([0,0,28],[0,0,43],1.5,C.edge);loop(34,0,12,6,3,1,C.brass);break;
-   case 'object_ash_jar':vessel('jar');break;
+   case 'object_musicbox':musicBox();break;
+   case 'object_ash_jar':ashJar();break;
    case 'object_silver_skull':name('skull-cranium',()=>orb(0,-3,58,29,21,29,C.edge));name('skull-cheekbones',()=>{for(const x of [-21,21])orb(x,11,40,8,9,7,C.edge);});name('jaw',()=>{for(const side of [-1,1]){beam([side*23,0,37],[side*20,12,15],3.5,C.edge);beam([side*20,12,15],[side*8,19,11],3.5,C.edge);}beam([-8,19,11],[8,19,11],3.5,C.edge);});name('skull-eyes',()=>{for(const x of [-12,12]){orb(x,17,56,10,5,10,C.black);orb(x,21.5,53,6,1.5,4,'#73b982');}});name('skull-nasal-cavity',()=>add([[-5,21,37],[0,22,48],[5,21,37]],C.black));name('silver-teeth',()=>{for(let i=0;i<8;i++){const x=-14+i*4,y=17+3*(1-Math.abs(x)/16);box(x-1.5,y,25,3,3,8,C.edge);box(x-1.5,y,15,3,3,6,C.edge);}});break;
    case 'object_reverse_map':name('map-folds',()=>{for(let i=0;i<3;i++)box(-36+i*24,-2+i%2*5,0,24,1,79,C.paper);});name('map-route',()=>{for(const [a,b]of [[[-28,5,19],[-4,5,46]],[[-4,5,46],[22,5,51]]])beam(a,b,1.5,C.red);add([[22,6,51],[10,6,57],[13,6,44]],C.red);});break;
    case 'object_sleepless_doll':doll(false);break;
@@ -32878,8 +32936,8 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_witness_lens':name('lens-rim',()=>lathe(0,0,65,[[0,25],[5,25],[5,21],[0,21],[0,25]],C.brass,'y'));name('lens-convex-glass',()=>glass(()=>orb(0,2.5,65,21,3,21,C.glass)));beam([0,0,0],[0,0,39],2,C.iron);for(const x of [-1,1])beam([0,0,12],[x*20,x*8,0],2,C.iron);break;
    case 'object_paper_window':name('paper-window-sheet',()=>box(-32,-1,0,64,2,83,C.paper));name('paper-window-cross',()=>{panel(-1,1.5,5,2,73,C.wood);panel(-29,1.5,40,58,2,C.wood);});name('light-through-paper',()=>{panel(5,1.6,48,19,26,'#e5d7b3');for(const x of [10,17])panel(x,2.7,50,.6,22,'#c9bd9b');panel(7,2.7,59,15,.6,'#c9bd9b');});name('paper-fibres',()=>{for(let i=0;i<9;i++)panel(-26+i*6,1.7,8+(i*13)%62,.3,5,'#c7b995');});break;
    case 'object_hourglass':hourglass(false);break;
-   case 'object_third_cup':vessel('cup');break;
-   case 'object_echo_bowl':vessel('bowl');break;
+   case 'object_third_cup':thirdCup();break;
+   case 'object_echo_bowl':echoBowl();break;
    case 'object_unlit_star':name('metal-planet',()=>orb(0,0,38,29,29,29,'#43515d'));name('planet-equator',()=>lathe(0,0,36,[[0,29.2],[2,29.4],[4,29.2]],C.iron));name('planet-meridian',()=>loop(0,0,38,29.5,29.5,.8,C.brass));name('planet-base',()=>{cylinder(0,0,0,22,4,C.black);beam([0,0,4],[0,0,10],2,C.iron);});break;
    case 'object_no_record':name('crt-case',()=>box(-35,-23,18,70,42,53,C.iron));name('crt-screen',()=>{panel(-29,19.5,27,58,38,C.black);panel(-25,20.7,31,50,30,C.glass);for(let row=0;row<3;row++)panel(-20,22,53-row*5,29-row*6,.7,C.mint);});name('crt-ventilation',()=>{for(let z=30;z<63;z+=4)box(35.1,-15,z,.4,20,1,C.black);});box(-8,-10,5,16,22,13,C.edge);box(-28,-22,0,56,44,5,C.iron);name('keyboard-case',()=>box(-34,23,0,68,25,5,C.iron));name('keyboard-keys',()=>{for(let row=0;row<4;row++)for(let col=0;col<11;col++)box(-30+col*5.5,25+row*4.4,5,4,3.3,1.5,C.paper);box(-15,43,5,30,3,1.5,C.paper);});name('crt-controls',()=>{cylinder(23,20,24,2,1,C.brass,'y');cylinder(16,20,24,1,1,C.mint,'y');});break;
    case 'ud_object_1':redlineTelephone();break;
@@ -32892,7 +32950,7 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_8':coin(true);break;
    case 'ud_object_9':name('recorder-case',()=>box(-39,-24,0,78,48,20,C.iron));name('recorder-speaker',()=>{box(-34,-18,20.1,29,32,1,C.black);for(let i=0;i<7;i++)box(-31,-15+i*4,21.2,23,1,.3,C.edge);});name('cassette-window',()=>{box(0,-18,20.1,32,25,1,C.black);box(3,-15,21.2,26,18,.3,C.glass);for(const x of [10,23]){cylinder(x,-6,21.6,4,.5,C.paper);cylinder(x,-6,22.2,1.8,.3,C.black);}box(11,-8,22,11,4,.3,C.black);});name('recorder-transport-controls',()=>{for(let i=0;i<5;i++)box(-1+i*6,12,20,4,8,3,i===0?C.red:C.paper);});name('recorder-carry-handle',()=>{beam([-25,-22,20],[-25,-22,30],1.8,C.black);beam([-25,-22,30],[25,-22,30],1.8,C.black);beam([25,-22,30],[25,-22,20],1.8,C.black);});cylinder(34,24.2,10,3,1,C.black,'y');break;
    case 'ud_object_10':typingPaper();break;
-   case 'ud_object_11':glass(()=>vessel('bottle'));name('bottled-rain',()=>{cylinder(0,0,7,19,13,'#386e83');for(const [x,z]of [[-8,36],[4,45],[11,30]])beam([x,15,z],[x-2,15,z-6],1,'#b1d5ce');});break;
+   case 'ud_object_11':rainBottle();break;
    case 'ud_object_12':name('parcel',()=>box(-35,-24,0,70,48,49,'#ae9470'));name('parcel-string',()=>{box(-2,-25,0,4,50,50,C.paper);box(-36,-2,0,72,4,50,C.paper);loop(-8,0,55,8,5,1,C.brass);loop(8,0,55,8,5,1,C.brass);});break;
    case 'ud_object_13':name('mask',()=>{orb(0,0,47,29,8,42,C.paper);for(const x of [-13,13])orb(x,7,56,8,3,5,C.black);add([[-3,8,49],[0,15,39],[4,8,36]],'#b5aa92');beam([-10,8,28],[10,8,28],1,C.black);});break;
    case 'ud_object_14':hourglass(true);break;
@@ -32925,14 +32983,14 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_doorhandle':name('handle-screw-heads',()=>{for(const z of [8,77]){cylinder(0,3.2,z,2.2,.5,C.edge,'y');beam([-1,4,z],[1,4,z],.3,C.black);}});break;
    case 'object_silent_bell':name('bell-rolled-mouth',()=>lathe(0,0,0,[[0,32],[2,34],[4,34],[5,32]],'#c5a66a'));break;
    case 'object_black_flower':name('black-flower-curled-leaves',()=>{add([[0,0,49],[-18,2,54],[-11,4,44]],'#354d43');add([[0,0,58],[17,-1,64],[10,3,51]],'#2b3b35');for(let i=0;i<5;i++){const a=i*Math.PI*2/5;beam([8*Math.cos(a),8*Math.sin(a),81],[21*Math.cos(a),15*Math.sin(a),79],.65,'#46505b');}});break;
-   case 'object_empty_bottle':name('loose-bottle-stopper',()=>{cylinder(28,-2,0,5,12,C.wood);cylinder(28,-2,10,6,2,C.brass);});break;
+   case 'object_empty_bottle':break;
    case 'object_roomkey':name('key-scraped-number-plate',()=>{panel(-10,3,60,20,9,C.edge);for(let x=-7;x<8;x+=4)beam([x,4.2,62],[x+2,4.2,67],.35,C.black);});break;
    case 'object_hungry_mirror':name('mirror-carved-arch',()=>{for(let i=0;i<12;i++){const a=i*Math.PI/12,b=(i+1)*Math.PI/12;beam([30*Math.cos(a),0,86+15*Math.sin(a)],[30*Math.cos(b),0,86+15*Math.sin(b)],2.5,C.wood);}for(const x of [-31,31])box(x-2,1,12,4,6,68,'#9b7452');});break;
    case 'object_whisper_bed':name('bed-footboard-and-quilt',()=>{for(const x of [-30,30])beam([x,43,0],[x,43,46],2,C.iron);beam([-30,43,43],[30,43,43],2,C.iron);for(const y of [-5,10,25])beam([-27,y,40.5],[27,y,40.5],.5,'#a7b1a2');});break;
    case 'object_red_phone':name('phone-cut-lead',()=>{beam([31,-20,5],[42,-24,2],1,C.black);beam([42,-24,2],[46,-24,2],.45,'#b98d5f');beam([53,-24,2],[58,-27,1],.8,C.black);});break;
    case 'object_observer':name('camera-aperture-and-unlit-indicator',()=>{cylinder(7,31.7,25,5,.3,C.black,'y');cylinder(-24,16,43,1.6,.5,C.black,'y');for(const x of [-34,34])loop(x,0,32,3,5,.8,C.edge);});break;
-   case 'object_musicbox':name('musicbox-comb-and-hinge',()=>{for(let x=-17;x<18;x+=4)box(x,12,26,2,8+(x+17)%3,1,C.edge);beam([-22,-22,25],[22,-22,25],1.8,C.brass);});break;
-   case 'object_ash_jar':name('jar-lid-latch',()=>{lathe(0,0,61,[[0,20],[1,23],[2,23],[2,20]],C.edge);beam([-24,0,53],[-24,0,63],1,C.iron);beam([24,0,53],[24,0,63],1,C.iron);});break;
+   case 'object_musicbox':break;
+   case 'object_ash_jar':break;
    case 'object_silver_skull':name('skull-suture-and-tooth-etching',()=>{for(let z=66;z<80;z+=4)beam([-3,14-(z-66)*.4,z],[3,14-(z-66)*.4,z+2],.4,'#64767b');for(const x of [-6,2,10])beam([x,21,28],[x+1,21,31],.25,C.iron);});break;
    case 'object_reverse_map':name('map-fold-and-compass',()=>{for(const x of [-12,12])beam([x,5,5],[x,5,73],.45,'#9a9079');beam([23,6,66],[23,6,77],.8,C.iron);beam([18,6,71],[28,6,71],.8,C.iron);});break;
    case 'object_sleepless_doll':name('wood-doll-joints-and-sleeve-plan',()=>{for(const [x,y,z]of [[-10,5,27],[10,5,27],[-13,4,63],[13,4,63],[-26,7,47],[27,11,49]])cylinder(x,y,z,2.5,1.5,C.brass,'y');beam([22.5,11.5,57.4],[20.5,13.5,61.1],5.2,C.cloth);panel(20.5,18.3,54,8,9.5,C.paper);for(const [a,b]of [[[22,19.5,58],[27,19.5,58]],[[22,19.5,60],[27,19.5,60]],[[22,19.5,56],[22,19.5,62]],[[27,19.5,56],[27,19.5,60]]])beam(a,b,.17,C.ink);});break;
@@ -32940,8 +32998,8 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_witness_lens':name('lens-focus-screw',()=>{cylinder(0,3,28,5,3,C.brass,'y');beam([-6,7,28],[6,7,28],1,C.edge);});break;
    case 'object_paper_window':name('paper-window-edge-tape',()=>{for(const [x,z]of [[-31,3],[21,3],[-31,73],[21,73]])panel(x,2, z,10,7,'#c4b68f');});break;
    case 'object_hourglass':name('hourglass-wood-finials',()=>{for(const x of [-20,20])for(const y of [-14,14]){cylinder(x,y,3,3,5,C.wood);cylinder(x,y,84,3,5,C.wood);}});break;
-   case 'object_third_cup':name('cup-rim-and-handle-joints',()=>{lathe(0,0,42,[[0,19],[1,22],[2,22],[2,19]],C.edge);for(const z of [12,35])box(17,-3,z,6,6,5,'#e8ece5');});break;
-   case 'object_echo_bowl':name('bowl-incised-rim',()=>{lathe(0,0,23,[[0,33],[.6,35],[1.2,35],[1.2,33]],C.brass);lathe(0,0,1,[[0,9],[1,11],[2,11],[2,9]],C.edge);});break;
+   case 'object_third_cup':break;
+   case 'object_echo_bowl':break;
    case 'object_unlit_star':name('planet-riveted-ports',()=>{for(const [x,y,z]of [[-13,23,45],[14,24,31],[0,16,62]])cylinder(x,y,z,2,1,C.brass,'y');});break;
    case 'object_no_record':name('crt-bezel-and-rear-connectors',()=>{for(const x of [-31,30])panel(x,20.5,28,2,36,C.edge);for(const x of [-14,0,14])cylinder(x,-24,34,3,2,C.black,'y');});break;
    case 'ud_object_0':break;
@@ -32955,7 +33013,7 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_8':name('copper-coin-return-scar',()=>{beam([-21,-8,4.3],[-12,0,4.3],.65,C.black);beam([-12,0,4.3],[-19,8,4.3],.65,C.black);});break;
    case 'ud_object_9':name('recorder-eject-latch',()=>{box(26,8,20,7,3,3,C.brass);for(const x of [-28,28])cylinder(x,24.5,10,2,1,C.black,'y');});break;
    case 'ud_object_10':name('typing-paper-curled-edge',()=>{for(let i=0;i<8;i++){const x=-33+i*8.25,X=x+8.25;add([[x,paperY(x,0),0],[X,paperY(X,0),0],[X,paperY(X,0)+1.8,1.8],[x,paperY(x,0)+1.8,1.8]],C.paper);}});break;
-   case 'ud_object_11':name('rain-bottle-sealed-cap',()=>{cylinder(0,0,82,10,5,C.edge);lathe(0,0,82,[[0,9],[2,11],[3,11],[3,9]],C.iron);});break;
+   case 'ud_object_11':break;
    case 'ud_object_12':name('parcel-folded-gussets',()=>{for(const x of [-35,35]){beam([x,-23,48],[x,0,34],.6,'#866d51');beam([x,0,34],[x,23,48],.6,'#866d51');}box(-20,24.1,18,15,.5,10,C.paper);});break;
    case 'ud_object_13':name('mask-eyelets-and-straps',()=>{for(const x of [-27,27]){cylinder(x,1,50,2,1,C.black,'y');beam([x,-1,50],[x*1.2,-12,47],1,C.cloth);}beam([-32,-12,47],[32,-12,47],1,C.cloth);});break;
    case 'ud_object_14':name('reverse-hourglass-metal-cage',()=>{for(const z of [0,89])box(-25,-25,z,50,50,3,C.iron);beam([-23,-23,5],[23,23,88],.8,C.edge);beam([23,-23,5],[-23,23,88],.8,C.edge);});break;
@@ -41261,6 +41319,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-20',version:'0.13.231-preview',title:t('容器与音乐盒独立重建','Vessels and Music Box Rebuilt'),items:[t('重建空瓶、旧雨瓶、温热灰罐、第三只杯、回声碗及不闭合音乐盒。分别制作瓶口与内壁、独立瓶形和液体、罐盖扣、搪瓷开放手柄、碗内刻环，以及可见滚筒、音梳、发条与后倾盒盖。','Rebuilt the empty bottle, old-rain bottle, warm ash jar, third cup, echo bowl and unclosing music box: open necks and inner walls, distinct bottles and liquid, jar latches, an enamel handle, inner bowl rings, and exposed cylinder, comb, spring and tilted lid.'),t('目录和房间使用同一套可旋转模型。保留原物品编号、故事、数量、认证尺寸、旧尺寸存档与碰撞规则；其余49件异常物品模型不变。','Catalogue and rooms use the same rotatable models. Item IDs, stories, quantities, certified dimensions, legacy-sized saves and collision rules remain; the other 49 anomalous models are unchanged.')],pending:[t('55件物品的正式美术与历史大型扩展仍未全部完成，公网AI仍待私密配置。','Final art for all 55 objects and the historical expansions is still incomplete; public AI still requires private configuration.')]},
 {date:'2026-10-20',version:'0.13.230-preview',title:t('扫描记录归属校验','Individual Scan Records'),items:[t('停用手术室扫描记录绑定具体个体。NPC替换、B-07新生或宠物身份变化后，需要本人的扫描才能开始照护；同一天可以重新付费扫描新个体。','Old theater scans now belong to a specific individual. Replacement NPCs, newborn B-07 and changed pets require their own scan before care; a new individual can pay for a scan on the same day.'),t('旧版没有身份标记的记录保留为历史，不自动认领给当前患者。原扫描费用、隐藏症状保护和逐日照护疗程保持。','Legacy records without identity remain in history and are not assigned to the current patient. Existing scan costs, hidden-symptom protection and daily care courses remain.')],pending:[t('历史大型扩展联合验收、正式美术和公网AI仍未全部完成。','Full historical expansion acceptance, final artwork and public AI are still incomplete.')]},
 {date:'2026-10-20',version:'0.13.229-preview',title:t('餐桌也有好坏与重复','Variety at the Table'),items:[t('厨房新增每日菜单评价：欠佳、基础、良好、丰盛、盛宴。按各人实际吃下的前三份正餐、品质、种类和原料计算，第三餐或结束当天结算一次，提供小幅士气、健康、压力缓解和限时恢复支持。计划和库存不会冒充吃过的餐食。','The kitchen gains Poor, Basic, Good, Great and Feast daily menu reviews. Each person’s first three actual meals, quality, variety and ingredients determine one review at their third meal or day’s end, with modest morale, health, stress relief and timed recovery support. Plans and inventory never count as eaten food.'),t('连续同餐增加用餐疲劳，本项每天最多额外降低2心情；换菜或中断连续用餐会重置，零食和饮水不会冲掉记录。评价、实际收益、重复次数和恢复余量随本槽保存；原料理/速食效果保留，恢复支持与原蛋白和恢复餐取较强值，不治疗疾病。','Repeating meals adds meal fatigue, costing at most 2 extra mood per person daily. Changing food or a gap resets the run; snacks and drinks cannot erase it. Reviews, actual support, repetition and recovery fractions stay in their own save. Existing meals and ready-food effects remain; recovery uses the stronger of menu and protein/recovery food and does not treat diseases.')],pending:[t('完整食堂、养殖、遗传、俱乐部及其他历史系统联合验收仍继续；正式美术与公网AI未全部完成。','Full integration acceptance of the canteen, homestead, genetics, Happy Club and other historical systems continues. Final artwork and public AI are not all complete.')]},
 {date:'2026-10-20',version:'0.13.228-preview',title:t('餐桌上的小事','Around the Table'),items:[t('实际用餐队列会出现桌边交谈、B-07伸手拿备用餐盒、宠物候餐。只有实际在场且适合的对象和食品才会触发；可选择给出原食品或保留，不自动投喂，也不赠送食物。','Timed meal services can bring table conversations, B-07 reaching for a spare portion, and pets waiting for food. Incidents require suitable recipients and real food present. Share the original item or keep it; nothing is fed or granted automatically.'),t('事件和回应随本存档保存；离场、换代、食品失效或用餐结束不会误喂、重放或多扣。人物交谈沿用原话语和记忆，不直接赠送信任、忠诚、资金或行动点。','Incidents and responses stay in their own save. Departure, succession, unavailable food and service closure cannot cause remote feeding, replay or duplicate consumption. Conversations use the existing character voice and memory without direct trust, loyalty, money or AP rewards.')],pending:[t('菜单总评价、重复疲劳、丰盛度和完整联合验收继续；历史扩展、正式美术与公网AI尚未全部完成。','Menu ratings, repetition fatigue, abundance and full integration acceptance remain in progress. Historical expansions, final artwork and public AI are not all complete.')]},
