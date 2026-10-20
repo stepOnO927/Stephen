@@ -1330,7 +1330,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.222-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.223-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6436,6 +6436,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "四件设备各有自己的构造": "Four Objects, Four Independent Constructions",
+  "失踪者收音机重做为带护角、提手、频段窗与伸缩天线的便携设备；红线电话重做为带立式机壳、竖向听筒、键盘和红色卷线的独立装置。": "Missing Persons Radio becomes a portable unit with corner guards, a handle, tuning window and telescopic aerial. Redline Telephone gains an upright case, vertical receiver, keypad and red coiled cable.",
+  "空房门匙改为有真实空心矩形钥匙头、扁平切齿和空白吊牌的金属钥匙；钟摆缺口改为拱顶木壳、开放摆锤与右侧真实断口。原身份、故事、数量和摆放尺寸保留。": "Empty Room Key becomes a flat metal key with a truly hollow rectangular bow, cut teeth and blank tag. Pendulum Gap gains an arched wood case, open pendulum and actual break in the right rail. Identities, stories, quantities and placement dimensions remain.",
+  "本批重做四件，不表示55件正式美术全部完成；其余历史扩展和公开AI继续。": "This pass rebuilds four objects; it does not declare all 55 final models complete. Other historical expansions and public AI remain in progress.",
   "专注餐接入实际研究": "Focus Meals Support Actual Research",
   "专注餐现在提升Jack物品鉴定与B-07实际实验的研究经验，按品质和制作时熟练度计算，并按动作期间有效时长折算。研究费用和首次发现、成就及剧情奖励不变。": "Focus meals now boost research XP from Jack’s item identification and B-07’s actual experiments, using quality, mastery at preparation and active time during work. Research costs and discovery, achievement and story rewards are unchanged.",
   "不足1点的经验增益保留为余量，存读后继续累计，不会因每次取整而丢失；研究页面显示余量。旧档默认0，不补发旧操作奖励。": "Fractional bonus XP is saved as a remainder and accumulates into whole points instead of being lost to rounding. The research page shows it. Older saves start at zero, with no retroactive awards.",
@@ -32704,9 +32708,48 @@ Abyss.AnomalousObjectMesh=(()=>{
    name('typed-ink-impressions',()=>{const glyphs=[[[0,4],[2,0],[4,4]],[[0,0],[0,4],[3,4]],[[0,4],[3,4],[3,0],[0,0],[0,4]],[[0,2],[3,2]],[[0,4],[0,0],[3,0]]];for(let row=0;row<5;row++)for(let col=0;col<7-row%3;col++){const points=glyphs[(row*3+col)%glyphs.length],x=-24+col*6.5,z=66-row*8;for(let i=0;i<points.length-1;i++){const [a,b]=points[i],[c,d]=points[i+1];beam([x+a,paperY(x+a,z+b)+.25,z+b],[x+c,paperY(x+c,z+d)+.25,z+d],.16,C.ink);}}});
   }
   function key(tag){name('key-bow',()=>loop(0,0,67,17,18,3.5,C.brass));name('key-shaft',()=>box(-3,-3,7,6,6,44,C.brass));name('key-teeth',()=>{box(1,-3,8,16,6,5,C.brass);box(1,-3,20,11,6,5,C.brass);});if(tag){panel(11,2,57,20,24,C.paper);beam([12,3,64],[20,3,79],.5,C.iron);}}
+  // Independent constructions for the portable set; the older tabletop objects stay exact.
+  function frontPrism(outline,y,depth,color){const back=outline.map(([x,z])=>[x,y,z]),front=outline.map(([x,z])=>[x,y+depth,z]);add(back,color);add([...front].reverse(),color);for(let i=0;i<back.length;i++){const n=(i+1)%back.length;add([back[i],front[i],front[n],back[n]],color);}}
+  function fieldRadio(){
+   name('field-radio-bevelled-case',()=>frontPrism([[-24,4],[24,4],[29,9],[29,65],[24,70],[-24,70],[-29,65],[-29,9]],-14,28,C.iron));
+   name('field-radio-corner-guards',()=>{for(const x of [-29,24])for(const z of [4,61])box(x,-15,z,5,30,9,C.black);});
+   name('radio-speaker',()=>{panel(-22,14.3,14,39,33,C.black);for(let row=0;row<7;row++)for(let col=0;col<8;col++)panel(-19+col*4.3,15.4,17+row*4.2,2.4,1.3,C.edge);});
+   name('field-radio-frequency-window',()=>{panel(-22,14.2,53,34,10,C.black);panel(-20,15.3,55,30,6,C.paper);for(let i=0;i<8;i++)panel(-18+i*3.6,16.5,56, .6,i%2?2:4,C.iron);panel(-5,16.7,55,1,6,C.red);});
+   name('field-radio-side-tuning-wheel',()=>{cylinder(22,14.2,55,5,4,C.brass,'y');cylinder(22,18.3,55,3.8,.7,C.black,'y');beam([22,19.2,55],[24,19.2,58],.45,C.paper);cylinder(22,14.2,27,3.5,3,C.black,'y');});
+   name('carry-handle',()=>{for(const x of [-18,18]){box(x-2,-4,70,4,8,4,C.brass);beam([x,0,72],[x,0,85],2.5,C.black);}beam([-18,0,85],[18,0,85],3,C.black);for(let x=-12;x<15;x+=5)beam([x,0,83],[x,0,87],.45,C.edge);});
+   name('field-radio-telescopic-aerial',()=>{beam([23,-8,70],[29,-8,87],1.1,C.edge);beam([29,-8,87],[36,-8,108],.65,C.edge);orb(36,-8,108,1.2,1.2,1.2,C.brass,4,8);});
+   name('portable-radio-battery-hatch',()=>{panel(-19,-15.3,16,38,35,C.black);panel(-16,-16.4,19,32,29,C.iron);box(-4,-18,20,8,2,3,C.edge);for(const x of [-12,12])cylinder(x,-17.5,43,1.2,.5,C.brass,'y');});
+   name('field-radio-standing-feet',()=>{for(const x of [-21,15])box(x,-10,0,6,20,4,C.black);});
+  }
+  function redlineTelephone(){
+   name('redline-standing-mount',()=>{box(-29,-14,0,58,28,5,C.iron);for(const x of [-22,18])frontPrism([[x,5],[x+4,5],[x+4,26],[x,16]],-8,12,C.edge);});
+   name('redline-upright-case',()=>frontPrism([[-26,10],[26,10],[29,14],[29,88],[24,94],[-24,94],[-29,88],[-29,14]],-8,16,C.red));
+   name('handset',()=>{beam([-17,17,35],[-17,17,78],3.5,C.red);orb(-17,17,32,8,7,8,C.red,8,12);orb(-17,17,81,8,7,8,C.red,8,12);cylinder(-17,23.5,32,5.5,1,C.black,'y');cylinder(-17,23.5,81,5.5,1,C.black,'y');});
+   name('redline-receiver-cradle',()=>{for(const z of [42,71]){beam([-17,8,z],[-17,14,z],1.7,C.brass);beam([-21,14,z],[-13,14,z],1.7,C.brass);}});
+   name('phone-keypad',()=>{panel(-2,8.2,35,24,32,C.black);for(let col=0;col<3;col++)for(let row=0;row<4;row++)box(1+col*6.5,9.5,38+row*6.5,4.6,.6,4.2,C.paper);});
+   name('push-phone-line-indicator',()=>{panel(0,8.4,74,22,10,C.black);panel(3,9.5,77,15,3,C.mint);});
+   name('redline-coiled-cord',()=>{beam([-18,17,25],[-29,19,20],1,C.red);for(let i=0;i<21;i++){const a=i*Math.PI*.6,b=(i+1)*Math.PI*.6;beam([-32+2.5*Math.cos(a),17+2.5*Math.sin(a),21-i*.7],[-32+2.5*Math.cos(b),17+2.5*Math.sin(b),21-(i+1)*.7],.7,C.red);}beam([-32,17,6],[-22,8,12],.7,C.red);});
+   name('redline-junction-cover',()=>{panel(1,8.2,18,20,9,C.iron);for(const x of [4,18])cylinder(x,9.5,22,1,.6,C.brass,'y');});
+  }
+  function flatRoomKey(){
+   name('key-bow',()=>{for(const x of [-18,10])frontPrism([[x,61],[x+8,61],[x+8,92],[x,92]],-2,4,C.edge);frontPrism([[-10,61],[10,61],[10,68],[-10,68]],-2,4,C.edge);frontPrism([[-10,85],[10,85],[10,92],[-10,92]],-2,4,C.edge);});
+   name('key-shaft',()=>frontPrism([[-4,8],[4,8],[4,61],[-4,61]],-1.5,3,C.edge));
+   name('key-teeth',()=>frontPrism([[4,8],[5,8],[5,17],[11,17],[11,25],[6,25],[6,33],[12,33],[12,39],[4,39]],-1.5,3,C.edge));
+   name('flat-key-cut-channel',()=>{beam([0,1.8,14],[0,1.8,57],.45,C.iron);beam([2,-1.8,13],[2,-1.8,57],.45,C.iron);});
+   name('blank-room-key-tag',()=>{frontPrism([[22,43],[40,43],[43,46],[43,69],[22,69]],-22,1.2,C.paper);beam([14,0,78],[25,-22,69],.55,C.cloth);});
+   name('tagged-key-eyelet',()=>loop(26,-20.2,65,1.8,1.8,.4,C.brass));
+  }
+  function gapClock(){
+   name('gap-clock-arched-head',()=>{const outline=[[-27,66],[27,66],[27,99],...Array.from({length:13},(_,i)=>{const a=i*Math.PI/12;return [27*Math.cos(a),99+27*Math.sin(a)];})];frontPrism(outline,-9,18,C.wood);box(-31,-12,63,62,24,5,C.woodDark);});
+   name('gap-clock-face',()=>dial(0,9.2,96,23,165,5));
+   name('gap-clock-open-frame',()=>{box(-23,-8,8,6,16,55,C.wood);box(17,-8,8,6,16,23,C.wood);box(17,-8,44,6,16,19,C.wood);box(-29,-14,0,58,28,8,C.woodDark);});
+   name('gap-clock-broken-rail-ends',()=>{add([[17,-8,31],[23,-8,31],[21,8,32],[17,8,29]],C.woodLight);add([[17,-8,44],[17,8,44],[23,8,46],[23,-8,44]],C.woodLight);});
+   name('pendulum',()=>{beam([0,0,66],[-4,0,23],1.2,C.brass);cylinder(-4,-1,21,9,4,C.brass,'y');cylinder(-4,3.2,21,6.6,.6,C.edge,'y');beam([-4,4,17],[-4,4,25],.4,C.brass);});
+   name('pendulum-door-latch',()=>{panel(-19,8.4,10,1.5,51,C.brass);panel(18,8.4,47,1.5,14,C.brass);cylinder(18,10,51,2,2,C.brass,'y');});
+  }
   switch(id){
    case 'object_radio':radio(false);break;
-   case 'ud_object_0':radio(true);break;
+   case 'ud_object_0':fieldRadio();break;
    case 'object_tomorrow':box(-29,-10,0,58,20,83,C.wood);dial(0,10,49,24,130,20);panel(-18,10.2,9,36,9,C.paper);break;
    case 'object_empty_mirror':framed('empty');break;
    case 'object_second_chair':name('chair-legs',()=>feet(66,60,45));name('chair-seat',()=>box(-33,-30,43,66,60,7,C.wood));name('chair-back',()=>{for(const x of [-29,29])box(x-2,-29,48,4,5,48,C.wood);for(const z of [64,82,93])box(-30,-29,z,60,5,5,C.wood);});break;
@@ -32736,11 +32779,11 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_echo_bowl':vessel('bowl');break;
    case 'object_unlit_star':name('metal-planet',()=>orb(0,0,38,29,29,29,'#43515d'));name('planet-equator',()=>lathe(0,0,36,[[0,29.2],[2,29.4],[4,29.2]],C.iron));name('planet-meridian',()=>loop(0,0,38,29.5,29.5,.8,C.brass));name('planet-base',()=>{cylinder(0,0,0,22,4,C.black);beam([0,0,4],[0,0,10],2,C.iron);});break;
    case 'object_no_record':name('crt-case',()=>box(-35,-23,18,70,42,53,C.iron));name('crt-screen',()=>{panel(-29,19.5,27,58,38,C.black);panel(-25,20.7,31,50,30,C.glass);for(let row=0;row<3;row++)panel(-20,22,53-row*5,29-row*6,.7,C.mint);});name('crt-ventilation',()=>{for(let z=30;z<63;z+=4)box(35.1,-15,z,.4,20,1,C.black);});box(-8,-10,5,16,22,13,C.edge);box(-28,-22,0,56,44,5,C.iron);name('keyboard-case',()=>box(-34,23,0,68,25,5,C.iron));name('keyboard-keys',()=>{for(let row=0;row<4;row++)for(let col=0;col<11;col++)box(-30+col*5.5,25+row*4.4,5,4,3.3,1.5,C.paper);box(-15,43,5,30,3,1.5,C.paper);});name('crt-controls',()=>{cylinder(23,20,24,2,1,C.brass,'y');cylinder(16,20,24,1,1,C.mint,'y');});break;
-   case 'ud_object_1':phone(true);break;
+   case 'ud_object_1':redlineTelephone();break;
    case 'ud_object_2':name('alarm-clock-body',()=>cylinder(0,0,41,31,14,C.iron,'y'));dial(0,14,41,29,80,230);for(const x of [-23,23]){beam([x,6,18],[x*1.2,9,0],2,C.brass);orb(x,5,76,14,10,8,C.brass);}beam([-23,5,76],[23,5,76],1,C.edge);break;
    case 'ud_object_3':name('vanity-mirror',()=>{loop(0,0,59,27,35,3,C.brass);orb(0,0,59,25,1,32,C.glass);beam([-13,1.2,37],[-13,1.2,78],.7,'#a7d4d0');});name('vanity-swivel-stand',()=>{for(const x of [-31,31]){beam([x,0,5],[x,0,59],2,C.brass);beam([x,0,59],[x*.85,0,59],2,C.brass);}box(-37,-17,0,74,34,5,C.wood);box(-27,-12,5,54,24,9,C.wood);panel(-23,12.2,7,46,4,C.brass);});break;
    case 'ud_object_4':name('typewriter-base',()=>box(-40,-26,0,80,52,14,C.iron));name('typewriter-keys',()=>{for(let j=0;j<4;j++)for(let i=0;i<9;i++)cylinder(-31+i*7.5,3+j*5.2,15+j*.6,2.5,2,C.paper);});name('paper-carriage',()=>{beam([-34,-14,32],[34,-14,32],6,C.black);box(-34,-20,22,68,12,12,C.iron);panel(-23,-15,33,46,48,C.paper);for(let i=0;i<3;i++)panel(-17,-13.9,67-i*6,24-i*3,1,C.iron);});break;
-   case 'ud_object_5':key(true);break;
+   case 'ud_object_5':flatRoomKey();break;
    case 'ud_object_6':name('flashlight-barrel',()=>cylinder(0,0,0,10,56,C.iron));name('flashlight-grip',()=>{for(let z=7;z<40;z+=5)cylinder(0,0,z,11,1.5,C.black);});name('flashlight-head',()=>lathe(0,0,56,[[0,10],[7,20],[20,21],[20,17],[15,8],[15,0]],C.brass));name('flashlight-concave-reflector',()=>{const start=faces.length;lathe(0,0,56,[[7,7],[10,10],[14,14],[19,17]],'#c3ced0');for(let i=start;i<faces.length;i++)faces[i].p.reverse();});name('flashlight-led-and-lens',()=>{cylinder(0,0,65,3,2,'#fff1bd');glass(()=>cylinder(0,0,76,16,.3,C.glass));});box(-3,8,42,6,4,9,C.red);break;
    case 'ud_object_7':doll(true);break;
    case 'ud_object_8':coin(true);break;
@@ -32753,7 +32796,7 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_15':name('salt-heart',()=>{const first=faces.length;orb(4,0,35,24,16,32,C.salt);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>{const taper=z<34?.18+.82*z/34:1;return [4+(x-4)*taper+(34-z)*.12,y*taper,z];});orb(-16,-1,53,12,12,14,C.salt);});name('heart-aorta',()=>tube([[-3,-2,59],[-5,-2,69],[-4,-2,77],[1,-2,83],[8,-2,85],[15,-2,82],[20,-2,75],[20,-2,62]],5,1.6,C.salt));name('heart-open-arterial-branches',()=>{for(const [x,z]of [[-2,82],[7,85],[15,82]])tube([[x,-2,z],[x-1,-2,z+5],[x-2,-2,z+11]],2.7,.9,C.salt);});name('heart-vessels',()=>{lathe(-22,-4,59,[[0,5],[15,5],[15,2.8],[2,2.8]],C.salt);lathe(13,-9,56,[[0,5],[17,5],[17,2.5],[2,2.5]],C.salt);for(const [a,b]of [[[-4,16,59],[5,16,38]],[[5,16,38],[10,11,12]],[[5,16,38],[-11,13,34]],[[5,16,38],[18,10,31]]])beam(a,b,.8,'#b8b3a8');});break;
    case 'ud_object_16':name('cheque-paper',()=>box(-42,-1,0,84,1,43,C.paper));panel(-37,1,32,74,6,C.mint);for(let i=0;i<3;i++)panel(-33,1,23-i*7,46-i*7,1,C.iron);name('cheque-blank-signature-line',()=>{panel(12,1.3,7,23,.6,C.iron);});break;
    case 'ud_object_17':name('glove-palm',()=>orb(0,0,38,19,5,23,C.cloth));name('glove-fingers',()=>{for(let i=0;i<4;i++){const x=-13+i*8.5,z=[76,86,82,70][i];beam([x,0,51],[x,2,z-12],3.5,C.cloth);beam([x,2,z-12],[x-1,7,z-3],3.3,C.cloth);orb(x-1,7,z-3,3.3,3.3,3.3,C.cloth);}beam([-15,0,34],[-26,4,43],4,C.cloth);beam([-26,4,43],[-29,8,48],3.8,C.cloth);orb(-29,8,48,3.8,3.8,3.8,C.cloth);});name('glove-hollow-cuff',()=>{const first=faces.length;lathe(0,0,0,[[0,15],[17,16],[22,17],[22,14],[17,13],[0,12],[0,15]],C.cloth);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>[x,y*.4,z]);});name('glove-seams',()=>{for(const x of [-7,1,9])beam([x,5,34],[x,5,52],.35,'#a1adae');});break;
-   case 'ud_object_18':box(-27,-10,0,54,20,99,C.wood);dial(0,10,73,22,165,5);name('pendulum',()=>{panel(-17,10.5,8,34,34,C.black);beam([0,12,49],[0,12,20],1,C.brass);cylinder(0,12,18,10,2,C.brass,'y');});break;
+   case 'ud_object_18':gapClock();break;
    case 'ud_object_19':name('weight-body',()=>lathe(0,0,0,[[0,0],[0,28],[6,29],[48,17],[48,0]],C.iron));name('weight-handle',()=>loop(0,0,62,11,15,4,C.brass));panel(-10,23,14,20,7,C.edge);break;
    case 'ud_object_20':stone();break;
    case 'ud_object_21':name('calendar-pages',()=>box(-30,-3,0,60,6,80,C.paper));panel(-30,3.2,62,60,18,C.mint);name('calendar-binding',()=>{for(const x of [-19,0,19])loop(x,0,79,2,6,1,C.brass);});for(let x=-20;x<=20;x+=10)panel(x,4.3,8,1,42,C.iron);for(let z=8;z<=48;z+=10)panel(-25,4.3,z,50,1,C.iron);break;
@@ -32798,12 +32841,12 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_echo_bowl':name('bowl-incised-rim',()=>{lathe(0,0,23,[[0,33],[.6,35],[1.2,35],[1.2,33]],C.brass);lathe(0,0,1,[[0,9],[1,11],[2,11],[2,9]],C.edge);});break;
    case 'object_unlit_star':name('planet-riveted-ports',()=>{for(const [x,y,z]of [[-13,23,45],[14,24,31],[0,16,62]])cylinder(x,y,z,2,1,C.brass,'y');});break;
    case 'object_no_record':name('crt-bezel-and-rear-connectors',()=>{for(const x of [-31,30])panel(x,20.5,28,2,36,C.edge);for(const x of [-14,0,14])cylinder(x,-24,34,3,2,C.black,'y');});break;
-   case 'ud_object_0':name('portable-radio-battery-hatch',()=>{panel(-24,-16,8,48,29,C.black);panel(-21,-17.2,11,42,23,C.iron);box(31,7,32,7,4,12,C.brass);});break;
-   case 'ud_object_1':name('push-phone-line-indicator',()=>{box(-18,14,20,36,7,3,C.black);for(let x=-12;x<15;x+=8)box(x,16,23,3,2,1,C.red);});break;
+   case 'ud_object_0':break;
+   case 'ud_object_1':break;
    case 'ud_object_2':name('alarm-clock-hammer',()=>{beam([0,4,72],[0,4,88],1,C.brass);beam([-7,4,88],[7,4,88],2,C.edge);});break;
    case 'ud_object_3':name('vanity-swivel-screws',()=>{for(const x of [-32,32])cylinder(x,1,59,3,3,C.brass,'y');cylinder(0,13,10,2.5,2,C.brass,'y');});break;
    case 'ud_object_4':name('typewriter-spacebar-ribbon-and-knobs',()=>{box(-23,25,15,46,3,3,C.paper);box(-21,-4,25,42,5,3,C.black);for(const x of [-38,38])cylinder(x,-14,32,5,3,C.brass,'y');});break;
-   case 'ud_object_5':name('tagged-key-eyelet',()=>{cylinder(16,3.2,76,2,.5,C.iron,'y');loop(13,0,79,4,5,.6,C.brass);});break;
+   case 'ud_object_5':break;
    case 'ud_object_6':name('flashlight-reflector-bezel',()=>{lathe(0,0,74,[[0,15],[1,20],[2,20],[2,15]],C.edge);loop(0,0,3,4,3,1,C.edge);});break;
    case 'ud_object_7':name('cloth-doll-patch-and-stitches',()=>{const surface=(x,z)=>[x,-1+15*Math.sqrt(1-(x/22)**2-((z-27)/23)**2)+.3,z];for(let r=0;r<5;r++)for(let c=0;c<4;c++){const x=-7+c*3.5,z=24+r*2.6,a=surface(x,z),b=surface(x,z+2.6),C0=surface(x+3.5,z+2.6),d=surface(x+3.5,z);add([a,b,C0],C.feltLight);add([a,C0,d],C.feltLight);}for(let x=-6;x<=6;x+=3)for(const z of [24,37]){const a=surface(x,z),b=surface(x+.8,z+(z===24?1:-1));beam(a,b,.22,C.feltDark);}for(const x of [-7,7])for(let z=26;z<36;z+=3)beam(surface(x,z),surface(x+(x<0?1:-1),z+.8),.22,C.feltDark);});break;
    case 'ud_object_8':name('copper-coin-return-scar',()=>{beam([-21,-8,4.3],[-12,0,4.3],.65,C.black);beam([-12,0,4.3],[-19,8,4.3],.65,C.black);});break;
@@ -32816,7 +32859,7 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_15':name('heart-coronary-groove',()=>{beam([-10,14,55],[-1,17,44],1,'#b7afa0');beam([-1,17,44],[5,15,28],.8,'#b7afa0');});break;
    case 'ud_object_16':name('cheque-perforated-stub',()=>{for(let z=6;z<40;z+=5)cylinder(-36,1.6,z,.7,.3,C.iron,'y');beam([11,2,8],[31,2,8],.35,C.iron);});break;
    case 'ud_object_17':name('glove-thumb-patch-and-cuff-stitch',()=>{for(let x=-12;x<14;x+=4)beam([x,6,6],[x+1,6,9],.45,'#b2b9ad');beam([-13,5,33],[-20,8,41],.6,'#a1ada4');});break;
-   case 'ud_object_18':name('pendulum-door-latch',()=>{for(const x of [-19,19])panel(x,11,8,2,37,C.brass);cylinder(16,12,26,2,2,C.brass,'y');});break;
+   case 'ud_object_18':break;
    case 'ud_object_19':name('weight-calibration-plug',()=>{cylinder(0,24,18,3,1,C.brass,'y');beam([-1,25.4,18],[1,25.4,18],.4,C.black);});break;
    case 'ud_object_20':name('headstone-chipped-stone-foot',()=>{for(const [x,y,z]of [[-28,12,4],[25,12,5]]){const a=[x-4,y,z-2],b=[x+4,y,z-1],c=[x+2,y+2,z+2],d=[x-2,y+3,z];add([a,c,b],C.stoneEdge);add([a,d,c],C.stone);add([d,b,c],C.stoneDark);}});break;
    case 'ud_object_21':name('calendar-loose-page-corner',()=>add([[16,4.5,0],[30,4.5,0],[30,4.5,16],[20,8,9]],'#ede1c2'));break;
@@ -40776,6 +40819,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-20',version:'0.13.223-preview',title:t('四件设备各有自己的构造','Four Objects, Four Independent Constructions'),items:[t('失踪者收音机重做为带护角、提手、频段窗与伸缩天线的便携设备；红线电话重做为带立式机壳、竖向听筒、键盘和红色卷线的独立装置。','Missing Persons Radio becomes a portable unit with corner guards, a handle, tuning window and telescopic aerial. Redline Telephone gains an upright case, vertical receiver, keypad and red coiled cable.'),t('空房门匙改为有真实空心矩形钥匙头、扁平切齿和空白吊牌的金属钥匙；钟摆缺口改为拱顶木壳、开放摆锤与右侧真实断口。原身份、故事、数量和摆放尺寸保留。','Empty Room Key becomes a flat metal key with a truly hollow rectangular bow, cut teeth and blank tag. Pendulum Gap gains an arched wood case, open pendulum and actual break in the right rail. Identities, stories, quantities and placement dimensions remain.')],pending:[t('本批重做四件，不表示55件正式美术全部完成；其余历史扩展和公开AI继续。','This pass rebuilds four objects; it does not declare all 55 final models complete. Other historical expansions and public AI remain in progress.')]},
 {date:'2026-10-20',version:'0.13.222-preview',title:t('专注餐接入实际研究','Focus Meals Support Actual Research'),items:[t('专注餐现在提升Jack物品鉴定与B-07实际实验的研究经验，按品质和制作时熟练度计算，并按动作期间有效时长折算。研究费用和首次发现、成就及剧情奖励不变。','Focus meals now boost research XP from Jack’s item identification and B-07’s actual experiments, using quality, mastery at preparation and active time during work. Research costs and discovery, achievement and story rewards are unchanged.'),t('不足1点的经验增益保留为余量，存读后继续累计，不会因每次取整而丢失；研究页面显示余量。旧档默认0，不补发旧操作奖励。','Fractional bonus XP is saved as a remainder and accumulates into whole points instead of being lost to rounding. The research page shows it. Older saves start at zero, with no retroactive awards.')],pending:[t('完整食堂、遗传、俱乐部、其他历史扩展与正式美术继续验收；公网AI未启用。','The complete canteen, genetics, club, other historical expansions and final artwork remain under acceptance. Public AI is not enabled.')]},
 {date:'2026-10-20',version:'0.13.221-preview',title:t('遗传报告不再因字段换序丢失','Genetic Reports Survive Reordered Imports'),items:[t('修复动物扫描、出生变异、血统核验和卖方声明鉴定在导入字段换序的合法备份后丢失的问题。只忽略对象字段排列，仍检查原始证据、数值、类型和数组顺序。','Animal scans, birth mutation analyses, pedigree verification and seller-claim authentication now survive valid backup imports with reordered object keys. Evidence, values, types and array order remain checked.'),t('已付费且证据未变的报告保留，重复鉴定不再因为字段排列而重新扣行动点；不改动物基因、资源、遗传概率或旧档缺失的经历。','Paid reports with unchanged evidence remain valid. Object key order no longer causes repeat AP charges; genes, resources, inheritance odds and missing legacy history are unchanged.')],pending:[t('完整遗传扩展、其余历史项目、正式美术及公网AI仍在推进。','The full genetics expansion, other historical requirements, final artwork and public AI remain in progress.')]},
 {date:'2026-10-20',version:'0.13.220-preview',title:t('木、布、石与纸','Wood, Cloth, Stone and Paper'),items:[t('不眠木偶改为独立关节木制人形，保留被注视时闭眼及袖口小床图纸；会笑的布偶改为坐姿填充布偶，补上贴合曲面的补片、纽扣缝线和笑口。','Sleepless Doll is rebuilt as an articulated wooden figure, retaining its watched closed eyes and cuff blueprint. Laughing Doll becomes a seated stuffed toy with fitted cloth patches, sewn buttons and a stitched smile.'),t('无字墓碑使用倒角石碑和石质底座，移除钢材与木底的错配；无声打字纸改为有弯曲、薄边和独立打字印迹的纸张。','Wordless Stone uses a bevelled stone body and plinth instead of steel and wood. Silent Typepaper gains a curved thin sheet and separate typed impressions.')],pending:[t('本批重做四件，不表示55件最终美术已全部完成或认可。其余正式美术、历史扩展及公网AI继续。','This pass rebuilds four objects; it does not declare all 55 final models finished or approved. Other final artwork, historical expansions and public AI remain in progress.')]},
