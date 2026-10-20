@@ -1330,7 +1330,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.215-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.216-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6435,6 +6435,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "随眼型适配的镜架": "Frames That Follow the Eyes",
+  "圆框眼镜与破裂护目镜使用随两侧镜框伸缩的鼻梁连接，地下系列的独立镜片也会同步连接。小眼、大眼与不对称眼型下不再沿用旧的固定中缝。": "Round glasses and cracked goggles use bridges that follow both fitted rims. Articulated underground lenses also reconnect as the eyes change, rather than retaining a fixed central seam.",
+  "保留原镜片、配色、金属细节与眨眼原点，连接只影响显示，不改变收藏、属性或存档。": "Original lenses, palettes, metal details and blink origins remain. The change affects rendering without modifying collections, stats or saves.",
+  "其余服装、体型、眼睛与正式美术仍按历史需求继续核验；本批不是全部换装重做完成。完整47节食堂、74节俱乐部与公网AI运行验收继续。": "Other clothing, bodies, eyes and final artwork remain under their historical requirements. This pass does not complete all wardrobe work. Full canteen, club and public AI runtime acceptance continues.",
   "餐桌边的交谈": "Conversations at the Table",
   "在场NPC参与安全共餐时，有机会继续自己的既有对白，记录进入此人的记忆。共桌料理提高这类交谈的机会；不会自动增加信任、忠诚或任务进度。": "NPCs at a safe shared meal may continue an existing conversation, recorded in their own memories. Social meals improve this chance without automatically granting trust, loyalty or quest progress.",
   "交谈随共餐记录保存，读档不会重播；旧用餐者的记录保留并作区分。旧档不补发事件，原来的两人家常共餐不增加随机消耗。": "Conversations save with the shared meal and do not replay on load. Previous diners remain identified in the record. Old saves do not receive backfilled events, and two-person home meals retain their original randomness.",
@@ -39433,25 +39437,28 @@ Abyss.AttachmentRig=(()=>{
  if(slot==='face'){x=239;y=207;}
  const matrix='translate('+(x+tx)+' '+(y+ty)+') scale('+sx+' '+sy+') translate('+(-x)+' '+(-y)+')',source=slot==='body'&&item?.visual.bodySource;
  return matrix+(source?' translate(0 264) scale(1 '+(86/(source[1]-source[0]))+') translate(0 '+(-source[0])+')':'');}
+ function bridge(s,lenses,options={}){if(!Array.isArray(lenses)||lenses.length!==2)return null;const v=profile(s).eyes?.variant||'normal',y=options.y??204,pad=options.padding??1,curve=options.curve??9;const ports=['left','right'].map(eye=>{const l=lenses.find(l=>l.eye===eye);if(!l||![l.x,l.y,l.rx,l.ry,y,pad,curve].every(Number.isFinite)||l.rx<=0||l.ry<=0)return null;const right=eye==='right',[rx,ry]=Abyss.EyeArt.size(v,right),sx=Math.max(.6,(rx+3)/l.rx),sy=Math.max(.6,(ry+3)/l.ry);return {x:(right?280:199)+(right?-1:1)*(l.rx+pad)*sx,y:207+(y-l.y)*sy};});if(ports.some(p=>!p)||ports[0].x>=ports[1].x)return null;const [left,right]=ports;return {left,right,d:'M'+left.x+' '+left.y+'Q'+((left.x+right.x)/2)+' '+(Math.min(left.y,right.y)-curve)+' '+right.x+' '+right.y};}
+ function connect(path,geometry){if(!geometry)return;path.setAttribute('d',geometry.d);path.dataset.opticBridge='joined';path.dataset.leftPort=geometry.left.x+','+geometry.left.y;path.dataset.rightPort=geometry.right.x+','+geometry.right.y;}
  function fitFace(group,item,s,id){const p=profile(s),v=p.eyes?.variant||'normal';if(!['glasses','goggles','visor'].includes(item.visual.renderer)&&!(['atelier','weather','underground'].includes(item.visual.renderer)&&item.visual.optical))return;let original=group.innerHTML;const staging=document.createElementNS('http://www.w3.org/2000/svg','g');staging.innerHTML=original;group.innerHTML='';const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');group.append(defs);for(const old of staging.querySelectorAll('defs')){while(old.firstChild)defs.append(old.firstChild);old.remove();}original=staging.innerHTML;for(const [index,x]of [199,280].entries()){const [rx,ry]=Abyss.EyeArt.size(v,!!index),sx=Math.max(.72,(rx+8)/30),sy=Math.max(.72,(ry+8)/35),clipId='lens-fit-'+id+'-'+index;defs.insertAdjacentHTML('beforeend','<clipPath id="'+clipId+'"><rect x="'+(index?240:120)+'" y="140" width="120" height="150"/></clipPath>');group.insertAdjacentHTML('beforeend','<g data-lens-fit="'+index+'" transform="translate('+x+' 207) scale('+sx+' '+sy+') translate('+(-x)+' -207)"><g clip-path="url(#'+clipId+')">'+original+'</g></g>');}}
  function fitOptics(group,item,s,id){
   const authored=item.visual.lenses;
   if(!authored&&!['monocle'].includes(item.visual.renderer)){fitFace(group,item,s,id);return;}
   const lenses=authored||[{eye:'right',x:280,y:208,rx:30,ry:30}],v=profile(s).eyes?.variant||'normal';
   const independent=[...group.querySelectorAll('[data-fit-eye]')];
-  if(independent.length){for(const lens of lenses){const part=independent.find(g=>g.dataset.fitEye===lens.eye);if(!part)continue;const right=lens.eye==='right',x=right?280:199,[rx,ry]=Abyss.EyeArt.size(v,right),fit=document.createElementNS('http://www.w3.org/2000/svg','g');fit.dataset.lensFit=lens.eye;fit.dataset.lensEye=lens.eye;fit.dataset.lensSource=lens.x+','+lens.y;fit.setAttribute('transform','translate('+x+' 207) scale('+Math.max(.6,(rx+3)/lens.rx)+' '+Math.max(.6,(ry+3)/lens.ry)+') translate('+(-lens.x)+' '+(-lens.y)+')');part.before(fit);fit.append(part);}return;}
+  if(independent.length){for(const lens of lenses){const part=independent.find(g=>g.dataset.fitEye===lens.eye);if(!part)continue;const right=lens.eye==='right',x=right?280:199,[rx,ry]=Abyss.EyeArt.size(v,right),fit=document.createElementNS('http://www.w3.org/2000/svg','g');fit.dataset.lensFit=lens.eye;fit.dataset.lensEye=lens.eye;fit.dataset.lensSource=lens.x+','+lens.y;fit.setAttribute('transform','translate('+x+' 207) scale('+Math.max(.6,(rx+3)/lens.rx)+' '+Math.max(.6,(ry+3)/lens.ry)+') translate('+(-lens.x)+' '+(-lens.y)+')');part.before(fit);fit.append(part);}const connector=group.querySelector('[data-fit-bridge] path');if(connector)connect(connector,bridge(s,lenses));return;}
   const staging=document.createElementNS('http://www.w3.org/2000/svg','g');staging.innerHTML=group.innerHTML;group.innerHTML='';
   const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');group.append(defs);
   for(const old of staging.querySelectorAll('defs')){while(old.firstChild)defs.append(old.firstChild);old.remove();}
   const original=staging.innerHTML,split=lenses.length===2?(lenses[0].x+lenses[1].x)/2:null;
   lenses.forEach((lens,index)=>{
    const right=lens.eye==='right',x=right?280:199,[rx,ry]=Abyss.EyeArt.size(v,right),sx=Math.max(.6,(rx+3)/lens.rx),sy=Math.max(.6,(ry+3)/lens.ry),clipId='lens-fit-'+id+'-'+index;
-   const left=split===null?0:index===0?0:split,width=split===null?480:index===0?split:480-split;
+   const joined=item.visual.bridge,edge=joined?(index===0?lens.x+lens.rx+joined.padding:lens.x-lens.rx-joined.padding):split;const left=split===null?0:index===0?0:edge,width=split===null?480:index===0?edge:480-edge;
    defs.insertAdjacentHTML('beforeend','<clipPath id="'+clipId+'"><rect x="'+left+'" y="0" width="'+width+'" height="430"/></clipPath>');
    group.insertAdjacentHTML('beforeend','<g data-lens-fit="'+index+'" data-lens-eye="'+lens.eye+'" data-lens-source="'+lens.x+','+lens.y+'" transform="translate('+x+' 207) scale('+sx+' '+sy+') translate('+(-lens.x)+' '+(-lens.y)+')"><g clip-path="url(#'+clipId+')">'+original+'</g></g>');
   });
+  if(item.visual.bridge){const geometry=bridge(s,lenses,item.visual.bridge);if(geometry){const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('fill','none');path.setAttribute('stroke',Abyss.AccessoryStyle.get(item).metal);path.setAttribute('stroke-width',item.visual.bridge.width);path.setAttribute('stroke-linecap','round');connect(path,geometry);group.append(path);}}
  }
- return {bodies,hems,tail,transform,fitFace:fitOptics};
+ return {bridge,bodies,hems,tail,transform,fitFace:fitOptics};
 })();
 
 </script>
@@ -39838,7 +39845,7 @@ Abyss.UndergroundFaceArt=(()=>{
    if(f===9)shape=oval()+ellipse(0,0,27,r-4,'none','#8f704e',1)+path('M-30-2h-9m69 0h9','none','#c8ab7a',2)+path('M-17-12l6-3','none','#f4dfb2',1.3);
    return '<g data-fit-eye="'+eye+'" transform="translate('+x+' 207)">'+shape+'</g>';
   }
-  let fixed=path('M231 204q8-9 17 0','none',t,f===0?2:4);
+  let fixed='<g data-fit-bridge>'+path('M231 204q8-9 17 0','none',t,f===0?2:4)+'</g>';
   if(f===1)fixed+=path('M174 232l19 28 29 15h36l29-15 20-28','none','#243a36',8)+path('M214 233l25-16 26 16-9 31h-34z','#334a44',c,3)+ellipse(239,248,13,12,'#172b2c',t,2)+[-7,0,7].map(y=>path('M231 '+(248+y)+'h16','none',c,2)).join('')+ellipse(182,265,17,21,metal,'#182d2c',3)+ellipse(297,265,17,21,metal,'#182d2c',3);
   if(f===2)fixed+=path('M166 206l-13 5m160-5 13 5','none','#847659',6)+path('M234 228l5-5 5 5','none',t,2);
   if(f===3)fixed+=path('M231 207l8-11 9 11-9 15Z',metal,'#251e2b',1);
@@ -40164,6 +40171,8 @@ Abyss.AccessoryFitData=(()=>{
    if(v.variant===4)v.optical=false; // Respirator filters follow the mouth, not the eyes.
    else pair=[lens('left',207.5,208.5,30.5,32.5),lens('right',279,208.5,30,32.5)];
   }
+  if(a.id==='round_glasses')v.bridge={y:204,padding:2,curve:8,width:4};
+  if(a.id==='cracked_goggles')v.bridge={y:199,padding:2,curve:0,width:2.5};
   if(a.id==='round_glasses')pair=[lens('left',199,208,29,29),lens('right',280,208,29,29)];
   if(a.id==='cracked_goggles')pair=[lens('left',198.5,206.5,34.5,28.5),lens('right',281.5,206.5,34.5,28.5)];
   if(a.id==='oracle_lens')pair=[lens('left',199,205,24,24),lens('right',280,205,24,24)];
@@ -40651,6 +40660,8 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-19',version:'0.13.216-preview',title:t('随眼型适配的镜架','Frames That Follow the Eyes'),items:[t('圆框眼镜与破裂护目镜使用随两侧镜框伸缩的鼻梁连接，地下系列的独立镜片也会同步连接。小眼、大眼与不对称眼型下不再沿用旧的固定中缝。','Round glasses and cracked goggles use bridges that follow both fitted rims. Articulated underground lenses also reconnect as the eyes change, rather than retaining a fixed central seam.'),t('保留原镜片、配色、金属细节与眨眼原点，连接只影响显示，不改变收藏、属性或存档。','Original lenses, palettes, metal details and blink origins remain. The change affects rendering without modifying collections, stats or saves.')],pending:[t('其余服装、体型、眼睛与正式美术仍按历史需求继续核验；本批不是全部换装重做完成。完整47节食堂、74节俱乐部与公网AI运行验收继续。','Other clothing, bodies, eyes and final artwork remain under their historical requirements. This pass does not complete all wardrobe work. Full canteen, club and public AI runtime acceptance continues.')]},
+
 {date:'2026-10-19',version:'0.13.215-preview',title:t('餐桌边的交谈','Conversations at the Table'),items:[t('在场NPC参与安全共餐时，有机会继续自己的既有对白，记录进入此人的记忆。共桌料理提高这类交谈的机会；不会自动增加信任、忠诚或任务进度。','NPCs at a safe shared meal may continue an existing conversation, recorded in their own memories. Social meals improve this chance without automatically granting trust, loyalty or quest progress.'),t('交谈随共餐记录保存，读档不会重播；旧用餐者的记录保留并作区分。旧档不补发事件，原来的两人家常共餐不增加随机消耗。','Conversations save with the shared meal and do not replay on load. Previous diners remain identified in the record. Old saves do not receive backfilled events, and two-person home meals retain their original randomness.')]},
 
 {date:'2026-10-19',version:'0.13.214-preview',title:t('靶场与奖品窗口','The Range and Prize Counter'),items:[t('挑战时未变化的奖品和暂存窗口保留原按钮，避免每帧重建打断浏览。反复调整高对比和光标大小也只保留一条靶场画面刷新。','Unchanged prize and reserve entries keep their buttons during a round, avoiding frame-by-frame rebuilding. Repeated contrast and cursor adjustments keep a single range animation loop.')]},
