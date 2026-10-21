@@ -1331,7 +1331,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.238-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.239-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6487,6 +6487,11 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "旧设备，新的实物结构": "Old Instruments, Rebuilt",
+  "重建台式闹鬼收音机、明日时钟、七分钟怀表、冷灯、无门把手、无记录终端、明日闹钟、无影梳妆镜、自动写字机和死者磁带机。每件有独立机壳、支撑和对应工作部件。": "Rebuilt the Haunted Radio, Tomorrow Clock, Seven-Minute Watch, Cold Lamp, Doorless Handle, No-Record Terminal, Tomorrow Alarm, Shadowless Mirror, Automatic Typewriter and Dead Voices Recorder, each with its own housing, supports and working parts.",
+  "CRT终端有收窄后机壳、凸面玻璃屏和前置斜键盘；写字机有键杆、字锤篮、滚轴与纸张。冷灯采用开放下口的银行灯罩，怀表保留两根指针，不加秒针；磁带机可见双卷轴和控制键。": "The CRT has a tapered rear cabinet, curved glass and a separate sloped keyboard. The typewriter has key stems, typebars, a platen and paper. The cold lamp has an open banker’s shade, the watch retains two hands without a second hand, and the recorder shows twin reels and transport keys.",
+  "保留物品名称、故事、稀有度、价格、数量和旧摆放尺寸；其他45件完整模型保持。图鉴、房间与地下市场共用同一件实物模型。": "Names, stories, rarities, prices, quantities and old placement dimensions are retained. The other 45 complete meshes are preserved. Catalogue, room and underground market use the same physical model.",
+  "这批10件整改不代表55件正式美术全部验收；其他历史任务与公网AI私密配置仍未全部完成。": "These ten rebuilds do not certify all 55 final art assets. Other historical tasks and private public-AI configuration remain unfinished.",
   "路上认识的人": "People met on the route",
   "新增八位外勤平民，各有独立姓名、轮廓、道具、交谈与服务。看不清时不提前展示身份；旧遭遇保留原处理。": "Eight field civilians have individual names, silhouettes, props, conversations and services. Identity stays hidden before contact; old encounters retain their original behavior.",
   "零件交易使用当前回收包，分享食物消耗实际成品，供电消耗派出车辆燃料。寻宠线索影响原有寻回概率；接收文书不会跳过检疫和归属核查。服务与线索随本存档保存，操作失败不扣资源。": "Scrap trades use the current recovery bag, shared meals consume actual prepared food, and local power uses dispatched-vehicle fuel. Pet clues improve the existing recovery chance; intake paperwork never bypasses quarantine or ownership review. Services and clues persist in this save; failed actions spend no resources.",
@@ -34539,6 +34544,81 @@ Abyss.AnomalousObjectMesh=(()=>{
    name('musicbox-lid-stay',()=>{beam([25,-13,18],[25,-21,35],.8,C.brass);beam([25,-21,35],[25,-29,46],.8,C.brass);});
    name('musicbox-feet-and-lock',()=>{for(const x of [-24,24])for(const y of [-18,18])cylinder(x,y,0,3,2,C.black);panel(-4,25.2,10,8,8,C.brass);cylinder(0,26.3,14,1.4,.5,C.black,'y');});
   }
+  // Shared construction primitives; each instrument below has its own silhouette.
+  function transformed(fn,convert){const start=faces.length;fn();for(let i=start;i<faces.length;i++)faces[i].p=faces[i].p.map(convert);}
+  function roundedCase(x,z,w,h,y,depth,r,color){r=Math.min(r,w/2,h/2);frontPrism([[x+r,z],[x+w-r,z],[x+w,z+r],[x+w,z+h-r],[x+w-r,z+h],[x+r,z+h],[x,z+h-r],[x,z+r]],y,depth,color);}
+  function instrumentDial(x,y,z,r,minute,hour){cylinder(x,y,z,r,1,C.brass,'y');cylinder(x,y+1.1,z,r*.88,.2,C.paper,'y');for(let i=0;i<12;i++){const a=i*Math.PI/6;beam([x+Math.sin(a)*r*.70,y+2.2,z+Math.cos(a)*r*.70],[x+Math.sin(a)*r*.79,y+2.2,z+Math.cos(a)*r*.79],.35,C.iron);}const dialPart=part;name(dialPart+'-hands',()=>{for(const [a,n]of [[minute,.67],[hour,.44]])beam([x,y+3.6,z],[x+Math.sin(a*Math.PI/180)*r*n,y+3.6,z+Math.cos(a*Math.PI/180)*r*n],.65,C.black);});part=dialPart;orb(x,y+4.7,z,1.5,.7,1.5,C.brass,6,12);}
+  function tableRadio(){
+   name('cathedral-radio-cabinet',()=>{frontPrism([[-39,5],[39,5],[39,39],[34,52],[21,64],[0,69],[-21,64],[-34,52],[-39,39]],-16,32,C.wood);roundedCase(-43,1,86,7,-18,36,3,C.woodDark);for(const x of [-31,31])box(x-4,-12,0,8,24,2,C.black);});
+   name('radio-speaker',()=>{frontPrism([[-30,20],[30,20],[30,39],[24,51],[12,58],[-12,58],[-24,51],[-30,39]],16.2,1.2,C.black);name('radio-speaker-grille',()=>{for(let x=-25;x<=25;x+=5){const top=56-Math.abs(x)*.46;beam([x,18.8,22],[x,18.8,top],.7,C.brass);}for(const z of [28,36,44])beam([-27,20.1,z],[27,20.1,z],.3,C.woodLight);});});
+   name('radio-tuning',()=>{roundedCase(-16,9,32,8,16.4,1.6,2,C.brass);panel(-13,18.1,11,26,4,C.paper);for(let x=-10;x<=10;x+=4)panel(x,19.2,12,.5,2,C.iron);panel(5,19.4,11.5,.6,3,C.red);for(const x of [-28,28]){lathe(x,16.5,13,[[0,0],[0,5],[2,6],[4,5],[4,0]],C.black,'y',16);beam([x,21,11],[x,21,15],.6,C.brass);}});
+   name('wood-radio-vent-and-switch',()=>{for(const side of [-1,1])for(let z=16;z<=40;z+=4)box(side<0?-39.4:39.1,-10,z,.4,15,1.2,C.black);roundedCase(-23,13,46,30,-17.5,1,2,C.woodDark);for(const x of [-19,19])for(const z of [17,39])cylinder(x,-18,z,1.1,.6,C.brass,'y');});
+   name('radio-aerial',()=>{beam([-25,-17,18],[-33,-22,9],.6,C.cloth);beam([-33,-22,9],[-16,-24,2],.6,C.cloth);});
+  }
+  function mantelClock(){
+   name('mantel-clock-case',()=>{frontPrism([[-30,7],[30,7],[30,70],[24,84],[12,92],[-12,92],[-24,84],[-30,70]],-12,24,C.wood);roundedCase(-34,4,68,7,-15,30,3,C.woodDark);for(const x of [-28,23])box(x,-12,12,5,24,52,C.woodLight);});
+   name('mantel-clock-face',()=>{instrumentDial(0,12.2,62,23,130,20);lathe(0,16.3,62,[[0,24],[1,25],[2,24],[2,22],[0,22],[0,24]],C.brass,'y');});
+   name('mantel-clock-date-window',()=>{roundedCase(-20,17,40,15,12.1,1.5,2,C.woodDark);for(const x of [-17,1]){panel(x,13.7,20,16,9,C.paper);beam([x+2,15,26],[x+12,15,26],.4,C.iron);beam([x+3,15,23],[x+10,15,23],.4,C.iron);}for(const x of [-18,18])cylinder(x,15,34,1.4,1,C.brass,'y');});
+   name('clock-winding-feet',()=>{for(const x of [-24,24])roundedCase(x-4,0,8,5,-10,20,2,C.black);for(const x of [-11,11]){cylinder(x,-15,40,3,3,C.brass,'y');beam([x-4,-16,40],[x+4,-16,40],.8,C.brass);}panel(-20,-13.4,49,40,20,C.woodDark);});
+  }
+  function pocketWatch(){
+   name('watch-case',()=>lathe(0,-3,37,[[0,0],[0,25],[1,29],[3,31],[8,31],[11,29],[11,0]],C.brass,'y',32));
+   name('watch-dial',()=>{instrumentDial(0,8.2,37,27,0,210);for(let i=0;i<28;i++){const a=i*Math.PI/14;beam([29.2*Math.sin(a),8,37+29.2*Math.cos(a)],[30.2*Math.sin(a),8,37+30.2*Math.cos(a)],.25,C.woodDark);}});
+   name('watch-bow',()=>{loop(0,1,82,8.5,9.5,1.7,C.brass);});
+   name('watch-crown-hinge',()=>{lathe(0,0,66,[[0,4],[3,4],[4,6],[8,6],[9,4],[10,4]],C.brass);for(let i=0;i<12;i++){const a=i*Math.PI/6;beam([5.7*Math.cos(a),5.7*Math.sin(a),70],[5.7*Math.cos(a),5.7*Math.sin(a),73],.35,C.iron);}beam([-28,1,26],[-28,1,46],1.8,C.edge);});
+   name('watch-back-cover',()=>{lathe(0,-4.2,37,[[0,0],[0,25],[.8,27],[1.6,25],[1.6,0]],C.woodLight,'y');loop(0,-4.5,37,17,17,.4,C.brass);for(const side of [-1,1])beam([side*10,-4.8,30],[side*4,-4.8,45],.5,C.brass);});
+  }
+  function bankersLamp(){
+   name('lamp-oval-base',()=>transformed(()=>lathe(0,0,0,[[0,0],[0,23],[2,26],[5,25],[7,18],[7,0]],C.brass),([x,y,z])=>[x,y*.72,z]));
+   name('lamp-forked-stem',()=>{lathe(0,0,7,[[0,8],[3,6],[7,5],[10,3],[46,3],[48,5],[50,5]],C.brass);for(const side of [-1,1]){beam([0,0,54],[side*21,0,62],1.8,C.brass);beam([side*21,0,62],[side*29,0,72],1.8,C.brass);cylinder(side*29,0,72,3.4,2,C.iron,'y');}});
+   name('lamp-shade',()=>{const start=faces.length;for(let i=0;i<16;i++){const a=i*Math.PI/16,b=(i+1)*Math.PI/16;add([[-30,13*Math.cos(a),72+12*Math.sin(a)],[30,13*Math.cos(a),72+12*Math.sin(a)],[30,13*Math.cos(b),72+12*Math.sin(b)],[-30,13*Math.cos(b),72+12*Math.sin(b)]].reverse(),C.glass);}for(let i=start;i<faces.length;i++)faces[i].opacity=.62;for(const x of [-30,30]){const arc=Array.from({length:17},(_,i)=>[x,13*Math.cos(i*Math.PI/16),72+12*Math.sin(i*Math.PI/16)]);add(x<0?arc.reverse():arc,C.brass);}});
+   name('lamp-open-mouth-and-bulb',()=>{for(const y of [-13,13])beam([-30,y,72],[30,y,72],.7,C.brass);beam([-23,0,73],[23,0,73],2.1,'#def2df');for(const x of [-24,24])box(x-1.5,-3,70,3,6,6,C.iron);});
+   name('lamp-toggle-and-cord',()=>{for(let z=52;z<72;z+=3)orb(24,11,z,.6,.6,.6,C.brass,4,6);orb(24,11,49,1.6,1.6,2.2,C.black,6,10);beam([-16,-9,2],[-31,-16,1],.65,C.black);roundedCase(-37,0,8,4,-20,5,1,C.black);});
+  }
+  function doorLever(){
+   name('backplate',()=>{frontPrism([[-7,0],[7,0],[11,5],[11,79],[7,86],[-7,86],[-11,79],[-11,5]],-3,6,C.brass);frontPrism([[-6,6],[6,6],[8,9],[8,76],[5,81],[-5,81],[-8,76],[-8,9]],3.1,.6,C.woodDark);});
+   name('handle',()=>{lathe(0,3.5,57,[[0,0],[0,7],[2,7],[3,5],[11,4],[11,0]],C.brass,'y');const path=[[0,14,57],[9,16,58],[23,16,56],[31,15,52],[35,13,48]];for(let i=1;i<path.length;i++)beam(path[i-1],path[i],3,C.edge);orb(35,13,48,3,3,3,C.edge,6,12);});
+   name('handle-keyhole-and-spindle',()=>{cylinder(0,4.2,25,3,1,C.black,'y');frontPrism([[-1.4,24],[1.4,24],[2,17],[-2,17]],4.3,.9,C.black);box(-2,-11,55,4,8,4,C.iron);});
+   name('handle-screw-heads',()=>{for(const z of [8,77]){cylinder(0,4,z,2.1,1,C.edge,'y');beam([-1,5.3,z],[1,5.3,z],.3,C.black);}});
+  }
+  function recordTerminal(){
+   name('crt-case',()=>{const outline=[[-32,26],[32,26],[37,31],[37,79],[32,84],[-32,84],[-37,79],[-37,31]],front=outline.map(([x,z])=>[x,15,z]),back=outline.map(([x,z])=>[x*.72,-36,55+(z-55)*.82]);add(back,C.iron);add([...front].reverse(),C.iron);for(let i=0;i<8;i++){const j=(i+1)%8;add([back[i],front[i],front[j],back[j]],C.iron);}roundedCase(-31,23,62,5,-22,36,2,C.black);});
+   name('crt-bezel-and-rear-connectors',()=>{roundedCase(-32,31,64,47,15.2,2,5,C.edge);roundedCase(-29,34,58,41,17.3,.6,5,C.black);for(const x of [-14,0,14]){cylinder(x,-38,39,3,2,C.black,'y');cylinder(x,-38.5,39,1.4,.8,C.brass,'y');}roundedCase(-17,46,34,16,-37,1,2,C.black);});
+   name('crt-screen',()=>{const first=faces.length;for(let row=0;row<5;row++)for(let col=0;col<8;col++){const point=(u,v)=>[-25+u*50,18.2+2*(1-(u*2-1)**2)*(1-(v*2-1)**2),38+v*33];add([point(col/8,row/5),point(col/8,(row+1)/5),point((col+1)/8,(row+1)/5),point((col+1)/8,row/5)],C.glass);}for(let i=first;i<faces.length;i++)faces[i].opacity=.76;for(const [z,w]of [[62,29],[57,21],[52,16]])beam([-19,20.4,z],[-19+w,20.4,z],.35,C.mint);});
+   name('crt-ventilation',()=>{for(const side of [-1,1])for(let z=39;z<74;z+=4){const y=-20,sideX=t=>side*(37+(t-15)/51*(26.64-37));beam([sideX(y)+side*.8,y,z],[sideX(y+11)+side*.8,y+11,z],.35,C.black);}for(let z=50;z<70;z+=4)panel(-17,-37.6,z,34,1,C.black);});
+   name('crt-pedestal',()=>{lathe(0,-5,6,[[0,16],[3,17],[7,12],[17,10],[17,0]],C.edge);roundedCase(-29,0,58,7,-27,46,4,C.iron);});
+   name('keyboard-case',()=>transformed(()=>roundedCase(-35,0,70,5,23,31,3,C.iron),([x,y,z])=>[x,y,z+(54-y)*.22]));
+   name('keyboard-keys',()=>transformed(()=>{for(let row=0;row<4;row++)for(let col=0;col<11;col++){const y=26+row*5;box(-30+col*5.5,y,5.5,4,3.7,1.5,col===10?C.mint:C.paper);}box(-15,47,5.5,30,3.7,1.5,C.paper);},([x,y,z])=>[x,y,z+(54-y)*.22]));
+   name('crt-controls',()=>{cylinder(25,17,29,2.3,1.5,C.brass,'y');cylinder(17,17,29,1,1.5,C.mint,'y');beam([-29,-15,4],[-41,-24,2],.8,C.black);beam([-41,-24,2],[-42,38,1],.8,C.black);beam([-42,38,1],[-34,40,4],.8,C.black);});
+  }
+  function twinBellAlarm(){
+   name('alarm-clock-body',()=>lathe(0,-9,42,[[0,0],[0,23],[2,29],[5,32],[18,32],[21,29],[21,0]],C.iron,'y',32));
+   name('alarm-clock-dial',()=>{instrumentDial(0,12.2,42,28,80,230);lathe(0,16.5,42,[[0,29],[1,30],[2,29],[2,26],[0,26],[0,29]],C.brass,'y');});
+   name('alarm-hollow-twin-bells',()=>{for(const side of [-1,1]){beam([side*16,1,66],[side*23,1,75],1.4,C.brass);transformed(()=>{lathe(0,0,0,[[0,12],[2,14],[5,12],[9,8],[11,3],[11,0]],C.brass,'z',20);const first=faces.length;lathe(0,0,0,[[0,10.5],[3,12],[6,8],[9,3],[9,0]],C.woodDark,'z',20);for(let i=first;i<faces.length;i++)faces[i].p.reverse();},([x,y,z])=>{const a=side*.30;return [side*24+x*Math.cos(a)+z*Math.sin(a),y,74-x*Math.sin(a)+z*Math.cos(a)];});}});
+   name('alarm-clock-hammer',()=>{beam([0,0,72],[0,0,86],1,C.brass);beam([-6,0,86],[6,0,86],1.8,C.edge);for(const x of [-21,21]){beam([x,3,19],[x*1.25,8,1],2,C.brass);orb(x*1.25,8,2,4,3,2,C.black,5,10);}beam([-20,-1,80],[0,-1,93],1,C.edge);beam([0,-1,93],[20,-1,80],1,C.edge);});
+   name('alarm-winding-back',()=>{for(const x of [-10,10]){cylinder(x,-13,43,3,3,C.brass,'y');beam([x-4,-13.4,43],[x+4,-13.4,43],.7,C.brass);}cylinder(0,-13,26,2,3,C.black,'y');});
+  }
+  function vanityMirror(){
+   name('vanity-drawer-base',()=>{transformed(()=>lathe(0,0,0,[[0,0],[0,30],[3,33],[7,32],[8,0]],C.wood),([x,y,z])=>[x*1.17,y*.47,z]);roundedCase(-28,8,56,12,-12,24,3,C.woodDark);panel(-24,12.2,10,48,8,C.woodLight);loop(0,14,14,5,1.7,.7,C.brass);});
+   name('vanity-swivel-stand',()=>{for(const side of [-1,1]){lathe(side*32,0,8,[[0,5],[3,5],[5,2],[50,2],[52,4],[54,4]],C.brass);beam([side*32,0,62],[side*27,0,62],2,C.brass);}});
+   name('vanity-mirror',()=>transformed(()=>{loop(0,0,62,27,35,2.4,C.brass);orb(0,-1.1,62,24.6,.8,32.4,C.iron,10,28);glass(()=>orb(0,.1,62,24.5,1,32.3,C.glass,10,28));beam([-12,1.3,39],[-12,1.3,76],.55,'#a7d4d0');},([x,y,z])=>{const a=.11;return [x,y*Math.cos(a)-(z-62)*Math.sin(a),62+y*Math.sin(a)+(z-62)*Math.cos(a)];}));
+   name('vanity-swivel-screws',()=>{for(const x of [-32,32]){cylinder(x,0,62,3.5,3,C.brass,'y');beam([x-1.8,3.3,62],[x+1.8,3.3,62],.4,C.iron);}});
+  }
+  function mechanicalTypewriter(){
+   name('typewriter-base',()=>{roundedCase(-41,0,82,14,-27,55,5,C.iron);for(const x of [-32,32])for(const y of [-19,20])cylinder(x,y,-2,3,2,C.black);});
+   name('typewriter-keys',()=>{for(let row=0;row<4;row++)for(let col=0;col<9;col++){const x=-31+col*7.6+(row%2?1:0),y=1+row*6,z=23-row*2.5;lathe(x,y,14,[[0,0],[0,1],[z-14,1],[z-14,0]],C.edge,'z',8);lathe(x,y,z,[[0,0],[0,2.9],[1,3.2],[2,2.9],[2,0]],C.brass,'z',10);lathe(x,y,z+2.1,[[0,0],[0,2.4],[.3,2.4],[.3,0]],C.paper,'z',10);beam([x-.6,y,z+2.5],[x+.6,y,z+2.5],.23,C.iron);}});
+   name('typewriter-typebar-basket',()=>{for(let i=0;i<25;i++){const x=-24+i*2;beam([x,0,22],[x*.42,-11,32],.45,C.edge);}box(-10,-13,30,20,3,2,C.black);});
+   name('paper-carriage',()=>{beam([-36,-17,35],[36,-17,35],5.5,C.black);for(const x of [-35,35])box(x-2,-23,21,4,11,17,C.iron);for(let strip=0;strip<8;strip++){const z=38+strip*6,Z=z+6,y=-13+(strip>5?(strip-5)*.9:0),Y=-13+(strip+1>5?(strip-4)*.9:0);add([[-24,y,z],[24,y,z],[24,Y,Z],[-24,Y,Z]].reverse(),C.paper);add([[-24,y-.5,z],[-24,Y-.5,Z],[24,Y-.5,Z],[24,y-.5,z]].reverse(),C.paperBack);for(const x of [-24,24])add([[x,y,z],[x,Y,Z],[x,Y-.5,Z],[x,y-.5,z]],C.paperBack);}for(let row=0;row<3;row++)beam([-16,-12,65-row*6],[9-row*3,-12,65-row*6],.35,C.ink);});
+   name('typewriter-spacebar-ribbon-and-knobs',()=>{roundedCase(-24,13,48,4,25,3,1,C.paper);for(const x of [-20,20]){cylinder(x,-7,24,7,2,C.black,'z');cylinder(x,-7,26.2,3,.6,C.brass,'z');}box(-20,-8,25.6,40,2,.8,C.black);for(const side of [-1,1]){beam([side*35,-17,35],[side*43,-17,35],2,C.edge);orb(side*43,-17,35,3,5,5,C.black,6,12);}beam([-38,-20,37],[-46,-12,40],1.3,C.brass);beam([-46,-12,40],[-46,-2,40],1.3,C.brass);});
+  }
+  function cassetteRecorder(){
+   name('recorder-case',()=>{roundedCase(-39,1,78,20,-25,50,4,C.iron);roundedCase(-37,0,74,3,-23,46,2,C.black);for(const x of [-32,32])for(const y of [-18,18])cylinder(x,y,-1,2.7,1,C.black);});
+   name('recorder-speaker',()=>{box(-34,-19,21,29,35,.8,C.black);for(let row=0;row<8;row++)for(let col=0;col<3;col++)box(-31+col*8,-16+row*4,22,5.5,1,.35,C.edge);});
+   name('cassette-window',()=>{box(0,-18,21,33,26,.5,C.black);for(const x of [0,31])box(x,-18,21.5,2,26,1.5,C.edge);for(const y of [-18,6])box(2,y,21.5,29,2,1.5,C.edge);box(3,-15,21.7,27,19,.4,C.black);for(const x of [10,23]){cylinder(x,-6,22,4.5,.7,C.paper,'z');cylinder(x,-6,22.8,2.8,.3,C.black,'z');for(let k=0;k<6;k++){const a=k*Math.PI/3;beam([x+1.2*Math.cos(a),-6+1.2*Math.sin(a),23.3],[x+3*Math.cos(a),-6+3*Math.sin(a),23.3],.3,C.edge);}}box(11,-8,22.7,11,4,.3,C.black);glass(()=>box(3,-15,23.7,27,19,.3,C.glass));});
+   name('recorder-transport-controls',()=>{for(let i=0;i<5;i++){const x=1+i*6;roundedCase(x,21,4.5,4,12,9,1,i===0?C.red:C.paper);if(i===0)cylinder(x+2.2,16.5,25.2,1.1,.3,C.black);else beam([x+1,15,25.2],[x+3,18,25.2],.3,C.iron);}});
+   name('recorder-carry-handle',()=>{for(const side of [-1,1]){cylinder(side*27,-23,15,2,2,C.brass,'y');beam([side*27,-24,15],[side*27,-24,30],1.7,C.black);}beam([-27,-24,30],[27,-24,30],1.7,C.black);});
+   name('recorder-eject-latch',()=>{box(28,9,21,5,2,3,C.brass);lathe(32,1,21,[[0,4],[2,4],[2,0]],C.black);for(let k=0;k<10;k++){const a=k*Math.PI/5;beam([32+3.8*Math.cos(a),1+3.8*Math.sin(a),22],[32+3.8*Math.cos(a),1+3.8*Math.sin(a),23],.25,C.edge);}for(const x of [-26,-18]){cylinder(x,25,9,2,1,C.brass,'y');cylinder(x,26,9,1.1,.4,C.black,'y');}});
+  }
   const materials={ [C.iron]:'steel',[C.edge]:'steel',[C.brass]:'brass',[C.wood]:'wood',[C.paper]:'paper',[C.glass]:'glass',[C.cloth]:'cloth',[C.salt]:'salt',[C.felt]:'cloth',[C.feltLight]:'cloth',[C.feltDark]:'cloth',[C.thread]:'cloth',[C.woodLight]:'wood',[C.woodDark]:'wood',[C.stone]:'stone',[C.stoneDark]:'stone',[C.stoneEdge]:'stone',[C.paperBack]:'paper','#e8ece5':'enamel' };
   const add=(p,color)=>faces.push({p,color,part,material:materials[color]||'matte'});
   const name=(n,fn)=>{part=n;fn();};
@@ -34556,7 +34636,6 @@ Abyss.AnomalousObjectMesh=(()=>{
   const panel=(x,y,z,w,h,color)=>box(x,y,z,w,1,h,color);
   function dial(x,y,z,r,minute=40,hour=75){cylinder(x,y,z,r,2,C.brass,'y');cylinder(x,y+2.1,z,r*.87,.7,C.paper,'y');for(let i=0;i<12;i++){const a=i*Math.PI/6;beam([x+Math.sin(a)*r*.70,y+3,z+Math.cos(a)*r*.70],[x+Math.sin(a)*r*.79,y+3,z+Math.cos(a)*r*.79],.55,C.iron);}for(const [a,n]of [[minute,.67],[hour,.44]])beam([x,y+3.4,z],[x+Math.sin(a*Math.PI/180)*r*n,y+3.4,z+Math.cos(a*Math.PI/180)*r*n],.85,C.black);orb(x,y+3.5,z,1.5,.8,1.5,C.brass);}
   function feet(w,d,h){for(const x of [-w/2+4,w/2-4])for(const y of [-d/2+4,d/2-4])beam([x,y,0],[x,y,h],2.5,C.wood);}
-  function radio(portable){box(-39,-15,4,78,30,45,portable?C.iron:C.wood);name('radio-speaker',()=>{cylinder(-16,15.1,26,16,1,C.black,'y');for(let i=-10;i<=10;i+=4)panel(-29,16.3,26+i,26,.7,C.edge);});name('radio-tuning',()=>{panel(6,15.5,31,23,9,C.paper);for(let i=0;i<6;i++)panel(9+i*3,16.6,33,1,4,C.brass);cylinder(16,15.5,17,5,4,C.brass,'y');});name('radio-aerial',()=>beam([28,-9,49],[38,-9,80],.8,C.edge));if(portable){name('carry-handle',()=>{beam([-22,0,49],[-22,0,61],2);beam([-22,0,61],[21,0,61],2);beam([21,0,61],[21,0,49],2);});panel(25,17,8,9,16,C.paper);}else for(const x of [-29,29])box(x-3,-10,0,6,20,4,C.black);}
   function phone(push){box(-34,-25,0,68,50,12,C.red);box(-26,-20,12,52,34,7,C.red);name('handset',()=>{beam([-27,-12,32],[27,-12,32],4,C.red);orb(-27,-10,27,10,9,8,C.red);orb(27,-10,27,10,9,8,C.red);});for(const x of [-26,26])box(x-2,-16,18,4,7,8,C.brass);name(push?'phone-keypad':'phone-rotary-dial',()=>{if(push)for(let a=0;a<3;a++)for(let b=0;b<4;b++)box(-12+a*9,b*5,20,6,3,2,C.paper);else {cylinder(0,5,19,16,2,C.black);for(let i=0;i<10;i++){const a=i*2*Math.PI/10;cylinder(12*Math.cos(a),5+12*Math.sin(a),21,2,1,C.brass);}}});name('phone-cord',()=>{for(let i=0;i<12;i++)loop(-36-i*.5,0,16+i*.4,2.2,2.2,.6,C.black);});}
   function framed(type){box(-33,-4,0,66,8,88,type==='hungry'?C.wood:C.brass);name(type+'-surface',()=>panel(-28,4.2,6,56,76,type==='photo'?C.paper:C.glass));if(type==='photo'){for(const x of [-13,13]){orb(x,6,61,7,1,8,C.iron);panel(x-7,5.5,29,14,24,C.iron);for(const side of [-1,1])beam([x+side*3,6,30],[x+side*4,6,12],1.9,C.iron);}beam([-4,7,12],[7,7,77],.55,C.brass);}else if(type==='hungry'){name('mirror-seated-reflection',()=>{orb(2,5.6,58,6,.5,7,'#375866');panel(-5,5.5,33,14,18,'#375866');beam([4,6,34],[17,6,28],1.4,'#375866');beam([17,6,28],[17,6,14],1.4,'#375866');});}else{panel(-17,5.4,16,2,52,'#a7d4d0');panel(-11,5.4,46,1,23,'#77b6bd');}if(type!=='photo'){box(-40,-16,0,80,30,5,C.iron);beam([-28,0,6],[-28,0,18],2);beam([28,0,6],[28,0,18],2);}}
   function hourglass(reverse){for(const z of [0,88])cylinder(0,0,z,28,6,C.wood);for(const x of [-20,20])for(const y of [-14,14])beam([x,y,6],[x,y,88],1.6,C.brass);name('glass-bulbs',()=>glass(()=>lathe(0,0,7,[[0,0],[0,21],[12,21],[27,9],[37,2],[43,2],[54,12],[70,21],[80,21],[80,0]],C.glass)));name('sand',()=>{if(reverse)lathe(0,0,13,[[0,0],[0,18],[8,18],[22,0]],C.paper);else lathe(0,0,43,[[0,0],[0,2],[29,18],[29,0]],C.paper);if(reverse)beam([0,0,26],[0,0,55],.8,C.paper);});}
@@ -34644,16 +34723,16 @@ Abyss.AnomalousObjectMesh=(()=>{
    name('pendulum-door-latch',()=>{panel(-19,8.4,10,1.5,51,C.brass);panel(18,8.4,47,1.5,14,C.brass);cylinder(18,10,51,2,2,C.brass,'y');});
   }
   switch(id){
-   case 'object_radio':radio(false);break;
+   case 'object_radio':tableRadio();break;
    case 'ud_object_0':fieldRadio();break;
-   case 'object_tomorrow':box(-29,-10,0,58,20,83,C.wood);dial(0,10,49,24,130,20);panel(-18,10.2,9,36,9,C.paper);break;
+   case 'object_tomorrow':mantelClock();break;
    case 'object_empty_mirror':framed('empty');break;
    case 'object_second_chair':name('chair-legs',()=>feet(66,60,45));name('chair-seat',()=>box(-33,-30,43,66,60,7,C.wood));name('chair-back',()=>{for(const x of [-29,29])box(x-2,-29,48,4,5,48,C.wood);for(const z of [64,82,93])box(-30,-29,z,60,5,5,C.wood);});break;
    case 'object_growing_book':name('book-covers',()=>{box(-34,-22,7,68,44,3,C.wood);box(-34,-22,27,68,44,3,C.wood);});name('growing-pages',()=>{box(-31,-20,10,62,40,17,C.paper);for(let z=12;z<27;z+=3)panel(-30,20.2,z,60,.5,C.wood);for(let i=0;i<3;i++){const y=-18+i*8;add([[-28,y,30],[23,y,30],[25,y+5,34],[-26,y+5,34]],C.paper);}});name('binding-roots',()=>{for(let i=0;i<4;i++){const x=-25+i*15;beam([x,-20,14],[x-3,-28,5],.9,C.wood);beam([x-3,-28,5],[x+5,-34,0],.65,C.wood);beam([x-3,-28,5],[x-8,-31,0],.5,C.wood);}});break;
    case 'object_wrong_photo':framed('photo');break;
-   case 'object_seven_watch':name('watch-case',()=>cylinder(0,0,39,29,6,C.brass,'y'));dial(0,6,39,26,0,210);name('watch-bow',()=>loop(0,2,79,9,10,2,C.brass));box(-4,0,68,8,5,6,C.brass);break;
-   case 'object_cold_lamp':cylinder(0,0,0,24,5,C.iron);beam([0,0,5],[0,0,74],2,C.edge);name('lamp-shade',()=>lathe(0,0,60,[[0,28],[3,29],[25,15],[25,0]],C.glass));cylinder(0,0,60,25,1,'#c6eee2');break;
-   case 'object_doorhandle':name('backplate',()=>box(-8,-3,0,16,6,86,C.brass));name('handle',()=>{beam([0,3,56],[0,16,56],4,C.edge);beam([0,16,56],[34,16,56],4,C.edge);});cylinder(0,3,21,4,1,C.black,'y');break;
+   case 'object_seven_watch':pocketWatch();break;
+   case 'object_cold_lamp':bankersLamp();break;
+   case 'object_doorhandle':doorLever();break;
    case 'object_silent_bell':bell();name('bell-loop',()=>loop(0,0,66,6,8,2,C.brass));break;
    case 'object_black_flower':lathe(0,0,0,[[0,0],[0,14],[25,20],[27,21],[27,17],[6,11],[6,0]],C.wood);cylinder(0,0,23,17,1,C.black);beam([0,0,24],[0,0,73],1.8,C.mint);name('black-petals',()=>{for(let i=0;i<7;i++){const a=i*Math.PI*2/7;orb(16*Math.cos(a),12*Math.sin(a),78+4*Math.sin(a),12,7,5,C.black);}orb(0,0,79,6,6,5,C.brass);});break;
    case 'object_empty_bottle':emptyBottle();break;
@@ -34674,16 +34753,16 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_third_cup':thirdCup();break;
    case 'object_echo_bowl':echoBowl();break;
    case 'object_unlit_star':name('metal-planet',()=>orb(0,0,38,29,29,29,'#43515d'));name('planet-equator',()=>lathe(0,0,36,[[0,29.2],[2,29.4],[4,29.2]],C.iron));name('planet-meridian',()=>loop(0,0,38,29.5,29.5,.8,C.brass));name('planet-base',()=>{cylinder(0,0,0,22,4,C.black);beam([0,0,4],[0,0,10],2,C.iron);});break;
-   case 'object_no_record':name('crt-case',()=>box(-35,-23,18,70,42,53,C.iron));name('crt-screen',()=>{panel(-29,19.5,27,58,38,C.black);panel(-25,20.7,31,50,30,C.glass);for(let row=0;row<3;row++)panel(-20,22,53-row*5,29-row*6,.7,C.mint);});name('crt-ventilation',()=>{for(let z=30;z<63;z+=4)box(35.1,-15,z,.4,20,1,C.black);});box(-8,-10,5,16,22,13,C.edge);box(-28,-22,0,56,44,5,C.iron);name('keyboard-case',()=>box(-34,23,0,68,25,5,C.iron));name('keyboard-keys',()=>{for(let row=0;row<4;row++)for(let col=0;col<11;col++)box(-30+col*5.5,25+row*4.4,5,4,3.3,1.5,C.paper);box(-15,43,5,30,3,1.5,C.paper);});name('crt-controls',()=>{cylinder(23,20,24,2,1,C.brass,'y');cylinder(16,20,24,1,1,C.mint,'y');});break;
+   case 'object_no_record':recordTerminal();break;
    case 'ud_object_1':redlineTelephone();break;
-   case 'ud_object_2':name('alarm-clock-body',()=>cylinder(0,0,41,31,14,C.iron,'y'));dial(0,14,41,29,80,230);for(const x of [-23,23]){beam([x,6,18],[x*1.2,9,0],2,C.brass);orb(x,5,76,14,10,8,C.brass);}beam([-23,5,76],[23,5,76],1,C.edge);break;
-   case 'ud_object_3':name('vanity-mirror',()=>{loop(0,0,59,27,35,3,C.brass);orb(0,0,59,25,1,32,C.glass);beam([-13,1.2,37],[-13,1.2,78],.7,'#a7d4d0');});name('vanity-swivel-stand',()=>{for(const x of [-31,31]){beam([x,0,5],[x,0,59],2,C.brass);beam([x,0,59],[x*.85,0,59],2,C.brass);}box(-37,-17,0,74,34,5,C.wood);box(-27,-12,5,54,24,9,C.wood);panel(-23,12.2,7,46,4,C.brass);});break;
-   case 'ud_object_4':name('typewriter-base',()=>box(-40,-26,0,80,52,14,C.iron));name('typewriter-keys',()=>{for(let j=0;j<4;j++)for(let i=0;i<9;i++)cylinder(-31+i*7.5,3+j*5.2,15+j*.6,2.5,2,C.paper);});name('paper-carriage',()=>{beam([-34,-14,32],[34,-14,32],6,C.black);box(-34,-20,22,68,12,12,C.iron);panel(-23,-15,33,46,48,C.paper);for(let i=0;i<3;i++)panel(-17,-13.9,67-i*6,24-i*3,1,C.iron);});break;
+   case 'ud_object_2':twinBellAlarm();break;
+   case 'ud_object_3':vanityMirror();break;
+   case 'ud_object_4':mechanicalTypewriter();break;
    case 'ud_object_5':flatRoomKey();break;
    case 'ud_object_6':name('flashlight-barrel',()=>cylinder(0,0,0,10,56,C.iron));name('flashlight-grip',()=>{for(let z=7;z<40;z+=5)cylinder(0,0,z,11,1.5,C.black);});name('flashlight-head',()=>lathe(0,0,56,[[0,10],[7,20],[20,21],[20,17],[15,8],[15,0]],C.brass));name('flashlight-concave-reflector',()=>{const start=faces.length;lathe(0,0,56,[[7,7],[10,10],[14,14],[19,17]],'#c3ced0');for(let i=start;i<faces.length;i++)faces[i].p.reverse();});name('flashlight-led-and-lens',()=>{cylinder(0,0,65,3,2,'#fff1bd');glass(()=>cylinder(0,0,76,16,.3,C.glass));});box(-3,8,42,6,4,9,C.red);break;
    case 'ud_object_7':doll(true);break;
    case 'ud_object_8':coin(true);break;
-   case 'ud_object_9':name('recorder-case',()=>box(-39,-24,0,78,48,20,C.iron));name('recorder-speaker',()=>{box(-34,-18,20.1,29,32,1,C.black);for(let i=0;i<7;i++)box(-31,-15+i*4,21.2,23,1,.3,C.edge);});name('cassette-window',()=>{box(0,-18,20.1,32,25,1,C.black);box(3,-15,21.2,26,18,.3,C.glass);for(const x of [10,23]){cylinder(x,-6,21.6,4,.5,C.paper);cylinder(x,-6,22.2,1.8,.3,C.black);}box(11,-8,22,11,4,.3,C.black);});name('recorder-transport-controls',()=>{for(let i=0;i<5;i++)box(-1+i*6,12,20,4,8,3,i===0?C.red:C.paper);});name('recorder-carry-handle',()=>{beam([-25,-22,20],[-25,-22,30],1.8,C.black);beam([-25,-22,30],[25,-22,30],1.8,C.black);beam([25,-22,30],[25,-22,20],1.8,C.black);});cylinder(34,24.2,10,3,1,C.black,'y');break;
+   case 'ud_object_9':cassetteRecorder();break;
    case 'ud_object_10':typingPaper();break;
    case 'ud_object_11':rainBottle();break;
    case 'ud_object_12':name('parcel',()=>box(-35,-24,0,70,48,49,'#ae9470'));name('parcel-string',()=>{box(-2,-25,0,4,50,50,C.paper);box(-36,-2,0,72,4,50,C.paper);loop(-8,0,55,8,5,1,C.brass);loop(8,0,55,8,5,1,C.brass);});break;
@@ -34707,15 +34786,15 @@ Abyss.AnomalousObjectMesh=(()=>{
   // Object-specific joinery and working parts. These are physical components,
   // not a shared decal or a rarity colour swap.
   switch(id){
-   case 'object_radio':name('wood-radio-vent-and-switch',()=>{for(let z=15;z<43;z+=5)box(39.1,-10,z,.5,18,1,C.black);cylinder(29,16,16,3,3,C.black,'y');});break;
-   case 'object_tomorrow':name('clock-winding-feet',()=>{for(const x of [-21,21])box(x-4,-8,-5,8,16,5,C.black);cylinder(0,-12,39,5,3,C.brass,'y');});break;
+   case 'object_radio':break;
+   case 'object_tomorrow':break;
    case 'object_empty_mirror':name('mirror-silver-back',()=>{panel(-27,-5,7,54,73,'#9eaaa8');for(const x of [-28,28])box(x-1,4.5,8,2,2,72,C.edge);});break;
    case 'object_second_chair':name('chair-cross-braces',()=>{beam([-26,-25,19],[26,25,19],1.8,C.wood);beam([26,-25,19],[-26,25,19],1.8,C.wood);for(let x=-24;x<30;x+=9)box(x,-26,50,1,50,.3,'#a17c55');});break;
    case 'object_growing_book':name('book-spine-stitches',()=>{for(let y=-16;y<20;y+=7)beam([-34,y,12],[-34,y+3,26],.6,C.brass);});break;
    case 'object_wrong_photo':name('photograph-turned-profile',()=>{orb(13,7,62,7,.8,8,C.black);add([[18,8,64],[23,8,60],[18,8,57],[16,8,53],[10,8,53]],'#87918d');beam([8,8,53],[6,8,37],1.3,C.black);});break;
-   case 'object_seven_watch':name('watch-crown-hinge',()=>{cylinder(0,0,72,5,6,C.brass);for(let z=73;z<78;z+=2)cylinder(0,0,z,5.5,.6,C.edge);beam([-24,3,23],[-24,3,51],1.6,C.brass);});break;
-   case 'object_cold_lamp':name('lamp-toggle-and-cord',()=>{cylinder(12,6,5,3,2,C.black);beam([12,6,7],[14,6,12],1,C.brass);beam([-13,-8,2],[-29,-19,1],.8,C.black);box(-34,-22,0,7,5,3,C.black);});break;
-   case 'object_doorhandle':name('handle-screw-heads',()=>{for(const z of [8,77]){cylinder(0,3.2,z,2.2,.5,C.edge,'y');beam([-1,4,z],[1,4,z],.3,C.black);}});break;
+   case 'object_seven_watch':break;
+   case 'object_cold_lamp':break;
+   case 'object_doorhandle':break;
    case 'object_silent_bell':name('bell-rolled-mouth',()=>lathe(0,0,0,[[0,32],[2,34],[4,34],[5,32]],'#c5a66a'));break;
    case 'object_black_flower':name('black-flower-curled-leaves',()=>{add([[0,0,49],[-18,2,54],[-11,4,44]],'#354d43');add([[0,0,58],[17,-1,64],[10,3,51]],'#2b3b35');for(let i=0;i<5;i++){const a=i*Math.PI*2/5;beam([8*Math.cos(a),8*Math.sin(a),81],[21*Math.cos(a),15*Math.sin(a),79],.65,'#46505b');}});break;
    case 'object_empty_bottle':break;
@@ -34736,17 +34815,17 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_third_cup':break;
    case 'object_echo_bowl':break;
    case 'object_unlit_star':name('planet-riveted-ports',()=>{for(const [x,y,z]of [[-13,23,45],[14,24,31],[0,16,62]])cylinder(x,y,z,2,1,C.brass,'y');});break;
-   case 'object_no_record':name('crt-bezel-and-rear-connectors',()=>{for(const x of [-31,30])panel(x,20.5,28,2,36,C.edge);for(const x of [-14,0,14])cylinder(x,-24,34,3,2,C.black,'y');});break;
+   case 'object_no_record':break;
    case 'ud_object_0':break;
    case 'ud_object_1':break;
-   case 'ud_object_2':name('alarm-clock-hammer',()=>{beam([0,4,72],[0,4,88],1,C.brass);beam([-7,4,88],[7,4,88],2,C.edge);});break;
-   case 'ud_object_3':name('vanity-swivel-screws',()=>{for(const x of [-32,32])cylinder(x,1,59,3,3,C.brass,'y');cylinder(0,13,10,2.5,2,C.brass,'y');});break;
-   case 'ud_object_4':name('typewriter-spacebar-ribbon-and-knobs',()=>{box(-23,25,15,46,3,3,C.paper);box(-21,-4,25,42,5,3,C.black);for(const x of [-38,38])cylinder(x,-14,32,5,3,C.brass,'y');});break;
+   case 'ud_object_2':break;
+   case 'ud_object_3':break;
+   case 'ud_object_4':break;
    case 'ud_object_5':break;
    case 'ud_object_6':name('flashlight-reflector-bezel',()=>{lathe(0,0,74,[[0,15],[1,20],[2,20],[2,15]],C.edge);loop(0,0,3,4,3,1,C.edge);});break;
    case 'ud_object_7':name('cloth-doll-patch-and-stitches',()=>{const surface=(x,z)=>[x,-1+15*Math.sqrt(1-(x/22)**2-((z-27)/23)**2)+.3,z];for(let r=0;r<5;r++)for(let c=0;c<4;c++){const x=-7+c*3.5,z=24+r*2.6,a=surface(x,z),b=surface(x,z+2.6),C0=surface(x+3.5,z+2.6),d=surface(x+3.5,z);add([a,b,C0],C.feltLight);add([a,C0,d],C.feltLight);}for(let x=-6;x<=6;x+=3)for(const z of [24,37]){const a=surface(x,z),b=surface(x+.8,z+(z===24?1:-1));beam(a,b,.22,C.feltDark);}for(const x of [-7,7])for(let z=26;z<36;z+=3)beam(surface(x,z),surface(x+(x<0?1:-1),z+.8),.22,C.feltDark);});break;
    case 'ud_object_8':name('copper-coin-return-scar',()=>{beam([-21,-8,4.3],[-12,0,4.3],.65,C.black);beam([-12,0,4.3],[-19,8,4.3],.65,C.black);});break;
-   case 'ud_object_9':name('recorder-eject-latch',()=>{box(26,8,20,7,3,3,C.brass);for(const x of [-28,28])cylinder(x,24.5,10,2,1,C.black,'y');});break;
+   case 'ud_object_9':break;
    case 'ud_object_10':name('typing-paper-curled-edge',()=>{for(let i=0;i<8;i++){const x=-33+i*8.25,X=x+8.25;add([[x,paperY(x,0),0],[X,paperY(X,0),0],[X,paperY(X,0)+1.8,1.8],[x,paperY(x,0)+1.8,1.8]],C.paper);}});break;
    case 'ud_object_11':break;
    case 'ud_object_12':name('parcel-folded-gussets',()=>{for(const x of [-35,35]){beam([x,-23,48],[x,0,34],.6,'#866d51');beam([x,0,34],[x,23,48],.6,'#866d51');}box(-20,24.1,18,15,.5,10,C.paper);});break;
@@ -34773,8 +34852,10 @@ Abyss.AnomalousObjectMesh=(()=>{
   const edges=faces.map(()=>[]),incoming=faces.map(()=>0),eps=1e-7;
   const bounds=faces.map(f=>({x:Math.min(...f.screen.map(p=>p[0])),X:Math.max(...f.screen.map(p=>p[0])),y:Math.min(...f.screen.map(p=>p[1])),Y:Math.max(...f.screen.map(p=>p[1]))}));
   function overlap(a,b){for(const poly of [a,b])for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],dx=q[1]-p[1],dy=p[0]-q[0];if(Math.abs(dx)+Math.abs(dy)<eps)continue;const A=a.map(p=>p[0]*dx+p[1]*dy),B=b.map(p=>p[0]*dx+p[1]*dy);if(Math.max(...A)<=Math.min(...B)+eps||Math.max(...B)<=Math.min(...A)+eps)return false;}return true;}
-  const behind=(a,b)=>{const distance=a.world.map(p=>b.normal.reduce((s,n,i)=>s+n*(p[i]-b.world[0][i]),0));return Math.max(...distance)<=eps&&Math.min(...distance)<-eps;};
-  for(let a=0;a<faces.length;a++)for(let b=a+1;b<faces.length;b++){const A=bounds[a],B=bounds[b];if(A.X<=B.x||B.X<=A.x||A.Y<=B.y||B.Y<=A.y||!overlap(faces[a].screen,faces[b].screen))continue;const ab=behind(faces[a],faces[b]),ba=behind(faces[b],faces[a]);if(ab===ba)continue;const from=ab?a:b,to=ab?b:a;edges[from].push(to);incoming[to]++;}
+  // A small raised detail may straddle its own side planes while remaining wholly
+  // in front of a broad backing face. Both separating directions are required.
+  const side=(a,b)=>{const distance=a.world.map(p=>b.normal.reduce((s,n,i)=>s+n*(p[i]-b.world[0][i]),0)),lo=Math.min(...distance),hi=Math.max(...distance);return hi<=eps&&lo<-eps?-1:lo>=-eps&&hi>eps?1:0;};
+  for(let a=0;a<faces.length;a++)for(let b=a+1;b<faces.length;b++){const A=bounds[a],B=bounds[b];if(A.X<=B.x||B.X<=A.x||A.Y<=B.y||B.Y<=A.y||!overlap(faces[a].screen,faces[b].screen))continue;const ab=side(faces[a],faces[b]),ba=side(faces[b],faces[a]);if(ab&&ba&&ab===ba)continue;const order=ab||-ba;if(!order)continue;const from=order<0?a:b,to=order<0?b:a;edges[from].push(to);incoming[to]++;}
   const remaining=new Set(faces.map((_,i)=>i)),out=[];
   while(remaining.size){let ready=[...remaining].filter(i=>incoming[i]===0);if(!ready.length)ready=[...remaining];ready.sort((a,b)=>faces[a].depth-faces[b].depth);const i=ready[0];remaining.delete(i);out.push(i);for(const j of edges[i])incoming[j]--;}
   orderCache.set(key,out);return out.map(i=>faces[i]);
@@ -43389,6 +43470,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-21',version:'0.13.239-preview',title:t('旧设备，新的实物结构','Old Instruments, Rebuilt'),items:[t('重建台式闹鬼收音机、明日时钟、七分钟怀表、冷灯、无门把手、无记录终端、明日闹钟、无影梳妆镜、自动写字机和死者磁带机。每件有独立机壳、支撑和对应工作部件。','Rebuilt the Haunted Radio, Tomorrow Clock, Seven-Minute Watch, Cold Lamp, Doorless Handle, No-Record Terminal, Tomorrow Alarm, Shadowless Mirror, Automatic Typewriter and Dead Voices Recorder, each with its own housing, supports and working parts.'),t('CRT终端有收窄后机壳、凸面玻璃屏和前置斜键盘；写字机有键杆、字锤篮、滚轴与纸张。冷灯采用开放下口的银行灯罩，怀表保留两根指针，不加秒针；磁带机可见双卷轴和控制键。','The CRT has a tapered rear cabinet, curved glass and a separate sloped keyboard. The typewriter has key stems, typebars, a platen and paper. The cold lamp has an open banker’s shade, the watch retains two hands without a second hand, and the recorder shows twin reels and transport keys.'),t('保留物品名称、故事、稀有度、价格、数量和旧摆放尺寸；其他45件完整模型保持。图鉴、房间与地下市场共用同一件实物模型。','Names, stories, rarities, prices, quantities and old placement dimensions are retained. The other 45 complete meshes are preserved. Catalogue, room and underground market use the same physical model.')],pending:[t('这批10件整改不代表55件正式美术全部验收；其他历史任务与公网AI私密配置仍未全部完成。','These ten rebuilds do not certify all 55 final art assets. Other historical tasks and private public-AI configuration remain unfinished.')]},
 {date:'2026-10-21',version:'0.13.238-preview',title:t('路上认识的人','People Met on the Route'),items:[t('新增八位外勤平民，各有独立姓名、轮廓、道具、交谈与服务。看不清时不提前展示身份；旧遭遇保留原处理。','Eight field civilians have individual names, silhouettes, props, conversations and services. Identity stays hidden before contact; old encounters retain their original behavior.'),t('零件交易使用当前回收包，分享食物消耗实际成品，供电消耗派出车辆燃料。寻宠线索影响原有寻回概率；接收文书不会跳过检疫和归属核查。服务与线索随本存档保存，操作失败不扣资源。','Scrap trades use the current recovery bag, shared meals consume actual prepared food, and local power uses dispatched-vehicle fuel. Pet clues improve the existing recovery chance; intake paperwork never bypasses quarantine or ownership review. Services and clues persist in this save; failed actions spend no resources.'),t('新闻分类按钮与通报分类改用中文名称，英文切换同步。外勤人物记录展开状态在刷新面板时保留。','News navigation and report badges use translated category labels in both languages. Expanded field-contact history stays open when the panel refreshes.')],pending:[t('混合现场、群体事件、其余正式美术和历史扩展仍未全部完成；公网AI仍待平台私密配置。','Mixed encounters, group events, remaining final artwork and historical expansions are unfinished; public AI still awaits private platform configuration.')]},
 {date:'2026-10-21',version:'0.13.237-preview',title:t('你离开以后','After You Leave'),items:[t('新遭遇里，留下未介入的袭击者可能在两天后袭击对应地区的补给农场。实际食物与安全度会减少；当时的守卫和已经安排的保护行动能减轻损失，其他地区不受这一条记录影响。','In new encounters, raiders left unresolved may attack the corresponding region’s supply farm two days later. Actual food and safety decrease. Guards and an existing protection project reduce losses; this record does not affect other regions.'),t('走失幼犊可能被实际停靠在当地的官方后勤车队接收。车队需要可用的医疗包并延长一天停靠，幼犊保留接收时的伤情、基因和检疫记录，等待原饲养人核查，不会变成你的免费动物。','A stray calf may enter the custody of an Official Supply Convoy actually stopped nearby. Intake needs an available medical kit and extends the stop by one day. The intake record retains injuries, genes and quarantine pending an ownership check; it is not a free player animal.'),t('直接离开、跟上后记下位置离开、交战后撤退均接入相应后续；成功捕获不重复生成救助。后续按日推进并随本档保存，新闻只显示已经发生的结果。旧遭遇不追补，过期未确认的线索不推断生死。','Leaving directly, marking an animal after following it, and retreating from combat feed into appropriate follow-ups. Successful capture cannot duplicate a rescue. Outcomes advance by day and persist in this save; news displays resolved events. Old encounters receive no backfill, and expired unconfirmed leads establish no life-or-death conclusion.')],pending:[t('更多平民与混合现场互动、群体事件、正式美术及其他历史扩展仍在推进；公网AI仍待私密配置。','Further civilian and mixed interactions, group encounters, final artwork and other historical expansions remain in progress; public AI awaits private configuration.')]},
 {date:'2026-10-21',version:'0.13.236-preview',title:t('幼崽、线索与最后的选择','Young Animals, Clues and the Last Choice'),items:[t('两次观察后保留跟上、攻击与离开，不再强制结束。第三次观察禁用；行动点、研究门槛与信息快照不变，观察记录只写一次。旧档已结束的遭遇不会被重新打开。','After two observations you can still follow, attack or leave instead of being forced out. A third observation is disabled. AP costs, research gates and action-time information remain; the observation receipt is written once. Completed old encounters are not reopened.'),t('新生成动物记录加入幼犊、羊羔、小山羊、仔猪、雏鸡与雏鸭，以及母兽在场、走失、伤情、需要奶等处境。母兽/耳牌仍阻止带走；哺乳幼畜需要随身且已识别的浓缩奶，幼雏使用燕麦杯，捕获仍付原行动点、车辆与货位成本，接收后保留新生状态、检疫与归属核查。','New animal records support calves, lambs, kids, piglets, chicks and ducklings, with mothers, strays, injuries and milk needs. A parent or old tag still prevents removal. Young mammals need carried identified condensed milk, young birds use an oat cup, and capture retains AP, vehicle and cargo costs. Newborn age, quarantine and ownership review persist at intake.'),t('新遭遇按最近四次动物物种降低重复，在同稀有层有合法备选时避免连续第五次同种；单一物种池不凭空升级稀有度。旧个体不重抽。育幼日结与面板统一使用正确饲料：雏鸡雏鸭吃谷物，哺乳幼畜吃奶，请准备对应库存。','New encounters reduce repeats using the last four animal species; where the same rarity pool has a legal alternative, a fifth consecutive identical species is avoided. Single-species pools never fabricate higher rarity. Old individuals do not reroll. Daily nursery care and its panel agree: young birds use grain and young mammals use milk; prepare the appropriate stock.')],pending:[t('平民/混合现场互动、群体分流、真实未介入世界结果及正式美术仍待完成；其他历史扩展和公网AI继续。','Civilian/mixed interactions, group branches, real non-intervention world outcomes and final artwork still need work; other historical expansions and public AI remain in progress.')]},
