@@ -1331,7 +1331,7 @@ body.story-player-active{overflow:hidden}body.story-player-active .app,body.stor
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="打开实验室菜单">
       <svg class="brand-icon abyss-logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="abyss-brand-spectrum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ec9ad"/><stop offset=".4" stop-color="#7bb8d4"/><stop offset=".72" stop-color="#b09dc6"/><stop offset="1" stop-color="#d6b284"/></linearGradient></defs><path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#12242d" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M32 11 49 21v20L32 51 15 41V21Z" fill="#172d34" stroke="#648d96"/><path d="M25 18v9L18 40q14 12 28 0l-7-13v-9M24 18h16" fill="#233f49" stroke="url(#abyss-brand-spectrum)" stroke-width="2"/><path d="M23 35q10-7 19 0l4 5q-14 12-28 0Z" fill="url(#abyss-brand-spectrum)" opacity=".8"/><circle cx="29" cy="38" r="2" fill="#07131a"/><circle cx="37" cy="38" r="2" fill="#07131a"/><path d="M30 43h4M32 3v7M57 17l-8 4M7 47l8-6M32 51v10" stroke="#91b0b8"/></svg>
-      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.243-preview</span></small></span>
+      <span><strong>ABYSS<span> / </span>LAB</strong><small>深渊孵化室 <i>·</i> 研究终端 07 · <span data-release-version>v0.13.244-preview</span></small></span>
     </a>
     <div class="top-stats"><div class="top-stat research-status"><small>时间 / 研究等级</small><strong><span id="lab-time">上午</span> <span id="lab-research">LV 1</span></strong></div>
       <div class="top-stat"><small>实验日 <span> / CYCLE</span></small><strong id="day">DAY 01</strong></div>
@@ -6487,6 +6487,10 @@ Abyss.EnglishCatalog={
   "希望有人愿意帮忙为走失者写一段短呼号，但不接受替自己作决定。": "They seek help with their own case 119, without surrendering their choices.",
   "这次见面，此人正在把仪式火盆放在安全处。随身物上还有上一班留下的灰。": "At this meeting, this believer is handling case 120. Dust from the previous shift remains on their belongings.",
   "希望有人愿意帮忙把仪式火盆放在安全处，但不接受替自己作决定。": "They seek help with their own case 120, without surrendering their choices.",
+  "铸件、透镜与凹下的点数": "Cast Metal, Glass and Recessed Pips",
+  "重建无声铃、深井铃铛、不存在房间的钥匙、雨声银币、归来铜币、证人透镜、未落沙漏、反向沙漏、失重砝码和讨价还价的骰子。手铃采用木柄，井铃采用铁铃与吊架；硬币有不同的双面浮雕。": "Rebuilt the Silent Bell, Well Bell, Absent Room Key, Rain Coin, Returning Coin, Witness Lens, Unfallen Sand, Reverse Hourglass, Weightless Weight and Bargaining Dice. The handbell has a wooden grip, the well bell an iron shell and hanging yoke, and the coins have distinct reliefs on both sides.",
+  "透镜有底座、夹持架和调节螺钉；沙漏区分木制与金属框架，未落沙粒保持在上半部。砝码有空心提环与校准塞，骰子使用真实倒角及凹入的点数，不再贴浮动圆点。": "The lens has a base, mounting forks and adjustment screw. Timers use different wood and metal frames; unfallen sand stays in the upper bulb. The weight has an open handle and calibration plug. Dice have real bevels and recessed pips instead of floating circles.",
+  "累计六批独立重建44件，另11件继续质量复审；其他历史扩展和公网AI私密配置仍未全部完成。": "Six batches now contain 44 distinct independent rebuilds, with 11 more under quality review. Other historical expansions and private public-AI configuration remain unfinished.",
   "目击不是当前位置": "A Sighting Is Not a Current Location",
   "乔禾可以接收实际确认过的牛羊目击，包括混合事件中留下、逃离和已接收运输的动物。线索显示原日期、地区、物种和当时去向，不把旧地点冒充当前位置。": "Qiao He accepts verified cattle and sheep sightings, including animals left, fled or received for transport in mixed encounters. Reports show the original date, region, species and outcome without presenting the old site as a current location.",
   "线索限同地区三日内，同一天、地点与物种只能交付一次。交付回执随本存档保存；盲打、未确认旧记录和牧民身边的动物不能冒充新线索。": "Reports must be from the same region within three days. Each day, site and species can be reported once. Delivery receipts persist in this save; blind attacks, unverified old records and animals already with keepers do not count as new clues.",
@@ -34916,6 +34920,73 @@ Abyss.AnomalousObjectMesh=(()=>{
    name('pendulum',()=>{beam([0,0,66],[-4,0,23],1.2,C.brass);cylinder(-4,-1,21,9,4,C.brass,'y');cylinder(-4,3.2,21,6.6,.6,C.edge,'y');beam([-4,4,17],[-4,4,25],.4,C.brass);});
    name('pendulum-door-latch',()=>{panel(-19,8.4,10,1.5,51,C.brass);panel(18,8.4,47,1.5,14,C.brass);cylinder(18,10,51,2,2,C.brass,'y');});
   }
+  // Distinct cast, optical and calibrated objects. Their working cavities are
+  // built in object space; no flat icon is substituted for these small objects.
+  function castBell(deep){
+   const col=deep?C.iron:C.brass,profile=deep?[[0,34],[3,36],[7,33],[12,28],[24,21],[43,18],[57,16],[63,10],[65,0]]:[[0,29],[2,33],[5,34],[9,29],[17,23],[30,18],[43,16],[49,10],[51,0]];
+   name(deep?'well-bell':'bell-shell',()=>lathe(0,0,0,profile,col,'z',32));
+   name('bell-inner-wall',()=>{const start=faces.length;lathe(0,0,0,deep?[[0,31],[4,32],[10,25],[23,18],[43,15],[55,13],[59,8],[59,0]]:[[0,26],[4,30],[8,26],[17,20],[30,15],[42,13],[46,8],[46,0]],deep?C.black:C.woodDark,'z',32);for(let i=start;i<faces.length;i++)faces[i].p.reverse();});
+   name(deep?'well-bell-mouth-return':'bell-rolled-mouth',()=>lathe(0,0,0,[[0,deep?31:26],[0,deep?34:29],[2,deep?36:33],[2,deep?32:30],[0,deep?31:26]],col,'z',32));
+   name('bell-clapper',()=>{beam([0,0,deep?56:44],[0,0,12],1.25,C.iron);orb(0,0,9,4,4,6,deep?C.edge:C.iron,8,16);});
+   name('bell-cast-beads',()=>{for(const z of deep?[17,51]:[13,36]){const r=deep?(z===17?24.5:17.2):(z===13?26:17);lathe(0,0,z,[[0,r],[1.2,r+.6],[2.4,r]],col,'z',32);}});
+   if(deep){name('bell-yoke',()=>{roundedCase(-29,69,58,9,-5,10,3,C.woodDark);for(const x of [-21,21]){box(x-2,-5,61,4,10,18,C.iron);cylinder(x,6,73,2,2,C.edge,'y');}beam([0,0,63],[0,0,73],3,C.iron);});name('well-bell-iron-mount',()=>{loop(0,0,84,7,7,1.8,C.iron);for(const z of [95,107])loop(0,0,z,4.5,6,1.3,C.edge);});name('well-bell-foundry-seam',()=>beam([0,-18,30],[0,-16,54],.4,C.edge));}
+   else{name('bell-turned-wood-handle',()=>lathe(0,0,51,[[0,0],[0,5],[4,7],[7,5],[23,4],[31,6],[35,4],[35,0]],C.woodDark,'z',16));name('bell-handle-ferrules',()=>{for(const z of [53,79])lathe(0,0,z,[[0,4],[1,6],[3,6],[4,4]],C.brass,'z',16);});name('bell-loop',()=>loop(0,0,89,3,4,.8,C.brass));}
+  }
+  function absentKey(){
+   const outer=[[-13,58],[-19,65],[-19,79],[-12,88],[12,88],[19,79],[19,65],[13,58]],inner=outer.map(([x,z])=>[x*.62,73+(z-73)*.58]);
+   name('key-bow',()=>{for(let i=0;i<outer.length;i++){const j=(i+1)%outer.length;for(const y of [-2,2]){const p=[[...outer[i]],[...outer[j]],[...inner[j]],[...inner[i]]].map(([x,z])=>[x,y,z]);add(y===2?p:p.reverse(),C.brass);}add([[outer[i][0],-2,outer[i][1]],[outer[j][0],-2,outer[j][1]],[outer[j][0],2,outer[j][1]],[outer[i][0],2,outer[i][1]]],C.brass);add([[inner[i][0],2,inner[i][1]],[inner[j][0],2,inner[j][1]],[inner[j][0],-2,inner[j][1]],[inner[i][0],-2,inner[i][1]]],C.woodDark);}});
+   name('key-shaft',()=>{box(-3,-2,0,6,4,60,C.brass);box(-1.5,2.1,8,1,1,47,C.woodDark);box(-1.5,-3.1,8,1,1,47,C.woodDark);});
+   name('key-teeth',()=>{for(const [z,w,h]of [[2,17,5],[12,11,4],[21,18,4],[31,7,3]])box(2,-2,z,w,4,h,C.brass);});
+   name('key-scraped-number-plate',()=>{roundedCase(-12,61,24,7,2.1,.8,1,C.edge);for(const [x,z]of [[-9,62],[-4,63],[1,62],[6,63]]){beam([x,3.3,z],[x+2.7,3.3,z+3.2],.32,C.iron);beam([x-1,3.4,z+1],[x+3.5,3.4,z+1.5],.2,C.iron);}});
+   name('key-bow-chamfer',()=>{for(let i=0;i<outer.length;i++){const j=(i+1)%outer.length;beam([outer[i][0],2.4,outer[i][1]],[outer[j][0],2.4,outer[j][1]],.4,C.edge);}});
+  }
+  function struckCoin(copper){
+   const col=copper?'#b47b4e':C.edge,start=faces.length;
+   name('coin-disc',()=>lathe(0,0,0,[[0,0],[0,26],[.8,28],[4,28],[4.8,26],[4.8,0]],col,'z',48));
+   name(copper?'copper-raised-rim':'silver-raised-rim',()=>{for(const z of [.25,4.8])lathe(0,0,z,[[0,24],[0,26],[.5,27],[.9,26],[.9,24],[0,24]],col,'z',48);});
+   name(copper?'copper-coin-return-scar':'silver-coin-edge-reeding',()=>{if(copper){for(const z of [1.5,3])lathe(0,0,z,[[0,28],[.3,28]],C.woodDark,'z',48);beam([-26,-5,4.9],[-18,-3,4.9],.35,C.black);}else for(let i=0;i<40;i++){const a=i*Math.PI/20;beam([28*Math.cos(a),28*Math.sin(a),1.1],[28*Math.cos(a),28*Math.sin(a),3.7],.23,C.iron);}});
+   const relief=(outline,z,h,color)=>{const first=faces.length;transformed(()=>frontPrism(outline,-h/2,h,color),([x,y,v])=>[x,v,z+y+h/2]);for(let i=first;i<faces.length;i++)faces[i].p.reverse();};
+   name('coin-relief',()=>{if(copper){for(let i=0;i<16;i++){const a=(-.15+i/16*1.62)*Math.PI,b=(-.15+(i+1)/16*1.62)*Math.PI;beam([16*Math.cos(a),16*Math.sin(a),5.6],[16*Math.cos(b),16*Math.sin(b),5.6],1.25,col);}relief([[15,-6],[23,0],[12,5]],5.4,.8,col);relief([[-8,-11],[8,-11],[8,1],[0,9],[-8,1]],5.1,.8,C.brass);relief([[-3,-11],[3,-11],[3,-2],[-3,-2]],6,.2,C.woodDark);}else{for(const [x,y,r]of [[-10,3,3.2],[2,10,3.8],[12,-1,3.3]])relief([[x-r,y],[x-r*.8,y-r],[x,y-r*1.5],[x+r*.8,y-r],[x+r,y],[x,y+r*2]],5.1,.8,col);for(const r of [7,14,20])lathe(0,-8,5.1,[[0,r],[.6,r],[.6,r-.7],[0,r-.7]],col,'z',32);}});
+   name(copper?'coin-reverse-doorway':'coin-reverse-wave',()=>{if(copper){relief([[-9,-11],[-9,9],[-5,13],[5,13],[9,9],[9,-11],[5,-11],[5,8],[0,10],[-5,8],[-5,-11]],-.5,.6,col);}else for(let i=0;i<3;i++){const y=-10+i*10;beam([-17,y,-.3],[-7,y+3,-.3],.7,col);beam([-7,y+3,-.3],[4,y-2,-.3],.7,col);beam([4,y-2,-.3],[17,y+1,-.3],.7,col);}});
+   for(let i=start;i<faces.length;i++){faces[i].p=faces[i].p.map(([x,y,z])=>[x,y,z*.55]);if(copper&&faces[i].color===col)faces[i].material='brass';}
+  }
+  function witnessLens(){
+   name('lens-weighted-base',()=>lathe(0,0,0,[[0,0],[0,18],[2,23],[5,24],[8,21],[10,10],[10,0]],C.iron,'z',24));
+   name('lens-column',()=>{cylinder(0,0,9,3.8,42,C.brass);for(const z of [14,35])lathe(0,0,z,[[0,4],[2,6],[5,6],[6,4]],C.iron,'z',16);});
+   name('lens-rim',()=>lathe(0,-3,74,[[0,20.5],[0,24],[1.5,26],[7,26],[8.5,24],[8.5,20.5],[0,20.5]],C.brass,'y',32));
+   name('lens-convex-glass',()=>glass(()=>orb(0,1.2,74,20.4,3,20.4,C.glass,10,24)));
+   name('lens-gimbal-forks',()=>{for(const side of [-1,1]){beam([0,0,43],[side*28,0,51],1.8,C.iron);beam([side*28,0,51],[side*28,0,74],1.8,C.iron);beam([side*24,0,74],[side*31,0,74],2,C.brass);}loop(31,0,74,1.8,4,.8,C.edge);});
+   name('lens-focus-screw',()=>{beam([0,0,33],[0,10,33],1.2,C.brass);cylinder(0,10,33,5,3,C.iron,'y');for(let i=0;i<12;i++){const a=i*Math.PI/6;beam([4.6*Math.cos(a),13.5,33+4.6*Math.sin(a)],[5.2*Math.cos(a),13.5,33+5.2*Math.sin(a)],.45,C.edge);}beam([-2.5,14,33],[2.5,14,33],.5,C.brass);});
+   name('lens-base-feet',()=>{for(const [x,y]of [[-14,-9],[14,-9],[0,16]])cylinder(x,y,0,2.8,1,C.black);});
+  }
+  function sandTimer(reverse){
+   const col=reverse?C.iron:C.woodDark;
+   name(reverse?'reverse-timer-octagonal-plinths':'hourglass-turned-plinths',()=>{for(const z of [0,94])lathe(0,0,z,[[0,0],[0,27],[2,30],[5,30],[7,27],[8,0]],col,'z',reverse?8:32);});
+   name(reverse?'reverse-hourglass-metal-cage':'hourglass-wood-finials',()=>{for(let i=0;i<3;i++){const a=i*Math.PI*2/3+Math.PI/2,x=26*Math.cos(a),y=26*Math.sin(a);if(reverse){beam([x,y,7],[x,y,95],1.6,C.iron);for(const z of [16,86])cylinder(x,y,z,2.8,4,C.brass);}else{lathe(x,y,7,[[0,3],[5,4],[10,2.5],[70,2.5],[76,4],[88,3]],C.wood,'z',12);for(const z of [15,85])cylinder(x,y,z,3.8,1.6,C.brass);}}});
+   name('glass-bulbs',()=>glass(()=>lathe(0,0,9,[[0,0],[0,13],[3,19],[13,22],[22,19],[32,8],[38,2.5],[46,2.5],[52,8],[64,19],[73,22],[81,19],[84,13],[84,0]],C.glass,'z',32)));
+   name('timer-neck-binding',()=>{for(const z of [47,52])lathe(0,0,z,[[0,2.5],[.8,3.5],[1.5,3.5],[2.2,2.5]],C.brass,'z',16);});
+   name('sand',()=>{if(reverse)lathe(0,0,12,[[0,0],[0,13],[4,18],[8,18],[13,0]],C.paper,'z',24);else lathe(0,0,62,[[0,0],[0,6],[7,17],[12,20],[17,19],[17,0]],C.paper,'z',24);});
+   if(reverse)name('rising-sand-grains',()=>{for(const [z,x,y]of [[30,0,0],[36,.5,-.4],[43,0,.3],[52,0,0],[61,-.5,0],[67,.6,.2]])orb(x,y,z,.65,.65,.85,C.paper,4,8);});
+   name('timer-bulb-seats',()=>{for(const z of [8,92])lathe(0,0,z,[[0,11],[.8,14],[1.8,14],[2.6,11]],reverse?C.brass:C.wood,'z',24);});
+  }
+  function calibrationWeight(){
+   name('weight-body',()=>lathe(0,0,0,[[0,0],[0,27],[3,30],[9,30],[12,28],[47,20],[53,15],[55,15],[55,0]],C.iron,'z',16));
+   name('weight-handle',()=>{const o=[[-12,53],[-15,59],[-15,71],[-10,78],[10,78],[15,71],[15,59],[12,53]],inside=o.map(([x,z])=>[x*.56,66+(z-66)*.57]);for(let i=0;i<8;i++){const j=(i+1)%8;for(const y of [-3,3]){const p=[o[i],o[j],inside[j],inside[i]].map(([x,z])=>[x,y,z]);add(y>0?p:p.reverse(),C.brass);}add([[o[i][0],-3,o[i][1]],[o[j][0],-3,o[j][1]],[o[j][0],3,o[j][1]],[o[i][0],3,o[i][1]]],C.brass);add([[inside[i][0],3,inside[i][1]],[inside[j][0],3,inside[j][1]],[inside[j][0],-3,inside[j][1]],[inside[i][0],-3,inside[i][1]]],C.woodDark);}});
+   name('weight-calibration-plug',()=>{cylinder(0,0,55,8,1.5,C.black);cylinder(0,0,56.5,6.7,.8,C.brass);beam([-3,-1,57.5],[3,1,57.5],.4,C.iron);});
+   name('weight-recessed-maker-plate',()=>{roundedCase(-9,18,18,11,24,1.5,2,C.black);panel(-7,25.6,20,14,7,C.edge);for(const x of [-6,6])cylinder(x,27,23.5,.65,.5,C.brass,'y');});
+   name('weight-base-rings',()=>{for(const z of [4,8])lathe(0,0,z,[[0,30],[.45,30]],C.edge,'z',16);});
+  }
+  function recessedDice(){
+   const dots={1:[[0,0]],2:[[-14,-14],[14,14]],3:[[-14,-14],[0,0],[14,14]],4:[[-14,-14],[-14,14],[14,-14],[14,14]],5:[[-14,-14],[-14,14],[0,0],[14,-14],[14,14]],6:[[-14,-14],[-14,0],[-14,14],[14,-14],[14,0],[14,14]]};
+   const sides=[['top',1,(u,v,d)=>[u,v,54-d]],['bottom',6,(u,v,d)=>[u,-v,d]],['front',3,(u,v,d)=>[u,27-d,27-v]],['back',4,(u,v,d)=>[u,-27+d,27+v]],['right',2,(u,v,d)=>[27-d,u,27+v]],['left',5,(u,v,d)=>[-27+d,u,27-v]]];
+   for(const [side,n,pt]of sides)for(let i=0;i<3;i++)for(let j=0;j<3;j++){const limits=[-24,-7,7,24],x=[-14,0,14][i],y=[-14,0,14][j],X=limits[i],Y=limits[j],W=limits[i+1],H=limits[j+1];if(!dots[n].some(([u,v])=>u===x&&v===y)){name('die-cube',()=>add([[X,Y],[W,Y],[W,H],[X,H]].map(([u,v])=>pt(u,v,0)),fabric.porcelain));continue;}
+    const angles=[...Array.from({length:12},(_,k)=>k*Math.PI/6),...[[X,Y],[W,Y],[W,H],[X,H]].map(([u,v])=>(Math.atan2(v-y,u-x)+Math.PI*2)%(Math.PI*2))].sort((a,b)=>a-b),point=(a,r,d)=>pt(x+r*Math.cos(a),y+r*Math.sin(a),d),outer=a=>{const c=Math.cos(a),s=Math.sin(a),r=Math.min(Math.abs(c)<1e-8?Infinity:(c>0?W-x:X-x)/c,Math.abs(s)<1e-8?Infinity:(s>0?H-y:Y-y)/s);return point(a,r,0);};
+    name('die-cube',()=>{for(let k=0;k<angles.length;k++){const a=angles[k],b=angles[(k+1)%angles.length];add([outer(a),outer(b),point(b,4.2,0),point(a,4.2,0)],fabric.porcelain);}});
+    name('die-pips-'+side+'-'+n,()=>{for(let k=0;k<angles.length;k++){const a=angles[k],b=angles[(k+1)%angles.length];add([point(a,4.2,0),point(b,4.2,0),point(b,2.8,1.6),point(a,2.8,1.6)],C.black);add([point(a,2.8,1.6),point(b,2.8,1.6),pt(x,y,2.4)],C.black);}});
+   }
+   const facet=p=>{const a=p[0],u=p[1].map((v,i)=>v-a[i]),v=p[2].map((v,i)=>v-a[i]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],c=p.reduce((s,q)=>s.map((v,i)=>v+q[i]/p.length),[0,0,0]);if(n.reduce((s,v,i)=>s+v*(c[i]-(i===2?27:0)),0)<0)p.reverse();add(p,fabric.porcelain);};
+   name('die-chamfered-edges',()=>{for(let axis=0;axis<3;axis++)for(const s of [-1,1])for(const t of [-1,1]){const a=(axis+1)%3,b=(axis+2)%3,points=[[-24,27,24],[24,27,24],[24,24,27],[-24,24,27]].map(([k,u,v])=>{const q=[0,0,27];q[axis]+=k;q[a]+=s*u;q[b]+=t*v;return q;});facet(points);}for(const x of [-1,1])for(const y of [-1,1])for(const z of [-1,1])facet([[x*27,y*24,27+z*24],[x*24,y*27,27+z*24],[x*24,y*24,27+z*27]]);});
+  }
   switch(id){
    case 'object_radio':tableRadio();break;
    case 'ud_object_0':fieldRadio();break;
@@ -34927,10 +34998,10 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_seven_watch':pocketWatch();break;
    case 'object_cold_lamp':bankersLamp();break;
    case 'object_doorhandle':doorLever();break;
-   case 'object_silent_bell':bell();name('bell-loop',()=>loop(0,0,66,6,8,2,C.brass));break;
+   case 'object_silent_bell':castBell(false);break;
    case 'object_black_flower':blackBloom();break;
    case 'object_empty_bottle':emptyBottle();break;
-   case 'object_roomkey':key(false);break;
+   case 'object_roomkey':absentKey();break;
    case 'object_hungry_mirror':hungryArchedMirror();break;
    case 'object_whisper_bed':whisperingBed();break;
    case 'object_red_phone':phone(false);break;
@@ -34940,10 +35011,10 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_silver_skull':name('skull-cranium',()=>orb(0,-3,58,29,21,29,C.edge));name('skull-cheekbones',()=>{for(const x of [-21,21])orb(x,11,40,8,9,7,C.edge);});name('jaw',()=>{for(const side of [-1,1]){beam([side*23,0,37],[side*20,12,15],3.5,C.edge);beam([side*20,12,15],[side*8,19,11],3.5,C.edge);}beam([-8,19,11],[8,19,11],3.5,C.edge);});name('skull-eyes',()=>{for(const x of [-12,12]){orb(x,17,56,10,5,10,C.black);orb(x,21.5,53,6,1.5,4,'#73b982');}});name('skull-nasal-cavity',()=>add([[-5,21,37],[0,22,48],[5,21,37]],C.black));name('silver-teeth',()=>{for(let i=0;i<8;i++){const x=-14+i*4,y=17+3*(1-Math.abs(x)/16);box(x-1.5,y,25,3,3,8,C.edge);box(x-1.5,y,15,3,3,6,C.edge);}});break;
    case 'object_reverse_map':foldedReverseMap();break;
    case 'object_sleepless_doll':doll(false);break;
-   case 'object_rain_coin':coin(false);break;
-   case 'object_witness_lens':name('lens-rim',()=>lathe(0,0,65,[[0,25],[5,25],[5,21],[0,21],[0,25]],C.brass,'y'));name('lens-convex-glass',()=>glass(()=>orb(0,2.5,65,21,3,21,C.glass)));beam([0,0,0],[0,0,39],2,C.iron);for(const x of [-1,1])beam([0,0,12],[x*20,x*8,0],2,C.iron);break;
+   case 'object_rain_coin':struckCoin(false);break;
+   case 'object_witness_lens':witnessLens();break;
    case 'object_paper_window':intactPaperWindow();break;
-   case 'object_hourglass':hourglass(false);break;
+   case 'object_hourglass':sandTimer(false);break;
    case 'object_third_cup':thirdCup();break;
    case 'object_echo_bowl':echoBowl();break;
    case 'object_unlit_star':name('metal-planet',()=>orb(0,0,38,29,29,29,'#43515d'));name('planet-equator',()=>lathe(0,0,36,[[0,29.2],[2,29.4],[4,29.2]],C.iron));name('planet-meridian',()=>loop(0,0,38,29.5,29.5,.8,C.brass));name('planet-base',()=>{cylinder(0,0,0,22,4,C.black);beam([0,0,4],[0,0,10],2,C.iron);});break;
@@ -34955,26 +35026,23 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_5':flatRoomKey();break;
    case 'ud_object_6':name('flashlight-barrel',()=>cylinder(0,0,0,10,56,C.iron));name('flashlight-grip',()=>{for(let z=7;z<40;z+=5)cylinder(0,0,z,11,1.5,C.black);});name('flashlight-head',()=>lathe(0,0,56,[[0,10],[7,20],[20,21],[20,17],[15,8],[15,0]],C.brass));name('flashlight-concave-reflector',()=>{const start=faces.length;lathe(0,0,56,[[7,7],[10,10],[14,14],[19,17]],'#c3ced0');for(let i=start;i<faces.length;i++)faces[i].p.reverse();});name('flashlight-led-and-lens',()=>{cylinder(0,0,65,3,2,'#fff1bd');glass(()=>cylinder(0,0,76,16,.3,C.glass));});box(-3,8,42,6,4,9,C.red);break;
    case 'ud_object_7':doll(true);break;
-   case 'ud_object_8':coin(true);break;
+   case 'ud_object_8':struckCoin(true);break;
    case 'ud_object_9':cassetteRecorder();break;
    case 'ud_object_10':typingPaper();break;
    case 'ud_object_11':rainBottle();break;
    case 'ud_object_12':name('parcel',()=>box(-35,-24,0,70,48,49,'#ae9470'));name('parcel-string',()=>{box(-2,-25,0,4,50,50,C.paper);box(-36,-2,0,72,4,50,C.paper);loop(-8,0,55,8,5,1,C.brass);loop(8,0,55,8,5,1,C.brass);});break;
    case 'ud_object_13':hollowPorcelainMask();break;
-   case 'ud_object_14':hourglass(true);break;
+   case 'ud_object_14':sandTimer(true);break;
    case 'ud_object_15':name('salt-heart',()=>{const first=faces.length;orb(4,0,35,24,16,32,C.salt);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>{const taper=z<34?.18+.82*z/34:1;return [4+(x-4)*taper+(34-z)*.12,y*taper,z];});orb(-16,-1,53,12,12,14,C.salt);});name('heart-aorta',()=>tube([[-3,-2,59],[-5,-2,69],[-4,-2,77],[1,-2,83],[8,-2,85],[15,-2,82],[20,-2,75],[20,-2,62]],5,1.6,C.salt));name('heart-open-arterial-branches',()=>{for(const [x,z]of [[-2,82],[7,85],[15,82]])tube([[x,-2,z],[x-1,-2,z+5],[x-2,-2,z+11]],2.7,.9,C.salt);});name('heart-vessels',()=>{lathe(-22,-4,59,[[0,5],[15,5],[15,2.8],[2,2.8]],C.salt);lathe(13,-9,56,[[0,5],[17,5],[17,2.5],[2,2.5]],C.salt);for(const [a,b]of [[[-4,16,59],[5,16,38]],[[5,16,38],[10,11,12]],[[5,16,38],[-11,13,34]],[[5,16,38],[18,10,31]]])beam(a,b,.8,'#b8b3a8');});break;
    case 'ud_object_16':name('cheque-paper',()=>box(-42,-1,0,84,1,43,C.paper));panel(-37,1,32,74,6,C.mint);for(let i=0;i<3;i++)panel(-33,1,23-i*7,46-i*7,1,C.iron);name('cheque-blank-signature-line',()=>{panel(12,1.3,7,23,.6,C.iron);});break;
    case 'ud_object_17':name('glove-palm',()=>orb(0,0,38,19,5,23,C.cloth));name('glove-fingers',()=>{for(let i=0;i<4;i++){const x=-13+i*8.5,z=[76,86,82,70][i];beam([x,0,51],[x,2,z-12],3.5,C.cloth);beam([x,2,z-12],[x-1,7,z-3],3.3,C.cloth);orb(x-1,7,z-3,3.3,3.3,3.3,C.cloth);}beam([-15,0,34],[-26,4,43],4,C.cloth);beam([-26,4,43],[-29,8,48],3.8,C.cloth);orb(-29,8,48,3.8,3.8,3.8,C.cloth);});name('glove-hollow-cuff',()=>{const first=faces.length;lathe(0,0,0,[[0,15],[17,16],[22,17],[22,14],[17,13],[0,12],[0,15]],C.cloth);for(let i=first;i<faces.length;i++)faces[i].p=faces[i].p.map(([x,y,z])=>[x,y*.4,z]);});name('glove-seams',()=>{for(const x of [-7,1,9])beam([x,5,34],[x,5,52],.35,'#a1adae');});break;
    case 'ud_object_18':gapClock();break;
-   case 'ud_object_19':name('weight-body',()=>lathe(0,0,0,[[0,0],[0,28],[6,29],[48,17],[48,0]],C.iron));name('weight-handle',()=>loop(0,0,62,11,15,4,C.brass));panel(-10,23,14,20,7,C.edge);break;
+   case 'ud_object_19':calibrationWeight();break;
    case 'ud_object_20':stone();break;
    case 'ud_object_21':name('calendar-pages',()=>box(-30,-3,0,60,6,80,C.paper));panel(-30,3.2,62,60,18,C.mint);name('calendar-binding',()=>{for(const x of [-19,0,19])loop(x,0,79,2,6,1,C.brass);});for(let x=-20;x<=20;x+=10)panel(x,4.3,8,1,42,C.iron);for(let z=8;z<=48;z+=10)panel(-25,4.3,z,50,1,C.iron);break;
    case 'ud_object_22':name('window-frame',()=>{for(const x of [-31,26])box(x,-3,0,5,6,76,C.wood);for(const z of [0,71])box(-26,-3,z,52,6,5,C.wood);});name('window-transparent-panes',()=>glass(()=>{for(const x of [-26,1])for(const z of [5,38])panel(x,0,z,25,33,C.glass);}));name('window-mullions',()=>{box(-1,-2,5,2,4,66,C.paper);box(-26,-2,36,52,4,2,C.paper);});name('open-shutters',()=>{box(-43,0,4,12,16,68,C.mint);box(31,0,4,12,16,68,C.mint);});break;
-   case 'ud_object_23':bell(true);name('bell-yoke',()=>{box(-3,-4,52,6,8,16,C.iron);loop(0,0,79,9,10,2,C.edge);});break;
-   case 'ud_object_24':name('die-cube',()=>box(-27,-27,0,54,54,54,C.paper));{
-    const dots={1:[[0,0]],2:[[-14,-14],[14,14]],3:[[-14,-14],[0,0],[14,14]],4:[[-14,-14],[-14,14],[14,-14],[14,14]],5:[[-14,-14],[-14,14],[0,0],[14,-14],[14,14]],6:[[-14,-14],[-14,0],[-14,14],[14,-14],[14,0],[14,14]]};
-    for(const [side,n]of [['top',1],['bottom',6],['front',3],['back',4],['right',2],['left',5]])name('die-pips-'+side+'-'+n,()=>{for(const [a,b]of dots[n]){const pts=Array.from({length:16},(_,i)=>{const u=a+4*Math.cos(i*Math.PI/8),v=b+4*Math.sin(i*Math.PI/8);return side==='top'?[u,v,54.2]:side==='bottom'?[u,-v,-.2]:side==='front'?[u,27.2,27-v]:side==='back'?[u,-27.2,27+v]:side==='right'?[27.2,u,27+v]:[-27.2,u,27-v];});add(pts,C.black);}});
-   }break;
+   case 'ud_object_23':castBell(true);break;
+   case 'ud_object_24':recessedDice();break;
    default:return null;
   }
   // Object-specific joinery and working parts. These are physical components,
@@ -34989,10 +35057,10 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_seven_watch':break;
    case 'object_cold_lamp':break;
    case 'object_doorhandle':break;
-   case 'object_silent_bell':name('bell-rolled-mouth',()=>lathe(0,0,0,[[0,32],[2,34],[4,34],[5,32]],'#c5a66a'));break;
+   case 'object_silent_bell':break;
    case 'object_black_flower':break;
    case 'object_empty_bottle':break;
-   case 'object_roomkey':name('key-scraped-number-plate',()=>{panel(-10,3,60,20,9,C.edge);for(let x=-7;x<8;x+=4)beam([x,4.2,62],[x+2,4.2,67],.35,C.black);});break;
+   case 'object_roomkey':break;
    case 'object_hungry_mirror':break;
    case 'object_whisper_bed':break;
    case 'object_red_phone':name('phone-cut-lead',()=>{beam([31,-20,5],[42,-24,2],1,C.black);beam([42,-24,2],[46,-24,2],.45,'#b98d5f');beam([53,-24,2],[58,-27,1],.8,C.black);});break;
@@ -35002,10 +35070,10 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'object_silver_skull':name('skull-suture-and-tooth-etching',()=>{for(let z=66;z<80;z+=4)beam([-3,14-(z-66)*.4,z],[3,14-(z-66)*.4,z+2],.4,'#64767b');for(const x of [-6,2,10])beam([x,21,28],[x+1,21,31],.25,C.iron);});break;
    case 'object_reverse_map':break;
    case 'object_sleepless_doll':name('wood-doll-joints-and-sleeve-plan',()=>{for(const [x,y,z]of [[-10,5,27],[10,5,27],[-13,4,63],[13,4,63],[-26,7,47],[27,11,49]])cylinder(x,y,z,2.5,1.5,C.brass,'y');beam([22.5,11.5,57.4],[20.5,13.5,61.1],5.2,C.cloth);panel(20.5,18.3,54,8,9.5,C.paper);for(const [a,b]of [[[22,19.5,58],[27,19.5,58]],[[22,19.5,60],[27,19.5,60]],[[22,19.5,56],[22,19.5,62]],[[27,19.5,56],[27,19.5,60]]])beam(a,b,.17,C.ink);});break;
-   case 'object_rain_coin':name('silver-coin-edge-reeding',()=>{for(let i=0;i<28;i++){const a=i*Math.PI/14;beam([27.6*Math.cos(a),27.6*Math.sin(a),.6],[27.6*Math.cos(a),27.6*Math.sin(a),2.8],.25,C.iron);}});break;
-   case 'object_witness_lens':name('lens-focus-screw',()=>{cylinder(0,3,28,5,3,C.brass,'y');beam([-6,7,28],[6,7,28],1,C.edge);});break;
+   case 'object_rain_coin':break;
+   case 'object_witness_lens':break;
    case 'object_paper_window':break;
-   case 'object_hourglass':name('hourglass-wood-finials',()=>{for(const x of [-20,20])for(const y of [-14,14]){cylinder(x,y,3,3,5,C.wood);cylinder(x,y,84,3,5,C.wood);}});break;
+   case 'object_hourglass':break;
    case 'object_third_cup':break;
    case 'object_echo_bowl':break;
    case 'object_unlit_star':name('planet-riveted-ports',()=>{for(const [x,y,z]of [[-13,23,45],[14,24,31],[0,16,62]])cylinder(x,y,z,2,1,C.brass,'y');});break;
@@ -35018,23 +35086,23 @@ Abyss.AnomalousObjectMesh=(()=>{
    case 'ud_object_5':break;
    case 'ud_object_6':name('flashlight-reflector-bezel',()=>{lathe(0,0,74,[[0,15],[1,20],[2,20],[2,15]],C.edge);loop(0,0,3,4,3,1,C.edge);});break;
    case 'ud_object_7':name('cloth-doll-patch-and-stitches',()=>{const surface=(x,z)=>[x,-1+15*Math.sqrt(1-(x/22)**2-((z-27)/23)**2)+.3,z];for(let r=0;r<5;r++)for(let c=0;c<4;c++){const x=-7+c*3.5,z=24+r*2.6,a=surface(x,z),b=surface(x,z+2.6),C0=surface(x+3.5,z+2.6),d=surface(x+3.5,z);add([a,b,C0],C.feltLight);add([a,C0,d],C.feltLight);}for(let x=-6;x<=6;x+=3)for(const z of [24,37]){const a=surface(x,z),b=surface(x+.8,z+(z===24?1:-1));beam(a,b,.22,C.feltDark);}for(const x of [-7,7])for(let z=26;z<36;z+=3)beam(surface(x,z),surface(x+(x<0?1:-1),z+.8),.22,C.feltDark);});break;
-   case 'ud_object_8':name('copper-coin-return-scar',()=>{beam([-21,-8,4.3],[-12,0,4.3],.65,C.black);beam([-12,0,4.3],[-19,8,4.3],.65,C.black);});break;
+   case 'ud_object_8':break;
    case 'ud_object_9':break;
    case 'ud_object_10':name('typing-paper-curled-edge',()=>{for(let i=0;i<8;i++){const x=-33+i*8.25,X=x+8.25;add([[x,paperY(x,0),0],[X,paperY(X,0),0],[X,paperY(X,0)+1.8,1.8],[x,paperY(x,0)+1.8,1.8]],C.paper);}});break;
    case 'ud_object_11':break;
    case 'ud_object_12':name('parcel-folded-gussets',()=>{for(const x of [-35,35]){beam([x,-23,48],[x,0,34],.6,'#866d51');beam([x,0,34],[x,23,48],.6,'#866d51');}box(-20,24.1,18,15,.5,10,C.paper);});break;
    case 'ud_object_13':break;
-   case 'ud_object_14':name('reverse-hourglass-metal-cage',()=>{for(const z of [0,89])box(-25,-25,z,50,50,3,C.iron);beam([-23,-23,5],[23,23,88],.8,C.edge);beam([23,-23,5],[-23,23,88],.8,C.edge);});break;
+   case 'ud_object_14':break;
    case 'ud_object_15':name('heart-coronary-groove',()=>{beam([-10,14,55],[-1,17,44],1,'#b7afa0');beam([-1,17,44],[5,15,28],.8,'#b7afa0');});break;
    case 'ud_object_16':name('cheque-perforated-stub',()=>{for(let z=6;z<40;z+=5)cylinder(-36,1.6,z,.7,.3,C.iron,'y');beam([11,2,8],[31,2,8],.35,C.iron);});break;
    case 'ud_object_17':name('glove-thumb-patch-and-cuff-stitch',()=>{for(let x=-12;x<14;x+=4)beam([x,6,6],[x+1,6,9],.45,'#b2b9ad');beam([-13,5,33],[-20,8,41],.6,'#a1ada4');});break;
    case 'ud_object_18':break;
-   case 'ud_object_19':name('weight-calibration-plug',()=>{cylinder(0,24,18,3,1,C.brass,'y');beam([-1,25.4,18],[1,25.4,18],.4,C.black);});break;
+   case 'ud_object_19':break;
    case 'ud_object_20':name('headstone-chipped-stone-foot',()=>{for(const [x,y,z]of [[-28,12,4],[25,12,5]]){const a=[x-4,y,z-2],b=[x+4,y,z-1],c=[x+2,y+2,z+2],d=[x-2,y+3,z];add([a,c,b],C.stoneEdge);add([a,d,c],C.stone);add([d,b,c],C.stoneDark);}});break;
    case 'ud_object_21':name('calendar-loose-page-corner',()=>add([[16,4.5,0],[30,4.5,0],[30,4.5,16],[20,8,9]],'#ede1c2'));break;
    case 'ud_object_22':name('pocket-window-hinges-and-latch',()=>{for(const x of [-30,30])for(const z of [20,59])cylinder(x,4.5,z,1.5,8,C.brass);box(-3,6,32,6,3,10,C.brass);});break;
-   case 'ud_object_23':name('well-bell-iron-mount',()=>{beam([-16,0,61],[16,0,61],2,C.iron);for(const x of [-16,16])cylinder(x,2,61,2,2,C.edge,'y');lathe(0,0,2,[[0,32],[2,34],[4,34],[4,32]],C.iron);});break;
-   case 'ud_object_24':name('die-softened-edge-inlays',()=>{for(const x of [-26,26])for(const y of [-26,26])beam([x,y,2],[x,y,52],.6,'#e7ddbf');});break;
+   case 'ud_object_23':break;
+   case 'ud_object_24':break;
   }
   return faces;
  }
@@ -35060,7 +35128,7 @@ Abyss.AnomalousObjectMesh=(()=>{
  function geometry(d,rotation,origin,camera){const m=mesh(d.id);if(!m)return '';const [w,l]=d.floorFootprint,h=d.height,convert=localTransform(d),angle=rotation*Math.PI/180,cs=Math.cos(angle),sn=Math.sin(angle),world=p=>{const [x,y,z]=convert(p);return [origin[0]+x*cs-y*sn,origin[1]+x*sn+y*cs,origin[2]+z];},rgb=hex=>hex.slice(1).match(/../g).map(x=>parseInt(x,16)),visible=[];
   // The viewing ray is the null vector of this camera's actual projection.
   const base=camera(0,0,0),basis=[[1,0,0],[0,1,0],[0,0,1]].map(q=>camera(...q).map((v,i)=>v-base[i])),rowX=basis.map(q=>q[0]),rowY=basis.map(q=>q[1]),ray=[rowX[1]*rowY[2]-rowX[2]*rowY[1],rowX[2]*rowY[0]-rowX[0]*rowY[2],rowX[0]*rowY[1]-rowX[1]*rowY[0]],rayLength=Math.hypot(...ray),view=ray.map(v=>v/rayLength);
-  for(const f of m.faces){const p=f.p.map(world),a=p[0],b=p[1],c=p[2],u=b.map((v,i)=>v-a[i]),v=c.map((q,i)=>q-a[i]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n);if(len<1e-10||n.reduce((sum,v,i)=>sum+v*view[i],0)<=1e-10)continue;const diffuse=Math.max(0,(n[0]*.35+n[1]*.15+n[2]*.92)/len),metal=f.material==='steel'||f.material==='brass',light=.69+.31*diffuse,shine=metal?Math.pow(diffuse,12)*.12:0,col='#'+rgb(f.color).map(v=>Math.min(255,Math.round(v*light+(255-v)*shine)).toString(16).padStart(2,'0')).join(''),screen=p.map(q=>camera(...q));visible.push({world:p,normal:n.map(v=>v/len),screen,depth:p.reduce((sum,q)=>sum+q.reduce((v,n,i)=>v+n*view[i],0),0)/p.length,svg:'<polygon data-mesh-part="'+f.part+'" data-mesh-material="'+f.material+'" points="'+screen.map(q=>q.map(n=>n.toFixed(3)).join(',')).join(' ')+'" fill="'+col+'"'+(f.opacity?' fill-opacity="'+f.opacity+'" stroke-opacity=".35"':'')+' stroke="'+col+'" stroke-width="'+(f.opacity?'.06':'.35')+'" stroke-linejoin="round"/>'});}
+  for(const f of m.faces){const p=f.p.map(world),a=p[0],b=p[1],c=p[2],u=b.map((v,i)=>v-a[i]),v=c.map((q,i)=>q-a[i]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n);if(len<1e-10||n.reduce((sum,v,i)=>sum+v*view[i],0)<=1e-10)continue;const diffuse=Math.max(0,(n[0]*.35+n[1]*.15+n[2]*.92)/len),metal=f.material==='steel'||f.material==='brass',light=.69+.31*diffuse,shine=metal?Math.pow(diffuse,12)*.12:0,col='#'+rgb(f.color).map(v=>Math.min(255,Math.round(v*light+(255-v)*shine)).toString(16).padStart(2,'0')).join(''),screen=p.map(q=>camera(...q));visible.push({world:p,normal:n.map(v=>v/len),screen,depth:p.reduce((sum,q)=>sum+q.reduce((v,n,i)=>v+n*view[i],0),0)/p.length,svg:'<polygon data-mesh-part="'+f.part+'" data-mesh-material="'+f.material+'" points="'+screen.map(q=>q.map(n=>n.toFixed(3)).join(',')).join(' ')+'" fill="'+col+'"'+(f.opacity?' fill-opacity="'+f.opacity+'" stroke-opacity=".35"':'')+' vector-effect="non-scaling-stroke" stroke="'+col+'" stroke-width="'+(f.opacity?'.06':'.7')+'" stroke-linejoin="round"/>'});}
   return '<g data-anomalous-volume="'+d.id+'" data-object-mesh="'+d.id+'">'+ordered(visible,[d.id,d.objectScaleVersion||1,rotation,w,l,h,JSON.stringify(basis)].join(':')).map(f=>f.svg).join('')+'</g>';
  }
  function projectedBounds(d,camera){
@@ -43754,6 +43822,7 @@ Abyss.NarrativeUI=(()=>{
 Abyss.UpdateLog=(()=>{
  const english={},t=(zh,en)=>(english[zh]=en,zh);
  const entries=[
+{date:'2026-10-21',version:'0.13.244-preview',title:t('铸件、透镜与凹下的点数','Cast Metal, Glass and Recessed Pips'),items:[t('重建无声铃、深井铃铛、不存在房间的钥匙、雨声银币、归来铜币、证人透镜、未落沙漏、反向沙漏、失重砝码和讨价还价的骰子。手铃采用木柄，井铃采用铁铃与吊架；硬币有不同的双面浮雕。','Rebuilt the Silent Bell, Well Bell, Absent Room Key, Rain Coin, Returning Coin, Witness Lens, Unfallen Sand, Reverse Hourglass, Weightless Weight and Bargaining Dice. The handbell has a wooden grip, the well bell an iron shell and hanging yoke, and the coins have distinct reliefs on both sides.'),t('透镜有底座、夹持架和调节螺钉；沙漏区分木制与金属框架，未落沙粒保持在上半部。砝码有空心提环与校准塞，骰子使用真实倒角及凹入的点数，不再贴浮动圆点。','The lens has a base, mounting forks and adjustment screw. Timers use different wood and metal frames; unfallen sand stays in the upper bulb. The weight has an open handle and calibration plug. Dice have real bevels and recessed pips instead of floating circles.')],pending:[t('累计六批独立重建44件，另11件继续质量复审；其他历史扩展和公网AI私密配置仍未全部完成。','Six batches now contain 44 distinct independent rebuilds, with 11 more under quality review. Other historical expansions and private public-AI configuration remain unfinished.')]},
 {date:'2026-10-21',version:'0.13.243-preview',title:t('目击不是当前位置','A Sighting Is Not a Current Location'),items:[t('乔禾可以接收实际确认过的牛羊目击，包括混合事件中留下、逃离和已接收运输的动物。线索显示原日期、地区、物种和当时去向，不把旧地点冒充当前位置。','Qiao He accepts verified cattle and sheep sightings, including animals left, fled or received for transport in mixed encounters. Reports show the original date, region, species and outcome without presenting the old site as a current location.'),t('线索限同地区三日内，同一天、地点与物种只能交付一次。交付回执随本存档保存；盲打、未确认旧记录和牧民身边的动物不能冒充新线索。','Reports must be from the same region within three days. Each day, site and species can be reported once. Delivery receipts persist in this save; blind attacks, unverified old records and animals already with keepers do not count as new clues.')],pending:[t('群体运输、专用运畜车、剩余正式模型与其他历史扩展仍未全部完成；公网AI仍缺私密平台配置。','Group transport, dedicated livestock trailers, remaining final models and other historical expansions are unfinished; public AI still lacks private platform configuration.')]},
 {date:'2026-10-21',version:'0.13.242-preview',title:t('两道身影，两件事','Two Figures, Two Decisions'),items:[t('远处身影加入动物与拦路者、牧民与带牌动物、伤兽与捕食者、幼犊与偷畜者四类组合。确认后分别显示两个目标，可以查看动物、帮助牧民、处理威胁或离开。','Distant movement now includes animals with raiders, keepers with tagged animals, injured animals with predators, and calves with cattle thieves. After confirmation, two targets appear separately: inspect the animal, assist the keeper, address the threat or leave.'),t('战斗胜利会返回现场，不会直接发放动物。靠近、食物、车辆、货位、返所检疫和归属核查仍需实际完成；盲打会惊走动物，攻击牧民仍会留下袭击记录。','Winning returns to the site rather than granting an animal. Approach, food, vehicle support, cargo capacity, return quarantine and ownership review still apply. Blind attacks scare animals away; attacking a keeper leaves an assault record.')],pending:[t('整群接收、专用运畜车、更多混合处境及其余历史扩展仍未整体完成。','Group intake, dedicated livestock trailers, further mixed situations and other historical expansions remain unfinished.')]},
 {date:'2026-10-21',version:'0.13.241-preview',title:t('虚惊之后','After a False Alarm'),items:[t('远处身影加入八类独立误报：塑料布、断栅栏、树影、旧通风机、旧蹄印、Jack看错，以及实际同行的B-07或宠物误判。','Distant movement now includes eight distinct false alarms: plastic, broken fencing, tree shadows, an old ventilator, old tracks, Jack’s misreading, and mistakes by an accompanying B-07 or pet.'),t('线索随观察层级展开，跟上与盲打有不同反馈；未确认前不展示真相，读档不重抽。不会凭旧脚印发布新的动物目击，也不会发放免费动物或物品。','Clues unfold with observation; following and attacking have different results. The truth stays hidden until confirmed and does not reroll on load. Old tracks do not create fresh animal reports or free animals and items.')],pending:[t('混合双主体、群体运输及其他历史扩展仍在继续，不将八类误报等同于整个身影模块完成。','Mixed actors, group transport and other historical expansions remain in progress; eight false alarms do not complete the entire movement module.')]},
