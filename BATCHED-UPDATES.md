@@ -3894,3 +3894,10 @@ Ten existing world cookbook sources are offered once per opted-in Jack walking t
 ### 0.13.254 — dated physical food recovery (2026-10-30, pre-publication snapshot)
 New opted-in Jack routes connect all ten existing named food sources through saved, weighted side-room offers. Success leaves a dated package at the contact; manual take/drop uses actual backpack/shared vehicle mass. Return transfers to the canonical uninspected food pack without refreshing dates; full packs use a visible dated reserve. Failed vending does not charge. Medical evacuation clears unclaimed book/food state while preserving carried packages.
 Ten-source mechanics, six-package/vehicle/storage/ID boundaries, combined book-food trips and source/legacy native browsers have passed; the final frozen-source regression, artifact/public acceptance and package receipts remain required. This is a pre-publication snapshot, not full historical completion. Original food tables/effects, old trips, caravan/official rules, protected story and CGs remain intact. Independent routes for every world location, long-run economy/balance, full historical expansions/final artwork and public AI acceptance remain incomplete.
+
+
+## 0.13.255 — 岔路现场交互（发布前快照）
+现有十一处深探索地图各增加一个有独立名称的岔路物资现场，沿原本可步行的非主线地板抵达；保留原地图、66个主现场及通行门槛。检查需权衡真实噪音、角色技能/健康与一次追踪回合；成功物资留在现场，手动装包占用真实背包或共享车辆空间。待处理物资需明确取舍后才能移动，允许先放下普通物品、书或食品腾出空间。决定写入存档，不能靠回到现场反复刷取；实际原路撤离才结算。
+新协议只作用于新出发的普通深探索行程，旧进行中行程及动物/身影路线保持原规则。噪音预览显示实际前后值，到上限不虚报继续增加。医疗撤离清理未领取现场状态，保留已携带物资。
+本地11地点机制/边界测试、13条新流程及3条旧行程真实浏览器流程已通过；519项声明资源与11张原CG可加载。34项相关回归、最终构建包和公网验收仍在推进，本快照不代表已发布。风险成功与Rare取舍浏览器流程使用明确准备的概率，不能用作长期自然掉落率结论。
+已存在的11处深探索地图、17区域、10地标与6聚落外围由覆盖审计列出；目录数量不等于所有世界地点均完成独立关卡验收。全世界逐地点深化、长期风险/经济平衡、历史扩展和正式美术及公网AI仍未全部完成，完整目标继续保持进行中。
