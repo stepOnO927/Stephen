@@ -3955,3 +3955,7 @@ abyss-lab-0.13.212-preview.zip：2398个白名单文件，逐文件源码哈希�
 
 0.13.216公开终验：运行提交0bd92241f5da2c2e6fb4ec2c71742e340916ceb6；Pages 39348924857 completed/success。公网新镜架三屏各462处实际连接、源坐标三屏各432衣物/364镜片/2手部检查通过；原实际穿戴/读档/眨眼脚本在1366/390通过；13公开资源与安全包逐字节一致。
 补充真实闭眼验证：本地最终版和已发布版均在1366/768/390每屏26个闭眼姿态通过，检查各眼相对脸部中心不漂移、闭合高度6%、额外眼独立及镜架静止。初次使用绝对SVG位置把整个视窗重排误判为眼睛漂移；改用父级逆矩阵排除整体移动后，原生产眨眼代码已通过，因此未改动它。临时CSS实验已撤回，最终公开入口Git blob b3b8863d67c7f3b260623971d6cd387fc3dc7a8c与已测公开版完全一致。只把真实鼻梁连接问题计为修复，闭眼计为新验证证据。完整历史目标继续active。
+
+
+### 0.13.253 — Jack cookbook recovery (2026-10-30, development candidate)
+Ten existing world cookbook sources are offered once per opted-in Jack walking trip and persist in saves. Successful pages require explicit pickup, use 0.45kg/1.2L of actual cargo, and cap at three per trip. Return delivers to the canonical shelf; reading consumes the copy and teaches its existing five recipes. Old active trips/B-07 encounters and all protected story/CG data are preserved. Ten-source mechanics/capacity and twelve affected legacy test files pass; native/source/build/public checks are still in progress. This entry is a pre-publication snapshot, not public .253 acceptance or full historical completion. Solo named packed-food sources, full historical expansions/art, long-run balance and public AI remain pending.
