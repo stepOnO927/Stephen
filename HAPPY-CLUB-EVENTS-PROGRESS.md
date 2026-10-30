@@ -15,3 +15,9 @@
 仍欠：完整分区场景、动物/高基因/料理/车辆零件与正式新壁纸奖池、永久联网AI与其他大型模块。畜牧40物种/个体/双遗传核心在HOMESTEAD-CORE-PROGRESS.md，未挂载为可玩农场。
 
 2026-10-08 公开验收：0.13.24-preview提交e96f1b84ed49716d45beef35e61cffe46ca5f07b；GitHub Pages #76 / run37709492371 Success（30秒）。公开养殖三宽度原生按钮、血统预测/繁育费用、存档刷新测试退出0（verification/homestead-public-browser.txt）；公开靶场节/夜场/真实封路三宽度退出0（happy-club-events-public.txt）。没有访问真实玩家档、没有调用付费AI。源代码/8项专项/原功能回归详见homestead-integrated-core.txt、homestead-release-followup.txt、homestead-source-http.txt；尚未全131文件重跑。全历史目标保持active。
+
+### 0.13.214 快乐俱乐部刷新稳定性与连续验收
+挑战期间奖品/食品/用品/动物/壁纸暂存只在内容变化时更新节点；反复调整高对比和光标大小仅保留一条靶场RAF。修复英文奖品卡日期残留。未改变门票、奖励概率、轨迹、保底和存档结构。完整74节俱乐部、47节食堂和其他全部历史目标继续active。
+12个相关单元文件通过，470源资源通过。原生稳定性三屏已通过；购车→实际加速驾驶→停车下车→真实25秒鼠标两击→当轮所得兑换→刷新→第二/三轮精确收费及日封顶流程的最终回执见HAPPY-CLUB-STABLE-214-REPORT.md和verification/club-stable-214-results.json。公网AI仍待私密配置/同源主机审批终验，不以本批代替总任务完成。
+
+0.13.214公开终验：运行提交1760c7d6482f1a0738211172bbac8c7414e73505；Pages 39344127341 completed/success。两组原生脚本各1366/768/390终态通过：稳定奖品DOM/一条RAF/英文，以及完整购车驾驶25秒挑战兑换读档收费封顶。公网实际驾驶490/490/500帧，鼠标24/27/28次，当轮Token12/13/14全部兑换。13公开文件（入口、完整74节索引、11原CG）逐字节匹配。完整历史目标继续active。

@@ -67,3 +67,8 @@ Limitation: route-based driving; no free off-road movement or manual junction tu
 新增 js/data/vehicleData.js、roadLayouts.js、roadData.js、roadRewards.js、roadEvents.js、npcDesigns.js、streetIdentity.js、streetCases.js；js/road/ 下 state、cargo、vehicles、core、map、combat、loot、webgl、pixel、art、ui、content 等模块；road.css。
 
 集成修改 index.source.html、index.html、game.js、state.js、engine.js、redeem.js、bedroom.js、accessoryArt.js、accessoryModels.js、modeUI.js、legacy.js、npcModels.js、street.js、economyUI.js；语言包、构建文件和专项测试。完整结构说明见 ARCHITECTURE.md。
+
+## 0.13.246 行车料理计时与每日检查点
+
+运行提交3593403bec0d1efc023abb38e71f911a6b80491f；Pages39797930924 completed/success。本地及公网各1366/768/390全部通过，公开入口/完整74节索引/11原CG共13文件逐字节一致，food-road-246-final-checks.json总验通过。另有实际地图实验室→加油站→实验室700帧/一次事件的专项：不改路线长度，计时精确、到站停靠及回实验室厨房购买通过。
+沿用8里程单位/日，逐实际帧计时；午夜正常检查点、无重复24小时。原燃油/操纵/磨损及其他472JS保持；完整历史目标仍active。详见FOOD-ROAD-246-REPORT.md。
