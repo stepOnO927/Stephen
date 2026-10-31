@@ -3961,3 +3961,23 @@ Admission now reads the saved complete individual, preserves its original ID/dat
 Current mount reader required farm_* IDs, so it now accepts original club_animal_* IDs too. This is for existing reindeer/camel mounts; no new species, freight role, bonus or carrying limit is introduced. Original mount commands and old/new expedition support saves have actual tests.
 
 Twenty eligible species preserve complete canonical valid legacy specimen fields across a five-day delay and save/reload; nine refusal contexts, 21-prize bounded admission, old admitted IDs, and real core breeding→pregnancy snapshots→daily birth→child-parent IDs pass. Four-width source browser ordinary/anomalous wheel/skip/window reload/native settings observer/admission/farm art/reload passes. Arrival and tokens are prepared isolated context; not natural driving/earning proof. An earlier browser prototype used a custom trigger and is retained separately, not counted as native settings acceptance. Portable/staged/public and package acceptance follow this local receipt. All-world, full original74/49 sections, historical art and secure public AI remain incomplete.
+
+### 0.13.265 public acceptance — 2026-10-30
+
+Published 71e48357d5c972eba5eb4a1c7caa4eb4f4249254; Pages 41159929000 succeeded. https://stepono927.github.io/Stephen/?release=0.13.265 . The 72 approved repository files match, and thirteen actual public runtime files including eleven original CGs were downloaded and hashed. Source, portable, staged and public each pass eight actual ordinary/anomalous prize/skip/window reload/native settings observer/full admission/farm art/reload flows at four widths, total32. Venue/tokens/arrival are prepared isolated context, not a natural driving or ticket-earning claim. Twenty full canonical specimen/delayed admission cases, nine atomic refusals, bounded21-prize handover, original mount support in old/new expeditions and real breeding/daily birth/parent IDs pass; eight related regression files plus eighteen mounted routes pass. 537 original runtime files including eleven CSS and eleven CGs stay exact against immutable .264; only prize handover, mount reader and bilingual release notes changed.
+
+The original staged verifier handle disappeared without a completed receipt; it was rerun on unchanged source after confirming the handle was missing. A first public runtime fetch received503 for prologue_glass_temperature.png; its failed observation is retained and the unchanged full download/hash finalizer subsequently passed. The finalizer's old console version label was corrected and the same checks passed again. No game assertion was disabled, no source/protection relaxed and no duplicate deployment initiated. Public status documents remain frozen pre-publication snapshots; this local receipt supplies the final acceptance.
+
+Files: ../abyss-lab-0.13.265-play.zip and ../abyss-lab-0.13.265-preview.zip; packing and independent entry-by-entry checks follow this receipt. Historical archives remain immutable. Full original club74/homestead74/genetics49/canteen47/rooms27/world/legacy/dream/artwork and actual secure public-AI approval/ban/budget acceptance remain active. No real player saves/private approvals/credentials read or uploaded, no paid AI test calls.
+
+
+## 0.13.266 — 养殖产物仓与探索复查（本地开发中，尚未发布）
+基线真实复现400批满仓时新生产直接丢失，及资金10000000时出售仍扣物资：直接命令超出存档上限，Engine执行则被封顶而没有实际收益。新增独立FarmProducts与FarmProductsUI，满仓新产物和旧档实际超额批次进入可保存待入库区；保留原日期、来源、品质、污染与留观，不补造历史已丢数据。腾出批次位后手动恢复原批次，不重复奖励；待入库批次参与原有安全留观/废弃事件。
+正常生产296情境、36旧命令完整State/RNG对照、250筛选组合、400批可达、5000实际旧记录迁移、日结与真实继任携带专项通过（该证明需在最终UI冻结后刷新）。界面12批/页、搜索分类状态排序、签名防过时操作、保留焦点/展开/滚动、关闭后语言不误开。四尺寸原生浏览器仍在开发：320px完整卡片可见数不足4，继续调整；不是最终全绿。
+探索清单现有11深层地图/66现场/11岔路、17区域路线、10地标20现场60选择、6聚落外围和34危险公路现场。当前重跑新人双现场、深探索机制、零AP原路返回和稀有权重；清单数量不等于所有地点自然解锁/完整终验或长期平衡完成。当前最后完整验收公开版0.13.265，未把266本地改动算上线。完整历史目标仍active；未读真实玩家档、密钥/.env或审批数据，未调用付费AI。
+
+
+## 0.13.266 — 本地冻结验收通过，准备发布
+当前源码7470718a99fe97926ee2d644bcf96caed2d3691bae44b19e71b4efe533f46383。296完整旧生产对照、36原命令对照、250只读组合及400批可达/401、450、5000条旧记录迁移、真实日结/继任/安全事件专项通过；15相关回归文件最终全部通过，其中探索66个实际零AP撤离、378实际回收权重区间、新人10次双现场等保持。529声明资源/11CG加载正常。对照不可变265源码ZIP，533旧运行文件与11CSS/11CG不变，7旧文件明确修改及2个新模块；五个旧模块对照fixture逐字节核验通过。
+源码和单HTML便携构建各1366/768/390/320的9场景实际通过，共18：400批分页/尾部搜索出售、非零滚动和详情焦点保持、语言切换、腾位恢复留观过期批次、精确存读、资金满原子拒绝、另一实际槽清筛选及402条旧档迁移。320px完整卡片由2张改善至4张，按钮维持44px最低高度。测试中自动滚动导致断言错误已改为记录pointerdown实际滚动位置；旧失败日志保留，不称游戏跳顶。
+本快照尚未发布；之后必须部署目录与公网原生流程、Pages成功、72树文件/13实际运行文件核验，及白名单打包。上一已验公网为265，整体历史目标未完成，长期自然探索平衡/完整历史扩展/正式美术/安全公网AI保持原范围。
