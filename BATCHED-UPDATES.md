@@ -3951,3 +3951,13 @@ Ten-source mechanics, six-package/vehicle/storage/ID boundaries, combined book-f
 150类只读筛选/排序及全部400索引、200种植物×5命令共1000完整State/RNG结果对照、25过时字段边界、原资金损失与恰好达到上限、原始第400批售出/存读和真实Engine拒绝专项通过。16相关遗传/加工/医务/汉化/剧情/存档文件、527资源与11CG检查通过。四尺寸源码/离线/部署/公网的21场景各自另记验收，不把本快照当成已上线。
 原512JS、10CSS、11CG、game.js精确保留；仅core/ui/更新条目三个旧JS、greenhouse.css一个CSS、一个入口依赖及新storage.js变动，均对照已验.262源码包。旧更新条目及英文、剧情/路线/结局/隐藏标记保持。初次测试的作用域变量、跨VM原型和关闭后语言误开失败均保留，不作为最终通过。
 此批不等于全部仓库/全游戏HUD/其他正式模型或完整历史目标完成。原49节遗传、47节食堂、74节俱乐部与养殖、27房间及世界社会/全地点长期平衡/正式美术/安全公网AI仍按原文联合验收，整体目标active。没有读取真实玩家档、.env/密钥或私密审批数据，没有付费AI测试。
+
+## 0.13.265 — fixed prize specimens (local acceptance)
+
+Audit of current code found that HappyClubAnimals.observe recreated an animal through Homestead.grant and copied only genes/traits/bloodline/breeding stock/birth timing. A real five-day delayed EPIC prize changed its original club_animal ID and acquiredDay. The old reader already retained more valid specimen fields than this partial transfer copied.
+
+Admission now reads the saved complete individual, preserves its original ID/date/body/medical/history/genetic evidence, applies only arrival quarantine and available quarantine pen, and records discovery. It checks the existing 100-live-animal/shared space limits and live/archive ID collisions before any mutation. No new RNG, charge, phantom farm ID, prizes or save fields. Full/locked/absent context retains the original pending row. A call still admits at most twenty. Already-admitted farm_* animals are untouched and no past provenance is invented.
+
+Current mount reader required farm_* IDs, so it now accepts original club_animal_* IDs too. This is for existing reindeer/camel mounts; no new species, freight role, bonus or carrying limit is introduced. Original mount commands and old/new expedition support saves have actual tests.
+
+Twenty eligible species preserve complete canonical valid legacy specimen fields across a five-day delay and save/reload; nine refusal contexts, 21-prize bounded admission, old admitted IDs, and real core breeding→pregnancy snapshots→daily birth→child-parent IDs pass. Four-width source browser ordinary/anomalous wheel/skip/window reload/native settings observer/admission/farm art/reload passes. Arrival and tokens are prepared isolated context; not natural driving/earning proof. An earlier browser prototype used a custom trigger and is retained separately, not counted as native settings acceptance. Portable/staged/public and package acceptance follow this local receipt. All-world, full original74/49 sections, historical art and secure public AI remain incomplete.

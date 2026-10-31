@@ -2480,3 +2480,13 @@ FINAL REPORT
 ### 0.13.201 本地最终验证
 
 27个实际测试文件全部通过：23个俱乐部测试加2个靶子安全、保护剧情与462资源HTTP。专项覆盖200种种子、75种药剂、150种变卖物全部425种普通奖品ID的真实暂存/存读；256组旧代码奖品/RNG/保底/数量一致；9000次原奖池抽取。四个浏览器脚本按顺序运行，均在1366/768/390通过：五类满仓实际抽取258单位保留、原陈设领取、原生全部兑换/跳过、菜单/更新日志。真实购票结束后领取250资金；实验室其余四类空位由隔离测试准备，再原生点击部分领取，不冒称实际消耗全部满仓物品的游戏流程。未使用真实玩家存档或付费AI。
+
+## 0.13.265 — fixed prize specimens (local acceptance)
+
+Audit of current code found that HappyClubAnimals.observe recreated an animal through Homestead.grant and copied only genes/traits/bloodline/breeding stock/birth timing. A real five-day delayed EPIC prize changed its original club_animal ID and acquiredDay. The old reader already retained more valid specimen fields than this partial transfer copied.
+
+Admission now reads the saved complete individual, preserves its original ID/date/body/medical/history/genetic evidence, applies only arrival quarantine and available quarantine pen, and records discovery. It checks the existing 100-live-animal/shared space limits and live/archive ID collisions before any mutation. No new RNG, charge, phantom farm ID, prizes or save fields. Full/locked/absent context retains the original pending row. A call still admits at most twenty. Already-admitted farm_* animals are untouched and no past provenance is invented.
+
+Current mount reader required farm_* IDs, so it now accepts original club_animal_* IDs too. This is for existing reindeer/camel mounts; no new species, freight role, bonus or carrying limit is introduced. Original mount commands and old/new expedition support saves have actual tests.
+
+Twenty eligible species preserve complete canonical valid legacy specimen fields across a five-day delay and save/reload; nine refusal contexts, 21-prize bounded admission, old admitted IDs, and real core breeding→pregnancy snapshots→daily birth→child-parent IDs pass. Four-width source browser ordinary/anomalous wheel/skip/window reload/native settings observer/admission/farm art/reload passes. Arrival and tokens are prepared isolated context; not natural driving/earning proof. An earlier browser prototype used a custom trigger and is retained separately, not counted as native settings acceptance. Portable/staged/public and package acceptance follow this local receipt. All-world, full original74/49 sections, historical art and secure public AI remain incomplete.

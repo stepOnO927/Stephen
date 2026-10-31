@@ -3759,3 +3759,13 @@ abyss-lab-0.13.212-preview.zip：2398个白名单文件，逐文件源码哈希�
 
 0.13.216公开终验：运行提交0bd92241f5da2c2e6fb4ec2c71742e340916ceb6；Pages 39348924857 completed/success。公网新镜架三屏各462处实际连接、源坐标三屏各432衣物/364镜片/2手部检查通过；原实际穿戴/读档/眨眼脚本在1366/390通过；13公开资源与安全包逐字节一致。
 补充真实闭眼验证：本地最终版和已发布版均在1366/768/390每屏26个闭眼姿态通过，检查各眼相对脸部中心不漂移、闭合高度6%、额外眼独立及镜架静止。初次使用绝对SVG位置把整个视窗重排误判为眼睛漂移；改用父级逆矩阵排除整体移动后，原生产眨眼代码已通过，因此未改动它。临时CSS实验已撤回，最终公开入口Git blob b3b8863d67c7f3b260623971d6cd387fc3dc7a8c与已测公开版完全一致。只把真实鼻梁连接问题计为修复，闭眼计为新验证证据。完整历史目标继续active。
+
+## 0.13.265 — fixed prize specimens (local acceptance)
+
+Audit of current code found that HappyClubAnimals.observe recreated an animal through Homestead.grant and copied only genes/traits/bloodline/breeding stock/birth timing. A real five-day delayed EPIC prize changed its original club_animal ID and acquiredDay. The old reader already retained more valid specimen fields than this partial transfer copied.
+
+Admission now reads the saved complete individual, preserves its original ID/date/body/medical/history/genetic evidence, applies only arrival quarantine and available quarantine pen, and records discovery. It checks the existing 100-live-animal/shared space limits and live/archive ID collisions before any mutation. No new RNG, charge, phantom farm ID, prizes or save fields. Full/locked/absent context retains the original pending row. A call still admits at most twenty. Already-admitted farm_* animals are untouched and no past provenance is invented.
+
+Current mount reader required farm_* IDs, so it now accepts original club_animal_* IDs too. This is for existing reindeer/camel mounts; no new species, freight role, bonus or carrying limit is introduced. Original mount commands and old/new expedition support saves have actual tests.
+
+Twenty eligible species preserve complete canonical valid legacy specimen fields across a five-day delay and save/reload; nine refusal contexts, 21-prize bounded admission, old admitted IDs, and real core breeding→pregnancy snapshots→daily birth→child-parent IDs pass. Four-width source browser ordinary/anomalous wheel/skip/window reload/native settings observer/admission/farm art/reload passes. Arrival and tokens are prepared isolated context; not natural driving/earning proof. An earlier browser prototype used a custom trigger and is retained separately, not counted as native settings acceptance. Portable/staged/public and package acceptance follow this local receipt. All-world, full original74/49 sections, historical art and secure public AI remain incomplete.
