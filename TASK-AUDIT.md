@@ -3848,3 +3848,44 @@ Files: ../abyss-lab-0.13.265-play.zip and ../abyss-lab-0.13.265-preview.zip; pac
 ### 2026-10-31：确认的后续返程上限缺陷（未修复）
 本批公路卸货五类上限修复与其他世界背包交换不等于所有返程容量问题完成。verification/world-return-cap-269-observation.json以当前实际Engine在区域、地标、聚落外缘、深探索四类路径各准备10000000库存与真实携带5份scrap，返回和读档后库存仍为10000000且行程清空，证实超额5份丢失。没有使用真实玩家档。
 下一优先项：统一每存档的返所待入库设计，允许返回实验室、保留实际超额、腾位后手动恢复且不重复奖励；保持原库存上限和旧存档，随Legacy.carryLaboratory继承实物库存。需要核对js/inventory.js、State/ExpeditionState读取、shared/deep return调用和UI；不补造旧档中已经缺失的物品。本项仍未实施，整体历史目标active。
+
+## 2026-10-31 — 0.13.270 返所待入库（本地实施，未发布）
+上一目标轮为实际进展：.269已发布并完成72文件/13公网资源、80界面场景与两个归档逐项校验。本轮承接原四类返程溢出缺陷；完整历史目标未缩小。
+- 实施：每槽可选inventoryRecovery账本，保存真实超额的普通物资；严格读取，不截断损坏批次；回所按现有10000000上限分批移入，保留返程日期/来源/识别知识；不追加货币、AP或RNG。
+- 区域、地标、聚落外缘和深探索共享入库；Legacy.carryLaboratory保留待入库实物；旧档没有新字段时保持缺省，不补造历史丢失物资。
+- 仓库每页12批，满库存禁用领取；原生展开确认后整批丢弃，不静默删除。换槽/新世代重置分页。
+- 边界：出发前为全部普通目录种类预留批次数；余位不足四类出发均拒绝且不扣费；明确丢弃或领取可以腾位。极端UID计数达到读取上限仍拒绝保留状态，不重用旧编号。
+- 已有候选证据：34真实Engine返程/分批领取/继承、6损坏读取拒绝、1086原正常交付精确对照；在最终合并源码上重新执行中。四尺寸最终源码浏览器原生分页/领取/丢弃确认/英文/刷新/换槽已通过，便携版运行71390。
+- 改动边界核对不可变269源码包SHA57d9dcca23c8d2a0f5bff765fce844d1e5a2e3a0013371d9b35791d4bfedc8b0：534原运行资源未变、10列明文件变动、仅新增inventoryRecovery.js，11CSS/11CG精确保留；532源资源HTTP与私密路径拦截通过。初次普通权限HTTP测试EACCES，之后授权检查正常，未改服务器规则。
+- 当前源码9ade12381e687d13d7353ecacba291a3ac92b14b59093b943b961adbd24be626。默认100seed×35day Engine长期回归独立37573运行中；短回归13836已有通过检查，测试清单误写了不存在的expedition-map.test.cjs，原启动命令未按预检失败停止。保留该运行直到实际终止后修正清单，不伪造缺失测试文件或修改运行中的验证器。
+剩余：最终短回归与长期回归、正常读取/迁移/继承联合检查、便携/部署目录/公网、发布与归档；全历史扩展和自然长线经济风险仍继续。
+
+### 继承后识别交叉缺陷与隔离修复（禁止270提前发布）
+新增真实Engine交叉复现证实：key入库时未知、后来在实验室识别，实际legacy:next后普通exploration.items原规则重建；领取旧未知批次会让该物品变回未识别。源9ade的verification/return-recovery-270-succession-knowledge-observation.json记录identifiedBefore=true、afterRestore=false，数量并未丢失。该边界不能由此前单次领取或只比较继承数量的测试代替。
+隔离副本../return-recovery-candidate/merged-game已在carryLaboratory复制待入库行后，合并源实验室该物品已识别状态；只将对应行identified置true，不改日期/来源/数量/编号，也不改老的全局物品元数据系统。候选源码0293137d61d585ada0eeb7ad6803fb2cfee080906688bb4d072b94ca2ea8552d，四种初始/后来识别组合各两来源批次，实际继任、领取、重新读取及原源对象不变均通过。
+主项目仍9ade，37573长期测试确认live，未中途修改其运行源码。构建门禁新增必须有最终源码的succession-knowledge四组合证明，旧9组通过不能绕过该门禁。下一轮须先确认37573真实终止，保留其历史回执，再合并仅此一行并重新取得最终源码验收；公开仍269。目标继续active，未进行270发布或创建270下载包。
+
+### 2026-10-31：公网AI新式配置的实质代码推进
+参照Supabase官方API keys/Marketplace资料（链接见CLOUD-AI-DEPLOYMENT-PROGRESS末尾）完成新旧服务端配置名及现代apikey/旧Bearer传输兼容；新增误填公开key拒绝及新旧优先级、待审批HTTP专项。7文件隔离后端回归通过，15文件无密钥源码包已逐项验证；未部署或开启付费请求。真实数据库get_project确认ACTIVE_HEALTHY，Vercel团队Supabase集成account/project均空；未读环境变量或私密审批。当前缺口具体为平台连接/私密配置与真实通知/审批/额度/封禁闭环，而非此前历史段落中“没有数据库”。游戏长期测试仍37573，主游戏source9ade未改变，270不能提前发布。完整目标仍未完成。
+
+### 2026-10-31：同站点游戏/API接线源码与原生审批闭环（本地验收）
+新增同站部署构建器，消费已正式发布269的哈希清单，只把已验游戏入口与11CG放public，保持独立服务端/API目录；仅改变静态主机开关true→false，不改变场景、flag、机制或存档。API改写只匹配/api，避免旧全站通配吞掉首页/CG。没有以未验完的270作公开输入。
+四宽1366/768/390/320真实隔离HTTPS浏览器中完成原生申请、主机SSE通知、主机按钮批准/封禁、未批准403、限额429、封禁403、一次模拟回复、刷新后仍封禁；Cookie实际Secure/HttpOnly/Strict，document.cookie不可见；聊天前后原存档关键进度完全一致。内存provider与模拟模型，不是live Supabase或Vercel路由证明。
+../abyss-lab-ai-same-origin-2026-10-31.zip已逐项核对27条明确文件，31,363,152bytes，SHA c16d5d1b88e28439b2f9b6ffcfabb89e0ddbc0b0a7f1eb3a4a9de3b06cf8cdca，源码与测试证据见CLOUD-AI-DEPLOYMENT-PROGRESS和cloud-same-origin-*。未部署，未访问被拒的生产私密路径、未读真实凭据/玩家档/审批行或付费AI。实际云端连接与生产闭环继续；270主游戏长期回归37573仍live，main9ade不变。整体历史范围未缩小。
+
+## 2026-10-31 — 实际预览与最终识别继承修复进展
+同站点源码已用现有账户部署到既有abyss-lab-ai项目的preview：dpl_9FsGkgqbErQHHX8iUnkutCAjSbi3，https://abyss-lab-7965w3dg4-stephen-5974.vercel.app 。保留Vercel登录保护，未推广生产或改变GitHub Pages。实际首页200，完整游戏前缀与准备文件一致；Vercel仅在末尾追加163字节、匹配此部署ID的官方反馈脚本，raw/expected哈希分别记录。11CG实际下载逐项精确一致。实际普通/api/health为503/PUBLIC_AI_NOT_CONFIGURED，真实私密配置/数据库及AI闭环仍欠验收，不称公开AI可用；未探测生产.env/admin路径或调用真实AI。
+旧源9ade的默认100seed×35day Engine37573已经正常exit0，回执和日志已另存。其结束后才合并识别继承的一行单调保留修复，最终源0293137d61d585ada0eeb7ad6803fb2cfee080906688bb4d072b94ca2ea8552d。正式四种识别历史×双来源批次的实际继任/领取、10文件精确反向保留、534原资源/11CSS/11CG、532HTTP，以及最终源码与单文件四宽原生流程全部通过。最终源16回归4190与默认完整Engine36900仍live，不能用旧源37573结果顶替。下一步仍为两队列真实结束、最终构建门禁、部署目录/公网与270源码/试玩包。完整历史范围继续active。
+27文件同站ZIP是部署前不可变快照，其“未部署”说明保留历史原文；当前实际状态见cloud-same-origin-preview-deploy.json。构建器忽略的CLI元数据严格限.vercel/project.json与README.txt，重建源manifest不变。没有读取真实玩家档、API密钥或审批行，无付费AI请求。
+
+2026-10-31：新就绪诊断预览 dpl_4yZCQaodVz9nyRwchuXtr1kuZJQW 已READY；真实首页200（完整游戏前缀一致，另有163字节Vercel官方反馈脚本）、11CG实际下载哈希一致。普通健康接口503且三个配置存在标记均false，公网AI不可用，未推广生产；未访问密钥/审批行/玩家档。新版27文件源码包c1d88587b427363b99d269fa57229de5cbf9557e5f34328fa1d975de97f00047已校验。游戏最终源0293保持冻结，16相关回归通过，完整默认Engine69056正在运行，270尚未发布。
+
+## 2026-10-31 — 云端公开地址配置实际生效
+已使用已授权的现有项目填写非密钥SUPABASE_URL（preview/production）及CHAT_PUBLIC_ORIGIN（仅preview），没有读取任何环境变量或密钥。先确认未占用后创建固定预览别名https://abyss-lab-ai-preview-stephen-5974.vercel.app，仅将本轮创建的别名从本轮BMGi预览移至本轮AqV3预览；没有改变原生产域名、移除保护或推广生产。
+实际部署dpl_AqV3dhuptm7Z5PfbrVcbA9jwMSYV READY，普通health仍503，布尔标记由false/false/false经false/true/false变为true/true/false。确认非密钥地址已传入，但特权凭据不存在，AI保持关闭。没有访问.env、admin路由、真实审批行/玩家档，没有付费调用。公开AI完整审批/通知/封禁/限额尚未验收；生产origin尚未设置，模型配置未探查。
+证据verification/cloud-preview-public-config.json及tools/check-cloud-preview-public-config.cjs；官方系统变量说明https://vercel.com/docs/environment-variables/system-environment-variables。采用单一明确别名来源，不依赖VERCEL_URL动态回退。主游戏0293继续冻结，默认Engine69056实际仍live；最终16相关文件及源码/便携验收通过，270仍未发布。
+
+## 2026-10-31 — 新增敌对身影候选（隔离，未合并/未发布）
+从原身影规格PART IV核对到感染动物/冒充牧民两类缺口。在../shadow-hostile-candidate仅替换shadowsAhead.js及huntArt.js，新增染病野犬与假牧民伏击者的独立几何模型和独立敌人定义；普通狩猎zone池及旧42敌人逐项保持。新遭遇hostileVersion2使用七身份，旧v1五身份和更旧thug映射不变；读档保存版本/敌人，篡改版本与身份被拒。观察前不显示敌人模型，未新增诊断、传播或疾病治疗效果。
+140组旧遭遇实际攻击/跟随/撤退的完整State/RNG与原代码一致；七种14次战斗/保存/撤退、400种真实生成、四次Jack实际步行进入/有限弹药/精确实体磨损/存读/零AP物理退出通过。四尺寸1366/768/390/320共8次原生跟随/开枪/撤退/刷新/英文流程通过，未请求付费AI或真实档案；独立七身份图库已实际Chrome渲染并视检。候选human夹具曾有path变量重名及错误假设一次动作只能用一发（原连击可追加用弹），均保留失败前脚本；未更改原枪械或连击规则，后来按实际消耗核对弹药账与精确磨损。
+主游戏0293未变，完整Engine69056真实句柄仍live。候选尚未合并、构建或公网验收，不把局部模型/浏览器证明写成整套身影模块或正式美术完成。最终证据../shadow-hostile-candidate/checkpoint.json；下一步先等待并完成270，再按版本进行候选接入与相关回归/发布/文件交付。
