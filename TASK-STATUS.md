@@ -4427,3 +4427,10 @@ Ten-source mechanics, six-package/vehicle/storage/ID boundaries, combined book-f
 已使用已授权的现有项目填写非密钥SUPABASE_URL（preview/production）及CHAT_PUBLIC_ORIGIN（仅preview），没有读取任何环境变量或密钥。先确认未占用后创建固定预览别名https://abyss-lab-ai-preview-stephen-5974.vercel.app，仅将本轮创建的别名从本轮BMGi预览移至本轮AqV3预览；没有改变原生产域名、移除保护或推广生产。
 实际部署dpl_AqV3dhuptm7Z5PfbrVcbA9jwMSYV READY，普通health仍503，布尔标记由false/false/false经false/true/false变为true/true/false。确认非密钥地址已传入，但特权凭据不存在，AI保持关闭。没有访问.env、admin路由、真实审批行/玩家档，没有付费调用。公开AI完整审批/通知/封禁/限额尚未验收；生产origin尚未设置，模型配置未探查。
 证据verification/cloud-preview-public-config.json及tools/check-cloud-preview-public-config.cjs；官方系统变量说明https://vercel.com/docs/environment-variables/system-environment-variables。采用单一明确别名来源，不依赖VERCEL_URL动态回退。主游戏0293继续冻结，默认Engine69056实际仍live；最终16相关文件及源码/便携验收通过，270仍未发布。
+
+## 0.13.270 — 返程待入库保护已公开验收（2026-10-31）
+游戏：https://stepono927.github.io/Stephen/?release=0.13.270 。提交569d703f92f1b1a06ef1d1da324c10aba67d05d4，父提交6f2a55cde1a302be167ea8e3dc6d141456119c5a，Pages41182888169 completed/success。最终源码0293137d61d585ada0eeb7ad6803fb2cfee080906688bb4d072b94ca2ea8552d。
+本批实际实现每存档普通物资返程超额暂存、每页12批、腾位后部分领取、只在明确二次操作后丢弃、四类出发前容量保护及实验室继任。未知物资后来被识别时，继任后领取也保留识别；原批次日期、来源和数量不丢失。正常交付原规则/库存上限不改，旧档无字段不补造物资。食谱/速食/武器/车辆原独立账本保持。
+34真实Engine返程/领取/保存、1086原正常交付完整State/RNG对照、四类原子出发拒绝/362目录项预留、四种识别历史×双来源继任、16相关文件及默认100种子×35日完整Engine通过；532声明资源/534未变运行资源及11CSS/11CG保留。源码/便携/部署目录/公网各四尺寸，共16界面流程全部通过；72Git树文件和13实际公开资源一致。准备的极限库存/权限测试不冒充全地点自然长期平衡。
+完整长期测试当前0293的实际status0回执已在3:57写入并核对源码/工具/测试/日志哈希，早先会话不可恢复导致启动的重复69056仍live；本批构建/发布未改运行JS，不把观察超时当终止，也不启动第三次。后续源码改动须等重复句柄终止。
+下一步生成并逐项核对abyss-lab-0.13.270-play.zip与abyss-lab-0.13.270-preview.zip，旧归档不覆盖。隔离的两种新增敌对身影未合并、未随本批上线。公网AI非密钥地址已配置，但特权凭据缺失，真实审批/通知/封禁/额度联合终验仍欠。其余74节俱乐部/养殖、49遗传、47食堂、27房间/世界社会/继任/梦/连续性、正式美术与全地点长期风险收益保持完整历史目标，不宣布整体完成。未读取上传真实存档/.env/密钥或审批数据，无付费AI。
