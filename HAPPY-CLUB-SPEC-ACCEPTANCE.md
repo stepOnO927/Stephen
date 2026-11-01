@@ -1,3 +1,7 @@
+## 新本地候选：俱乐部整档复制优化（未发布）
+
+靶场按Engine提交版本复用分离快照，奖品刷新共享同份数据。实际函数对照及四宽渲染/两击/保存通过；三宽真实25秒挑战/费用/兑换/刷新、三宽DOM稳定和四尺寸统计通过；8相关模型、536资源与546保留资源比较通过。详见CLUB-RENDER-281-PROGRESS.md及verification/club-render-281-local.json。281尚未更新版本/构建发布，公网仍280。全74节及历史完整目标active。
+
 # 快乐俱乐部最终规格 · 74节完整验收索引
 
 来源：用户最终规格“MEGA LOCATION — HAPPY CLUB FINAL SPEC”，后发覆盖旧规则。原文SHA256：bdf7db89c00cbd7ec3aaf565aff08f4e097058a1e1682d2ec1f4ee625e60dd65。
